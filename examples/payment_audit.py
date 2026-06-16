@@ -1,13 +1,13 @@
 """Flagship demo: a payment agent that pays on a stale budget snapshot.
 
-An agent approves a $4,200 vendor payment. At decision time it read a budget snapshot
-captured six days earlier, under which the payment was in policy, and it commits the
-payment through a reference ledger (the money moves). auditable captures one signed
-record binding all three layers: the data the agent read plus a freshness signal, the
-deciding model plus a trust signal, and the action. Six days later the live budget has
-dropped below the payment amount. A replay re-derives that the payment is no longer
-justified under the live state, and the gate EXECUTES a rollback through the ledger (the
-money moves back), rather than printing a verdict and stopping.
+The full chain in one record. An agent approves a $4,200 vendor payment. At decision time
+it read a budget snapshot captured six days earlier, under which the payment was in
+policy, and it commits the payment through a reference ledger (the money moves). auditable
+captures one signed record binding all three layers: a data report (snapshot freshness), a
+model report (decision-basis trust), and a harness report (a static cost cap). Six days
+later the live budget has dropped below the payment amount. replay() re-derives that the
+payment is no longer justified under the live state, and the gate EXECUTES a rollback
+through the ledger (the money moves back), rather than printing a verdict and stopping.
 
 Run:  python examples/payment_audit.py
 """
@@ -16,12 +16,14 @@ import time
 from auditable import (
     Action,
     ActionGate,
+    CompoundReport,
+    DataAuditor,
     DependencySnapshot,
+    HarnessAuditor,
+    ModelAuditor,
     ReferenceLedger,
     audit,
     replay,
-    score_model_trust,
-    score_snapshot_freshness,
 )
 
 SIX_DAYS = 6 * 24 * 60 * 60
@@ -58,29 +60,31 @@ def main():
         d.read(invoice="INV-4471", vendor="acme-supplies")
         d.model("gpt-x", decision_basis="Invoice matches an approved PO; within budget.")
         d.act(action)
-        # Attach the thin data and model signals before the record is signed.
-        d.record.data.signal = score_snapshot_freshness(
-            snapshot, now=now, max_age_seconds=SIX_DAYS / 2
+        # Three thin audit modules, each producing a signed report leaf.
+        d.attach(DataAuditor(max_age_seconds=SIX_DAYS / 2).assess(snapshot, now=now))
+        d.attach(ModelAuditor().assess(d.record.model))
+        d.attach(HarnessAuditor(cost_cap=5000).assess(action))
+        # v0.1 compound is a transparent bundle: per-stage reports plus a debug score.
+        d.record.compound = CompoundReport.of(
+            [d.record.data.report, d.record.model.report, d.record.harness.report]
         )
-        d.record.model.signal = score_model_trust(d.record.model)
     record = d.record
 
     receipt = gate.commit(action)  # the agent actually pays
     print(f"Captured decision {record.record_id[:12]} | model {record.model.model_id}")
     print(
-        f"  data signal:  stale={record.data.signal.stale} "
-        f"anomaly={record.data.signal.anomaly_score}"
+        f"  data report:    {record.data.report.flag} "
+        f"(score {record.data.report.score})  {record.data.report.reason}"
     )
-    print(
-        f"  model signal: trust={record.model.signal.trust} "
-        f"flag={record.model.signal.flag}"
-    )
+    print(f"  model report:   {record.model.report.flag} (score {record.model.report.score})")
+    print(f"  harness report: {record.harness.report.flag} (score {record.harness.report.score})")
+    print(f"  compound (uncalibrated debug score): {record.compound.uncalibrated_score}")
     print(f"  agent paid ${action.cost:,.0f}; ledger balance now ${ledger.balance:,.0f}")
 
     # Six days later the live budget has dropped below the payment amount.
     live_state = {"budget_remaining": 3000, "allow_list": ["acme-supplies", "globex"]}
     verdict = replay(record, live_state=live_state, policy=budget_policy)
-    outcome = gate.enforce(verdict, receipt=receipt)  # execute the routed fix
+    outcome = gate.enforce_post_commit(verdict, receipt=receipt)  # execute the routed fix
 
     print(f"Replay verdict: {verdict.action.value.upper()} | {verdict.reason}")
     print(

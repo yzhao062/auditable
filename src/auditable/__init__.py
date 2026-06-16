@@ -1,54 +1,70 @@
-"""auditable: capture, replay, and audit AI agent decisions.
+"""auditable: capture, replay, and recover AI agent decisions.
 
-Open-source SDK for auditable AI agents. Capture each agent decision with the
-dependency snapshot it relied on, replay it under the live state, and route a fix.
+Open-source SDK for live-state replay and recovery of consequential agent decisions.
+Capture a signed record of each decision with the dependency state it relied on, replay
+it under the state that is live now, and route and execute a fix (allow, block,
+human-review, rollback). One decision binds a data, model, and harness report in a single
+record (the full chain).
 
-By Yue Zhao (creator of PyOD). Built on the Auditable Agents framework
-(arXiv:2604.05485).
+By Yue Zhao (creator of PyOD).
 """
-from .core import (
+from .record import (
     Action,
+    Auditor,
+    DataSpan,
+    DecisionRecord,
+    DependencySnapshot,
+    HarnessSpan,
+    ModelSpan,
+    Report,
+)
+from .compound import CompoundReport
+from .chain import (
     Decision,
+    FileSink,
     FixAction,
+    MemorySink,
+    Policy,
+    ReplayUndecidable,
     Verdict,
     audit,
     default_sink,
     replay,
 )
-from .record import (
-    DataSignal,
-    DataSpan,
-    DecisionRecord,
-    DependencySnapshot,
-    HarnessSpan,
-    ModelSignal,
-    ModelSpan,
-)
-from .gate import ActionGate, GateOutcome, Rail, ReferenceLedger
-from .signals import score_model_trust, score_snapshot_freshness
+from .data import DataAuditor
+from .model import ModelAuditor
+from .harness import ActionGate, GateOutcome, HarnessAuditor, Rail, ReferenceLedger
 
 __version__ = "0.0.1"
 
 __all__ = [
     "__version__",
+    # Composition surface (lead here): capture, replay, executed recovery.
     "audit",
     "replay",
+    "DecisionRecord",
+    "Report",
+    "CompoundReport",
     "Action",
-    "Decision",
+    "DependencySnapshot",
     "Verdict",
     "FixAction",
-    "default_sink",
-    "DecisionRecord",
-    "DataSpan",
-    "ModelSpan",
-    "HarnessSpan",
-    "DependencySnapshot",
-    "DataSignal",
-    "ModelSignal",
+    "ReplayUndecidable",
     "ActionGate",
     "GateOutcome",
     "Rail",
     "ReferenceLedger",
-    "score_snapshot_freshness",
-    "score_model_trust",
+    "MemorySink",
+    "FileSink",
+    "default_sink",
+    "Decision",
+    "Policy",
+    "DataSpan",
+    "ModelSpan",
+    "HarnessSpan",
+    # Module API (standalone scorers; inputs to the record, not the headline product).
+    "Auditor",
+    "DataAuditor",
+    "ModelAuditor",
+    "HarnessAuditor",
 ]
