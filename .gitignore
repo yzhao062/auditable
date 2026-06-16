@@ -20,3 +20,6 @@ env/
 .DS_Store
 .idea/
 .vscode/
+
+# experiment data cache
+experiment/.cache/
