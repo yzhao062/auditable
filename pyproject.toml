@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "auditable"
+version = "0.0.1"
+description = "Capture, replay, and audit AI agent decisions. An open-source SDK for auditable AI agents."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Yue Zhao", email = "yzhao010@usc.edu" }]
+keywords = [
+    "ai-agents", "agent", "audit", "auditing", "replay", "ai-safety",
+    "ai-risk", "llm", "anomaly-detection", "observability", "compliance",
+    "agent-reliability", "trustworthy-ai",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+anomaly = ["pyod>=1.1.0"]
+langchain = ["langchain-core>=0.3.0"]
+dev = ["pytest>=7.0", "build>=1.0", "twine>=5.0"]
+
+[project.urls]
+Homepage = "https://github.com/yzhao062/auditable"
+Repository = "https://github.com/yzhao062/auditable"
+Issues = "https://github.com/yzhao062/auditable/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/auditable"]
