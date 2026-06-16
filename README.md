@@ -2,24 +2,25 @@
 
 # auditable
 
-**Capture, replay, and audit the decisions your AI agents make.**
-
-*AI Risk Audit and Control across Agents, Foundation Models, and Data.*
+**Re-decide an agent's action against the state that is live now, and recover when it no longer holds.**
 
 [![PyPI](https://img.shields.io/pypi/v/auditable.svg)](https://pypi.org/project/auditable/)
 [![Python](https://img.shields.io/pypi/pyversions/auditable.svg)](https://pypi.org/project/auditable/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/yzhao062/auditable.svg?style=social)](https://github.com/yzhao062/auditable)
 
+[Quickstart](#60-second-quickstart) · [How It Works](#how-it-works) · [The Full Chain](#the-full-chain) · [Roadmap](#roadmap)
+
 </div>
 
-`auditable` is an open-source SDK that makes an AI agent's decisions reconstructable after the fact. For every consequential action your agent takes, it captures a signed record of what the agent read, which model decided, and what the agent did, then lets you **replay** that decision under the state that was actually live and route a fix: allow, block, hand off, or roll back.
+`auditable` is an open-source SDK for the moment after an agent acts. For every consequential decision it captures a signed record of what the agent read, the dependency state the decision relied on, which model decided, and the action taken. Later it **replays** that decision against the state that is live now, and when the action no longer holds it **executes** a fix through a rail: allow, block, hand to a human, or roll back.
 
-> By [Yue Zhao](https://github.com/yzhao062), creator of [PyOD](https://github.com/yzhao062/pyod) (42M+ downloads). Built on the Auditable Agents framework ([arXiv:2604.05485](https://arxiv.org/abs/2604.05485)).
+> [!NOTE]
+> By [Yue Zhao](https://github.com/yzhao062), creator of [PyOD](https://github.com/yzhao062/pyod) (42M+ downloads, ~12k citations). `auditable` holds each layer to PyOD's bar: a method with data and an experiment behind it before that layer is promoted.
 
 ## The Problem
 
-Most agent tools log *what happened*. They do not record *what the agent relied on when it decided*, so when a payment, an approval, or a tool call later looks wrong, the budget, the policy, and the allow-list that were live at that moment are already gone. The action was reasoned; the dependency it trusted had drifted. By the time anyone asks, the decision can no longer be reconstructed.
+Most agent tools log what happened. They do not record what the agent relied on when it decided, so when a payment, an approval, or a tool call later looks wrong, the budget, the policy, and the allow-list that were live at that moment are already gone. The action was reasoned; the dependency it trusted had drifted. Flagging that after the fact is observability. Re-deciding under the current state and reversing the action is recovery, and recovery is the gap `auditable` fills.
 
 ## Install
 
@@ -30,65 +31,85 @@ pip install auditable
 ## 60-Second Quickstart
 
 ```python
-from auditable import Action, DependencySnapshot, audit, replay
+from auditable import (
+    Action, ActionGate, DependencySnapshot, ReferenceLedger, audit, replay,
+)
 
 def policy(state, action):
     ok = action.cost <= state.get("budget_remaining", 0)
     return ok, ("within budget" if ok else f"${action.cost:,.0f} over budget")
 
-# Capture the decision with the dependency snapshot it relied on.
+# The agent pays $4,200 against a budget snapshot, through a rail (the money moves).
 snapshot = DependencySnapshot(state={"budget_remaining": 10000})
-with audit("vendor_payment", snapshot=snapshot) as d:
-    d.model("gpt-x", decision_basis="invoice matches approved PO")
-    d.act(Action("vendor_payment", {"recipient": "acme"}, cost=4200))
+ledger = ReferenceLedger(balance=10000)
+gate = ActionGate(ledger)
+action = Action("vendor_payment", {"recipient": "acme"}, cost=4200)
 
-# Later, replay it against the live state. The budget has since dropped.
+with audit("vendor_payment", snapshot=snapshot) as d:
+    d.model("gpt-x", decision_basis="invoice matches an approved PO")
+    d.act(action)
+receipt = gate.commit(action)            # the agent actually pays; balance is now 5,800
+
+# Later the live budget has dropped. Replay re-decides; the gate executes the fix.
 verdict = replay(d.record, live_state={"budget_remaining": 3000}, policy=policy)
-print(verdict.action, verdict.reason)
-# FixAction.ROLLBACK  Decision relied on stale dependency state: $4,200 over budget
+outcome = gate.enforce_post_commit(verdict, receipt=receipt)
+print(verdict.action.value, "->", outcome.executed)   # rollback -> rolled_back
+print("balance restored:", ledger.balance)            # 10000
 ```
 
-See [`examples/payment_audit.py`](examples/payment_audit.py) for the full flagship demo.
+See [`examples/payment_audit.py`](examples/payment_audit.py) for the full demo that binds all three layers, and [`examples/standalone_report.py`](examples/standalone_report.py) for scoring a single layer on its own.
 
 ## How It Works
 
-One agent decision crosses three layers, and `auditable` records all three in a single signed, hash-chained record:
+One agent decision crosses three layers, and `auditable` binds all three in a single signed, hash-chained record:
 
-| Layer | What It Captures |
-|---|---|
-| **Data** | What the agent read: inputs, retrieved context, and the dependency snapshot (budget, policy, allow-list, config versions) that was live |
-| **Model** | Which model produced the output, and the stated decision basis |
-| **Harness** | The action the agent executed, and its cost |
-
-`replay()` re-derives whether the action is still justified under the live dependency state versus the snapshot the agent actually used. A decision that passed on a stale snapshot but fails on live state is exactly the failure `auditable` exists to catch.
-
-## The Full Chain: AI Risk Audit and Control across Agents, Foundation Models, and Data
-
-A single agent decision crosses the whole stack, so one `auditable` record already spans all three layers, and the library is built to connect a signal source at each:
-
-| Layer | What the record captures | Signal source it connects |
+| Layer | What the record binds | Signal in v0.1 |
 |---|---|---|
-| **Agent (harness)** | The action executed, its cost, and the replayable verdict | Native (shipping now) |
-| **Foundation model** | Which model produced the output, and the stated basis | TrustLLM trust and behavior signals (roadmap) |
-| **Data** | What the agent read, and the dependency snapshot it relied on | [PyOD](https://github.com/yzhao062/pyod) anomaly scores on inputs and retrieved context (roadmap) |
+| **Data** | What the agent read and the dependency snapshot it relied on | Snapshot freshness |
+| **Model** | Which model produced the output, and its stated basis | Decision-basis trust flag |
+| **Harness** | The action executed and its cost | A static rule, plus the replay verdict |
 
-The agent decision is the spine. `auditable` starts there, captures the full chain in one signed record, and brings the data-layer and model-layer signals in as plug-in inputs. That is the main line, delivered through one replayable decision record that threads all three layers.
+`replay()` re-derives whether the action still holds under the live dependency state versus the snapshot the agent used, and returns one of four verdicts: `ALLOW`, `ROLLBACK` (justified on the snapshot but not on live state, the stale-state case), `BLOCK` (justified on neither), or `HUMAN_REVIEW`. The `ActionGate` then executes that verdict through a rail, so a rollback reverses the action rather than printing a recommendation. Replay is pure: it never mutates the signed record.
 
-**v0 scope (honest):** the decision record spans all three layers, and the agent-decision capture and replay ship today. The PyOD and TrustLLM signal integrations that fill the data and model spans are on the [roadmap](#roadmap); `auditable` does not yet score data anomalies or model trust itself.
+## The Full Chain
+
+The data, model, and harness signals live in one record, so a decision is judged as a unit rather than as three disconnected logs. Each layer's check is a standalone module (an `Auditor` that returns a signed `Report`), and the same modules compose into the decision record. Each layer deepens on its own cadence, and the method behind it carries its own benchmark before it is promoted.
+
+| Layer | v0.1 (shipping) | Deepens to |
+|---|---|---|
+| **Harness (agent)** | signed record, replay, executed gate over a rail | dynamic rules layered on static rules |
+| **Data** | snapshot freshness | anomaly detection on the data a decision relied on, [PyOD](https://github.com/yzhao062/pyod) lineage (v0.2) |
+| **Model** | decision-basis trust flag | [TrustLLM](https://github.com/HowieHwong/TrustLLM) trust signals (v0.3) |
+
+> [!IMPORTANT]
+> **v0.1 scope, stated honestly.** The full chain, replay under live state, and executed recovery through a rail-neutral gate ship today, with thin but real data and model signals bound into the record and two sinks (in-memory and append-only JSONL). The deep PyOD and TrustLLM methods, the calibrated cross-layer risk, and the data and model control faces are on the [roadmap](#roadmap). v0.1 does not yet claim a learned data-anomaly method or a model-trust score.
+
+## Using a Single Layer
+
+Each layer's check runs on its own, with no agent and no chain, and returns a signed report:
+
+```python
+import time
+from auditable import DataAuditor, DependencySnapshot
+
+snapshot = DependencySnapshot(state={"budget_remaining": 1000}, captured_at=time.time() - 7 * 86400)
+report = DataAuditor(max_age_seconds=86400).assess(snapshot)
+print(report.flag, report.score)   # stale 1.0
+```
+
+The composition (capture, replay, recovery) is the main line; the standalone modules are inputs to it.
 
 ## Roadmap
 
-The path to the full chain, one signal source at a time:
-
-- [ ] **Agent layer**: LangChain callback integration (`auditable.integrations.langchain`)
-- [ ] **Data layer**: anomaly-triggered surfacing via [PyOD](https://github.com/yzhao062/pyod), flag which decisions to replay from anomalies in what the agent read
-- [ ] **Model layer**: TrustLLM trust and behavior signals attached to the model span
-- [ ] Pluggable sinks (file, OpenTelemetry, LangSmith, Datadog)
-- [ ] Signed, exportable evidence bundles
+- [ ] **v0.2 Data** anomaly detection on the dependency state ([PyOD](https://github.com/yzhao062/pyod)), plus a calibrated cross-layer risk
+- [ ] **v0.3 Model** TrustLLM trust and behavior signals on the model span
+- [ ] **v0.4 Control** data refresh or quarantine, model fallback or sign-off
+- [ ] **v1.0** pluggable sinks (OpenTelemetry, LangSmith), exportable evidence bundles, a stable public API
+- [ ] Framework integrations (LangChain, LangGraph, CrewAI) and an MCP server
 
 ## Citation
 
-If you use `auditable` in research, please cite the Auditable Agents framework:
+If you use `auditable` in research, the decision-audit approach builds on the Auditable Agents framework:
 
 ```bibtex
 @inproceedings{auditable-agents-2026,
