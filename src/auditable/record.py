@@ -21,6 +21,32 @@ from typing import Any, Optional
 
 
 @dataclass
+class DataSignal:
+    """A signal on the data the decision relied on (thin in v0.1, learned in v0.2).
+
+    ``anomaly_score`` is 0 for normal and higher for more anomalous; ``stale`` marks a
+    snapshot whose age exceeds the freshness budget.
+    """
+
+    anomaly_score: float = 0.0
+    stale: bool = False
+    reason: str = ""
+
+
+@dataclass
+class ModelSignal:
+    """A signal on the deciding model (thin in v0.1, TrustLLM in v0.3).
+
+    ``trust`` is in [0, 1], lower means less trusted; ``flag`` is a short label such as
+    ``"ok"`` or ``"low_trust"``.
+    """
+
+    trust: float = 1.0
+    flag: str = "ok"
+    reason: str = ""
+
+
+@dataclass
 class DependencySnapshot:
     """The dependency state the agent relied on at decision time.
 
@@ -39,6 +65,7 @@ class DataSpan:
     inputs: dict[str, Any] = field(default_factory=dict)
     retrieved: list[Any] = field(default_factory=list)
     snapshot: DependencySnapshot = field(default_factory=DependencySnapshot)
+    signal: DataSignal = field(default_factory=DataSignal)
 
 
 @dataclass
@@ -46,6 +73,7 @@ class ModelSpan:
     model_id: str = ""
     decision_basis: str = ""
     output: Any = None
+    signal: ModelSignal = field(default_factory=ModelSignal)
 
 
 @dataclass

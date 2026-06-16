@@ -16,12 +16,16 @@ from .core import (
     replay,
 )
 from .record import (
+    DataSignal,
     DataSpan,
     DecisionRecord,
     DependencySnapshot,
     HarnessSpan,
+    ModelSignal,
     ModelSpan,
 )
+from .gate import ActionGate, GateOutcome, Rail, ReferenceLedger
+from .signals import score_model_trust, score_snapshot_freshness
 
 __version__ = "0.0.1"
 
@@ -39,4 +43,12 @@ __all__ = [
     "ModelSpan",
     "HarnessSpan",
     "DependencySnapshot",
+    "DataSignal",
+    "ModelSignal",
+    "ActionGate",
+    "GateOutcome",
+    "Rail",
+    "ReferenceLedger",
+    "score_snapshot_freshness",
+    "score_model_trust",
 ]
