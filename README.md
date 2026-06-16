@@ -101,8 +101,8 @@ The composition (capture, replay, recovery) is the main line; the standalone mod
 
 ## Roadmap
 
-- [ ] **v0.2 Data** anomaly detection on the dependency state ([PyOD](https://github.com/yzhao062/pyod)), plus a calibrated cross-layer risk
-- [ ] **v0.3 Model** TrustLLM trust and behavior signals on the model span
+- [ ] **v0.2 Data** a fitted anomaly score on the dependency state ([PyOD](https://github.com/yzhao062/pyod) backend), with freshness as a fallback
+- [ ] **v0.3 Model** TrustLLM trust signals, plus the first calibrated cross-layer risk once two real scores exist
 - [ ] **v0.4 Control** data refresh or quarantine, model fallback or sign-off
 - [ ] **v1.0** pluggable sinks (OpenTelemetry, LangSmith), exportable evidence bundles, a stable public API
 - [ ] Framework integrations (LangChain, LangGraph, CrewAI) and an MCP server
