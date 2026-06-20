@@ -9,14 +9,11 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/yzhao062/auditable.svg?style=social)](https://github.com/yzhao062/auditable)
 
-[Quickstart](#60-second-quickstart) · [How It Works](#how-it-works) · [The Full Chain](#the-full-chain) · [Roadmap](#roadmap)
+[Quickstart](#quickstart) · [How It Works](#how-it-works) · [The Full Chain](#the-full-chain) · [Roadmap](#roadmap)
 
 </div>
 
-`auditable` is an open-source SDK for the moment after an agent acts. For every consequential decision it captures a signed record of what the agent read, the dependency state the decision relied on, which model decided, and the action taken. Later it **replays** that decision against the state that is live now, and when the action no longer holds it **executes** a fix through a rail: allow, block, hand to a human, or roll back.
-
-> [!NOTE]
-> By [Yue Zhao](https://github.com/yzhao062), creator of [PyOD](https://github.com/yzhao062/pyod) (42M+ downloads, ~12k citations). `auditable` holds each layer to PyOD's bar: a method with data and an experiment behind it before that layer is promoted.
+`auditable` is an open-source SDK for auditing AI agent decisions. For every consequential decision it captures a signed record of what the agent read, the dependency state the decision relied on, which model decided, and the action taken. It **replays** that decision against the state that is live now, and when the action no longer holds it **executes** a fix through a rail: allow, block, hand to a human, or roll back.
 
 ## The Problem
 
@@ -34,40 +31,35 @@ Structural-risk analysis (`analyze_run` and the session graph) needs the optiona
 pip install "auditable[graph]"
 ```
 
-## 60-Second Quickstart
+## Quickstart
 
 ```python
-from auditable import (
-    Action, ActionGate, DependencySnapshot, ReferenceLedger, audit, replay,
-)
+from auditable import Action, ActionGate, DependencySnapshot, ReferenceLedger, audit, replay
 
 def policy(state, action):
-    ok = action.cost <= state.get("budget_remaining", 0)
-    return ok, ("within budget" if ok else f"${action.cost:,.0f} over budget")
+    ok = action.cost <= state["budget"]
+    return ok, "ok" if ok else "over budget"
 
-# The agent pays $4,200 against a budget snapshot, through a rail (the money moves).
-snapshot = DependencySnapshot(state={"budget_remaining": 10000})
-ledger = ReferenceLedger(balance=10000)
+ledger = ReferenceLedger(balance=10_000)
 gate = ActionGate(ledger)
-action = Action("vendor_payment", {"recipient": "acme"}, cost=4200)
+pay = Action("payment", {"to": "acme"}, cost=4_200)
 
-with audit("vendor_payment", snapshot=snapshot) as d:
-    d.model("gpt-x", decision_basis="invoice matches an approved PO")
-    d.act(action)
-receipt = gate.commit(action)            # the agent actually pays; balance is now 5,800
+# The agent pays $4,200 against a budget snapshot that said $10,000.
+with audit("payment", snapshot=DependencySnapshot(state={"budget": 10_000})) as d:
+    d.act(pay)
+receipt = gate.commit(pay)                          # paid; balance now 5,800
 
-# Later the live budget has dropped. Replay re-decides; the gate executes the fix.
-verdict = replay(d.record, live_state={"budget_remaining": 3000}, policy=policy)
-outcome = gate.enforce_post_commit(verdict, receipt=receipt)
-print(verdict.action.value, "->", outcome.executed)   # rollback -> rolled_back
-print("balance restored:", ledger.balance)            # 10000
+# The live budget is now $3,000. Replay re-decides; the gate reverses the payment.
+verdict = replay(d.record, live_state={"budget": 3_000}, policy=policy)
+gate.enforce_post_commit(verdict, receipt=receipt)
+print(verdict.action.value, "->", ledger.balance)  # rollback -> 10000
 ```
 
 See [`examples/payment_audit.py`](examples/payment_audit.py) for the full demo that binds all three layers, and [`examples/standalone_report.py`](examples/standalone_report.py) for scoring a single layer on its own.
 
-## Rank a Run by Structural Risk
+## Find the Keystone Decision
 
-Past the live decision, `analyze_run` reads a recorded agent run, builds one decision graph, and ranks every step by how much of the run transitively rests on it. On a tau-bench airline trajectory, the single reservation read that both later writes depend on is flagged as the keystone to review first.
+`analyze_run` reads a recorded agent run, builds one decision graph, and ranks every step by how much of the run transitively rests on it, so you can review the keystone first. On a tau-bench airline trajectory, the one reservation read that both later writes depend on is flagged as that keystone.
 
 ![auditable analyze_run ranks a recorded tau-bench run by structural blast share and names the keystone decision](assets/analyze_run.png)
 
@@ -83,6 +75,10 @@ print(k.idx, k.node_attrs["tool"])   # 2  get_reservation_details
 The score is a triage ranking, not a calibrated probability, and the write-to-read edges are modeled (a conservative upper bound, not a causal label). The trajectory is modeled on [tau-bench](https://github.com/sierra-research/tau-bench) (Sierra Research, MIT) and grounded in a survey of its 660 public runs. See [`examples/analyze_run.py`](examples/analyze_run.py) (needs the `graph` extra).
 
 ## How It Works
+
+![auditable models one decision as a two-layer graph: an execution layer (control flow, observed from the trace) over a dependency layer (what each step relied on); replay catches a step that rested on a value that has since gone stale](assets/twolayer.png)
+
+*auditable links a run into one graph with two edge layers: execution (control flow, observed from the trace) over dependency (what each step relied on). When a step rested on a value that has since gone stale, like `price`, `replay` catches it. The record itself binds three spans per decision (data, model, harness), detailed below.*
 
 One agent decision crosses three layers, and `auditable` binds all three in a single signed, hash-chained record:
 
@@ -137,7 +133,7 @@ If you use `auditable` in research, the decision-audit approach builds on the Au
 ```bibtex
 @inproceedings{auditable-agents-2026,
   title  = {Auditable Agents},
-  author = {Nian, Yi and Yuan, Aojie and Zhao, Yue},
+  author = {Nian, Yi and Yuan, Aojie and Zhang, Haiyue and Li, Jiate and Zhao, Yue},
   year   = {2026},
   note   = {arXiv:2604.05485, ACL 2026 KnowFM Workshop}
 }
