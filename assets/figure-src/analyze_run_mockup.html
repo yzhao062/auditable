@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  /* Journal-figure, dense + readability-first. Helvetica/Arial, flat, hairline rules,
+     no shadow/gradient/pill. NPG palette for data: coral #E64B35 (keystone read),
+     teal #00A087 (writes), slate #3C5488 (process). Deterministic fixed-height layout
+     so nothing overlaps. */
+  :root {
+    --paper:#ffffff; --rule:#c5c8cf; --hair:#e6e8ec; --panel:#fafbfc;
+    --ink:#15171c; --muted:#4d535d; --faint:#828995;
+    --slate:#3c5488; --coral:#e64b35; --coral-bg:#fbeae6; --coral-ink:#c0392b;
+    --teal:#00a087; --teal-ink:#0c7a6a;
+    --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    --mono:"Consolas",ui-monospace,"Cascadia Mono",Menlo,monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1240px; height:548px; overflow:hidden; }
+  body { background:var(--paper); font-family:var(--sans); color:var(--ink);
+         -webkit-font-smoothing:antialiased; display:flex; align-items:center; justify-content:center; }
+  .fig { width:1200px; height:512px; background:var(--paper); border:1px solid var(--rule);
+         padding:18px 26px; display:flex; flex-direction:column; }
+
+  .head { height:60px; border-bottom:1px solid var(--rule); }
+  .titleline { display:flex; align-items:baseline; gap:12px; }
+  .brand { font-size:24px; font-weight:700; letter-spacing:-.3px; }
+  .brand .dot { color:var(--coral); }
+  .tag { font-size:19px; font-weight:600; }
+  .sub { font-size:14.5px; color:var(--muted); margin-top:7px; }
+
+  .body { height:352px; display:flex; gap:26px; margin-top:12px; }
+  .col { display:flex; flex-direction:column; }
+  .left { flex:1.04; }
+  .right { flex:1.12; }
+  .clabel { height:22px; font-size:12px; font-weight:700; letter-spacing:.5px; color:var(--muted); }
+  .clabel .n { color:var(--faint); font-weight:400; }
+
+  .graph { height:330px; border:1px solid var(--hair); background:var(--panel); overflow:hidden; }
+  .graph svg { display:block; width:100%; height:330px; }
+
+  .keycard { height:90px; border:1px solid #f1cabf; border-left:3px solid var(--coral);
+             background:var(--coral-bg); padding:11px 16px;
+             display:flex; align-items:center; justify-content:space-between; }
+  .keycard .kl .t { font-size:11.5px; font-weight:700; letter-spacing:.6px; color:var(--coral); }
+  .keycard .kl .tool { font-family:var(--mono); font-size:17px; font-weight:700; color:var(--ink); margin-top:4px; }
+  .keycard .kl .s { font-size:12.5px; color:var(--muted); margin-top:4px; }
+  .keycard .kv { font-size:40px; font-weight:700; color:var(--coral); line-height:1; }
+
+  .rk { font-size:11.5px; color:var(--faint); margin:14px 0 8px; }
+  .row { display:flex; align-items:center; gap:12px; margin:10px 0; }
+  .row .id { font-family:var(--mono); font-size:13px; color:var(--faint); width:46px; }
+  .row .tool { font-family:var(--mono); font-size:13.5px; width:230px; white-space:nowrap; }
+  .row .tool.read { color:var(--coral); font-weight:700; }
+  .row .tool.write { color:var(--teal-ink); }
+  .track { flex:1; height:12px; background:#ebedf1; }
+  .fill.key { width:100%; height:100%; background:var(--coral); display:block; }
+  .fill.zero { width:2px; height:100%; background:#cfd4db; display:block; }
+  .val { font-family:var(--mono); font-size:13.5px; width:46px; text-align:right; }
+  .row.key .val { color:var(--coral); font-weight:700; }
+  .row.zero .val { color:var(--faint); }
+
+  .foot { height:40px; display:flex; align-items:flex-end; border-top:1px solid var(--rule);
+          padding-top:9px; margin-top:12px; }
+  .foot div { font-size:12px; color:var(--faint); line-height:1.5; }
+  .foot b { color:var(--muted); font-weight:700; }
+</style>
+</head>
+<body>
+  <div class="fig">
+    <div class="head">
+      <div class="titleline">
+        <span class="brand">auditable<span class="dot">.</span></span>
+        <span class="tag">Rank a recorded agent run by structural risk</span>
+      </div>
+      <div class="sub">Build one decision graph from a run, then flag the single decision the rest of the run depends on, and review that first.</div>
+    </div>
+
+    <div class="body">
+      <!-- LEFT: the run as a dependency graph (one fixed-size SVG, cannot overflow) -->
+      <div class="col left">
+        <div class="clabel">THE RUN <span class="n">· tau-bench airline · 7 steps, 2 writes on a prior read</span></div>
+        <div class="graph">
+          <svg viewBox="0 0 540 330" preserveAspectRatio="xMidYMid meet"
+               font-family="Helvetica,Arial,sans-serif">
+            <defs>
+              <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7"
+                      markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#e64b35"/>
+              </marker>
+            </defs>
+
+            <!-- dependency edges: each write depends on the read -->
+            <path d="M338,106 C282,128 250,150 236,164" stroke="#e64b35" stroke-width="2"
+                  fill="none" marker-end="url(#ar)"/>
+            <path d="M338,224 C282,204 250,182 236,180" stroke="#e64b35" stroke-width="2"
+                  fill="none" marker-end="url(#ar)"/>
+            <text x="290" y="158" font-size="14" fill="#828995">depend</text>
+            <text x="294" y="176" font-size="14" fill="#828995">on</text>
+
+            <!-- write nodes (full tau-bench tool names, wrapped) -->
+            <rect x="334" y="32" width="196" height="76" fill="#eef8f5" stroke="#5cc2b2" stroke-width="1.6"/>
+            <text x="350" y="54" font-size="12.5" fill="#0c7a6a" font-weight="700">WRITE · step 4 · 0.000</text>
+            <text x="350" y="76" font-size="14.5" font-family="Consolas,monospace" fill="#15171c">update_reservation</text>
+            <text x="350" y="94" font-size="14.5" font-family="Consolas,monospace" fill="#15171c">_flights</text>
+
+            <rect x="334" y="222" width="196" height="76" fill="#eef8f5" stroke="#5cc2b2" stroke-width="1.6"/>
+            <text x="350" y="244" font-size="12.5" fill="#0c7a6a" font-weight="700">WRITE · step 6 · 0.000</text>
+            <text x="350" y="266" font-size="14.5" font-family="Consolas,monospace" fill="#15171c">update_reservation</text>
+            <text x="350" y="284" font-size="14.5" font-family="Consolas,monospace" fill="#15171c">_baggages</text>
+
+            <!-- keystone read node (left, large) -->
+            <rect x="16" y="120" width="216" height="90" fill="#fbeae6" stroke="#e64b35" stroke-width="2.4"/>
+            <text x="34" y="148" font-size="13" fill="#c0392b" font-weight="700">READ · step 2 · KEYSTONE</text>
+            <text x="34" y="173" font-size="17" font-family="Consolas,monospace" fill="#15171c" font-weight="700">get_reservation</text>
+            <text x="34" y="193" font-size="17" font-family="Consolas,monospace" fill="#15171c" font-weight="700">_details</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- RIGHT: auditable's structural-risk output -->
+      <div class="col right">
+        <div class="clabel">auditable <span class="n">· structural-risk output (analyze_run)</span></div>
+        <div class="keycard">
+          <div class="kl">
+            <div class="t">KEYSTONE · REVIEW FIRST</div>
+            <div class="tool">get_reservation_details</div>
+            <div class="s">2 of 6 other steps transitively rest on this one read</div>
+          </div>
+          <div class="kv">0.333</div>
+        </div>
+
+        <div class="rk">every step ranked by structural blast share</div>
+        <div class="row key">
+          <span class="id">step 2</span><span class="tool read">get_reservation_details</span>
+          <span class="track"><span class="fill key"></span></span><span class="val">0.333</span>
+        </div>
+        <div class="row zero">
+          <span class="id">step 4</span><span class="tool write">update_reservation_flights</span>
+          <span class="track"><span class="fill zero"></span></span><span class="val">0.000</span>
+        </div>
+        <div class="row zero">
+          <span class="id">step 6</span><span class="tool write">update_reservation_baggages</span>
+          <span class="track"><span class="fill zero"></span></span><span class="val">0.000</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div><b>Honest by construction:</b> a triage ranking, not a calibrated probability · write→read edges are modeled (a conservative upper bound, not a causal label) · trajectory modeled on tau-bench (Sierra Research, MIT), grounded in its 660 public runs.</div>
+    </div>
+  </div>
+</body>
+</html>

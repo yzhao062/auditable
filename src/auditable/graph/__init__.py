@@ -125,3 +125,9 @@ def downstream_reach(G, step_idx: int) -> int:
     if node not in dep:
         return 0
     return len(nx.ancestors(dep, node))  # nodes with a depends_on path TO this one
+
+
+# Layered structural features (flat / exec / dep), used by the failure-detection
+# study to show each layer adds signal beyond run size. Imported last so the
+# module-level names above are bound before features.py resolves them.
+from .features import layered_features, feature_vector  # noqa: E402,F401

@@ -9,14 +9,11 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/yzhao062/auditable.svg?style=social)](https://github.com/yzhao062/auditable)
 
-[Quickstart](#60-second-quickstart) · [How It Works](#how-it-works) · [The Full Chain](#the-full-chain) · [Roadmap](#roadmap)
+[Quickstart](#quickstart) · [How It Works](#how-it-works) · [The Full Chain](#the-full-chain) · [Roadmap](#roadmap)
 
 </div>
 
-`auditable` is an open-source SDK for the moment after an agent acts. For every consequential decision it captures a signed record of what the agent read, the dependency state the decision relied on, which model decided, and the action taken. Later it **replays** that decision against the state that is live now, and when the action no longer holds it **executes** a fix through a rail: allow, block, hand to a human, or roll back.
-
-> [!NOTE]
-> By [Yue Zhao](https://github.com/yzhao062), creator of [PyOD](https://github.com/yzhao062/pyod) (42M+ downloads, ~12k citations). `auditable` holds each layer to PyOD's bar: a method with data and an experiment behind it before that layer is promoted.
+`auditable` is an open-source SDK for auditing AI agent decisions. For every consequential decision it captures a signed record of what the agent read, the dependency state the decision relied on, which model decided, and the action taken. It **replays** that decision against the state that is live now, and when the action no longer holds it **executes** a fix through a rail: allow, block, hand to a human, or roll back.
 
 ## The Problem
 
@@ -28,38 +25,60 @@ Most agent tools log what happened. They do not record what the agent relied on 
 pip install auditable
 ```
 
-## 60-Second Quickstart
+Structural-risk analysis (`analyze_run` and the session graph) needs the optional graph extra:
+
+```bash
+pip install "auditable[graph]"
+```
+
+## Quickstart
 
 ```python
-from auditable import (
-    Action, ActionGate, DependencySnapshot, ReferenceLedger, audit, replay,
-)
+from auditable import Action, ActionGate, DependencySnapshot, ReferenceLedger, audit, replay
 
 def policy(state, action):
-    ok = action.cost <= state.get("budget_remaining", 0)
-    return ok, ("within budget" if ok else f"${action.cost:,.0f} over budget")
+    ok = action.cost <= state["budget"]
+    return ok, "ok" if ok else "over budget"
 
-# The agent pays $4,200 against a budget snapshot, through a rail (the money moves).
-snapshot = DependencySnapshot(state={"budget_remaining": 10000})
-ledger = ReferenceLedger(balance=10000)
+ledger = ReferenceLedger(balance=10_000)
 gate = ActionGate(ledger)
-action = Action("vendor_payment", {"recipient": "acme"}, cost=4200)
+pay = Action("payment", {"to": "acme"}, cost=4_200)
 
-with audit("vendor_payment", snapshot=snapshot) as d:
-    d.model("gpt-x", decision_basis="invoice matches an approved PO")
-    d.act(action)
-receipt = gate.commit(action)            # the agent actually pays; balance is now 5,800
+# The agent pays $4,200 against a budget snapshot that said $10,000.
+with audit("payment", snapshot=DependencySnapshot(state={"budget": 10_000})) as d:
+    d.act(pay)
+receipt = gate.commit(pay)                          # paid; balance now 5,800
 
-# Later the live budget has dropped. Replay re-decides; the gate executes the fix.
-verdict = replay(d.record, live_state={"budget_remaining": 3000}, policy=policy)
-outcome = gate.enforce_post_commit(verdict, receipt=receipt)
-print(verdict.action.value, "->", outcome.executed)   # rollback -> rolled_back
-print("balance restored:", ledger.balance)            # 10000
+# The live budget is now $3,000. Replay re-decides; the gate reverses the payment.
+verdict = replay(d.record, live_state={"budget": 3_000}, policy=policy)
+gate.enforce_post_commit(verdict, receipt=receipt)
+print(verdict.action.value, "->", ledger.balance)  # rollback -> 10000
 ```
 
 See [`examples/payment_audit.py`](examples/payment_audit.py) for the full demo that binds all three layers, and [`examples/standalone_report.py`](examples/standalone_report.py) for scoring a single layer on its own.
 
+## Find the Keystone Decision
+
+`analyze_run` reads a recorded agent run, builds one decision graph, and ranks every step by how much of the run transitively rests on it, so you can review the keystone first. On a tau-bench airline trajectory, the one reservation read that both later writes depend on is flagged as that keystone.
+
+![auditable analyze_run ranks a recorded tau-bench run by structural blast share and names the keystone decision](assets/analyze_run.png)
+
+```python
+from auditable import analyze_run
+from auditable.graph.adapters import tau_bench_prior_db_reads_v1
+
+report = analyze_run(run, adapter=tau_bench_prior_db_reads_v1)
+k = report.keystone
+print(k.idx, k.node_attrs["tool"])   # 2  get_reservation_details
+```
+
+The score is a triage ranking, not a calibrated probability, and the write-to-read edges are modeled (a conservative upper bound, not a causal label). The trajectory is modeled on [tau-bench](https://github.com/sierra-research/tau-bench) (Sierra Research, MIT) and grounded in a survey of its 660 public runs. See [`examples/analyze_run.py`](examples/analyze_run.py) (needs the `graph` extra).
+
 ## How It Works
+
+![auditable models one decision as a two-layer graph: an execution layer (control flow, observed from the trace) over a dependency layer (what each step relied on); replay catches a step that rested on a value that has since gone stale](assets/twolayer.png)
+
+*auditable links a run into one graph with two edge layers: execution (control flow, observed from the trace) over dependency (what each step relied on). When a step rested on a value that has since gone stale, like `price`, `replay` catches it. The record itself binds three spans per decision (data, model, harness), detailed below.*
 
 One agent decision crosses three layers, and `auditable` binds all three in a single signed, hash-chained record:
 
@@ -79,10 +98,10 @@ The data, model, and harness signals live in one record, so a decision is judged
 |---|---|---|
 | **Harness (agent)** | signed record, replay, executed gate over a rail | dynamic rules layered on static rules |
 | **Data** | snapshot freshness | anomaly detection on the data a decision relied on, [PyOD](https://github.com/yzhao062/pyod) lineage (v0.2) |
-| **Model** | decision-basis trust flag | [TrustLLM](https://github.com/HowieHwong/TrustLLM) trust signals (v0.3) |
+| **Model** | decision-basis trust flag | model as a first-class graph node attribute, with deterministic decision-basis grounding (v0.3) |
 
 > [!IMPORTANT]
-> **v0.1 scope, stated honestly.** The full chain, replay under live state, and executed recovery through a rail-neutral gate ship today, with thin but real data and model signals bound into the record and two sinks (in-memory and append-only JSONL). The deep PyOD and TrustLLM methods, the calibrated cross-layer risk, and the data and model control faces are on the [roadmap](#roadmap). v0.1 does not yet claim a learned data-anomaly method or a model-trust score.
+> **Scope, stated honestly.** The full chain, replay under live state, and executed recovery through a rail-neutral gate ship today, with thin but real data and model signals bound into the record and two sinks (in-memory and append-only JSONL). The v0.3 offline session-graph analyzer (`analyze_run`) ships too, as an uncalibrated structural ranking signal over a recorded run. The deep PyOD and TrustLLM methods, the calibrated cross-layer risk, live scoring, and the data and model control faces are on the [roadmap](#roadmap). The release does not yet claim a learned data-anomaly method or a model-trust score.
 
 ## Using a Single Layer
 
@@ -102,7 +121,7 @@ The composition (capture, replay, recovery) is the main line; the standalone mod
 ## Roadmap
 
 - [ ] **v0.2 Data** a fitted anomaly score on the dependency state ([PyOD](https://github.com/yzhao062/pyod) backend), with freshness as a fallback
-- [ ] **v0.3 Model** TrustLLM trust signals, plus the first calibrated cross-layer risk once two real scores exist
+- [x] **v0.3 Graph (offline)** the unified session decision graph plus structural risk (`analyze_run`), model a first-class node attribute with decision-basis grounding (homogeneous for now); ships as an uncalibrated ranking signal, with live incremental scoring and calibration still ahead
 - [ ] **v0.4 Control** data refresh or quarantine, model fallback or sign-off
 - [ ] **v1.0** pluggable sinks (OpenTelemetry, LangSmith), exportable evidence bundles, a stable public API
 - [ ] Framework integrations (LangChain, LangGraph, CrewAI) and an MCP server
@@ -114,7 +133,7 @@ If you use `auditable` in research, the decision-audit approach builds on the Au
 ```bibtex
 @inproceedings{auditable-agents-2026,
   title  = {Auditable Agents},
-  author = {Nian, Yi and Yuan, Aojie and Zhao, Yue},
+  author = {Nian, Yi and Yuan, Aojie and Zhang, Haiyue and Li, Jiate and Zhao, Yue},
   year   = {2026},
   note   = {arXiv:2604.05485, ACL 2026 KnowFM Workshop}
 }
