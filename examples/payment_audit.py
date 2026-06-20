@@ -92,6 +92,13 @@ def main():
         f"ledger balance restored to ${ledger.balance:,.0f}"
     )
 
+    # The quotable line: recovery, not just observability.
+    print(
+        f"\nObservability would only have flagged this. auditable re-decided on the live "
+        f"budget and reversed the payment: {outcome.executed}, balance restored to "
+        f"${ledger.balance:,.0f}."
+    )
+
 
 if __name__ == "__main__":
     main()

@@ -28,6 +28,12 @@ Most agent tools log what happened. They do not record what the agent relied on 
 pip install auditable
 ```
 
+Structural-risk analysis (`analyze_run` and the session graph) needs the optional graph extra:
+
+```bash
+pip install "auditable[graph]"
+```
+
 ## 60-Second Quickstart
 
 ```python
@@ -59,6 +65,23 @@ print("balance restored:", ledger.balance)            # 10000
 
 See [`examples/payment_audit.py`](examples/payment_audit.py) for the full demo that binds all three layers, and [`examples/standalone_report.py`](examples/standalone_report.py) for scoring a single layer on its own.
 
+## Rank a Run by Structural Risk
+
+Past the live decision, `analyze_run` reads a recorded agent run, builds one decision graph, and ranks every step by how much of the run transitively rests on it. On a tau-bench airline trajectory, the single reservation read that both later writes depend on is flagged as the keystone to review first.
+
+![auditable analyze_run ranks a recorded tau-bench run by structural blast share and names the keystone decision](assets/analyze_run.png)
+
+```python
+from auditable import analyze_run
+from auditable.graph.adapters import tau_bench_prior_db_reads_v1
+
+report = analyze_run(run, adapter=tau_bench_prior_db_reads_v1)
+k = report.keystone
+print(k.idx, k.node_attrs["tool"])   # 2  get_reservation_details
+```
+
+The score is a triage ranking, not a calibrated probability, and the write-to-read edges are modeled (a conservative upper bound, not a causal label). The trajectory is modeled on [tau-bench](https://github.com/sierra-research/tau-bench) (Sierra Research, MIT) and grounded in a survey of its 660 public runs. See [`examples/analyze_run.py`](examples/analyze_run.py) (needs the `graph` extra).
+
 ## How It Works
 
 One agent decision crosses three layers, and `auditable` binds all three in a single signed, hash-chained record:
@@ -79,10 +102,10 @@ The data, model, and harness signals live in one record, so a decision is judged
 |---|---|---|
 | **Harness (agent)** | signed record, replay, executed gate over a rail | dynamic rules layered on static rules |
 | **Data** | snapshot freshness | anomaly detection on the data a decision relied on, [PyOD](https://github.com/yzhao062/pyod) lineage (v0.2) |
-| **Model** | decision-basis trust flag | [TrustLLM](https://github.com/HowieHwong/TrustLLM) trust signals (v0.3) |
+| **Model** | decision-basis trust flag | model as a first-class graph node attribute, with deterministic decision-basis grounding (v0.3) |
 
 > [!IMPORTANT]
-> **v0.1 scope, stated honestly.** The full chain, replay under live state, and executed recovery through a rail-neutral gate ship today, with thin but real data and model signals bound into the record and two sinks (in-memory and append-only JSONL). The deep PyOD and TrustLLM methods, the calibrated cross-layer risk, and the data and model control faces are on the [roadmap](#roadmap). v0.1 does not yet claim a learned data-anomaly method or a model-trust score.
+> **Scope, stated honestly.** The full chain, replay under live state, and executed recovery through a rail-neutral gate ship today, with thin but real data and model signals bound into the record and two sinks (in-memory and append-only JSONL). The v0.3 offline session-graph analyzer (`analyze_run`) ships too, as an uncalibrated structural ranking signal over a recorded run. The deep PyOD and TrustLLM methods, the calibrated cross-layer risk, live scoring, and the data and model control faces are on the [roadmap](#roadmap). The release does not yet claim a learned data-anomaly method or a model-trust score.
 
 ## Using a Single Layer
 
@@ -102,7 +125,7 @@ The composition (capture, replay, recovery) is the main line; the standalone mod
 ## Roadmap
 
 - [ ] **v0.2 Data** a fitted anomaly score on the dependency state ([PyOD](https://github.com/yzhao062/pyod) backend), with freshness as a fallback
-- [ ] **v0.3 Model** TrustLLM trust signals, plus the first calibrated cross-layer risk once two real scores exist
+- [x] **v0.3 Graph (offline)** the unified session decision graph plus structural risk (`analyze_run`), model a first-class node attribute with decision-basis grounding (homogeneous for now); ships as an uncalibrated ranking signal, with live incremental scoring and calibration still ahead
 - [ ] **v0.4 Control** data refresh or quarantine, model fallback or sign-off
 - [ ] **v1.0** pluggable sinks (OpenTelemetry, LangSmith), exportable evidence bundles, a stable public API
 - [ ] Framework integrations (LangChain, LangGraph, CrewAI) and an MCP server

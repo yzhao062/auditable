@@ -34,6 +34,8 @@ from .chain import (
 from .data import DataAuditor
 from .model import ModelAuditor
 from .harness import ActionGate, GateOutcome, HarnessAuditor, Rail, ReferenceLedger
+from .analysis import AnalysisReport, analyze_run
+from .graph.adapters import Adapter
 
 __version__ = "0.0.1"
 
@@ -67,4 +69,8 @@ __all__ = [
     "DataAuditor",
     "ModelAuditor",
     "HarnessAuditor",
+    # v0.3 offline analysis: the unified session graph + structural risk, read here.
+    "analyze_run",
+    "AnalysisReport",
+    "Adapter",
 ]
