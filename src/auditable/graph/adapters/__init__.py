@@ -20,12 +20,18 @@ Adapters shipped this round:
   steps, execution edges from the ``prev_digest`` backbone and model attributes
   on each node, with sparse ``DECLARED`` dependency edges (no fabricated observed
   edges) until the v0.3b resource-touch contract lands.
+- :data:`declared_plan_v1` (declared plan, PRE): a framework-agnostic DECLARED
+  agent plan dict to steps, ``control_preds`` -> execution edges and declared
+  reads -> ``DECLARED`` dependency edges, the neutral target a LangGraph / CrewAI
+  / AutoGen front-end would lower into (see :mod:`auditable.graph.pre`). Not a
+  parser for any framework.
 """
 from __future__ import annotations
 
 from .protocol import Adapter
 from .own_record import OwnRecordAdapter, own_record_v1
 from .tau_bench import TauBenchPriorDBReadsAdapter, tau_bench_prior_db_reads_v1
+from .declared_plan import DeclaredPlanAdapter, declared_plan_v1
 
 __all__ = [
     "Adapter",
@@ -33,4 +39,6 @@ __all__ = [
     "tau_bench_prior_db_reads_v1",
     "OwnRecordAdapter",
     "own_record_v1",
+    "DeclaredPlanAdapter",
+    "declared_plan_v1",
 ]

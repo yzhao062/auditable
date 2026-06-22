@@ -127,6 +127,27 @@ def downstream_reach(G, step_idx: int) -> int:
     return len(nx.ancestors(dep, node))  # nodes with a depends_on path TO this one
 
 
+def execution_reach(G, step_idx: int) -> int:
+    """How many steps transitively FOLLOW ``step_idx`` in control flow -- the plan keystone.
+
+    Twin of :func:`downstream_reach`, but over the EXECUTION projection (``handoff_to``
+    edges) instead of ``depends_on``. In :meth:`SessionGraph.to_networkx`, ``handoff_to``
+    points predecessor -> successor, so the transitive followers of a node are its
+    DESCENDANTS in that projection (contrast :func:`downstream_reach`, where
+    ``depends_on`` points dependent -> dependency and the blast set is the ANCESTORS).
+    Returns 0 if the node is not in the graph.
+    """
+    if not _HAS_NX:
+        raise ImportError("auditable.graph requires the 'graph' extra: pip install auditable[graph]")
+    proj = nx.DiGraph()
+    proj.add_nodes_from(n for n, d in G.nodes(data=True) if d["ntype"] in ("decision", "tool_call"))
+    proj.add_edges_from(_edges_of(G, ("handoff_to",)))
+    node = f"step::{step_idx}"
+    if node not in proj:
+        return 0
+    return len(nx.descendants(proj, node))  # steps with a handoff_to path FROM this one
+
+
 # Layered structural features (flat / exec / dep), used by the failure-detection
 # study to show each layer adds signal beyond run size. Imported last so the
 # module-level names above are bound before features.py resolves them.

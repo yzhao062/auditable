@@ -5,8 +5,6 @@ Capture a signed record of each decision with the dependency state it relied on,
 it under the state that is live now, and route and execute a fix (allow, block,
 human-review, rollback). One decision binds a data, model, and harness report in a single
 record (the full chain).
-
-By Yue Zhao (creator of PyOD).
 """
 from .record import (
     Action,
@@ -37,7 +35,7 @@ from .harness import ActionGate, GateOutcome, HarnessAuditor, Rail, ReferenceLed
 from .analysis import AnalysisReport, analyze_run
 from .graph.adapters import Adapter
 
-__version__ = "0.0.1"
+__version__ = "0.1.0"
 
 __all__ = [
     "__version__",

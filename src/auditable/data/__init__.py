@@ -1,19 +1,13 @@
 """The data module: audit the dependency state a decision relied on.
 
-v0.2 deepens ``DataAuditor`` from the v0.1 freshness rule to a fitted anomaly score on
-the dependency state, on PyOD's fit-then-score pattern. Two modes:
+``DataAuditor`` ships a snapshot-freshness rule in v0.1: it scores the age of the
+dependency snapshot against a freshness budget and flags a stale snapshot. The mode is
+always made explicit in ``Report.evidence``, so the surfaced result is unambiguous.
 
-- **fitted:** a PyOD detector (ECOD by default) scores the dependency state against the
-  agent's learned-normal envelope; the score is the outlier probability in [0, 1].
-- **fallback:** when the detector is unfit or PyOD is absent, a freshness rule on the
-  snapshot age, with the mode made explicit in ``Report.evidence`` so the fallback is
-  never mistaken for the learned score.
-
-The contribution is the dependency-state contract (the feature schema, the
-categorical-rarity encoding, freshness as one feature, the normalized score, and the
-evidence), not the detector library. PyOD is the backend. The corpus is the agent's own
-operating envelope, accumulated from captured decisions; there is no pretrained
-cross-agent default, because dependency-state normality is deployment-specific.
+A fitted anomaly score on the dependency state is a forward-looking option (see the
+roadmap): when an envelope has been learned, the auditor can score a snapshot against it
+and fall back to the freshness rule otherwise. v0.1 surfaces the freshness rule; the
+fitted path is not claimed as a shipping v0.1 capability.
 """
 from __future__ import annotations
 
@@ -24,12 +18,12 @@ from typing import Any, Optional, Sequence
 
 from ..record import Auditor, DependencySnapshot, Report
 
-try:  # the learned path needs the optional 'anomaly' extra (pyod + numpy)
+try:  # the forward-looking fitted path needs pyod + numpy, installed separately
     import numpy as np
     from pyod.models.ecod import ECOD
 
     _HAS_PYOD = True
-except Exception:  # pragma: no cover - exercised only where the extra is absent
+except Exception:  # pragma: no cover - exercised only where pyod is absent
     _HAS_PYOD = False
 
 _SCHEMA_VERSION = "v0.2"
@@ -62,7 +56,7 @@ class DataAuditor(Auditor):
         max_age_seconds: float = 86400.0,
         detector: Any = None,
         schema: Optional[dict] = None,
-        name: str = "dependency-state-anomaly",
+        name: str = "snapshot-freshness",
     ):
         if max_age_seconds <= 0:
             raise ValueError("max_age_seconds must be positive.")
@@ -79,7 +73,7 @@ class DataAuditor(Auditor):
         """Learn the dependency-state envelope from a corpus of normal snapshots."""
         if not _HAS_PYOD:
             raise ImportError(
-                "DataAuditor.fit requires the 'anomaly' extra: pip install auditable[anomaly]"
+                "DataAuditor.fit requires pyod and numpy: pip install pyod"
             )
         if not snapshots:
             raise ValueError("fit needs at least one snapshot.")
@@ -110,8 +104,7 @@ class DataAuditor(Auditor):
                 return self._assess_freshness(
                     subject, now, reason_code=f"learned_error:{type(exc).__name__}"
                 )
-        reason_code = "unfit_detector" if _HAS_PYOD else "pyod_absent"
-        return self._assess_freshness(subject, now, reason_code=reason_code)
+        return self._assess_freshness(subject, now, reason_code="freshness_rule")
 
     # ---- learned mode -----------------------------------------------------------
     def _assess_learned(self, subject: DependencySnapshot, now: float) -> Report:

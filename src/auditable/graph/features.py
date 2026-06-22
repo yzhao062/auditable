@@ -10,18 +10,17 @@ Three nested feature groups, matching the two-layer view of the representation:
   - ``dep``: + dependency-layer structure from the ``depends_on`` DAG (how deep the
     chains run, the largest audit surface, the largest blast hub).
 
-A detector built on ``flat + exec + dep`` that beats one on ``flat`` or
-``flat + exec`` shows the typed structure carries signal beyond run size and
-isolates which layer contributes. The groups are nested so adjacent ablations
-compare strict feature prefixes.
+The groups are nested so callers can inspect strict feature prefixes
+(``flat``, ``flat + exec``, ``flat + exec + dep``) without changing the
+downstream schema.
 
 Honest caveat about the dependency group: it carries independent signal only where
 the dependency edges are OBSERVED and sparse (tool I/O, file reads). Where they are
 INFERRED under a full-context assumption (every step depends on every prior step),
 ``dep_depth`` and ``n_dep_edges`` are functions of ``n_steps`` and add nothing the
-flat group does not already have. The failure-detection study tests the observed
-case on two corpora; it does not test the inferred case at run level, because the
-available inferred-dependency corpus (Who&When) is failure-only.
+flat group does not already have. The dependency group is therefore meaningful only
+on the observed-and-sparse case; the structural scorer withholds a score (low
+coverage) when the dependency layer is mostly inferred or saturated.
 """
 from __future__ import annotations
 

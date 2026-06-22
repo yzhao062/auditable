@@ -1,16 +1,17 @@
-"""v0.3 offline analysis: rank an agent run by structural risk, name the keystone.
+"""POST pillar demo: rank a finished agent run, name the keystone.
 
-Point auditable at a recorded agent run and it builds one session decision graph,
-scores every step by how much of the rest of the run transitively rests on it (the
-keystone signal the graph-view study validated), and reports the riskiest decision
-to review first. No live agent, no API key, no network.
+auditable attaches at three points in an agent's lifecycle. This is the POST
+pillar: read a recorded run after it completes, build one typed session decision
+graph, score every step by how much of the rest of the run transitively rests on
+it, and report the riskiest decision to review first. The other two pillars are
+analyze_plan.py (PRE: lint a declared plan before deploy) and payment_audit.py
+(REAL-TIME: replay under live state and execute a fix). All three run over the
+same typed two-layer graph. No live agent, no API key, no network.
 
 The trajectory below is modeled on a tau-bench airline task (tau-bench: Sierra
-Research, MIT, github.com/sierra-research/tau-bench), and its shape is grounded in a
-survey of the 660 public tau-bench trajectories: 38% of runs issue two or more
-consequential writes that rest on prior reads, exactly the structure this example
-shows. The agent reads one reservation, then makes two consequential writes against
-it (rebook the flights, add a checked bag). Both writes rest on that single read, so
+Research, MIT, github.com/sierra-research/tau-bench). The agent reads one
+reservation, then makes two consequential writes against it (rebook the flights,
+add a checked bag). Both writes rest on that single read, so
 `get_reservation_details` is the structural keystone: a fault there propagates to
 both writes, which is why auditable ranks it first.
 

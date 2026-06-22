@@ -30,7 +30,7 @@ def test_unfitted_uses_freshness_fallback_mode():
         DependencySnapshot(state={"budget_remaining": 100}, captured_at=now - 10), now=now
     )
     assert rep.evidence["mode"] == "freshness_fallback"
-    assert rep.evidence["reason_code"] in ("unfit_detector", "pyod_absent")
+    assert rep.evidence["reason_code"] == "freshness_rule"
 
 
 def test_fit_then_learned_mode_scores_in_unit_range():

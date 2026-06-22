@@ -1,17 +1,16 @@
 """Structural risk over a SessionGraph: the cross-layer triage signal.
 
-Computes the paper's layered structural features over the typed SessionGraph
+Computes the layered structural features over the typed SessionGraph
 projection and maps the dependency-layer blast structure to a normalized triage
-risk per decision and per session. This is the honest combiner the v0.3 plan
-calls for: one structural score over the unified graph, not an outlier ensemble
-of three scalars. The score is a normalized ranking signal, not a calibrated
-probability; calibration waits for labeled data.
+risk per decision and per session. This is one structural score over the unified
+graph, not an outlier ensemble of three scalars. The score is a normalized
+ranking signal, not a calibrated probability; calibration waits for labeled data.
 
 The per-decision risk is a step's normalized transitive blast radius (the share
 of the rest of the session that, transitively, depends on it). A keystone
-decision that many later steps rest on scores high, because a fault there
-propagates widely; this is the keystone signal the failure-detection study
-validated. The per-session risk is the worst keystone's blast share.
+decision that many other steps rest on scores high, because a fault there
+propagates widely; this is the keystone signal. The per-session risk is the
+worst keystone's blast share.
 
 Two gates keep the score honest:
 

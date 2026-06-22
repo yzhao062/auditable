@@ -1,0 +1,77 @@
+site_name: auditable
+site_description: "Capture, replay, and audit AI agent decisions across the pre, runtime, and post lifecycle."
+site_url: https://auditable.readthedocs.io/
+site_author: Yue Zhao
+repo_url: https://github.com/yzhao062/auditable
+repo_name: yzhao062/auditable
+edit_uri: edit/main/docs/
+docs_dir: docs
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - toc.integrate
+    - content.code.copy
+    - content.action.edit
+    - search.highlight
+    - search.suggest
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_root_heading: true
+            show_source: false
+            heading_level: 2
+            members_order: source
+            docstring_section_style: list
+            separate_signature: true
+            filters: ["!^_", "!^fit$"]
+
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - Lifecycle: lifecycle.md
+  - PRE Rules: pre-rules.md
+  - REAL-TIME Replay: realtime-replay.md
+  - POST Analysis: post-analysis.md
+  - Architecture: architecture.md
+  - API Reference: api.md

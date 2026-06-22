@@ -3,8 +3,7 @@
 tau-bench is a tool-using agent acting against a backend database (retail /
 airline). The DB read and write events are in the trace, so the read/write
 structure is observed rather than inferred, and some calls are consequential
-writes (book / cancel / modify a reservation or order). This adapter mirrors the
-``to_steps`` logic in ``experiment/agent_graph_tau_bench.py`` but stays pure:
+writes (book / cancel / modify a reservation or order). This adapter stays pure:
 messages in, typed steps out, with no ``huggingface_hub`` and no file download.
 The dataset fetch stays out of core; an examples-only helper or the optional
 ``corpora`` extra owns it.

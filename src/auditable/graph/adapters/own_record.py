@@ -24,7 +24,7 @@ What it sets, and what it deliberately does not:
   record to its immediate predecessor, graded ``DECLARED`` with evidence saying so;
   with it cleared, the dependency layer is empty. Either way the dependency layer
   is not observed, and ``structural_risk`` reports the run as low coverage rather
-  than presenting this declared structure as a paper-validated signal.
+  than presenting this declared structure as a calibrated signal.
 
 Pure Python: it duck-types the record fields (``getattr``), so a real
 ``DecisionRecord``, a loaded record, and a lightweight stub all work, with no

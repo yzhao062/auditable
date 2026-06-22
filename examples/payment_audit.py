@@ -1,13 +1,21 @@
-"""Flagship demo: a payment agent that pays on a stale budget snapshot.
+"""REAL-TIME pillar demo: capture a decision, replay it under live state, recover.
+
+auditable attaches at three points in an agent's lifecycle. This is the REAL-TIME
+pillar: capture one consequential decision with the dependency state it relied on,
+replay it under the state that is live now, and route and execute a fix. The other
+two pillars are analyze_plan.py (PRE: lint a declared plan before deploy) and
+analyze_run.py (POST: rank a finished run). All three run over the same typed
+two-layer decision graph.
 
 The full chain in one record. An agent approves a $4,200 vendor payment. At decision time
 it read a budget snapshot captured six days earlier, under which the payment was in
-policy, and it commits the payment through a reference ledger (the money moves). auditable
-captures one signed record binding all three layers: a data report (snapshot freshness), a
-model report (decision-basis trust), and a harness report (a static cost cap). Six days
-later the live budget has dropped below the payment amount. replay() re-derives that the
-payment is no longer justified under the live state, and the gate EXECUTES a rollback
-through the ledger (the money moves back), rather than printing a verdict and stopping.
+policy, and it commits the payment through a reference ledger (a reference / demo rail,
+not a production payment rail; here the demo balance moves). auditable captures one signed
+record binding all three layers: a data report (snapshot freshness), a model report
+(decision-basis trust), and a harness report (a static cost cap). Six days later the live
+budget has dropped below the payment amount. replay() re-derives that the payment is no
+longer justified under the live state, and the gate EXECUTES a rollback through the ledger
+(the demo balance moves back), rather than printing a verdict and stopping.
 
 Run:  python examples/payment_audit.py
 """
@@ -51,7 +59,8 @@ def main():
     )
     action = Action("vendor_payment", {"recipient": "acme-supplies"}, cost=4200)
 
-    # A reference rail. The agent commits the payment through the gate; money moves.
+    # A reference / demo rail (not a production payment rail). The agent commits the
+    # payment through the gate; the demo balance is spent.
     ledger = ReferenceLedger(balance=10000)
     gate = ActionGate(ledger)
 
@@ -70,7 +79,7 @@ def main():
         )
     record = d.record
 
-    receipt = gate.commit(action)  # the agent actually pays
+    receipt = gate.commit(action)  # the agent commits the payment on the demo rail
     print(f"Captured decision {record.record_id[:12]} | model {record.model.model_id}")
     print(
         f"  data report:    {record.data.report.flag} "

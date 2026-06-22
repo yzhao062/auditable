@@ -21,5 +21,8 @@ env/
 .idea/
 .vscode/
 
+# MkDocs build output
+site/
+
 # experiment data cache
 experiment/.cache/

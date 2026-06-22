@@ -13,7 +13,7 @@ import auditable
 # The pinned public set. Add to it deliberately; never remove (additive-only).
 EXPECTED_PUBLIC = {
     "__version__",
-    # capture, replay, executed recovery (the moat)
+    # capture, replay, executed recovery
     "audit",
     "replay",
     "DecisionRecord",

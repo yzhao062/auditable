@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "auditable"
-version = "0.0.1"
+version = "0.1.0"
 description = "Capture, replay, and audit AI agent decisions. An open-source SDK for auditable AI agents."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -32,10 +32,9 @@ classifiers = [
 dependencies = []
 
 [project.optional-dependencies]
-anomaly = ["pyod>=1.1.0"]
 graph = ["networkx>=3.0"]
 langchain = ["langchain-core>=0.3.0"]
-dev = ["pytest>=7.0", "build>=1.0", "twine>=5.0"]
+dev = ["pytest>=7.0", "build>=1.0", "twine>=5.0", "pyod>=1.1.0"]
 
 [project.urls]
 Homepage = "https://github.com/yzhao062/auditable"
@@ -44,3 +43,16 @@ Issues = "https://github.com/yzhao062/auditable/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/auditable"]
+
+# sdist ships an explicit allow-list. Without this, hatchling's sdist default
+# bundles every VCS-tracked file, which would publish experiment/ (the private
+# moat scripts). Keep this a whitelist so a new tracked dir is excluded by default.
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/auditable",
+    "README.md",
+    "LICENSE",
+    "pyproject.toml",
+    "examples",
+    "tests",
+]

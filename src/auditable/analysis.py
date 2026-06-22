@@ -266,7 +266,7 @@ def _notes(
         notes.append(
             "structural risk is withheld: the dependency layer is too sparse, declared, or "
             "saturated to score (it would only restate run size). This is the honest no-score "
-            "gate, not a paper-validated structural signal."
+            "gate, not a calibrated structural signal."
         )
     elif state == STATE_SINGLE_DECISION:
         notes.append(
@@ -275,8 +275,8 @@ def _notes(
         )
     elif state == STATE_SCORED:
         notes.append(
-            "structural signal adopts the graph-view paper's construction (blast structure "
-            "over the dependency DAG); it is a ranking / triage signal, not calibrated."
+            "the structural signal is the dependency-DAG blast structure (how much of the "
+            "run transitively rests on a step); it is a ranking / triage signal, not calibrated."
         )
     if not grounding:
         notes.append(

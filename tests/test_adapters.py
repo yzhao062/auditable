@@ -273,7 +273,7 @@ def test_own_record_reports_low_coverage_not_scored():
     assert cov.by_grade[Grade.DECLARED] == 2
     assert cov.by_grade[Grade.OBSERVED] == 0
     assert cov.observed_fraction == 0.0
-    # the honesty contract: own records this round are not paper-validated structure
+    # the honesty contract: own records this round are not a calibrated structural signal
     assert structural_risk(g).state == STATE_LOW_COVERAGE
 
 
