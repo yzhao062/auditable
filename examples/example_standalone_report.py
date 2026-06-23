@@ -2,11 +2,11 @@
 
 Lower-level than the full-chain record. Here we score only the data a decision relied on,
 with no agent, no chain, and no replay. This is the data signal that feeds the data span
-of a full-chain record (the snapshot-freshness leaf in payment_audit.py's signed record).
-Each module is an input to the record, not the headline product; composition across the
-three lifecycle pillars is what leads.
+of a full-chain record (the snapshot-freshness leaf in example_payment_audit.py's signed
+record). Each module is an input to the record, not the headline product; composition
+across the three lifecycle pillars is what leads.
 
-Run:  python examples/standalone_report.py
+Run:  python examples/example_standalone_report.py
 """
 import time
 

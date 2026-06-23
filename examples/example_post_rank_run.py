@@ -1,12 +1,26 @@
 """POST pillar demo: rank a finished agent run, name the keystone.
 
+What this shows, in plain terms: given a run that already finished, auditable
+builds one typed decision graph over it, scores every step by how much of the
+rest of the run rests on it, and names the single step to review first (the
+keystone). This is the lifecycle pillar where the GRADE results live.
+
+GRADE relation (cite arXiv:2606.22741): the graph's two layers are what GRADE
+measures on a six-corpus benchmark. The dependency layer PREDICTS run failure
+(ROC-AUC 0.805 on SWE-Gym, +0.142 over the run-length baseline), and the
+execution layer LOCALIZES the faulting step (Top-3 0.614 on Who&When). IMPORTANT:
+those are GRADE full-corpus numbers, NOT outputs of this example. The trajectory
+below is a small illustrative tau-bench-style run; it prints a keystone ranking,
+not a benchmark score. The corpus-scale evaluation lives in GRADE.
+
 auditable attaches at three points in an agent's lifecycle. This is the POST
 pillar: read a recorded run after it completes, build one typed session decision
 graph, score every step by how much of the rest of the run transitively rests on
 it, and report the riskiest decision to review first. The other two pillars are
-analyze_plan.py (PRE: lint a declared plan before deploy) and payment_audit.py
-(LIVE: replay under live state and execute a fix). All three run over the
-same typed two-layer graph. No live agent, no API key, no network.
+example_pre_lint_plan.py (PRE: lint a declared plan before deploy) and
+example_live_replay.py (LIVE: replay under live state and execute a fix). All
+three run over the same typed two-layer graph. No live agent, no API key, no
+network.
 
 The trajectory below is modeled on a tau-bench airline task (tau-bench: Sierra
 Research, MIT, github.com/sierra-research/tau-bench). The agent reads one
@@ -19,7 +33,7 @@ Honesty holds in the output: the read/write events are observed, but the
 write-to-prior-read edges are MODELED (a conservative upper bound, not a causal
 label), and the score is a triage ranking, not a calibrated probability.
 
-Run:  python examples/analyze_run.py
+Run:  python examples/example_post_rank_run.py
 """
 from auditable import analyze_run
 from auditable.graph.adapters import tau_bench_prior_db_reads_v1

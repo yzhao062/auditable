@@ -3,9 +3,9 @@
 auditable attaches at three points in an agent's lifecycle. This is the LIVE
 pillar: capture one consequential decision with the dependency state it relied on,
 replay it under the state that is live now, and route and execute a fix. The other
-two pillars are analyze_plan.py (PRE: lint a declared plan before deploy) and
-analyze_run.py (POST: rank a finished run). All three run over the same typed
-two-layer decision graph.
+two pillars are example_pre_lint_plan.py (PRE: lint a declared plan before deploy)
+and example_post_rank_run.py (POST: rank a finished run). All three run over the
+same typed two-layer decision graph.
 
 The full chain in one record. An agent approves a $4,200 vendor payment. At decision time
 it read a budget snapshot captured six days earlier, under which the payment was in
@@ -17,7 +17,7 @@ budget has dropped below the payment amount. replay() re-derives that the paymen
 longer justified under the live state, and the gate EXECUTES a rollback through the ledger
 (the demo balance moves back), rather than printing a verdict and stopping.
 
-Run:  python examples/payment_audit.py
+Run:  python examples/example_payment_audit.py
 """
 import time
 

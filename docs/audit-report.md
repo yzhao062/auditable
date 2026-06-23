@@ -14,7 +14,7 @@ report.to_markdown("audit.md")   # agent-facing: lean, structured, parseable
 report.to_pdf("audit.pdf")       # human-facing: charts and layout
 ```
 
-Every pillar is optional, so `AuditReport.from_pre(pre)` or `AuditReport.from_analysis(post)` renders a single-pillar report. The agent-facing Markdown carries stable section anchors (`## Verdict`, `## Keystone`, `## Findings`, `## Recommended Actions`, `## Coverage`) plus a fenced JSON block, so a loop can split and act on it. See [`examples/audit_report.py`](https://github.com/yzhao062/auditable/blob/main/examples/audit_report.py) for the full run.
+Every pillar is optional, so `AuditReport.from_pre(pre)` or `AuditReport.from_analysis(post)` renders a single-pillar report. The agent-facing Markdown carries stable section anchors (`## Verdict`, `## Keystone`, `## Findings`, `## Recommended Actions`, `## Coverage`) plus a fenced JSON block, so a loop can split and act on it. See [`examples/example_audit_report.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_audit_report.py) for the full run.
 
 The PDF visuals (the blast-share ranking with the keystone highlighted, the preflight coverage, the two-layer graph, and the budget drift) ship in the optional report extra. The Markdown path has no heavy dependency.
 

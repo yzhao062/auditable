@@ -1,5 +1,5 @@
 site_name: auditable
-site_description: "Capture, replay, and audit AI agent decisions across the pre, runtime, and post lifecycle."
+site_description: "Audit any agent decision across its past, present, and future, on one typed graph. The graph carries PRE, LIVE, and POST."
 site_url: https://auditable-ai.readthedocs.io/
 site_author: Yue Zhao
 repo_url: https://github.com/yzhao062/auditable
@@ -28,7 +28,6 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.top
-    - toc.integrate
     - content.code.copy
     - content.action.edit
     - search.highlight
@@ -44,6 +43,7 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+      toc_depth: 3
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
@@ -74,16 +74,15 @@ nav:
   - Home: index.md
   - Lifecycle: lifecycle.md
   - Quickstart: quickstart.md
-  - PRE:
-      - Overview: pre-rules.md
-      - Coverage: pre-coverage.md
-      - Examples: pre-examples.md
-  - LIVE:
-      - Overview: realtime-replay.md
-      - Examples: realtime-examples.md
-  - POST:
-      - Overview: post-analysis.md
-      - Examples: post-examples.md
-  - Audit Report: audit-report.md
-  - Architecture: architecture.md
-  - API Reference: api.md
+  - PRE: pre-rules.md
+  - LIVE: realtime-replay.md
+  - POST: post-analysis.md
+  - Examples:
+      - PRE Examples: pre-examples.md
+      - LIVE Examples: realtime-examples.md
+      - POST Examples: post-examples.md
+  - Reference:
+      - PRE Coverage: pre-coverage.md
+      - Audit Report: audit-report.md
+      - Architecture: architecture.md
+      - API Reference: api.md

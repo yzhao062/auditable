@@ -1,10 +1,21 @@
 """PRE pillar demo: lint a DECLARED agent plan before any step runs.
 
+What this shows, in plain terms: given a plan an agent intends to run, auditable
+points at the design-time risks (a write nothing read first, a volatile read
+feeding a decision, scope wider than the snapshot) before any step executes. It
+is a read-only, design-time capability demo and carries NO benchmark percentage.
+GRADE relation: PRE operates on the SAME typed two-layer decision graph that
+GRADE (arXiv:2606.22741) measures, but the GRADE ROC-AUC / localization numbers
+are scored on FINISHED runs and surface at POST (example_post_rank_run.py); a
+declared-only plan has no observed dependency reads to score, so none of those
+numbers attach here. PRE's job is structural lints and a coverage-readiness view,
+not a score.
+
 auditable attaches at three points in an agent's lifecycle. This is the PRE
 pillar: design-time, read-only lints over a DECLARED plan, before a single step
-executes. The other two pillars are payment_audit.py (LIVE: replay under
-live state and execute a fix) and analyze_run.py (POST: rank a finished run).
-All three run over the same typed two-layer decision graph.
+executes. The other two pillars are example_live_replay.py (LIVE: replay under
+live state and execute a fix) and example_post_rank_run.py (POST: rank a finished
+run). All three run over the same typed two-layer decision graph.
 
 The plan below is a small payment approver, written as a framework-agnostic
 declared plan dict (the neutral target a LangGraph, CrewAI, or AutoGen front-end
@@ -21,7 +32,7 @@ From that one plan, analyze_plan reports four things and withholds a fifth:
   1. the execution-topology keystone, the structural chokepoint the most other
      steps transitively follow in control flow (step 0 here). This is a
      STRUCTURAL design lint, not a failure predictor, and it is a different
-     concept from the POST blast-radius keystone in analyze_run.py.
+     concept from the POST blast-radius keystone in example_post_rank_run.py.
   2. the four reachability lints, all pure read-only NetworkX queries over the
      declared graph at severity 'warning':
        - write_with_no_prior_read   (steps 0 and 2 write a resource their
@@ -50,7 +61,7 @@ A note on scope. The OWASP-Agentic / CWE table-stakes rule floor for PRE is
 planned, not shipping; nothing in this example runs an OWASP or CWE check today.
 
 Needs the graph extra:  pip install "auditable[graph]"
-Run:  python examples/analyze_plan.py
+Run:  python examples/example_pre_lint_plan.py
 """
 from auditable.graph.adapters import declared_plan_v1
 from auditable.graph.pre import analyze_plan
@@ -113,7 +124,7 @@ def main():
 
     # The execution keystone, read off the report. It is the structural chokepoint
     # of the declared plan (argmax of execution_reach over the control-flow
-    # projection), distinct from the POST blast-radius keystone in analyze_run.py.
+    # projection), distinct from the POST blast-radius keystone in example_post_rank_run.py.
     if report.keystone_idx is not None:
         print(
             f"\nExecution keystone: step {report.keystone_idx} "

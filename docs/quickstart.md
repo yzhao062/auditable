@@ -18,7 +18,7 @@ The `graph` extra is required by `analyze_plan` (PRE), `analyze_run` (POST), and
 
 ## LIVE: Replay Under Live State, Then Recover
 
-This is the sharpest demo. An agent approves a payment against a budget snapshot, the budget moves, and `replay` re-derives that the payment no longer holds, so the gate reverses it through a reference rail. The full runnable script is [`examples/payment_audit.py`](https://github.com/yzhao062/auditable/blob/main/examples/payment_audit.py).
+This is the sharpest demo. An agent approves a payment against a budget snapshot, the budget moves, and `replay` re-derives that the payment no longer holds, so the gate reverses it through a reference rail. The full runnable script is [`examples/example_payment_audit.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_payment_audit.py).
 
 ```python
 import time
@@ -66,7 +66,7 @@ print(verdict.action.value, "->", outcome.executed)  # rollback -> rolled_back
 
 ## PRE: Lint the Plan Before Deploy
 
-PRE runs read-only lints over a declared plan before any step executes. The entry is `analyze_plan`, imported from `auditable.graph.pre` (it is not a top-level `auditable` export). This needs the `graph` extra. The full runnable script is [`examples/analyze_plan.py`](https://github.com/yzhao062/auditable/blob/main/examples/analyze_plan.py).
+PRE runs read-only lints over a declared plan before any step executes. The entry is `analyze_plan`, imported from `auditable.graph.pre` (it is not a top-level `auditable` export). This needs the `graph` extra. The full runnable script is [`examples/example_pre_lint_plan.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_pre_lint_plan.py).
 
 ```python
 from auditable.graph.pre import analyze_plan
@@ -100,7 +100,7 @@ The rendered report shows the four lints firing, the execution-topology keystone
 
 ## POST: Rank a Finished Run, Find the Keystone
 
-POST reads a recorded run and ranks every step by structural blast share. The entry is `analyze_run`, a top-level export, and it also needs the `graph` extra. The full runnable script is [`examples/analyze_run.py`](https://github.com/yzhao062/auditable/blob/main/examples/analyze_run.py).
+POST reads a recorded run and ranks every step by structural blast share. The entry is `analyze_run`, a top-level export, and it also needs the `graph` extra. The full runnable script is [`examples/example_post_rank_run.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_post_rank_run.py).
 
 ```python
 from auditable import analyze_run
@@ -183,17 +183,17 @@ The blast-share scores are within-run structural fractions (how much of this one
 
 ## End-to-End: One Payment Across All Three Pillars
 
-The snippets above show one pillar each. [`examples/end_to_end.py`](https://github.com/yzhao062/auditable/blob/main/examples/end_to_end.py) carries a single vendor payment through PRE, then LIVE, then POST on one dataset and one state, and closes by printing the aggregate audit report through `AuditReport.to_markdown`. Run it with one command:
+The snippets above show one pillar each. [`examples/example_end_to_end.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_end_to_end.py) carries a single vendor payment through PRE, then LIVE, then POST on one dataset and one state, and closes by printing the aggregate audit report through `AuditReport.to_markdown`. Run it with one command:
 
 ```bash
-python examples/end_to_end.py
+python examples/example_end_to_end.py
 ```
 
 The amount is one real value sampled from the ULB credit-card dataset; the only constructed dimension is a temporal budget drift (the snapshot budget covers the payment, the live budget has since dropped below it). See [Lifecycle](lifecycle.md#one-payment-across-all-three) for the narrative.
 
 ## Using a Single Layer
 
-Each span auditor is usable on its own, with no agent and no chain. The data auditor scores a dependency snapshot and returns a signed `Report`. The full runnable script is [`examples/standalone_report.py`](https://github.com/yzhao062/auditable/blob/main/examples/standalone_report.py).
+Each span auditor is usable on its own, with no agent and no chain. The data auditor scores a dependency snapshot and returns a signed `Report`. The full runnable script is [`examples/example_standalone_report.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_standalone_report.py).
 
 ```python
 import time

@@ -35,7 +35,7 @@ reads, which lands a single-record chain in a no-score state. The report renders
 that as "withheld", never as a zero. The agent Markdown's Coverage line carries the
 exact no-score reason so an agent never reads a withheld score as zero risk.
 
-Run:  python examples/audit_report.py
+Run:  python examples/example_audit_report.py
 """
 import csv
 import os

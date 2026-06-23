@@ -1,8 +1,41 @@
-# POST: Run Analysis Reference
+# POST: Rank a Finished Run, Find the Keystone
 
-The POST pillar reads a finished agent run, builds one typed session graph, scores every step by how much of the rest of the run transitively rests on it, names the keystone, and returns a ranked report. This page is the reference for `analyze_run`, the `AnalysisReport` it returns, the no-score gates, and the caveats that travel with the score. POST needs the `graph` extra (NetworkX).
+POST reads a run after it finished and tells you which step to review first. It scores every step by how much of the rest of the run leans on it, then names the keystone: the one step that, if it went wrong, would have dragged the most of the run with it. When you have a failed run and a hundred steps, POST points at the step worth opening first.
 
-## `analyze_run`
+You hand `analyze_run` a finished run and read the keystone off the report:
+
+```python
+from auditable import analyze_run
+from auditable.graph.adapters import tau_bench_prior_db_reads_v1
+
+report = analyze_run(run, adapter=tau_bench_prior_db_reads_v1)
+print(report.keystone.idx)   # the step the rest of the run rests on
+```
+
+The full runnable script is [`examples/example_post_rank_run.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_post_rank_run.py); run it with `python examples/example_post_rank_run.py` (needs the `graph` extra). The [POST Examples](post-examples.md) page walks the output.
+
+The per-run score POST prints is a within-run ranking, not a benchmark number. The published benchmark evidence that the two graph layers carry real signal lives in GRADE, summarized next.
+
+## What the Graph Layers Predict (GRADE Evidence)
+
+The POST ranking reads the typed two-layer graph: a dependency layer (what each step relied on) over an execution layer (control flow). GRADE ([arXiv:2606.22741](https://arxiv.org/abs/2606.22741)) measures each layer against labeled agent runs across six public corpora: tau-bench and tau2-bench (tool use); SWE-agent, SWE-Gym, and OpenHands (coding); and AgentRewardBench (web).
+
+- **The dependency layer predicts whether a run will fail.** On SWE-Gym it reaches ROC-AUC 0.805, +0.142 over the run-length baseline (0.663), with reliable lift on the three size-weak corpora (5 of 5 seeds). Under a leave-one-corpus-out transfer test, the dependency signal stays 0.551 to 0.662 above chance on all six corpora, while the run-length baseline inverts below 0.5 (0.468 on tau-bench, 0.350 on SWE-Gym).
+- **The execution layer ranks steps toward the faulting step.** On Who&When (126 failed runs), ranking by execution structure reaches Top-3 0.614, MRR 0.454, and Top-1 0.211, against a position prior at 0.516 / 0.407 / 0.159 and a random floor at 0.346 / 0.324 / 0.119.
+
+![Leave-one-corpus-out transfer ROC-AUC: the size-normalized dependency signal clears chance on all six held-out agent corpora, while run size drops below chance on tau-bench and SWE-Gym](assets/grade-transfer.png)
+
+![Step-level fault localization on Who and When: ranking steps by execution-graph structure beats an early-fault position prior on top-1, top-3, and MRR](assets/grade-localization.png)
+
+These are GRADE's published benchmark results for the two layers. The POST per-run keystone signal below is the same structure applied to a single run, surfaced as an uncalibrated triage ranking rather than a calibrated probability.
+
+The rest of this page is the reference for `analyze_run`, the `AnalysisReport` it returns, the no-score gates, and the caveats that travel with the score.
+
+## Reference
+
+POST needs the `graph` extra (NetworkX).
+
+### `analyze_run`
 
 ```python
 from auditable import analyze_run
@@ -14,19 +47,19 @@ print(report)
 
 `analyze_run(source, *, adapter, ground=True)` is a top-level export. The `source` is whatever the adapter consumes (a public-corpus trajectory, or a chain of `auditable`'s own signed records). The `adapter` is any object satisfying the `Adapter` protocol. The call maps the source to typed steps, builds the `SessionGraph`, scores it structurally, grounds each step that states a model basis, and returns an `AnalysisReport`. Set `ground=False` to skip the (cheap, deterministic) grounding pass. See [Architecture](architecture.md) for the adapters and the typed graph.
 
-## The Ranked Structural Signal
+### The Ranked Structural Signal
 
 The per-step score is the normalized transitive blast share: of the rest of the run, how much transitively depends on this step. It is computed as `downstream_reach` over the dependency DAG, normalized by the number of other steps. A step that many later steps rest on scores high, because a fault there would propagate widely. This is the keystone signal.
 
 The score is an uncalibrated triage ranking, not a calibrated probability. It orders steps so the one most worth reviewing first comes first; it does not assert a likelihood that any step is wrong. Calibration would require labeled data and is not claimed here.
 
-## The Keystone
+### The Keystone
 
 The keystone is the worst-blast step: the one that the most of the run transitively rests on. It is surfaced as `AnalysisReport.keystone` (a `DecisionRisk` row) with `per_session` carrying its blast share (the run-level risk). The report's rendered summary names it directly, for example "two consequential writes rest on this one read, so it ranks first to review."
 
 The POST keystone is computed over the dependency DAG and is a distinct concept from the PRE execution keystone, which is a structural control-flow chokepoint over the `handoff_to` projection (see [PRE Rules](pre-rules.md)). The two are named separately in the code and must not be conflated.
 
-## Reading the `AnalysisReport`
+### Reading the `AnalysisReport`
 
 The report carries the fields you read:
 
@@ -44,7 +77,7 @@ The report carries the fields you read:
 
 Each `DecisionRisk` row carries the step's `idx`, `kind` (`decision` or `tool_call`), `agent`, `score` (or `None`), a short `label`, the typed `node_attrs`, and the `grounding` for that step when it states a checkable model basis. A corpus tool step states no model basis, so its grounding is `None` rather than a false zero; grounding lights up on records that carry a `decision_basis`, such as `auditable`'s own runs.
 
-## The No-Score Gates
+### The No-Score Gates
 
 Two gates keep the score honest, and in both the scores are `None` rather than zero, so a withheld score never reads as no risk.
 
@@ -52,7 +85,7 @@ Two gates keep the score honest, and in both the scores are `None` rather than z
 
 `no_score:low_coverage` fires when the dependency layer is too sparse, too inferred, or too saturated to score. When the observed fraction is below the threshold, or `rho` is near 1 (the full-history regime where dependency structure becomes a function of run size and adds nothing beyond the step count), the report withholds the score rather than present run size as risk. An empty dependency layer is low coverage by the same rule.
 
-## The Caveats That Travel With the Score
+### The Caveats That Travel With the Score
 
 The report's own `notes` carry the honesty caveats, and they should be stated wherever the POST keystone is shown:
 

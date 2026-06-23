@@ -142,6 +142,15 @@ text(4.0, 36.4, "execution layer", color=TEAL, size=10.5, weight="bold",
      ha="left", style="italic")
 text(4.0, 33.6, "read from the trace", color=MUTE, size=8.5, ha="left")
 
+# muted GRADE result tag under each layer (left-margin empty space; the two
+# value lines wrap to stay left of the node row and the pillar stems)
+text(4.0, 44.5, "predicts run failure:\nROC-AUC 0.805", color=MUTE, size=8,
+     ha="left", va="top", spacing=1.25)
+text(4.0, 41.0, "(GRADE)", color=FAINT, size=8, ha="left", va="top")
+text(4.0, 30.6, "localizes faulting step:\nTop-3 0.614", color=MUTE, size=8,
+     ha="left", va="top", spacing=1.25)
+text(4.0, 27.1, "(GRADE)", color=FAINT, size=8, ha="left", va="top")
+
 # graph label, centered above the dependency arc fan
 text(60, 61.6, "The Typed Two-Layer Decision Graph", color=INK, size=13.0,
      weight="bold")

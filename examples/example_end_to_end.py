@@ -1,9 +1,9 @@
 """End-to-end: one payment, walked through the whole agent lifecycle.
 
 auditable attaches at three points in an agent's lifecycle. The other examples
-demo one pillar each (analyze_plan.py = PRE, payment_audit.py = LIVE,
-analyze_run.py = POST). This one hands a SINGLE payment down all three, so the
-pillars share one narrative and one dataset:
+demo one pillar each (example_pre_lint_plan.py = PRE, example_payment_audit.py =
+LIVE, example_post_rank_run.py = POST). This one hands a SINGLE payment down all
+three, so the pillars share one narrative and one dataset:
 
   PRE        lint the declared payment-approver plan before any step runs.
   LIVE  capture the approver's decision, replay it under a drifted live
@@ -21,10 +21,10 @@ than a calibrated keystone, because the own-record adapter declares its
 dependency edges instead of fabricating observed reads (the runtime resource-touch
 contract that would upgrade them is planned, not shipping). Grounding still lights
 up on the own record, because it carries a stated decision basis. The corpus path
-(analyze_run.py) is where a SCORED POST keystone shows today.
+(example_post_rank_run.py) is where a SCORED POST keystone shows today.
 
 Needs the graph extra:  pip install "auditable[graph]"
-Run:  python examples/end_to_end.py
+Run:  python examples/example_end_to_end.py
 """
 import csv
 import os

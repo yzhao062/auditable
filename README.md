@@ -2,26 +2,50 @@
 
 # auditable
 
-**Capture, replay, and audit AI agent decisions.**
+**Audit any agent decision across its past, present, and future, on one typed graph.**
+
+*Your logs show what the agent did. `auditable` shows what it relied on, replays it under live state, and rolls it back when it no longer holds.*
 
 [![PyPI](https://img.shields.io/pypi/v/auditable.svg)](https://pypi.org/project/auditable/)
 [![Python](https://img.shields.io/pypi/pyversions/auditable.svg)](https://pypi.org/project/auditable/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/yzhao062/auditable.svg?style=social)](https://github.com/yzhao062/auditable)
 
-[Novelties](#three-novelties) · [Flagship Demo](#the-flagship-moment) · [Lifecycle](#the-lifecycle) · [Install](#install) · [Roadmap](#roadmap)
+[Compare](#auditable-vs-the-tools-you-already-use) · [Flagship Demo](#the-flagship-moment) · [Lifecycle](#the-lifecycle) · [Install](#install) · [Docs](https://auditable-ai.readthedocs.io/) · [Roadmap](#roadmap)
+
+![One typed two-layer decision graph at the center, read by three lifecycle attach points: PRE lints a declared plan before deploy, LIVE replays and recovers while the agent runs, and POST ranks a finished run](https://raw.githubusercontent.com/yzhao062/auditable/main/assets/lifecycle.png)
 
 </div>
 
+### auditable vs. the Tools You Already Use
+
+| Capability | **auditable** | Tracing and Observability<br><sub>[LangSmith](#ref-1), [Langfuse](#ref-2), [Phoenix](#ref-3)</sub> | Eval Harnesses<br><sub>[DeepEval](#ref-5), [Ragas](#ref-6), [promptfoo](#ref-7)</sub> | Guardrails<br><sub>[NeMo](#ref-9), [Guardrails AI](#ref-10), [Lakera](#ref-11)</sub> |
+|---|:---:|:---:|:---:|:---:|
+| Captures the dependency state a decision relied on | ✅ | 🟡 | ❌ | ❌ |
+| Re-decides under live state (replay) | ✅ | 🟡 | ❌ | ❌ |
+| Reverses a committed action (rollback) | ✅ | ❌ | ❌ | ❌ |
+| One graph across plan, run, and review | ✅ | 🟡 | ❌ | ❌ |
+| Framework-agnostic, dependency-free core | ✅ | 🟡 | 🟡 | 🟡 |
+
+<sub>✅ yes · 🟡 partial · ❌ no, per each tool's public docs (2026). These categories are complementary to `auditable`, not competitors: tracing captures execution, evals score quality, guardrails block at runtime. `auditable` is the audit-and-recovery layer that plugs into them. See [References](#references).</sub>
+
+**`auditable` is the only column with the full set.** What makes it new:
+
+- **A unified graph representation for agentic AI.** Every agent run becomes one typed graph that PRE, LIVE, and POST all read. One representation from plan to live operation to review, instead of three disconnected tools.
+- **Recover, do not just observe.** `auditable` captures the dependency state a decision relied on, replays it under the state that is live now, and reverses the committed action through a compensating rail when it no longer holds. Logging tells you what broke; `auditable` undoes it.
+- **One decision, three spans, judged together.** Data, model, and harness are bound in a single signed, hash-chained record, so a decision is audited as one unit, not three disconnected logs.
+
+### Proven on Public Agent Benchmarks
+
+The graph is not just structure. Across six public agent corpora (GRADE, [arXiv:2606.22741](https://arxiv.org/abs/2606.22741)), the dependency layer predicts which runs fail at **ROC-AUC 0.805** where run length carries no signal, and the execution layer localizes the faulting step at **Top-3 0.614**. See [the benchmark detail](docs/post-analysis.md) for the full numbers and corpora.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/yzhao062/auditable/main/assets/grade-transfer.png" alt="Leave-one-corpus-out transfer ROC-AUC: the size-normalized dependency signal clears chance on all six held-out agent corpora, while run size drops below chance on tau-bench and SWE-Gym" width="49%">
+  <img src="https://raw.githubusercontent.com/yzhao062/auditable/main/assets/grade-localization.png" alt="Step-level fault localization on Who and When: ranking steps by execution-graph structure beats an early-fault position prior on top-1, top-3, and MRR" width="49%">
+</p>
+<p align="center"><sub>Figures from GRADE (<a href="https://arxiv.org/abs/2606.22741">arXiv:2606.22741</a>).</sub></p>
+
 Agents act on dependency state that quietly drifts. A budget read minutes ago can fall below the amount already committed; a price pinned at plan time can move before the action lands. Most tools log what happened, yet they cannot re-decide under the state that is live now, so a stale decision stands until a human notices. `auditable` closes that recovery gap across the lifecycle on one graph: it captures the decision, replays it against live state, and reverses the committed action when it no longer holds.
-
-## Three Novelties
-
-**The full lifecycle chain.** One graph kernel carries the analysis from design to live operation to review. PRE lints a declared plan, LIVE captures and recovers a live decision, POST ranks a finished run. `examples/end_to_end.py` walks a single payment through all three on one dataset and one state.
-
-**The graph model.** Every pillar reads the same typed two-layer decision graph: an execution layer (control flow, observed from the trace) over a dependency layer (what each step relied on, declared or inferred, never read off the trace). The two-layer model is introduced in GRADE ([arXiv:2606.22741](https://arxiv.org/abs/2606.22741)).
-
-**The orthogonal decomposition.** One agent decision crosses three spans: data (what it read and the snapshot it relied on), model (which model produced the output and its stated basis), and harness (the action executed and its cost). `auditable` binds all three in a single signed, hash-chained record, so a decision is judged as a unit.
 
 ## The Flagship Moment
 
@@ -29,44 +53,29 @@ One payment, walked through the whole lifecycle in 18 `auditable` calls. The age
 
 ```bash
 pip install "auditable[graph]"
-python examples/end_to_end.py
+python examples/example_end_to_end.py
 ```
 
 The run prints a single audit report: a REVIEW verdict, the keystone with its coverage reason, six findings with severity tags and recommended actions, and the LIVE recovery that rolled the payment back. Paste it into a pull request or an issue.
 
 ![Audit report page for a payment-approver run. A REVIEW verdict banner sits above a roll-up of zero blocks, one rollback, and five PRE lints. Sections below list the keystone decision with its coverage reason, six numbered findings each carrying a severity tag and a recommended action, and a LIVE recovery tally showing the rolled-back payment record.](https://raw.githubusercontent.com/yzhao062/auditable/main/assets/audit-report-sample.png)
 
-The shortest taste is LIVE on its own. Capture a decision, replay it under the live state, reverse the action when it no longer holds:
+## Examples and Integrations
 
-```python
-from auditable import Action, ActionGate, DependencySnapshot, ReferenceLedger, audit, replay
+Point `auditable` at a scenario and it builds the same typed graph. Each row links a runnable example; browse them all in [`examples/README.md`](examples/README.md).
 
-def policy(state, action):
-    ok = action.cost <= state["budget"]
-    return ok, "within budget" if ok else "over budget"
+| Scenario | Pillar | Builds the graph from | Run |
+|---|---|---|---|
+| Lint a declared plan before deploy | PRE | a framework-agnostic plan dict (`declared_plan_v1`) | [`example_pre_lint_plan.py`](examples/example_pre_lint_plan.py) |
+| Recover a payment as the budget drifts | LIVE | a decision captured live (`audit` + `replay`) | [`example_live_replay.py`](examples/example_live_replay.py) |
+| Rank a tau-bench run, name the keystone | POST | a tau-bench trajectory (`tau_bench_prior_db_reads_v1`) | [`example_post_rank_run.py`](examples/example_post_rank_run.py) |
+| Walk one payment through every pillar | PRE, LIVE, POST | the full lifecycle (`own_record_v1` for POST) | [`example_end_to_end.py`](examples/example_end_to_end.py) |
 
-ledger = ReferenceLedger(balance=10_000)
-gate = ActionGate(ledger)
-payment = Action("payment", {"to": "acme"}, cost=4_200)
-
-# The agent pays $4,200 against a budget snapshot that read $10,000.
-with audit("payment", snapshot=DependencySnapshot(state={"budget": 10_000})) as decision:
-    decision.act(payment)
-receipt = gate.commit(payment)                       # paid; balance is now 5,800
-
-# The live budget is now $3,000. Replay re-decides; the gate reverses the payment.
-verdict = replay(decision.record, live_state={"budget": 3_000}, policy=policy)
-gate.enforce_post_commit(verdict, receipt=receipt)
-print(verdict.action.value, "->", ledger.balance)   # rollback -> 10000
-```
-
-`replay` is pure: it deep-copies the live state and the action, so a policy can never alter the signed record.
+**Roadmap adapters:** LangChain, LangGraph, CrewAI, MCP, and OpenTelemetry.
 
 ## The Lifecycle
 
 `auditable` runs the same detection-and-report pass over one typed decision graph at three points in an agent's life. The graph kernel stays constant; only the pillar changes (when it fires, what it scores).
-
-![One typed two-layer decision graph at the center, read by three lifecycle attach points: PRE lints a declared plan before deploy, LIVE replays and recovers while the agent runs, and POST ranks a finished run](https://raw.githubusercontent.com/yzhao062/auditable/main/assets/lifecycle.png)
 
 | Pillar | When It Fires | Public Entry | Focus |
 |---|---|---|---|
@@ -86,7 +95,9 @@ The core is dependency-free and torch-free. Structural-graph analysis (`analyze_
 pip install "auditable[graph]"
 ```
 
-The LIVE snippet above runs on the core install alone.
+The LIVE example runs on the core install alone.
+
+Docs: https://auditable-ai.readthedocs.io/
 
 ## The Three Pillars, in Detail
 
@@ -136,7 +147,7 @@ Alongside the lints, the **Preflight Coverage Report** is a descriptive coverage
 
 Two boundaries, stated plainly. Dependency-state blast-share risk is **withheld** at PRE: the declared dependency layer is declared-only (observed fraction zero), so `analyze_plan` returns `state_b_risk=None` with `state_b_withheld=True` and a reason string, and it raises rather than emit a number if a scored verdict ever came back. A table-stakes OWASP-Agentic and CWE rule floor is **planned**, not shipping.
 
-See [`examples/analyze_plan.py`](examples/analyze_plan.py) and the [PRE rules reference](docs/pre-rules.md).
+See [`examples/example_pre_lint_plan.py`](examples/example_pre_lint_plan.py) and the [PRE rules reference](docs/pre-rules.md).
 
 </details>
 
@@ -156,7 +167,7 @@ k = report.keystone
 print(k.idx, k.node_attrs["tool"])   # 2  get_reservation_details
 ```
 
-The score is an uncalibrated triage ranking, not a calibrated probability. In a no-score state (`no_score:single_decision`, `no_score:low_coverage`) the scores are `None`, so a withheld score never reads as zero risk. The corpus write-to-read edges are modeled (a conservative prior-read upper bound, not a causal label); the report carries these caveats in `report.notes`. The trajectory is modeled on [tau-bench](https://github.com/sierra-research/tau-bench) (Sierra Research, MIT). See [`examples/analyze_run.py`](examples/analyze_run.py) and the [POST analysis reference](docs/post-analysis.md).
+The score is an uncalibrated triage ranking, not a calibrated probability. In a no-score state (`no_score:single_decision`, `no_score:low_coverage`) the scores are `None`, so a withheld score never reads as zero risk. The corpus write-to-read edges are modeled (a conservative prior-read upper bound, not a causal label); the report carries these caveats in `report.notes`. The trajectory is modeled on [tau-bench](https://github.com/sierra-research/tau-bench) (Sierra Research, MIT). See [`examples/example_post_rank_run.py`](examples/example_post_rank_run.py) and the [POST analysis reference](docs/post-analysis.md).
 
 </details>
 
@@ -201,7 +212,7 @@ report = DataAuditor(max_age_seconds=86400).assess(snapshot)
 print(report.flag, report.score)   # stale 1.0
 ```
 
-These standalone auditors are inputs to the record, not the headline. The composition (capture, replay, recovery, and the lifecycle pillars) is the main line; the modules feed it. See [`examples/standalone_report.py`](examples/standalone_report.py).
+These standalone auditors are inputs to the record, not the headline. The composition (capture, replay, recovery, and the lifecycle pillars) is the main line; the modules feed it. See [`examples/example_standalone_report.py`](examples/example_standalone_report.py).
 
 </details>
 
@@ -216,19 +227,59 @@ The release does **not** yet claim a learned data-anomaly method, a calibrated m
 
 ## Roadmap
 
-Every item below is planned, not shipping.
+<details>
+<summary>What ships today, and what is next</summary>
 
-- [ ] **v0.2 Data** a fitted anomaly score on the dependency state (PyOD backend), with snapshot freshness as a fallback
-- [ ] **v0.3 Model and compound** a calibrated cross-layer compound, and model as a first-class graph node attribute with grounding beyond the current deterministic basis check
-- [ ] **v0.3b Live** live and incremental scoring, plus the runtime resource-touch contract that fills observed dependency edges
-- [ ] **v0.4 Control** data refresh or quarantine, and model fallback or sign-off control faces
-- [ ] **PRE rule floor** a table-stakes OWASP-Agentic and CWE rule floor for CI legibility, consumed rather than forked
-- [ ] **v1.0** pluggable sinks (OpenTelemetry, LangSmith), exportable evidence bundles, and a stable public API
-- [ ] Framework integrations (LangChain, LangGraph, CrewAI) and an MCP server
+<br>
+
+Shipping today: the full capture, replay, and recover chain; PRE plan lints; POST run ranking; signed, hash-chained records; two sinks. Next:
+
+- **Smarter drift detection.** Learn what healthy dependency state looks like and flag anomalies, not just staleness (PyOD backend, with freshness as the fallback).
+- **One calibrated risk score.** Combine the data, model, and action signals into a single calibrated score, with the model treated as a first-class node in the graph.
+- **Live scoring.** Score decisions as the agent runs, and capture automatically what each step actually read and wrote.
+- **Automatic fixes.** Refresh stale data, quarantine bad inputs, fall back to a safer model, or require human sign-off.
+- **Built-in CI checks.** A table-stakes OWASP-Agentic and CWE rule floor for continuous integration.
+- **Integrations (1.0).** One-line hooks for LangChain, LangGraph, and CrewAI, an MCP server, export to OpenTelemetry and LangSmith, downloadable evidence bundles, and a stable public API.
+
+</details>
+
+## References
+
+<details>
+<summary>Compared tools, benchmarks, and method</summary>
+
+<br>
+
+The capability marks in the table above are per each project's public documentation as of 2026.
+
+**Compared tools**
+
+<a id="ref-1"></a>`[1]` [LangSmith](https://docs.langchain.com/langsmith)<br>
+<a id="ref-2"></a>`[2]` [Langfuse](https://github.com/langfuse/langfuse)<br>
+<a id="ref-3"></a>`[3]` [Arize Phoenix](https://github.com/Arize-ai/phoenix)<br>
+<a id="ref-4"></a>`[4]` [Weights & Biases Weave](https://github.com/wandb/weave)<br>
+<a id="ref-5"></a>`[5]` [DeepEval](https://github.com/confident-ai/deepeval)<br>
+<a id="ref-6"></a>`[6]` [Ragas](https://github.com/explodinggradients/ragas)<br>
+<a id="ref-7"></a>`[7]` [promptfoo](https://github.com/promptfoo/promptfoo)<br>
+<a id="ref-8"></a>`[8]` [OpenAI Evals](https://github.com/openai/evals)<br>
+<a id="ref-9"></a>`[9]` [NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails)<br>
+<a id="ref-10"></a>`[10]` [Guardrails AI](https://github.com/guardrails-ai/guardrails)<br>
+<a id="ref-11"></a>`[11]` [Lakera Guard](https://www.lakera.ai/lakera-guard)
+
+**Benchmarks and datasets**
+
+<a id="ref-12"></a>`[12]` [tau-bench](https://github.com/sierra-research/tau-bench) (arXiv:2406.12045)<br>
+<a id="ref-13"></a>`[13]` [Who&When: Which Agent Causes Task Failures and When?](https://github.com/ag2ai/Agents_Failure_Attribution) (arXiv:2505.00212)
+
+**Method**
+
+<a id="ref-14"></a>`[14]` [GRADE: Graph Representation of LLM Agent Dependency and Execution](https://arxiv.org/abs/2606.22741)
+
+</details>
 
 ## Citation
 
-If you use `auditable` in your work, please cite the GRADE paper (the typed two-layer graph model the library is built on) and, optionally, the software:
+If you use `auditable` in your work, please cite the GRADE paper, the typed two-layer graph model the library is built on:
 
 ```bibtex
 @article{zhao2026grade,
@@ -236,13 +287,6 @@ If you use `auditable` in your work, please cite the GRADE paper (the typed two-
   author  = {Zhao, Yue},
   journal = {arXiv preprint arXiv:2606.22741},
   year    = {2026}
-}
-
-@software{auditable,
-  title  = {auditable: Capture, Replay, and Recover AI Agent Decisions},
-  author = {Zhao, Yue},
-  year   = {2026},
-  url    = {https://github.com/yzhao062/auditable}
 }
 ```
 
