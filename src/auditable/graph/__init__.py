@@ -7,10 +7,12 @@ lives benchmark-side.
 
 Two edge classes, matching the attachment model: execution edges (``emits``,
 ``handoff_to``) are observed from the trace (State A); dependency edges
-(``depends_on``) are inferred or declared (State B) and are never read off the
-trace. The graph is a first-class, queryable part of the package; ``audit()``
-stays the ergonomic capture entry and the user is never asked to build the graph
-by hand.
+(``depends_on``) are graded per edge (State B). On the corpus and plan adapters
+they are inferred or declared; the runtime resource-touch contract in
+``auditable.graph.touch`` reads them off a real run as observed channel touches
+(see the LangGraph capture path and ``TouchRecorder``). The graph is a
+first-class, queryable part of the package; ``audit()`` stays the ergonomic
+capture entry and the user is never asked to build the graph by hand.
 """
 from __future__ import annotations
 

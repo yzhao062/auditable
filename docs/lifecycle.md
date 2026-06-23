@@ -1,6 +1,6 @@
 # Lifecycle: PRE, LIVE, POST
 
-`auditable` attaches at three points in an agent's life: before it is deployed (PRE), while it runs (LIVE), and after a run completes (POST). Each pillar has one public entry point and answers one honest question. The three share a single foundation: the same typed two-layer decision graph (execution edges observed from the trace, dependency edges declared or inferred) is what each pillar scores and reports. The pillar changes; the graph kernel does not. See [Architecture](architecture.md) for the graph itself.
+`auditable` attaches at three points in an agent's life: before it is deployed (PRE), while it runs (LIVE), and after a run completes (POST). Each pillar has one public entry point and answers one honest question. The three share a single foundation: the same typed two-layer decision graph (execution edges observed from the trace; dependency edges declared, inferred, or observed, depending on the source) is what each pillar scores and reports. The pillar changes; the graph kernel does not. See [Architecture](architecture.md) for the graph itself.
 
 ![One typed two-layer decision graph at the center, read by three lifecycle attach points: PRE lints a declared plan before deploy, LIVE replays and recovers while the agent runs, and POST ranks a finished run](assets/lifecycle.png)
 

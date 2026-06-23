@@ -19,7 +19,8 @@ Honesty holds at the seams. PRE withholds the dependency-state (State B) risk on
 a declared-only plan. POST on auditable's OWN records reports low coverage rather
 than a calibrated keystone, because the own-record adapter declares its
 dependency edges instead of fabricating observed reads (the runtime resource-touch
-contract that would upgrade them is planned, not shipping). Grounding still lights
+contract now ships for the LangGraph capture path and the TouchRecorder; extending
+it to own-records is future work). Grounding still lights
 up on the own record, because it carries a stated decision basis. The corpus path
 (example_post_rank_run.py) is where a SCORED POST keystone shows today.
 

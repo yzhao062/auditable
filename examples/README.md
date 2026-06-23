@@ -13,10 +13,12 @@ measured on a six-corpus benchmark in the GRADE paper (arXiv:2606.22741). Where 
 number appears below, it is a GRADE corpus result cited to that paper, not an
 output of the shipped example.
 
-The graph examples need the graph extra:
+The graph examples need the graph extra (and the LangGraph capture example needs
+the langgraph extra):
 
 ```
 pip install "auditable[graph]"
+pip install "auditable[langgraph]"   # only for example_langgraph_capture.py
 ```
 
 | Pillar | Example | When it runs | Benchmark number |
@@ -24,6 +26,8 @@ pip install "auditable[graph]"
 | PRE | `example_pre_lint_plan.py` | Design time, before any step executes | None (capability demo) |
 | LIVE | `example_live_replay.py` | At decision time, on a committed action | None (capability demo) |
 | POST | `example_post_rank_run.py` | After a run finishes | GRADE corpus results (see below) |
+| Capture | `example_langgraph_capture.py` | Capture a real LangGraph run, then rank it | None (capability demo) |
+| Capture | `example_touch_capture.py` | Capture any tool loop by hand, then rank it | None (capability demo) |
 
 ## PRE: Lint a Declared Plan Before Deploy
 
@@ -110,6 +114,35 @@ Run it:
 
 ```
 python examples/example_post_rank_run.py
+```
+
+## Capture a Real Run: Plug In Your Agent
+
+The PRE, LIVE, and POST examples above run on a declared plan, a hand-built
+decision, or a corpus trajectory. These two capture a *real* run and lower it into
+the same typed graph, with the dependency layer recorded as OBSERVED edges over the
+resources each step read and wrote.
+
+`example_langgraph_capture.py` instruments a real LangGraph `StateGraph` (a small
+payment approver of pure-function nodes, no LLM or network). Wrapping the builder
+with `instrument(...)` records, per node, the state channels it read and the
+channels its returned update wrote; `analyze_run` then ranks the run and names the
+keystone. The dependency edges are observed channel-level read-after-write touches,
+matched across LangGraph's superstep barrier and reducer-aware, so the report shows
+`observed=100%` on this run. It needs `pip install "auditable[langgraph]"`.
+
+`example_touch_capture.py` does the same for a plain tool loop with no framework,
+using the generic `TouchRecorder`: each step declares its `reads()` and `writes()`
+and the same matcher produces the observed edges. This is the framework-agnostic
+path for a raw OpenAI or Anthropic loop, or any scheduler.
+
+Both are capability demos: the keystone ranking is a triage signal, not a
+calibrated probability, and the OBSERVED grade is an observed touch match, not a
+precise causal claim. Run them:
+
+```
+python examples/example_langgraph_capture.py
+python examples/example_touch_capture.py
 ```
 
 ## Other Files Here

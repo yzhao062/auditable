@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/yzhao062/auditable.svg?style=social)](https://github.com/yzhao062/auditable)
 
-[Compare](#auditable-vs-the-tools-you-already-use) · [Flagship Demo](#the-flagship-moment) · [Lifecycle](#the-lifecycle) · [Install](#install) · [Docs](https://auditable-ai.readthedocs.io/) · [Roadmap](#roadmap)
+[Compare](#auditable-vs-the-tools-you-already-use) · [Flagship Demo](#the-flagship-moment) · [Plug In Your Agent](#plug-in-your-agent) · [Lifecycle](#the-lifecycle) · [Install](#install) · [Docs](https://auditable-ai.readthedocs.io/) · [Roadmap](#roadmap)
 
 ![One typed two-layer decision graph at the center, read by three lifecycle attach points: PRE lints a declared plan before deploy, LIVE replays and recovers while the agent runs, and POST ranks a finished run](https://raw.githubusercontent.com/yzhao062/auditable/main/assets/lifecycle.png)
 
@@ -60,18 +60,44 @@ The run prints a single audit report: a REVIEW verdict, the keystone with its co
 
 ![Audit report page for a payment-approver run. A REVIEW verdict banner sits above a roll-up of zero blocks, one rollback, and five PRE lints. Sections below list the keystone decision with its coverage reason, six numbered findings each carrying a severity tag and a recommended action, and a LIVE recovery tally showing the rolled-back payment record.](https://raw.githubusercontent.com/yzhao062/auditable/main/assets/audit-report-sample.png)
 
+## Plug In Your Agent
+
+`auditable` works with the agent you already run. Wrap a LangGraph `StateGraph` of plain sync or async function nodes over TypedDict state, and every node's reads and writes over the state channels become **observed** dependency edges, matched across the superstep barrier, with no change to your node logic:
+
+```python
+from langgraph.graph import StateGraph
+from auditable import analyze_run
+from auditable.integrations.langgraph import instrument
+
+builder = instrument(StateGraph(State))          # 1) wrap once, then build / compile / invoke as usual
+...
+graph = builder.compile()
+graph.invoke(initial_state)
+report = analyze_run(builder, adapter=builder)   # 2) the observed dependency graph for that run
+print(report.keystone)                           # the step the rest of the run rests on
+```
+
+```bash
+pip install "auditable[langgraph]"
+python examples/example_langgraph_capture.py     # a real LangGraph run -> observed=100%, keystone named
+```
+
+Not on LangGraph? The framework-agnostic `TouchRecorder` captures the same observed edges from any loop (a raw OpenAI or Anthropic agent, your own scheduler) by declaring each step's `reads()` and `writes()`. See [`examples/example_touch_capture.py`](examples/example_touch_capture.py). **Roadmap:** LangChain, CrewAI, MCP, and OpenTelemetry.
+
 ## Examples and Integrations
 
 Point `auditable` at a scenario and it builds the same typed graph. Each row links a runnable example; browse them all in [`examples/README.md`](examples/README.md).
 
 | Scenario | Pillar | Builds the graph from | Run |
 |---|---|---|---|
+| Capture a real LangGraph agent | LIVE → POST | a live `StateGraph` run (`instrument`) | [`example_langgraph_capture.py`](examples/example_langgraph_capture.py) |
+| Capture any tool loop by hand | LIVE → POST | declared resource touches (`TouchRecorder`) | [`example_touch_capture.py`](examples/example_touch_capture.py) |
 | Lint a declared plan before deploy | PRE | a framework-agnostic plan dict (`declared_plan_v1`) | [`example_pre_lint_plan.py`](examples/example_pre_lint_plan.py) |
 | Recover a payment as the budget drifts | LIVE | a decision captured live (`audit` + `replay`) | [`example_live_replay.py`](examples/example_live_replay.py) |
 | Rank a tau-bench run, name the keystone | POST | a tau-bench trajectory (`tau_bench_prior_db_reads_v1`) | [`example_post_rank_run.py`](examples/example_post_rank_run.py) |
 | Walk one payment through every pillar | PRE, LIVE, POST | the full lifecycle (`own_record_v1` for POST) | [`example_end_to_end.py`](examples/example_end_to_end.py) |
 
-**Roadmap adapters:** LangChain, LangGraph, CrewAI, MCP, and OpenTelemetry.
+The first two rows capture a real run; see [Plug In Your Agent](#plug-in-your-agent) for the two-line setup. **Roadmap:** LangChain, CrewAI, MCP, and OpenTelemetry.
 
 ## The Lifecycle
 
@@ -178,7 +204,7 @@ The score is an uncalibrated triage ranking, not a calibrated probability. In a 
 
 *auditable links a run into one graph with two edge layers: execution (control flow, observed from the trace) over dependency (what each step relied on). When a step rested on a value that has since gone stale, like `price`, `replay` catches it. The record itself binds three spans per decision (data, model, harness).*
 
-The graph kernel has two edge layers, and the distinction is load-bearing. Execution edges (`emits`, `handoff_to`) are observed from the trace. Dependency edges (`depends_on`) are declared or inferred, never read off the trace. PRE and POST both run over this same typed graph; `audit()` is the ergonomic capture entry, so you are never asked to build the graph by hand.
+The graph kernel has two edge layers, and the distinction is load-bearing. Execution edges (`emits`, `handoff_to`) are observed from the trace. Dependency edges (`depends_on`) are declared, inferred, or observed, and every edge records how it is known: the corpus and plan adapters declare or infer them, while the LangGraph capture path and the `TouchRecorder` read them off a real run as observed channel touches. PRE and POST both run over this same typed graph; `audit()` is the ergonomic capture entry, so you are never asked to build the graph by hand.
 
 One agent decision crosses three spans, and `auditable` binds all three in a single signed, hash-chained record:
 
@@ -192,7 +218,7 @@ One agent decision crosses three spans, and `auditable` binds all three in a sin
 
 Records are signed and hash-chained: each record carries a `prev_digest` and a content-addressed `record_id`. Two sinks ship today, `MemorySink` (in-process) and `FileSink` (append-only JSONL, durable across process exit, fails closed on a corrupt tail).
 
-Ingestion is source-agnostic through the public `Adapter` protocol. Three adapters ship: `tau_bench_prior_db_reads_v1` (public-corpus trajectory, POST), `own_record_v1` (auditable's own signed records, POST), and `declared_plan_v1` (a framework-agnostic declared plan dict, PRE). The declared-plan adapter is the neutral seam a LangGraph, CrewAI, or AutoGen front-end would lower into; it is not a parser for any framework.
+Ingestion is source-agnostic through the public `Adapter` protocol. The corpus and plan adapters ship `tau_bench_prior_db_reads_v1` (public-corpus trajectory, POST), `own_record_v1` (auditable's own signed records, POST), and `declared_plan_v1` (a framework-agnostic declared plan dict, PRE). For a real run, the LangGraph capture path (`auditable.integrations.langgraph.instrument`) and the generic `TouchRecorder` produce observed dependency edges with a structured `ResourceRef`, matched superstep-aware and reducer-aware. The declared-plan adapter stays the neutral PRE seam a LangGraph or CrewAI front-end would lower a plan into; it is not a parser for any framework.
 
 See the [architecture reference](docs/architecture.md) for the full kernel, adapters, and sinks.
 
@@ -219,7 +245,7 @@ These standalone auditors are inputs to the record, not the headline. The compos
 <details>
 <summary><b>Scope, stated honestly</b> (what ships today vs. what is planned)</summary>
 
-**What ships today.** The full signed chain, replay under live state, executed recovery through a rail-neutral gate, two sinks (in-memory and append-only JSONL), the POST `analyze_run` ranking, and the PRE `analyze_plan` lints plus preflight coverage report.
+**What ships today.** The full signed chain, replay under live state, executed recovery through a rail-neutral gate, two sinks (in-memory and append-only JSONL), the POST `analyze_run` ranking, the PRE `analyze_plan` lints plus preflight coverage report, and real-run capture into observed dependency edges (LangGraph via `instrument`, any loop via `TouchRecorder`).
 
 The release does **not** yet claim a learned data-anomaly method, a calibrated model-trust score, calibrated cross-layer risk, or live incremental scoring. The POST structural score is an uncalibrated ranking; the compound report is a transparent, explicitly uncalibrated debug bundle. Everything beyond this list is on the [roadmap](#roadmap).
 
@@ -236,10 +262,10 @@ Shipping today: the full capture, replay, and recover chain; PRE plan lints; POS
 
 - **Smarter drift detection.** Learn what healthy dependency state looks like and flag anomalies, not just staleness (PyOD backend, with freshness as the fallback).
 - **One calibrated risk score.** Combine the data, model, and action signals into a single calibrated score, with the model treated as a first-class node in the graph.
-- **Live scoring.** Score decisions as the agent runs, and capture automatically what each step actually read and wrote.
+- **Live scoring.** Score decisions on the prefix graph as the agent runs, not only after the run completes. (Capturing what each step read and wrote already ships for LangGraph and the `TouchRecorder`.)
 - **Automatic fixes.** Refresh stale data, quarantine bad inputs, fall back to a safer model, or require human sign-off.
 - **Built-in CI checks.** A table-stakes OWASP-Agentic and CWE rule floor for continuous integration.
-- **Integrations (1.0).** One-line hooks for LangChain, LangGraph, and CrewAI, an MCP server, export to OpenTelemetry and LangSmith, downloadable evidence bundles, and a stable public API.
+- **Integrations (1.0).** LangGraph capture ships now (`instrument`); next are one-line hooks for LangChain and CrewAI, an MCP server, export to OpenTelemetry and LangSmith, downloadable evidence bundles, and a stable public API.
 
 </details>
 

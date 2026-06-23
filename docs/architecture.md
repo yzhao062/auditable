@@ -8,7 +8,7 @@ An agent run is projected into one typed graph (a NetworkX `MultiDiGraph`). The 
 
 **Execution edges are observed from the trace.** These are the `emits` edges (an agent emits a step) and the `handoff_to` edges (one step hands control to the next). They record what actually happened in control flow, read directly off the run.
 
-**Dependency edges are declared or inferred, never read off the trace.** These are the `depends_on` edges (a step relied on the state some earlier step produced or read). A `depends_on` edge points from the dependent step to the step it relied on. Because a trace does not say which earlier state a step actually consumed, this layer is either declared (a plan or a record states it) or inferred (a modeled prior-read assumption), and every edge records how it is known.
+**Dependency edges are declared, inferred, or observed.** These are the `depends_on` edges (a step relied on the state some earlier step produced or read). A `depends_on` edge points from the dependent step to the step it relied on. A public-corpus trace does not say which earlier state a step consumed, so on the corpus and plan adapters this layer is declared (a plan or a record states it) or inferred (a modeled prior-read assumption). When `auditable` captures a real run, the LangGraph capture path and the `TouchRecorder` read the layer off the run as observed channel touches. Every edge records how it is known.
 
 Each dependency edge carries a `grade` that records how it is known:
 
@@ -18,7 +18,7 @@ Each dependency edge carries a `grade` that records how it is known:
 | `declared` | Stated by a plan or a record, but not observed in execution. |
 | `inferred` | A full-history assumption (the weakest grade), used when nothing better is available. |
 
-The default grade is `inferred`, so nothing is silently presented as observed. An edge also carries an `evidence` dict and an optional structured `resource` identity (a `ResourceRef` of `namespace`, `resource_id`, `key`). On the corpus adapters shipping today, `resource` is left `None` and the resource identity travels in `evidence`; filling the structured `ResourceRef` from a live read/write match is the planned runtime resource-touch contract (see [Roadmap](#roadmap)).
+The default grade is `inferred`, so nothing is silently presented as observed. An edge also carries an `evidence` dict and an optional structured `resource` identity (a `ResourceRef` of `namespace`, `resource_id`, `key`). On the corpus and plan adapters, `resource` is left `None` and the resource identity travels in `evidence`. The runtime resource-touch contract that fills the structured `ResourceRef` from an observed read-after-write match now ships for the LangGraph capture path and the `TouchRecorder` (see [Capturing a Real Run](#capturing-a-real-run)).
 
 The graph kernel lives in `auditable.graph` and is queryable directly:
 
@@ -62,6 +62,15 @@ Three reference adapters ship today, each pinned by name and version so a later 
 
 The declared-plan adapter is the neutral seam a LangGraph, CrewAI, or AutoGen front-end would lower into. It is the target a real framework integration would write to, and it is explicitly not a parser for any of those frameworks. The plan dict has the shape `{"nodes": [...]}`, where each node carries `idx`, `agent`, `kind`, optional `control_preds`, and declared `reads` / `writes` / `scope`. See [PRE Rules](pre-rules.md) for the fields each lint reads.
 
+## Capturing a Real Run
+
+The corpus and plan adapters above lower an existing artifact (a trajectory, a record chain, a plan dict). To capture a real agent run, two paths produce `observed` dependency edges with a structured `ResourceRef`, the runtime resource-touch contract in `auditable.graph.touch`.
+
+The contract is a read-after-write match. A step records the resources it read and the resources it wrote; a read of a resource binds to the writer(s) of that resource committed in an earlier step. The match is **superstep-aware** (writes commit at a step barrier, so two steps that ran without seeing each other's writes never produce an edge between them) and **reducer-aware** (a channel that accumulates writes fans in from every writer, marked `modeled` in evidence; an overwrite channel binds the single last writer). The grade is `observed` as a channel-level touch match, with evidence carrying `granularity: "channel"` and `relation: "read_after_committed_write"`. It is an observed touch, not a precise causal claim.
+
+- **`TouchRecorder`** (`auditable.graph.touch`) is the framework-agnostic path: wrap each consequential step in `with rec.step(...) as st:` and declare `st.reads(...)` / `st.writes(...)`. It implements the `Adapter` protocol and is its own source, so `analyze_run(rec, adapter=rec)` lowers the run.
+- **LangGraph capture** (`auditable.integrations.langgraph.instrument`, optional `auditable[langgraph]` extra) derives those touches automatically. `instrument(StateGraph(State))` wraps each node so the state it receives logs the channels it reads, and the node's returned update logs the channels it writes; the superstep comes from `config["metadata"]["langgraph_step"]` and the reducer channels from the state-schema annotations. Build, compile, and invoke as usual, then call `analyze_run(builder, adapter=builder)`. The core never imports `langgraph`. Tested against langgraph 1.2.x; v1 captures TypedDict-shaped state and plain sync or async function nodes (Runnable nodes and conditional-routing reads pass through without capture).
+
 ## Sinks: Persisting the Signed Record
 
 A sink signs each record and chains it to the previous one. Two concrete sinks ship today:
@@ -73,9 +82,9 @@ Pluggable sinks for external destinations (for example, OpenTelemetry or LangSmi
 
 ## Roadmap
 
-The shipping v0.1 architecture is the typed two-layer graph, the three-span signed record, the three reference adapters, and the two sinks. Planned additions, all labeled as roadmap and not shipping today:
+The shipping architecture is the typed two-layer graph, the three-span signed record, the three reference adapters, the two real-run capture paths (LangGraph `instrument` and the `TouchRecorder`), and the two sinks. Planned additions, all labeled as roadmap and not shipping today:
 
 - A fitted data-anomaly score (with a PyOD backend) on the data span, with the freshness rule as a fallback (v0.2).
 - A calibrated cross-layer compound and model-as-first-class-node grounding beyond the current deterministic check (v0.3).
-- Live / incremental scoring and the runtime resource-touch contract that fills the structured `ResourceRef` from a live read/write match (v0.3b).
-- Pluggable sinks (OpenTelemetry, LangSmith), exportable evidence bundles, and a stable public API (v1.0), plus framework integrations (LangChain, LangGraph, CrewAI) and an MCP server.
+- Live / incremental scoring on the prefix graph as a run unfolds. (The runtime resource-touch contract that fills the structured `ResourceRef` from an observed read/write match now ships for the LangGraph capture path and the `TouchRecorder`; see [Capturing a Real Run](#capturing-a-real-run).)
+- Pluggable sinks (OpenTelemetry, LangSmith), exportable evidence bundles, and a stable public API (v1.0), plus more framework integrations (LangChain, CrewAI) and an MCP server.

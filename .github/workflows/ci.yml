@@ -19,5 +19,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: pip install -e ".[dev]"
+      # langgraph 1.x needs Python >= 3.10; install the extra where supported so the
+      # LangGraph integration tests run instead of skipping (they skipif-absent on 3.9).
+      - if: matrix.python-version != '3.9'
+        run: pip install -e ".[langgraph]"
       - run: pytest -q
       - run: python examples/example_payment_audit.py
+      - if: matrix.python-version != '3.9'
+        run: python examples/example_langgraph_capture.py
