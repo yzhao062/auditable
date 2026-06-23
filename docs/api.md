@@ -5,10 +5,20 @@ graph kernel) live under `auditable.graph.*`.
 
 ## Top-Level API
 
-The capture, replay, and recovery flow, the standalone auditors, and the POST
-offline-analysis entry.
+The capture, replay, and recovery flow, the standalone auditors, the POST
+offline-analysis entry, and `render_report` (the dependency-free Markdown
+renderer for both the PRE and POST reports; see the [Quickstart](quickstart.md#render-a-report-as-markdown)).
 
 ::: auditable
+
+## Report Rendering
+
+The Markdown renderer for the typed reports: `render_report` (the top-level
+dispatcher), the per-pillar `pre_to_markdown` and `post_to_markdown`, and the
+`to_markdown` method on each report. It formats the fields the report already
+carries and is standard-library only.
+
+::: auditable.report
 
 ## PRE: Declared-Plan Analysis
 

@@ -34,6 +34,10 @@ dependencies = []
 [project.optional-dependencies]
 graph = ["networkx>=3.0"]
 langchain = ["langchain-core>=0.3.0"]
+# The human-facing audit-report PDF: pure-Python PDF writer (fpdf2) plus the chart
+# stack (matplotlib headless Agg + networkx). No system libraries, so a pip-only
+# install works on Windows and Linux. The agent-facing Markdown needs none of this.
+report = ["fpdf2>=2.7", "matplotlib>=3.5", "networkx>=3.0"]
 dev = ["pytest>=7.0", "build>=1.0", "twine>=5.0", "pyod>=1.1.0"]
 
 [project.urls]

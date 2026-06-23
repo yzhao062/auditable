@@ -2,7 +2,7 @@
 
 auditable attaches at three points in an agent's lifecycle. This is the PRE
 pillar: design-time, read-only lints over a DECLARED plan, before a single step
-executes. The other two pillars are payment_audit.py (REAL-TIME: replay under
+executes. The other two pillars are payment_audit.py (LIVE: replay under
 live state and execute a fix) and analyze_run.py (POST: rank a finished run).
 All three run over the same typed two-layer decision graph.
 

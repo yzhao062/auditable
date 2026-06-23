@@ -378,7 +378,7 @@ _WITHHELD_REASON = (
 # pre-deploy risk score. Each is descriptive structure: it reuses the existing
 # ``coverage()`` model and the declared resource-touch metadata to tell the user
 # what the runtime scorer will need before it can score, never a number that the
-# declared-only evidence cannot support. They hand REAL-TIME / POST a clear
+# declared-only evidence cannot support. They hand LIVE / POST a clear
 # contract (the edges and resources that must be observed live), and they leave
 # the State-B withhold boundary exactly as is.
 
@@ -774,6 +774,17 @@ class PreReport:
 
     def __str__(self) -> str:  # so print(report) renders the summary
         return self.summary()
+
+    def to_markdown(self, *, level: int = 1) -> str:
+        """Render this PRE report as Markdown (the additive copy-pasteable form).
+
+        Thin delegate to :func:`auditable.report.pre_to_markdown`; the plaintext
+        ``summary`` / ``__str__`` are unchanged. Imported lazily to avoid an import
+        cycle (``report.py`` imports this module).
+        """
+        from auditable.report import pre_to_markdown
+
+        return pre_to_markdown(self, level=level)
 
 
 def analyze_plan(plan: Any, *, adapter: Any = declared_plan_v1) -> PreReport:

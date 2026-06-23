@@ -1,6 +1,6 @@
 site_name: auditable
 site_description: "Capture, replay, and audit AI agent decisions across the pre, runtime, and post lifecycle."
-site_url: https://auditable.readthedocs.io/
+site_url: https://auditable-ai.readthedocs.io/
 site_author: Yue Zhao
 repo_url: https://github.com/yzhao062/auditable
 repo_name: yzhao062/auditable
@@ -45,7 +45,11 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -68,10 +72,18 @@ plugins:
 
 nav:
   - Home: index.md
-  - Quickstart: quickstart.md
   - Lifecycle: lifecycle.md
-  - PRE Rules: pre-rules.md
-  - REAL-TIME Replay: realtime-replay.md
-  - POST Analysis: post-analysis.md
+  - Quickstart: quickstart.md
+  - PRE:
+      - Overview: pre-rules.md
+      - Coverage: pre-coverage.md
+      - Examples: pre-examples.md
+  - LIVE:
+      - Overview: realtime-replay.md
+      - Examples: realtime-examples.md
+  - POST:
+      - Overview: post-analysis.md
+      - Examples: post-examples.md
+  - Audit Report: audit-report.md
   - Architecture: architecture.md
   - API Reference: api.md

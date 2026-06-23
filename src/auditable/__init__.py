@@ -33,6 +33,7 @@ from .data import DataAuditor
 from .model import ModelAuditor
 from .harness import ActionGate, GateOutcome, HarnessAuditor, Rail, ReferenceLedger
 from .analysis import AnalysisReport, analyze_run
+from .report import render_report
 from .graph.adapters import Adapter
 
 __version__ = "0.1.0"
@@ -70,5 +71,7 @@ __all__ = [
     # v0.3 offline analysis: the unified session graph + structural risk, read here.
     "analyze_run",
     "AnalysisReport",
+    # Markdown rendering for the PRE / POST analysis reports.
+    "render_report",
     "Adapter",
 ]

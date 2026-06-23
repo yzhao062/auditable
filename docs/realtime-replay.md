@@ -1,6 +1,6 @@
-# REAL-TIME: Replay and Recovery Reference
+# LIVE: Replay and Recovery Reference
 
-The REAL-TIME pillar captures one consequential decision with the dependency state it relied on, re-derives whether that decision still holds under the state that is live now, and executes a routed fix through a rail. This page is the reference for the capture API, replay semantics, the four verdicts, the policy contract, and gate execution. The capture, replay, and gate path runs on the core install; no extra is required.
+The LIVE pillar captures one consequential decision with the dependency state it relied on, re-derives whether that decision still holds under the state that is live now, and executes a routed fix through a rail. This page is the reference for the capture API, replay semantics, the four verdicts, the policy contract, and gate execution. The capture, replay, and gate path runs on the core install; no extra is required.
 
 ## Capture: the `audit` Context Manager
 

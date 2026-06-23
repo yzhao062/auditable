@@ -14,9 +14,9 @@ The core is dependency-free. The graph layer needs the `graph` extra (NetworkX):
 pip install "auditable[graph]"
 ```
 
-The `graph` extra is required by `analyze_plan` (PRE), `analyze_run` (POST), and any graph projection. The REAL-TIME capture, replay, and gate path runs on the core alone. The library is torch-free; only NetworkX is pulled in by the extra.
+The `graph` extra is required by `analyze_plan` (PRE), `analyze_run` (POST), and any graph projection. The LIVE capture, replay, and gate path runs on the core alone. The library is torch-free; only NetworkX is pulled in by the extra.
 
-## REAL-TIME: Replay Under Live State, Then Recover
+## LIVE: Replay Under Live State, Then Recover
 
 This is the sharpest demo. An agent approves a payment against a budget snapshot, the budget moves, and `replay` re-derives that the payment no longer holds, so the gate reverses it through a reference rail. The full runnable script is [`examples/payment_audit.py`](https://github.com/yzhao062/auditable/blob/main/examples/payment_audit.py).
 
@@ -62,7 +62,7 @@ outcome = gate.enforce_post_commit(verdict, receipt=receipt)
 print(verdict.action.value, "->", outcome.executed)  # rollback -> rolled_back
 ```
 
-`ReferenceLedger` is an in-process reference rail for demos and tests (commit spends, compensate refunds). It is not a production payment rail and moves no real money. See [REAL-TIME Replay and Recovery](realtime-replay.md) for the verdicts and gate semantics.
+`ReferenceLedger` is an in-process reference rail for demos and tests (commit spends, compensate refunds). It is not a production payment rail and moves no real money. See [LIVE Replay and Recovery](realtime-replay.md) for the verdicts and gate semantics.
 
 ## PRE: Lint the Plan Before Deploy
 
@@ -125,6 +125,71 @@ print(report)  # ranked steps, the keystone, coverage, and the honesty notes
 ```
 
 The score is an uncalibrated triage ranking, and the corpus write-to-read edges are modeled (a conservative prior-read upper bound, not a causal label). Both caveats appear in the report's own notes. See [POST Analysis](post-analysis.md) for how to read the report.
+
+## Render a Report as Markdown
+
+`print(report)` gives terse indented plaintext. For a clean Markdown form to paste into a pull request, an issue, or a design doc, call `render_report(report)`. It is a top-level export that dispatches on type: a PRE `PreReport` and a POST `AnalysisReport` each render through the matching renderer. The same string is available as a method, `report.to_markdown()`. The renderer formats the typed fields the report already carries; it computes nothing new, and it is dependency-free (standard library only, no NetworkX or templating engine).
+
+```python
+from auditable import render_report
+
+# `report` is the POST AnalysisReport from the section above.
+print(render_report(report))          # the dispatcher form
+print(report.to_markdown(level=2))    # the method form; level sets the heading depth
+```
+
+The POST run above renders to this Markdown:
+
+```markdown
+# Auditable POST Report: Structural Risk Analysis
+
+- stage: POST (runtime, after the run completes)
+- adapter: tau_bench_prior_db_reads_v1
+- completeness: complete
+- state: scored
+- steps: 6
+- coverage: 2 dependency edge(s), rho=0.133, observed=100%, grades: observed=2
+
+## Keystone (Blast-Radius)
+
+- step 1 [tool_call get_reservation_details]: structural risk 0.400 (2 of 5 other steps transitively rest on it)
+- grounding: n/a (this step states no checkable model basis)
+
+## What Is Risky on the Graph
+
+ranked decisions (structural blast share):
+
+| score | step | kind | label |
+| --- | --- | --- | --- |
+| 0.400 | 1 | tool_call | tool_call get_reservation_details |
+| 0.000 | 0 | decision | decision |
+| 0.000 | 2 | decision | decision |
+| 0.000 | 3 | tool_call | tool_call update_reservation_flights |
+| 0.000 | 4 | decision | decision |
+| 0.000 | 5 | tool_call | tool_call update_reservation_baggages |
+
+## Recommended Action
+
+- triage the keystone step first (it carries the highest blast share); the score is a ranking signal, not a calibrated probability
+
+## Notes
+
+- all 2 observed dependency edge(s) are MODELED: a conservative prior-read upper bound over the observed reads, not a causal label.
+- the structural signal is the dependency-DAG blast structure (how much of the run transitively rests on a step); it is a ranking / triage signal, not calibrated.
+- grounding is empty: no step states a checkable model basis (a corpus tool trace does not). It lights up on records that carry a basis, such as auditable's own runs.
+```
+
+The blast-share scores are within-run structural fractions (how much of this one run transitively rests on a step), not a benchmark or a calibrated probability. A withheld score renders as `n/a`, never `0.000`, so a withheld value never reads as no risk. A PRE `PreReport` renders the same way through `render_report(pre_report)`, with an execution-topology keystone section in place of the blast-radius one.
+
+## End-to-End: One Payment Across All Three Pillars
+
+The snippets above show one pillar each. [`examples/end_to_end.py`](https://github.com/yzhao062/auditable/blob/main/examples/end_to_end.py) carries a single vendor payment through PRE, then LIVE, then POST on one dataset and one state, and closes by printing the aggregate audit report through `AuditReport.to_markdown`. Run it with one command:
+
+```bash
+python examples/end_to_end.py
+```
+
+The amount is one real value sampled from the ULB credit-card dataset; the only constructed dimension is a temporal budget drift (the snapshot budget covers the payment, the live budget has since dropped below it). See [Lifecycle](lifecycle.md#one-payment-across-all-three) for the narrative.
 
 ## Using a Single Layer
 

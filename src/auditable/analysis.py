@@ -111,6 +111,12 @@ class AnalysisReport:
     grounding: Dict[int, GroundingResult]
     features: Dict[str, Dict[str, float]] = field(default_factory=dict)
     notes: List[str] = field(default_factory=list)
+    # The real SessionGraph this report was scored over, carried so the human PDF's
+    # two-layer-graph chart can draw the actual depends_on edges instead of a
+    # synthetic, dependency-less reconstruction. Optional and typed as Any to keep
+    # the dataclass import-light (no new module-scope import) and to keep a
+    # graph-less / stand-in report valid. None means "no graph available".
+    session_graph: Optional[Any] = None
 
     @property
     def scored(self) -> bool:
@@ -165,6 +171,17 @@ class AnalysisReport:
 
     def __str__(self) -> str:  # so print(report) renders the summary
         return self.summary()
+
+    def to_markdown(self, *, level: int = 1) -> str:
+        """Render this POST report as Markdown (the additive copy-pasteable form).
+
+        Thin delegate to :func:`auditable.report.post_to_markdown`; the plaintext
+        ``summary`` / ``__str__`` are unchanged. Imported lazily to avoid an import
+        cycle (``report.py`` imports this module).
+        """
+        from auditable.report import post_to_markdown
+
+        return post_to_markdown(self, level=level)
 
 
 def _grounding_line(g: Optional[GroundingResult]) -> str:
@@ -348,4 +365,5 @@ def analyze_run(source: Any, *, adapter: Any, ground: bool = True) -> AnalysisRe
         grounding=grounding,
         features=risk.features,
         notes=_notes(risk.state, steps, risk.coverage, grounding),
+        session_graph=graph,
     )

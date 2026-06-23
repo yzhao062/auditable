@@ -1,6 +1,6 @@
-"""REAL-TIME pillar demo: capture a decision, replay it under live state, recover.
+"""LIVE pillar demo: capture a decision, replay it under live state, recover.
 
-auditable attaches at three points in an agent's lifecycle. This is the REAL-TIME
+auditable attaches at three points in an agent's lifecycle. This is the LIVE
 pillar: capture one consequential decision with the dependency state it relied on,
 replay it under the state that is live now, and route and execute a fix. The other
 two pillars are analyze_plan.py (PRE: lint a declared plan before deploy) and

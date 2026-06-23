@@ -44,6 +44,7 @@ EXPECTED_PUBLIC = {
     # v0.3 offline analysis + the ingestion extension point
     "analyze_run",
     "AnalysisReport",
+    "render_report",
     "Adapter",
 }
 

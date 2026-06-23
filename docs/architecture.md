@@ -1,6 +1,6 @@
 # Architecture
 
-This page describes the public, product-level architecture of `auditable`: the typed two-layer decision graph at the center of the library, the per-decision record that binds three spans, the ingestion adapters that feed the graph, and the two sinks that persist signed records. The same graph kernel is what the PRE, REAL-TIME, and POST pillars each run; see [Lifecycle](lifecycle.md) for how the three pillars use it.
+This page describes the public, product-level architecture of `auditable`: the typed two-layer decision graph at the center of the library, the per-decision record that binds three spans, the ingestion adapters that feed the graph, and the two sinks that persist signed records. The same graph kernel is what the PRE, LIVE, and POST pillars each run; see [Lifecycle](lifecycle.md) for how the three pillars use it. The two-layer graph model is introduced in GRADE ([arXiv:2606.22741](https://arxiv.org/abs/2606.22741)).
 
 ## The Typed Two-Layer Decision Graph
 
@@ -46,7 +46,7 @@ Each span attaches a normalized `Report` (the leaf an `Auditor` returns), with a
 
 The three standalone auditors each subclass the `Auditor` base (the detect-face base class, analogous to a base detector in a detector library: set `stage` and `name`, implement `assess`, return a `Report`). Each is usable on its own with no agent and no chain. They are inputs to the record, and the composed full-chain record is the main line; see [Using a Single Layer](quickstart.md#using-a-single-layer) for the standalone path.
 
-The `CompoundReport` is a transparent v0.1 bundle over the three leaves. It preserves the per-stage breakdown and exposes an explicitly named `uncalibrated_score` (the maximum of the per-stage scores) for debugging. This score is uncalibrated by design, it is not decision-grade, and it does not drive recovery; recovery is driven by the replay verdict (see [REAL-TIME Replay and Recovery](realtime-replay.md)). A calibrated cross-layer combiner is on the roadmap.
+The `CompoundReport` is a transparent v0.1 bundle over the three leaves. It preserves the per-stage breakdown and exposes an explicitly named `uncalibrated_score` (the maximum of the per-stage scores) for debugging. This score is uncalibrated by design, it is not decision-grade, and it does not drive recovery; recovery is driven by the replay verdict (see [LIVE Replay and Recovery](realtime-replay.md)). A calibrated cross-layer combiner is on the roadmap.
 
 ## Ingestion Adapters: One Representation, Many Sources
 

@@ -5,7 +5,7 @@ pillar: read a recorded run after it completes, build one typed session decision
 graph, score every step by how much of the rest of the run transitively rests on
 it, and report the riskiest decision to review first. The other two pillars are
 analyze_plan.py (PRE: lint a declared plan before deploy) and payment_audit.py
-(REAL-TIME: replay under live state and execute a fix). All three run over the
+(LIVE: replay under live state and execute a fix). All three run over the
 same typed two-layer graph. No live agent, no API key, no network.
 
 The trajectory below is modeled on a tau-bench airline task (tau-bench: Sierra
