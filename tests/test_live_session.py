@@ -9,10 +9,14 @@ claim; the prefix-AUC curve that would validate early warning stays private.
 """
 import math
 
-from auditable import LiveSession, analyze_run
-from auditable.graph.adapters import tau_bench_prior_db_reads_v1
-from auditable.graph.risk import STATE_SCORED
-from auditable.graph.session import GraphCompleteness
+import pytest
+
+pytest.importorskip("networkx")  # LiveSession scores over the NetworkX projection
+
+from auditable import LiveSession, analyze_run  # noqa: E402
+from auditable.graph.adapters import tau_bench_prior_db_reads_v1  # noqa: E402
+from auditable.graph.risk import STATE_SCORED  # noqa: E402
+from auditable.graph.session import GraphCompleteness  # noqa: E402
 
 
 def _tau_messages():
