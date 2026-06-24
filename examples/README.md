@@ -3,8 +3,9 @@
 `auditable` attaches to an agent at three points in its lifecycle, and these
 examples run one pillar each. All three operate on the same typed two-layer
 decision graph (an execution layer for control flow and a dependency layer for
-the state each step relied on). No live agent, no API key, and no network call
-is required to run any example here.
+the state each step relied on). Every example here runs offline with no API key,
+with one exception: `example_langgraph_llm_agent.py` drives a real model through
+an OpenAI-compatible endpoint, and skips cleanly when no key is set.
 
 The framing is deliberate. PRE and LIVE are capability demos: they show what the
 SDK does on a worked case, and they carry no benchmark percentage. POST is the
@@ -18,7 +19,8 @@ the langgraph extra):
 
 ```
 pip install "auditable[graph]"
-pip install "auditable[langgraph]"   # only for example_langgraph_capture.py
+pip install "auditable[langgraph]"       # for example_langgraph_capture.py
+pip install "auditable[langgraph,llm]"   # for example_langgraph_llm_agent.py (a real model; needs an OpenAI-compatible key)
 ```
 
 | Pillar | Example | When it runs | Benchmark number |
@@ -27,6 +29,7 @@ pip install "auditable[langgraph]"   # only for example_langgraph_capture.py
 | LIVE | `example_live_replay.py` | At decision time, on a committed action | None (capability demo) |
 | POST | `example_post_rank_run.py` | After a run finishes | GRADE corpus results (see below) |
 | Capture | `example_langgraph_capture.py` | Capture a real LangGraph run, then rank it | None (capability demo) |
+| Capture | `example_langgraph_llm_agent.py` | Capture a real LLM-driven LangGraph run, then rank it | None (capability demo) |
 | Capture | `example_touch_capture.py` | Capture any tool loop by hand, then rank it | None (capability demo) |
 
 ## PRE: Lint a Declared Plan Before Deploy
@@ -130,6 +133,16 @@ channels its returned update wrote; `analyze_run` then ranks the run and names t
 keystone. The dependency edges are observed channel-level read-after-write touches,
 matched across LangGraph's superstep barrier and reducer-aware, so the report shows
 `observed=100%` on this run. It needs `pip install "auditable[langgraph]"`.
+
+`example_langgraph_llm_agent.py` is the same capture path with a real model in the
+loop: every node makes an OpenAI-compatible chat call instead of running a pure
+function. The captured edges are identical, because `instrument(...)` records the
+state channels each node read and wrote, not what the node did to produce the
+write. So the dependency layer comes out `observed=100%` whether a write came from
+a pure function or a frontier model, which is the point the example makes. It reads
+`OPENAI_API_KEY` (and optional `OPENAI_BASE_URL`, `OPENAI_MODEL`), works against a
+plain OpenAI key or any compatible gateway or local server, and prints a notice and
+exits cleanly when no key is set. It needs `pip install "auditable[langgraph,llm]"`.
 
 `example_touch_capture.py` does the same for a plain tool loop with no framework,
 using the generic `TouchRecorder`: each step declares its `reads()` and `writes()`

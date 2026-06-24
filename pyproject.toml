@@ -42,6 +42,12 @@ langgraph = ["langgraph>=1.0; python_version >= '3.10'", "networkx>=3.0"]
 # stack (matplotlib headless Agg + networkx). No system libraries, so a pip-only
 # install works on Windows and Linux. The agent-facing Markdown needs none of this.
 report = ["fpdf2>=2.7", "matplotlib>=3.5", "networkx>=3.0"]
+# The real-LLM agent example (examples/example_langgraph_llm_agent.py) needs an
+# OpenAI-compatible client. The example uses only the stable chat.completions API,
+# which the 1.x and 2.x lines share, so the floor is openai>=1.0. The example
+# imports openai lazily and skips when it (or a key) is absent, so this extra is
+# optional even to run the example file.
+llm = ["openai>=1.0"]
 dev = ["pytest>=7.0", "build>=1.0", "twine>=5.0", "pyod>=1.1.0"]
 
 [project.urls]

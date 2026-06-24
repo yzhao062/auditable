@@ -24,5 +24,9 @@ env/
 # MkDocs build output
 site/
 
+# Local-only notes and credentials (convention: *.local.md is never committed).
+# Holds internal testing notes and any copied key file (e.g. keys.local.md).
+*.local.md
+
 # experiment data cache
 experiment/.cache/
