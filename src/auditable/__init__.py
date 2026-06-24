@@ -32,7 +32,7 @@ from .chain import (
 from .data import DataAuditor
 from .model import ModelAuditor
 from .harness import ActionGate, GateOutcome, HarnessAuditor, Rail, ReferenceLedger
-from .analysis import AnalysisReport, analyze_run
+from .analysis import AnalysisReport, LiveSession, analyze_run
 from .report import render_report
 from .graph.adapters import Adapter
 
@@ -71,6 +71,8 @@ __all__ = [
     # v0.3 offline analysis: the unified session graph + structural risk, read here.
     "analyze_run",
     "AnalysisReport",
+    # Live (streaming) analysis: the same kernel over a growing prefix graph.
+    "LiveSession",
     # Markdown rendering for the PRE / POST analysis reports.
     "render_report",
     "Adapter",

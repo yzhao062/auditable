@@ -27,6 +27,7 @@ pip install "auditable[langgraph,llm]"   # for example_langgraph_llm_agent.py (a
 |--------|---------|--------------|------------------|
 | PRE | `example_pre_lint_plan.py` | Design time, before any step executes | None (capability demo) |
 | LIVE | `example_live_replay.py` | At decision time, on a committed action | None (capability demo) |
+| LIVE | `example_live_monitor.py` | While a run streams, before it finishes | None (capability demo) |
 | POST | `example_post_rank_run.py` | After a run finishes | GRADE corpus results (see below) |
 | Capture | `example_langgraph_capture.py` | Capture a real LangGraph run, then rank it | None (capability demo) |
 | Capture | `example_langgraph_llm_agent.py` | Capture a real LLM-driven LangGraph run, then rank it | None (capability demo) |
@@ -80,6 +81,29 @@ Run it:
 
 ```
 python examples/example_live_replay.py
+```
+
+## LIVE: Monitor a Run as It Streams
+
+`example_live_monitor.py` is the other LIVE capability: a running structural score while
+the run is still going. Where `example_live_replay.py` re-decides one committed action,
+`LiveSession` watches the whole run grow. Feed each step as it happens
+(`live.observe(step)`) and the running report names the keystone and its blast share over
+the run seen so far, marked `completeness=prefix`, so a caller can flag, gate, or
+checkpoint a high-blast step before the run ends. It is the same structural kernel as
+POST, run on a growing graph.
+
+The example replays the retail trajectory one step at a time so the score change is
+visible: the first read carries no blast when it happens, becomes the keystone once the
+first write lands on it, and its blast share then moves as later steps arrive. That
+movement is the honest part. A prefix score is a live triage and gating signal, not a
+validated early-warning probability; the blast structure can resolve late, so the keystone
+may shift. This is a capability demo with NO benchmark percentage.
+
+Run it:
+
+```
+python examples/example_live_monitor.py
 ```
 
 ## POST: Rank a Finished Run and Name the Keystone

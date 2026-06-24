@@ -29,3 +29,6 @@ jobs:
         run: python examples/example_langgraph_capture.py
       - if: matrix.python-version != '3.9'
         run: python examples/example_langgraph_live_replay.py
+      # graph-only (NetworkX, present via the langgraph extra on these versions)
+      - if: matrix.python-version != '3.9'
+        run: python examples/example_live_monitor.py

@@ -44,6 +44,8 @@ EXPECTED_PUBLIC = {
     # v0.3 offline analysis + the ingestion extension point
     "analyze_run",
     "AnalysisReport",
+    # live (streaming) analysis: the same kernel over a growing prefix graph
+    "LiveSession",
     "render_report",
     "Adapter",
 }
@@ -67,6 +69,11 @@ def test_v03_names_present():
     assert callable(auditable.analyze_run)
     assert isinstance(auditable.AnalysisReport, type)
     assert auditable.Adapter is not None
+
+
+def test_live_session_is_a_class():
+    # the live (streaming) companion to analyze_run
+    assert isinstance(auditable.LiveSession, type)
 
 
 def test_graph_internals_do_not_leak_to_top_level():

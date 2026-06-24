@@ -42,7 +42,7 @@ from .graph.session import (
     Step,
 )
 
-__all__ = ["AnalysisReport", "DecisionRisk", "analyze_run"]
+__all__ = ["AnalysisReport", "DecisionRisk", "LiveSession", "analyze_run"]
 
 
 @dataclass
@@ -303,23 +303,46 @@ def _notes(
     return notes
 
 
-def analyze_run(source: Any, *, adapter: Any, ground: bool = True) -> AnalysisReport:
-    """Analyze one agent run offline: structural risk plus model-basis grounding.
+def _adapter_id(adapter: Any) -> str:
+    """The report's source id: the adapter's ``id``, else ``<name>_<version>``, else its
+    type name. Empty string when there is no adapter (the live path supplies a default)."""
+    if adapter is None:
+        return ""
+    return (
+        getattr(adapter, "id", None)
+        or "_".join(p for p in (getattr(adapter, "name", ""), getattr(adapter, "version", "")) if p)
+        or type(adapter).__name__
+    )
 
-    ``source`` is whatever the ``adapter`` consumes (a public-corpus trajectory, a
-    chain of auditable's own ``DecisionRecord``s, or, in v0.3b, a live stream).
-    ``adapter`` is any :class:`~auditable.graph.adapters.protocol.Adapter` (it
-    exposes ``to_steps`` plus a ``name`` / ``version``). The call maps the source to
-    typed steps, builds the :class:`SessionGraph`, scores it with
-    :func:`structural_risk`, grounds each step that states a basis, and returns an
-    :class:`AnalysisReport`.
 
-    Set ``ground=False`` to skip the (cheap, deterministic) grounding pass. Scoring
-    requires the ``graph`` extra (NetworkX); without it the underlying projection
-    raises a clear ``ImportError``.
+# Honesty caveat appended to every prefix (live) report. The live path ships the
+# capability (a running structural score on the run seen so far); whether that score
+# predicts failure early is a separate, unshipped validation (the prefix-AUC curve), so
+# the report must not read as a calibrated or validated early-warning probability.
+_PREFIX_NOTE = (
+    "running prefix score: this scores the run seen so far, not the whole run. The "
+    "blast structure can resolve late, so the keystone may shift as steps arrive and an "
+    "early prefix may understate the final risk. Read it as a live triage and gating "
+    "signal, not a calibrated or validated early-warning probability."
+)
+
+
+def _analyze_steps(
+    steps: Sequence[Step],
+    *,
+    adapter_id: str,
+    completeness: GraphCompleteness,
+    ground: bool,
+    source: Any,
+) -> AnalysisReport:
+    """Score a typed step list and build the report.
+
+    Shared by the offline :func:`analyze_run` (``completeness=complete``) and the live
+    :class:`LiveSession` (``completeness=prefix``), so the two paths never diverge in
+    scoring, ranking, or honesty notes. A prefix report appends the running caveat.
     """
-    steps: List[Step] = list(adapter.to_steps(source))
-    graph = SessionGraph.from_steps(steps)
+    steps = list(steps)
+    graph = SessionGraph.from_steps(steps, completeness=completeness)
     risk: RiskResult = structural_risk(graph)
 
     grounding: Dict[int, GroundingResult] = {}
@@ -347,11 +370,9 @@ def analyze_run(source: Any, *, adapter: Any, ground: bool = True) -> AnalysisRe
     ranked.sort(key=lambda d: (d.score is None, -(d.score or 0.0), d.idx))
     keystone = ranked[0] if (scored and ranked and ranked[0].score is not None) else None
 
-    adapter_id = (
-        getattr(adapter, "id", None)
-        or "_".join(p for p in (getattr(adapter, "name", ""), getattr(adapter, "version", "")) if p)
-        or type(adapter).__name__
-    )
+    notes = _notes(risk.state, steps, risk.coverage, grounding)
+    if completeness is GraphCompleteness.PREFIX:
+        notes.append(_PREFIX_NOTE)
 
     return AnalysisReport(
         state=risk.state,
@@ -364,6 +385,79 @@ def analyze_run(source: Any, *, adapter: Any, ground: bool = True) -> AnalysisRe
         per_session=risk.per_session,
         grounding=grounding,
         features=risk.features,
-        notes=_notes(risk.state, steps, risk.coverage, grounding),
+        notes=notes,
         session_graph=graph,
     )
+
+
+def analyze_run(source: Any, *, adapter: Any, ground: bool = True) -> AnalysisReport:
+    """Analyze one agent run offline: structural risk plus model-basis grounding.
+
+    ``source`` is whatever the ``adapter`` consumes (a public-corpus trajectory, a
+    chain of auditable's own ``DecisionRecord``s, or, in v0.3b, a live stream).
+    ``adapter`` is any :class:`~auditable.graph.adapters.protocol.Adapter` (it
+    exposes ``to_steps`` plus a ``name`` / ``version``). The call maps the source to
+    typed steps, builds the :class:`SessionGraph`, scores it with
+    :func:`structural_risk`, grounds each step that states a basis, and returns an
+    :class:`AnalysisReport`.
+
+    This scores a finished run (``completeness=complete``). To score a run as it streams,
+    use :class:`LiveSession`, the live companion that grows the same graph and re-scores
+    each prefix. Set ``ground=False`` to skip the (cheap, deterministic) grounding pass.
+    Scoring requires the ``graph`` extra (NetworkX); without it the underlying projection
+    raises a clear ``ImportError``.
+    """
+    steps: List[Step] = list(adapter.to_steps(source))
+    return _analyze_steps(
+        steps,
+        adapter_id=_adapter_id(adapter),
+        completeness=GraphCompleteness.COMPLETE,
+        ground=ground,
+        source=source,
+    )
+
+
+class LiveSession:
+    """Score an agent run as it streams: feed steps in, get a running keystone out.
+
+    :class:`LiveSession` is the live companion to :func:`analyze_run`. Each
+    :meth:`observe` appends a step to a prefix graph (``completeness=prefix``) and
+    re-scores, returning the running keystone and per-step blast share over the run seen
+    so far, so a caller can flag, gate, or checkpoint a high-blast step before the run
+    ends. It is the same structural kernel as the offline path, run on a growing graph.
+
+    Honesty: a prefix score is a live triage and gating signal, not a validated
+    early-warning probability. The blast structure can resolve late, so the running
+    keystone may shift as steps arrive; every report is marked ``completeness=prefix`` and
+    carries that caveat. Whether a prefix score predicts failure early is a separate,
+    unshipped validation (the prefix-AUC curve), not a claim this surface makes.
+
+    ``observe`` re-scores the whole prefix on each call, which is cheap for the step
+    counts of typical agent runs; a future incremental kernel can make it sublinear
+    without changing this API. Feed steps in run order, each depending only on earlier
+    steps. Set ``ground=True`` to ground a step's stated model basis from its node
+    attributes (off by default; live monitoring is structural).
+    """
+
+    def __init__(self, *, adapter: Any = None, ground: bool = False) -> None:
+        self._steps: List[Step] = []
+        self._adapter_id = _adapter_id(adapter) or "live_session_v1"
+        self._ground = ground
+
+    def observe(self, step: Step) -> AnalysisReport:
+        """Append a streamed step and return the running report over the prefix so far."""
+        self._steps.append(step)
+        return self._report()
+
+    def report(self) -> AnalysisReport:
+        """The running report over the steps observed so far, without adding a step."""
+        return self._report()
+
+    def _report(self) -> AnalysisReport:
+        return _analyze_steps(
+            self._steps,
+            adapter_id=self._adapter_id,
+            completeness=GraphCompleteness.PREFIX,
+            ground=self._ground,
+            source=None,  # grounding (if on) falls back to each step's node_attrs basis
+        )

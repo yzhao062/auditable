@@ -100,6 +100,7 @@ Point `auditable` at a scenario and it builds the same typed graph. Each row lin
 | Capture a LangGraph agent, then replay and reverse it | LIVE → POST | a live `StateGraph` run lowered to replayable records (`instrument` + `to_records`) | [`example_langgraph_live_replay.py`](examples/example_langgraph_live_replay.py) |
 | Lint a declared plan before deploy | PRE | a framework-agnostic plan dict (`declared_plan_v1`) | [`example_pre_lint_plan.py`](examples/example_pre_lint_plan.py) |
 | Recover a payment as the budget drifts | LIVE | a decision captured live (`audit` + `replay`) | [`example_live_replay.py`](examples/example_live_replay.py) |
+| Monitor a run as it streams, name the keystone live | LIVE | a run scored prefix by prefix (`LiveSession`) | [`example_live_monitor.py`](examples/example_live_monitor.py) |
 | Rank a tau-bench run, name the keystone | POST | a tau-bench trajectory (`tau_bench_prior_db_reads_v1`) | [`example_post_rank_run.py`](examples/example_post_rank_run.py) |
 | Walk one payment through every pillar | PRE, LIVE, POST | the full lifecycle (`own_record_v1` for POST) | [`example_end_to_end.py`](examples/example_end_to_end.py) |
 
