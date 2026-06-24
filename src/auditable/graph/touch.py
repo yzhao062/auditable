@@ -13,14 +13,59 @@ rides on. It imports nothing beyond the typed schema in
 from __future__ import annotations
 
 from contextlib import contextmanager
+from copy import deepcopy
 from dataclasses import dataclass, field
-from typing import AbstractSet, Any, Dict, Iterator, List, Optional, Sequence, Tuple
+from typing import (
+    TYPE_CHECKING,
+    AbstractSet,
+    Any,
+    Dict,
+    Iterator,
+    List,
+    Optional,
+    Sequence,
+    Tuple,
+)
 
 from .session import DependencyEdge, Grade, ResourceRef, Step
 
-__all__ = ["StepTouch", "TouchRecorder", "match_observed_deps", "touches_to_steps"]
+if TYPE_CHECKING:  # the to_records bridge lowers to the record/replay core (lazy at runtime)
+    from ..record import DecisionRecord
+
+__all__ = [
+    "StepTouch",
+    "TouchRecorder",
+    "match_observed_deps",
+    "touches_to_steps",
+    "touches_to_records",
+]
 
 _Key = Tuple[str, str, str]
+
+# Sentinel for "no value captured" on a read (None is a valid relied-on value).
+_UNSET = object()
+
+
+def _safe_deepcopy(value: Any) -> Any:
+    """Snapshot a relied-on value, immune to later in-place mutation of the source.
+
+    The bridge records the value a decision relied on *at read time*. Without a
+    copy the record would alias the live object, so a later in-place mutation
+    (a list append, a dict update) would silently rewrite the signed snapshot.
+    Falls back to the raw reference for the rare value that cannot be deep-copied
+    (a lock, a live connection): such a value is not JSON-serializable and so
+    cannot enter a signed snapshot anyway, and capture must never crash the run
+    it is observing.
+    """
+    try:
+        return deepcopy(value)
+    except Exception:
+        return value
+
+
+def _state_key(resource_id: str, key: str) -> str:
+    """The snapshot.state key for a relied-on value: the resource id, or id:key."""
+    return resource_id if not key else f"{resource_id}:{key}"
 
 
 def _key(ref: ResourceRef) -> _Key:
@@ -47,6 +92,14 @@ class StepTouch:
     node_attrs: Dict[str, Any] = field(default_factory=dict)
     overcaptured: frozenset = field(default_factory=frozenset)
     exec_preds: Optional[List[int]] = None
+    # Capture-to-replay bridge (additive; the matcher above ignores these): the
+    # relied-on values read before this step's decision, the action it took, and
+    # whether it is a consequential decision (action_type is set by ``decides``).
+    read_values: Dict[str, Any] = field(default_factory=dict)
+    write_values: Dict[str, Any] = field(default_factory=dict)
+    action_type: Optional[str] = None
+    action_args: Dict[str, Any] = field(default_factory=dict)
+    action_cost: float = 0.0
 
 
 def _edge(
@@ -163,6 +216,43 @@ def touches_to_steps(
     ]
 
 
+def touches_to_records(
+    touches: Sequence[StepTouch], *, sink: Any = None
+) -> "List[DecisionRecord]":
+    """Lower each consequential touch (one whose ``action_type`` is set) into a signed,
+    chained, replayable ``DecisionRecord`` carrying its relied-on values as the
+    ``DependencySnapshot``. ``replay(record, live_state=..., policy=...)`` then re-decides
+    the captured action against state that is live now.
+
+    The relied-on values must be JSON-serializable, since the record is content-hashed.
+    A touch with no ``action_type`` produces no record. This is a behavioral bridge: it
+    builds replayable records and adds no scoring or detector logic. Both the manual
+    :class:`TouchRecorder` and the LangGraph source lower through this one function.
+    """
+    # graph -> chain/record is an allowed direction; imported lazily so the matcher
+    # core stays dependency-free (the module level imports only the typed schema).
+    from ..chain import Decision, MemorySink
+    from ..record import Action, DependencySnapshot
+
+    sink = sink if sink is not None else MemorySink()
+    records: List["DecisionRecord"] = []
+    for touch in touches:
+        if touch.action_type is None:
+            continue
+        snapshot = DependencySnapshot(state=_safe_deepcopy(dict(touch.read_values)))
+        decision = Decision(touch.action_type, snapshot)
+        decision.act(
+            Action(
+                type=touch.action_type,
+                arguments=_safe_deepcopy(dict(touch.action_args)),
+                cost=touch.action_cost,
+            )
+        )
+        sink.append(decision.record)
+        records.append(decision.record)
+    return records
+
+
 class _StepTouchBuilder:
     """The handle yielded by ``TouchRecorder.step``; records reads and writes.
 
@@ -174,12 +264,36 @@ class _StepTouchBuilder:
     def __init__(self, touch: StepTouch) -> None:
         self._touch = touch
 
-    def reads(self, namespace: str, resource_id: str, key: str = "") -> "_StepTouchBuilder":
+    def reads(
+        self,
+        namespace: str,
+        resource_id: str,
+        key: str = "",
+        *,
+        value: Any = _UNSET,
+    ) -> "_StepTouchBuilder":
+        """Declare a read. Pass ``value`` to also snapshot the relied-on value, so a
+        consequential step lowers into a replayable record (see ``to_records``)."""
         self._touch.reads.append(ResourceRef(namespace, resource_id, key))
+        if value is not _UNSET:
+            # copy at read time: the snapshot is the value relied on now, immune to
+            # a later in-place mutation of the same object (see _safe_deepcopy).
+            self._touch.read_values[_state_key(resource_id, key)] = _safe_deepcopy(value)
         return self
 
     def writes(self, namespace: str, resource_id: str, key: str = "") -> "_StepTouchBuilder":
         self._touch.writes.append(ResourceRef(namespace, resource_id, key))
+        return self
+
+    def decides(
+        self, action_type: str, *, cost: float = 0.0, **arguments: Any
+    ) -> "_StepTouchBuilder":
+        """Mark this step as a consequential decision and record the action it took.
+        Only a step with a ``decides(...)`` lowers into a ``DecisionRecord`` in
+        ``to_records``; the keyword arguments become the action's arguments."""
+        self._touch.action_type = action_type
+        self._touch.action_args = _safe_deepcopy(dict(arguments))
+        self._touch.action_cost = cost
         return self
 
 
@@ -229,3 +343,8 @@ class TouchRecorder:
         """Lower the recorded touches into typed steps. ``source`` is ignored (the
         recorder is its own source), so ``analyze_run(rec, adapter=rec)`` works."""
         return touches_to_steps(self._touches, adapter=self.id)
+
+    def to_records(self, *, sink: Any = None) -> "List[DecisionRecord]":
+        """Lower each consequential step (one with a ``decides(...)``) into a signed,
+        chained, replayable ``DecisionRecord``; see :func:`touches_to_records`."""
+        return touches_to_records(self._touches, sink=sink)

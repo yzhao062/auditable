@@ -27,3 +27,5 @@ jobs:
       - run: python examples/example_payment_audit.py
       - if: matrix.python-version != '3.9'
         run: python examples/example_langgraph_capture.py
+      - if: matrix.python-version != '3.9'
+        run: python examples/example_langgraph_live_replay.py

@@ -586,5 +586,5 @@ def test_record_only_captures_inside_an_active_run():
     from auditable.integrations.langgraph import _Recorder
 
     rec = _Recorder()
-    rec.record("n", 0, {"x"}, set(), {"x": 1})  # no begin_run first
+    rec.record("n", 0, {"x"}, set(), {"x": 1}, {"x": 1})  # no begin_run first
     assert rec.to_touches() == []

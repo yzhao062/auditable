@@ -46,10 +46,13 @@ import typing
 import warnings
 from collections.abc import Mapping
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Sequence, Set, Tuple
 
 from ..graph.session import ResourceRef, Step
-from ..graph.touch import StepTouch, touches_to_steps
+from ..graph.touch import StepTouch, _safe_deepcopy, touches_to_records, touches_to_steps
+
+if TYPE_CHECKING:  # the to_records bridge lowers to the record/replay core
+    from ..record import DecisionRecord
 
 try:  # the import doubles as the optional-extra presence check
     from langgraph.channels.binop import BinaryOperatorAggregate as _BinaryOperatorAggregate
@@ -74,19 +77,27 @@ class _RecordingState(Mapping):
     presence check, not a value read, and is not logged.
     """
 
-    def __init__(self, raw: Mapping, reads: Set[str], over: Set[str]) -> None:
+    def __init__(
+        self, raw: Mapping, reads: Set[str], over: Set[str], values: Dict[str, Any]
+    ) -> None:
         self._raw = raw
         self._reads = reads
         self._over = over
+        self._values = values  # relied-on read values, for the replay (to_records) bridge
 
     def __getitem__(self, key: str) -> Any:
         self._reads.add(key)
-        return self._raw[key]
+        value = self._raw[key]
+        # copy at read time so the snapshot holds the value relied on now, immune to a
+        # later in-place mutation of the same object; the node still gets the raw value.
+        self._values[key] = _safe_deepcopy(value)
+        return value
 
     def __iter__(self):
         for key in self._raw:  # whole-state scan: every channel read, and overcaptured
             self._reads.add(key)
             self._over.add(key)
+            self._values[key] = _safe_deepcopy(self._raw[key])
         return iter(list(self._raw))
 
     def __len__(self) -> int:
@@ -98,6 +109,7 @@ class _RecordingState(Mapping):
     def get(self, key: str, default: Any = None) -> Any:
         if key in self._raw:
             self._reads.add(key)
+            self._values[key] = _safe_deepcopy(self._raw[key])
         return self._raw.get(key, default)
 
     def copy(self) -> dict:
@@ -105,6 +117,7 @@ class _RecordingState(Mapping):
         for key in self._raw:
             self._reads.add(key)
             self._over.add(key)
+            self._values[key] = _safe_deepcopy(self._raw[key])
         return dict(self._raw)
 
 
@@ -124,6 +137,34 @@ def _extract_writes(result: Any) -> List[str]:
     return []
 
 
+def _extract_write_values(result: Any) -> Dict[str, Any]:
+    """The channel -> value map a node wrote, mirroring ``_extract_writes`` (which
+    returns only the keys). The replay (to_records) bridge uses it to fill a marked
+    decision node's action arguments from what the node wrote."""
+    update = result.update if isinstance(result, _Command) else result
+    if isinstance(update, Mapping):
+        return dict(update)
+    if isinstance(update, (list, tuple)) and all(
+        isinstance(item, (list, tuple)) and len(item) == 2 and isinstance(item[0], str)
+        for item in update
+    ):
+        return {item[0]: item[1] for item in update}
+    return {}
+
+
+def _lookup_field(node: str, arg_name: str, state_key: str, fields: Dict[str, Any]) -> Any:
+    """Resolve a captured field for an action arg/cost, or raise naming what is available.
+
+    A mistyped field name in ``to_records(action_args=..., action_costs=...)`` should fail
+    loudly at lowering, not silently lower a wrong (or zero-cost) action."""
+    if state_key not in fields:
+        raise KeyError(
+            f"to_records: node {node!r} maps {arg_name!r} to captured field {state_key!r}, "
+            f"which the node did not read or write. Captured fields: {sorted(fields)}."
+        )
+    return fields[state_key]
+
+
 @dataclass
 class _Capture:
     """One node invocation's raw capture, before lowering to a StepTouch."""
@@ -134,6 +175,8 @@ class _Capture:
     reads: List[str]
     writes: List[str]
     overcaptured: List[str]
+    read_values: Dict[str, Any] = field(default_factory=dict)
+    write_values: Dict[str, Any] = field(default_factory=dict)
 
 
 class _Recorder:
@@ -176,7 +219,15 @@ class _Recorder:
         with self._run_lock:
             self._active = False
 
-    def record(self, node: str, superstep: int, reads: Set[str], over: Set[str], result: Any) -> None:
+    def record(
+        self,
+        node: str,
+        superstep: int,
+        reads: Set[str],
+        over: Set[str],
+        result: Any,
+        read_values: Dict[str, Any],
+    ) -> None:
         # Backstop: only capture inside an active run. A supported entry point
         # (invoke / ainvoke / stream / astream) calls begin_run before any node
         # fires; any other execution surface that runs the wrapped nodes without
@@ -184,6 +235,9 @@ class _Recorder:
         if not self._active:
             return
         writes = _extract_writes(result)
+        # read_values arrive already copied at read time (see _RecordingState); the node's
+        # returned writes are raw, so copy them before they can be mutated downstream.
+        write_values = _safe_deepcopy(_extract_write_values(result))
         with self._lock:
             idx = self._next_idx
             self._next_idx += 1
@@ -195,6 +249,8 @@ class _Recorder:
                     reads=sorted(reads),
                     writes=writes,
                     overcaptured=sorted(over),
+                    read_values=dict(read_values),
+                    write_values=write_values,
                 )
             )
 
@@ -227,6 +283,9 @@ class _Recorder:
                         node_attrs={"langgraph_node": c.node},
                         overcaptured=frozenset(ResourceRef(_NS, k, "") for k in c.overcaptured),
                         exec_preds=list(prev_superstep_idxs),
+                        # channel name is the snapshot.state key (key="" for state channels)
+                        read_values=dict(c.read_values),
+                        write_values=dict(c.write_values),
                     )
                 )
             prev_superstep_idxs = [c.idx for c in group]
@@ -325,10 +384,11 @@ def _wrap(fn: Any, name: str, rec: _Recorder) -> Any:
         async def _awrapper(state, config=None, runtime=None, store=None, writer=None, previous=None):
             reads: Set[str] = set()
             over: Set[str] = set()
-            proxy = _RecordingState(state, reads, over)
+            values: Dict[str, Any] = {}
+            proxy = _RecordingState(state, reads, over, values)
             injected = {"config": config, "runtime": runtime, "store": store, "writer": writer, "previous": previous}
             result = await fn(proxy, **{k: injected[k] for k in wanted})
-            rec.record(name, _superstep_of(config), reads, over, result)
+            rec.record(name, _superstep_of(config), reads, over, result, values)
             return result
 
         return _copy_langgraph_metadata(_awrapper, fn, fn_name)
@@ -336,10 +396,11 @@ def _wrap(fn: Any, name: str, rec: _Recorder) -> Any:
     def _wrapper(state, config=None, runtime=None, store=None, writer=None, previous=None):
         reads: Set[str] = set()
         over: Set[str] = set()
-        proxy = _RecordingState(state, reads, over)
+        values: Dict[str, Any] = {}
+        proxy = _RecordingState(state, reads, over, values)
         injected = {"config": config, "runtime": runtime, "store": store, "writer": writer, "previous": previous}
         result = fn(proxy, **{k: injected[k] for k in wanted})
-        rec.record(name, _superstep_of(config), reads, over, result)
+        rec.record(name, _superstep_of(config), reads, over, result, values)
         return result
 
     return _copy_langgraph_metadata(_wrapper, fn, fn_name)
@@ -581,6 +642,65 @@ class InstrumentedStateGraph:
         return touches_to_steps(
             touches, reducer_channels=_reducer_channels(self._builder), adapter=self.id
         )
+
+    def to_records(
+        self,
+        decisions: Any,
+        *,
+        sink: Any = None,
+        action_args: "Optional[Mapping[str, Mapping[str, str]]]" = None,
+        action_costs: "Optional[Mapping[str, str]]" = None,
+    ) -> "List[DecisionRecord]":
+        """Lower the marked decision node(s) of the captured run into replayable
+        ``DecisionRecord``s, so ``replay(record, live_state=..., policy=...)`` re-decides
+        a real captured action against state that is live now.
+
+        ``decisions`` names the consequential node(s): a mapping ``{node: action_type}``,
+        or an iterable of node names (the node name is then the action type). For each
+        marked node the relied-on read values become the ``DependencySnapshot``.
+
+        The action a record carries is shaped by two optional maps, both keyed by node:
+
+        - ``action_args`` (``{node: {arg_name: field}}``) sets the action's arguments from
+          named captured fields. Without it the action arguments default to the node's
+          write values.
+        - ``action_costs`` (``{node: field}``) sets the action's cost from a captured
+          field. Without it the cost is ``0.0``, so a policy that re-decides from the
+          snapshot or live *state* still works, but a policy that inspects ``action.cost``
+          would see ``0``. Map the cost field whenever the replay policy is cost-based.
+
+        A field name resolves against the node's captured reads and writes (writes win on a
+        name clash); an unknown field raises ``KeyError`` naming the captured fields. This
+        is the wrap-once LIVE companion to ``to_steps`` (POST); both read the same run.
+        """
+        wanted = dict(decisions) if isinstance(decisions, Mapping) else {n: n for n in decisions}
+        arg_map = dict(action_args) if action_args else {}
+        cost_map = dict(action_costs) if action_costs else {}
+        touches = self._recorder.to_touches()
+        missing = (set(wanted) | set(arg_map) | set(cost_map)) - {t.agent for t in touches}
+        if missing:
+            warnings.warn(
+                f"to_records: decision node(s) not in the captured run: {sorted(missing)}.",
+                UserWarning,
+                stacklevel=2,
+            )
+        for touch in touches:
+            if touch.agent not in wanted:
+                continue
+            fields = {**touch.read_values, **touch.write_values}
+            touch.action_type = wanted[touch.agent]
+            if touch.agent in arg_map:
+                touch.action_args = {
+                    arg_name: _lookup_field(touch.agent, arg_name, state_key, fields)
+                    for arg_name, state_key in arg_map[touch.agent].items()
+                }
+            else:
+                touch.action_args = dict(touch.write_values)
+            if touch.agent in cost_map:
+                touch.action_cost = float(
+                    _lookup_field(touch.agent, "cost", cost_map[touch.agent], fields)
+                )
+        return touches_to_records(touches, sink=sink)
 
     def __getattr__(self, attr: str) -> Any:
         # only fires for attributes not defined above; delegate to the wrapped builder.

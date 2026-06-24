@@ -30,6 +30,7 @@ pip install "auditable[langgraph,llm]"   # for example_langgraph_llm_agent.py (a
 | POST | `example_post_rank_run.py` | After a run finishes | GRADE corpus results (see below) |
 | Capture | `example_langgraph_capture.py` | Capture a real LangGraph run, then rank it | None (capability demo) |
 | Capture | `example_langgraph_llm_agent.py` | Capture a real LLM-driven LangGraph run, then rank it | None (capability demo) |
+| Capture + LIVE | `example_langgraph_live_replay.py` | Capture a real LangGraph run, then replay and reverse its decision under drift | None (capability demo) |
 | Capture | `example_touch_capture.py` | Capture any tool loop by hand, then rank it | None (capability demo) |
 
 ## PRE: Lint a Declared Plan Before Deploy
@@ -144,10 +145,35 @@ a pure function or a frontier model, which is the point the example makes. It re
 plain OpenAI key or any compatible gateway or local server, and prints a notice and
 exits cleanly when no key is set. It needs `pip install "auditable[langgraph,llm]"`.
 
+`example_langgraph_live_replay.py` carries one real LangGraph run through both
+pillars. The same wrapped builder that yields the POST ranking also lowers the
+marked decision node into a replayable `DecisionRecord`. `to_records` takes the
+budget the approval relied on into the snapshot, and `action_args` / `action_costs`
+lift the recipient and the real payment cost onto the action itself, so the lowered
+record is the executable payment rather than a state-only stub:
+
+```python
+record = builder.to_records(
+    decisions={"approve": "vendor_payment"},
+    action_args={"approve": {"recipient": "recipient"}},
+    action_costs={"approve": "amount"},
+)[0]
+```
+
+After capture, the example lowers the live budget below the approved amount (fault
+injection, a controlled post-capture change, not drift the corpus supplied) and
+`replay` re-decides on the live state with a cost-based policy: the action's cost
+exceeds the budget that is live now, so it routes a `ROLLBACK` that the `ActionGate`
+executes through a reference ledger. It needs `pip install "auditable[langgraph]"`.
+It is a capability demo on one run, not the comparative replay-versus-baseline
+experiment.
+
 `example_touch_capture.py` does the same for a plain tool loop with no framework,
 using the generic `TouchRecorder`: each step declares its `reads()` and `writes()`
-and the same matcher produces the observed edges. This is the framework-agnostic
-path for a raw OpenAI or Anthropic loop, or any scheduler.
+and the same matcher produces the observed edges. The recorder also carries the
+relied-on values (`reads(..., value=...)`) and a `decides(...)` action, so
+`rec.to_records()` lowers a consequential step into the same replayable record. This
+is the framework-agnostic path for a raw OpenAI or Anthropic loop, or any scheduler.
 
 Both are capability demos: the keystone ranking is a triage signal, not a
 calibrated probability, and the OBSERVED grade is an observed touch match, not a

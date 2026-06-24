@@ -82,6 +82,8 @@ pip install "auditable[langgraph]"
 python examples/example_langgraph_capture.py     # a real LangGraph run -> observed=100%, keystone named
 ```
 
+The same wrapped builder also yields **replayable** records, so the LIVE pillar runs on the captured run, not a hand-built dict. `builder.to_records(decisions={"approve": "vendor_payment"})` lowers a marked decision node into a `DecisionRecord` carrying the state it relied on, and `replay(record, live_state=...)` re-decides it under state that is live now and routes a rollback. See [`example_langgraph_live_replay.py`](examples/example_langgraph_live_replay.py): one real LangGraph run, captured, ranked (POST), then replayed and reversed under a drifted budget (LIVE).
+
 Want a real model in the loop? [`example_langgraph_llm_agent.py`](examples/example_langgraph_llm_agent.py) runs the same capture with live LLM nodes against any OpenAI-compatible endpoint (a plain OpenAI key, a gateway, or a local vLLM or Ollama server). The captured edges are identical, because the capture sees the state channels a node read and wrote, not the model call inside it.
 
 Not on LangGraph? The framework-agnostic `TouchRecorder` captures the same observed edges from any loop (a raw OpenAI or Anthropic agent, your own scheduler) by declaring each step's `reads()` and `writes()`. See [`examples/example_touch_capture.py`](examples/example_touch_capture.py). **Roadmap:** LangChain, CrewAI, MCP, and OpenTelemetry.
@@ -95,12 +97,13 @@ Point `auditable` at a scenario and it builds the same typed graph. Each row lin
 | Capture a real LangGraph agent | LIVE → POST | a live `StateGraph` run (`instrument`) | [`example_langgraph_capture.py`](examples/example_langgraph_capture.py) |
 | Capture a real LLM agent (live model) | LIVE → POST | a model-driven `StateGraph` run (`instrument` + OpenAI-compatible) | [`example_langgraph_llm_agent.py`](examples/example_langgraph_llm_agent.py) |
 | Capture any tool loop by hand | LIVE → POST | declared resource touches (`TouchRecorder`) | [`example_touch_capture.py`](examples/example_touch_capture.py) |
+| Capture a LangGraph agent, then replay and reverse it | LIVE → POST | a live `StateGraph` run lowered to replayable records (`instrument` + `to_records`) | [`example_langgraph_live_replay.py`](examples/example_langgraph_live_replay.py) |
 | Lint a declared plan before deploy | PRE | a framework-agnostic plan dict (`declared_plan_v1`) | [`example_pre_lint_plan.py`](examples/example_pre_lint_plan.py) |
 | Recover a payment as the budget drifts | LIVE | a decision captured live (`audit` + `replay`) | [`example_live_replay.py`](examples/example_live_replay.py) |
 | Rank a tau-bench run, name the keystone | POST | a tau-bench trajectory (`tau_bench_prior_db_reads_v1`) | [`example_post_rank_run.py`](examples/example_post_rank_run.py) |
 | Walk one payment through every pillar | PRE, LIVE, POST | the full lifecycle (`own_record_v1` for POST) | [`example_end_to_end.py`](examples/example_end_to_end.py) |
 
-The first three rows capture a real run; see [Plug In Your Agent](#plug-in-your-agent) for the two-line setup. **Roadmap:** LangChain, CrewAI, MCP, and OpenTelemetry.
+The first four rows capture a real run; see [Plug In Your Agent](#plug-in-your-agent) for the two-line setup. **Roadmap:** LangChain, CrewAI, MCP, and OpenTelemetry.
 
 ## The Lifecycle
 
