@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "auditable"
-version = "0.1.0"
+version = "0.1.1"
 description = "Audit any agent decision across its past, present, and future, on one typed graph."
 readme = "README.md"
 requires-python = ">=3.9"

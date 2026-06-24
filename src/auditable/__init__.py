@@ -36,7 +36,7 @@ from .analysis import AnalysisReport, analyze_run
 from .report import render_report
 from .graph.adapters import Adapter
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 __all__ = [
     "__version__",
