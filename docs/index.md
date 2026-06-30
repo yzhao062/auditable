@@ -1,6 +1,6 @@
 # auditable
 
-Audit any agent decision across its past, present, and future, on one typed graph.
+`auditable` is an open-source system of record for AI-agent decisions: it captures what each decision relied on, replays it against live state, and rolls back the committed action when it no longer holds.
 
 In plain terms: your AI agent makes a decision based on some state (a budget, a price, an allow-list), but that state can go stale by the time the agent acts. `auditable` records the decision, checks it again against the state that is live now, and undoes the action when the decision no longer holds. The same check also reviews a plan before you ship it and ranks a finished run so you know which step to look at first.
 

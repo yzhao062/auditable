@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Auditable AI — capital A as a five-node graph">
+  <title>Auditable AI</title>
+  <desc>The capital letter A drawn as a connected-node graph. Nodes sit at the apex, the two feet, and the two points where the crossbar meets the legs; the two legs and the crossbar are the edges. White on a dark rounded square.</desc>
+
+  <!-- dark rounded square -->
+  <rect width="512" height="512" rx="120" fill="#0F172A"/>
+
+  <!-- edges: left leg, right leg, crossbar -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M256 138 L148 382"/>
+    <path d="M256 138 L364 382"/>
+    <path d="M191 284 L321 284"/>
+  </g>
+
+  <!-- nodes: apex, left junction, right junction, left foot, right foot -->
+  <g fill="#FFFFFF">
+    <circle cx="256" cy="138" r="28"/>
+    <circle cx="191" cy="284" r="28"/>
+    <circle cx="321" cy="284" r="28"/>
+    <circle cx="148" cy="382" r="28"/>
+    <circle cx="364" cy="382" r="28"/>
+  </g>
+</svg>

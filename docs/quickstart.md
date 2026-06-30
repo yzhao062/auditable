@@ -141,7 +141,7 @@ print(report.to_markdown(level=2))    # the method form; level sets the heading 
 The POST run above renders to this Markdown:
 
 ```markdown
-# Auditable POST Report: Structural Risk Analysis
+# POST Report: Structural Risk Analysis
 
 - stage: POST (runtime, after the run completes)
 - adapter: tau_bench_prior_db_reads_v1

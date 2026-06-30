@@ -2,7 +2,7 @@
 
 # auditable
 
-**Audit any agent decision across its past, present, and future, on one typed graph.**
+**`auditable` is an open-source system of record for AI-agent decisions: it captures what each decision relied on, replays it against live state, and rolls back the committed action when it no longer holds.**
 
 *Your logs show what the agent did. `auditable` shows what it relied on, replays it under live state, and rolls it back when it no longer holds.*
 
@@ -278,7 +278,7 @@ Shipping today: the full capture, replay, and recover chain; PRE plan lints; POS
 
 ## Related Projects
 
-`auditable` is the SDK in a small family of open agent-reliability projects:
+`auditable` is part of a small family of open agent-reliability projects:
 
 - **[awesome-auditable-ai](https://github.com/yzhao062/awesome-auditable-ai)** — a curated reading list on AI agent reliability and auditing.
 - **[GRADE](https://arxiv.org/abs/2606.22741)** — the research behind the typed two-layer graph this library is built on (also in [References](#references)).

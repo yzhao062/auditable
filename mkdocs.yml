@@ -1,5 +1,5 @@
 site_name: auditable
-site_description: "Audit any agent decision across its past, present, and future, on one typed graph. The graph carries PRE, LIVE, and POST."
+site_description: "An open-source system of record for AI-agent decisions: it captures what each decision relied on, replays it against live state, and rolls back the committed action when it no longer holds."
 site_url: https://auditable-ai.readthedocs.io/
 site_author: Yue Zhao
 repo_url: https://github.com/yzhao062/auditable
@@ -9,6 +9,8 @@ docs_dir: docs
 
 theme:
   name: material
+  logo: assets/auditable-mark.svg
+  favicon: assets/favicon.ico
   palette:
     - scheme: default
       primary: indigo

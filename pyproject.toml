@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "auditable"
 version = "0.1.1"
-description = "Audit any agent decision across its past, present, and future, on one typed graph."
+description = "An open-source system of record for AI-agent decisions: it captures what each decision relied on, replays it against live state, and rolls back the committed action when it no longer holds."
 readme = "README.md"
 requires-python = ">=3.9"
 license = "Apache-2.0"
