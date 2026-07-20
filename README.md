@@ -86,7 +86,7 @@ The same wrapped builder also yields **replayable** records, so the LIVE pillar 
 
 Want a real model in the loop? [`example_langgraph_llm_agent.py`](examples/example_langgraph_llm_agent.py) runs the same capture with live LLM nodes against any OpenAI-compatible endpoint (a plain OpenAI key, a gateway, or a local vLLM or Ollama server). The captured edges are identical, because the capture sees the state channels a node read and wrote, not the model call inside it.
 
-Not on LangGraph? The framework-agnostic `TouchRecorder` captures the same observed edges from any loop (a raw OpenAI or Anthropic agent, your own scheduler) by declaring each step's `reads()` and `writes()`. See [`examples/example_touch_capture.py`](examples/example_touch_capture.py). **Roadmap:** LangChain, CrewAI, MCP, and OpenTelemetry.
+Not on LangGraph? A one-line callback captures any LangChain runnable (`auditable.integrations.langchain`), an in-place `instrument` records every tool call at an MCP server boundary (`auditable.integrations.mcp`), and the framework-agnostic `TouchRecorder` captures the same observed edges from any loop (a raw OpenAI or Anthropic agent, your own scheduler) by declaring each step's `reads()` and `writes()`. See [`examples/example_touch_capture.py`](examples/example_touch_capture.py). **Roadmap:** CrewAI and OpenTelemetry.
 
 ## Examples and Integrations
 
@@ -96,7 +96,9 @@ Point `auditable` at a scenario and it builds the same typed graph. Each row lin
 |---|---|---|---|
 | Capture a real LangGraph agent | LIVE → POST | a live `StateGraph` run (`instrument`) | [`example_langgraph_capture.py`](examples/example_langgraph_capture.py) |
 | Capture a real LLM agent (live model) | LIVE → POST | a model-driven `StateGraph` run (`instrument` + OpenAI-compatible) | [`example_langgraph_llm_agent.py`](examples/example_langgraph_llm_agent.py) |
+| Capture a real LangChain runnable | LIVE → POST | a callback on any runnable (`LangChainCallbackHandler`) | [`example_langchain_capture.py`](examples/example_langchain_capture.py) |
 | Capture any tool loop by hand | LIVE → POST | declared resource touches (`TouchRecorder`) | [`example_touch_capture.py`](examples/example_touch_capture.py) |
+| Capture MCP tool traffic at the server boundary | LIVE → POST | an instrumented FastMCP server (`instrument`) | [`example_mcp_capture.py`](examples/example_mcp_capture.py) |
 | Capture a LangGraph agent, then replay and reverse it | LIVE → POST | a live `StateGraph` run lowered to replayable records (`instrument` + `to_records`) | [`example_langgraph_live_replay.py`](examples/example_langgraph_live_replay.py) |
 | Lint a declared plan before deploy | PRE | a framework-agnostic plan dict (`declared_plan_v1`) | [`example_pre_lint_plan.py`](examples/example_pre_lint_plan.py) |
 | Recover a payment as the budget drifts | LIVE | a decision captured live (`audit` + `replay`) | [`example_live_replay.py`](examples/example_live_replay.py) |
@@ -104,7 +106,7 @@ Point `auditable` at a scenario and it builds the same typed graph. Each row lin
 | Rank a tau-bench run, name the keystone | POST | a tau-bench trajectory (`tau_bench_prior_db_reads_v1`) | [`example_post_rank_run.py`](examples/example_post_rank_run.py) |
 | Walk one payment through every pillar | PRE, LIVE, POST | the full lifecycle (`own_record_v1` for POST) | [`example_end_to_end.py`](examples/example_end_to_end.py) |
 
-The first four rows capture a real run; see [Plug In Your Agent](#plug-in-your-agent) for the two-line setup. **Roadmap:** LangChain, CrewAI, MCP, and OpenTelemetry.
+The first six rows capture a real run; see [Plug In Your Agent](#plug-in-your-agent) for the two-line setup. **Roadmap:** CrewAI and OpenTelemetry.
 
 ## The Lifecycle
 
@@ -277,7 +279,7 @@ Shipping today: the full capture, replay, and recover chain; PRE plan lints; POS
 - **One calibrated compound score.** Combine the data, model, and action signals into a single calibrated score, with the model treated as a first-class node in the graph.
 - **Automatic fixes.** Refresh stale data, quarantine bad inputs, fall back to a safer model, or require human sign-off.
 - **Built-in CI checks.** A table-stakes OWASP-Agentic and CWE rule floor for continuous integration.
-- **Integrations (1.0).** LangGraph capture ships now (`instrument`); next are one-line hooks for LangChain and CrewAI, an MCP server, export to OpenTelemetry and LangSmith, downloadable evidence bundles, and a stable public API.
+- **Integrations (1.0).** LangGraph capture (`instrument`), the LangChain callback, and MCP tool-boundary capture ship now; next are a CrewAI hook, export to OpenTelemetry and LangSmith, downloadable evidence bundles, and a stable public API.
 
 </details>
 

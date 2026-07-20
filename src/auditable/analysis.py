@@ -23,8 +23,10 @@ is a ranking / triage signal, and grounding is deterministic consistency evidenc
 """
 from __future__ import annotations
 
+from copy import deepcopy
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Sequence
+from threading import RLock
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 from .graph.grounding import GroundingResult, ground_basis, ground_record
 from .graph.risk import (
@@ -41,6 +43,7 @@ from .graph.session import (
     SessionGraph,
     Step,
 )
+from .record import DependencySnapshot
 
 __all__ = ["AnalysisReport", "DecisionRisk", "LiveSession", "analyze_run"]
 
@@ -90,6 +93,9 @@ class AnalysisReport:
     - ``grounding``: per step index, the model-basis grounding where a basis is
       stated. Empty for a corpus tool trace (no step states a model basis); it lights
       up on auditable's own records, which carry ``decision_basis`` and read context.
+    - ``data_reports``: per step index, the live data-stage report for a dependency
+      snapshot captured when that step was observed. Empty for offline analysis this
+      round.
     - ``completeness``: ``complete`` (offline) now; ``prefix`` for the v0.3b live path,
       with no field change.
     - ``adapter``: the ingestion adapter id (``<name>_<version>``), so the report names
@@ -117,6 +123,10 @@ class AnalysisReport:
     # the dataclass import-light (no new module-scope import) and to keep a
     # graph-less / stand-in report valid. None means "no graph available".
     session_graph: Optional[Any] = None
+    # The data-stage Report objects collected by the live path. Values are typed as
+    # Any to keep the dataclass import-light (no new module-scope Report import) and
+    # to keep stand-in reports valid. Empty means "no live data assessment available".
+    data_reports: Dict[int, Any] = field(default_factory=dict)
 
     @property
     def scored(self) -> bool:
@@ -163,6 +173,25 @@ class AnalysisReport:
             lines += ["", "  model-basis grounding (where a basis is stated):"]
             for idx in sorted(self.grounding):
                 lines.append(f"    step {idx}: {_grounding_line(self.grounding[idx])}")
+
+        if self.data_reports:
+            flagged = {
+                idx: data_report
+                for idx, data_report in self.data_reports.items()
+                if getattr(data_report, "flag", None) != "ok"
+            }
+            if flagged:
+                lines += ["", "  data-stage triage (flagged dependency snapshots):"]
+                for idx in sorted(flagged):
+                    data_report = flagged[idx]
+                    score = getattr(data_report, "score", None)
+                    score_text = f"{score:.3f}" if isinstance(score, (int, float)) else "n/a"
+                    flag = getattr(data_report, "flag", "unknown")
+                    reason = getattr(data_report, "reason", "")
+                    reason_text = f" -- {reason}" if reason else ""
+                    lines.append(
+                        f"    step {idx}: {flag} (data score={score_text}){reason_text}"
+                    )
 
         if self.notes:
             lines += ["", "  notes:"]
@@ -361,7 +390,7 @@ def _analyze_steps(
             agent=s.agent,
             score=risk.per_decision.get(s.idx) if scored else None,
             label=_label(s),
-            node_attrs=dict(s.node_attrs or {}),
+            node_attrs=deepcopy(s.node_attrs or {}),
             grounding=grounding.get(s.idx),
         )
         for s in steps
@@ -432,32 +461,155 @@ class LiveSession:
     carries that caveat. Whether a prefix score predicts failure early is a separate,
     unshipped validation (the prefix-AUC curve), not a claim this surface makes.
 
+    Benchmark motivation: on a streaming board, an unsupervised state detector was at
+    least competitive with the structural signal at early prefixes. That motivates
+    optionally running both signals live; it does not establish early-warning validity
+    or calibration for this module.
+
     ``observe`` re-scores the whole prefix on each call, which is cheap for the step
     counts of typical agent runs; a future incremental kernel can make it sublinear
     without changing this API. Feed steps in run order, each depending only on earlier
     steps. Set ``ground=True`` to ground a step's stated model basis from its node
-    attributes (off by default; live monitoring is structural).
+    attributes (off by default). Set ``data_auditor`` to assess dependency snapshots.
+    Pass a snapshot explicitly when the producer has one, for example from auditable's
+    own :class:`~auditable.record.DecisionRecord`::
+
+        session = LiveSession(data_auditor=data_auditor)
+        report = session.observe(step, snapshot=record.data.snapshot)
+
+    ``observe`` deep-copies the snapshot state at ingestion. For compatibility, it also
+    captures ``snapshot_state`` (or ``state``) and ``snapshot_captured_at`` from a
+    step's node attributes on first observation. The explicit ``snapshot`` argument
+    wins when both forms are present. Later caller mutation cannot rewrite the captured
+    evidence. The resulting data score is an uncalibrated per-step triage signal,
+    separate from the structural score.
     """
 
-    def __init__(self, *, adapter: Any = None, ground: bool = False) -> None:
+    def __init__(
+        self, *, adapter: Any = None, ground: bool = False, data_auditor: Any = None
+    ) -> None:
         self._steps: List[Step] = []
+        self._seen_idxs: set = set()
         self._adapter_id = _adapter_id(adapter) or "live_session_v1"
         self._ground = ground
+        self._data_auditor = data_auditor
+        self._snapshots: Dict[int, DependencySnapshot] = {}
+        self._lock = RLock()
 
-    def observe(self, step: Step) -> AnalysisReport:
-        """Append a streamed step and return the running report over the prefix so far."""
-        self._steps.append(step)
-        return self._report()
+    @staticmethod
+    def _capture_snapshot(
+        step: Step, snapshot: Optional[DependencySnapshot]
+    ) -> Optional[DependencySnapshot]:
+        """An owned deep copy of the step's evidence, or ``None`` when it has none."""
+        if snapshot is not None:
+            return DependencySnapshot(
+                state=deepcopy(snapshot.state),
+                captured_at=snapshot.captured_at,
+            )
+        node_attrs = step.node_attrs or {}
+        state = node_attrs.get("snapshot_state")
+        if state is None:
+            state = node_attrs.get("state")
+        if not isinstance(state, dict):
+            return None
+        return DependencySnapshot(
+            state=deepcopy(state),
+            captured_at=node_attrs.get("snapshot_captured_at"),
+        )
+
+    def _freeze_unlocked(self) -> Tuple[List[Step], Dict[int, DependencySnapshot]]:
+        # Deep copies on every pass keep reports and stored evidence free of any
+        # alias to caller-held objects; the whole prefix is re-scored anyway, so
+        # this stays inside the documented per-observe cost envelope.
+        return deepcopy(self._steps), deepcopy(self._snapshots)
+
+    def observe(
+        self, step: Step, *, snapshot: Optional[DependencySnapshot] = None
+    ) -> AnalysisReport:
+        """Append a step, capture its snapshot, and report on the running prefix.
+
+        The step and its evidence are deep-copied at ingestion, so later caller
+        mutation cannot rewrite what was observed. A duplicate ``Step.idx`` raises
+        ``ValueError`` before anything is committed, so a rejected call never
+        poisons the session.
+        """
+        captured_step = deepcopy(step)
+        captured_snapshot = self._capture_snapshot(captured_step, snapshot)
+        with self._lock:
+            if captured_step.idx in self._seen_idxs:
+                raise ValueError(
+                    f"duplicate Step.idx {captured_step.idx!r}: step ids must be unique"
+                )
+            # Validate the prospective prefix before committing either collection.
+            SessionGraph.from_steps(
+                [*self._steps, captured_step],
+                completeness=GraphCompleteness.PREFIX,
+            )
+            self._steps.append(captured_step)
+            self._seen_idxs.add(captured_step.idx)
+            if captured_snapshot is not None:
+                self._snapshots[captured_step.idx] = captured_snapshot
+            steps, snapshots = self._freeze_unlocked()
+        return self._report_from(steps, snapshots)
 
     def report(self) -> AnalysisReport:
         """The running report over the steps observed so far, without adding a step."""
-        return self._report()
+        with self._lock:
+            steps, snapshots = self._freeze_unlocked()
+        return self._report_from(steps, snapshots)
 
-    def _report(self) -> AnalysisReport:
-        return _analyze_steps(
-            self._steps,
+    def _report_from(
+        self,
+        steps: List[Step],
+        snapshots: Dict[int, DependencySnapshot],
+    ) -> AnalysisReport:
+        report = _analyze_steps(
+            steps,
             adapter_id=self._adapter_id,
             completeness=GraphCompleteness.PREFIX,
             ground=self._ground,
             source=None,  # grounding (if on) falls back to each step's node_attrs basis
         )
+        if self._data_auditor is None:
+            return report
+
+        data_reports: Dict[int, Any] = {}
+        failures: Dict[int, str] = {}
+        for step in steps:
+            snapshot = snapshots.get(step.idx)
+            if snapshot is None or not isinstance(snapshot.state, dict):
+                continue
+            try:
+                data_reports[step.idx] = self._data_auditor.assess(
+                    DependencySnapshot(
+                        state=deepcopy(snapshot.state),
+                        captured_at=snapshot.captured_at,
+                    )
+                )
+            except Exception as exc:
+                # A data scorer is advisory in the streaming path: one bad snapshot
+                # or scorer failure must not interrupt observation of the run.
+                failures[step.idx] = type(exc).__name__
+                continue
+
+        report.data_reports = data_reports
+        flagged = sorted(
+            idx
+            for idx, data_report in data_reports.items()
+            if getattr(data_report, "flag", None) != "ok"
+        )
+        if flagged:
+            report.notes.append(
+                "data-stage triage flagged dependency snapshots at step indexes "
+                f"{flagged}. The data score is a per-step triage signal on the "
+                "dependency snapshot, separate from the structural score and not calibrated."
+            )
+        if failures:
+            unavailable = ", ".join(
+                f"{idx} ({failures[idx]})" for idx in sorted(failures)
+            )
+            report.notes.append(
+                "data-stage assessment unavailable for steps "
+                f"{unavailable}; no data score was produced for those steps."
+            )
+        return report

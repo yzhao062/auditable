@@ -21,6 +21,8 @@ the langgraph extra):
 pip install "auditable[graph]"
 pip install "auditable[langgraph]"       # for example_langgraph_capture.py
 pip install "auditable[langgraph,llm]"   # for example_langgraph_llm_agent.py (a real model; needs an OpenAI-compatible key)
+pip install "auditable[graph,langchain]" # for example_langchain_capture.py
+pip install "auditable[graph,mcp]"       # for example_mcp_capture.py (Python >= 3.10)
 ```
 
 | Pillar | Example | When it runs | Benchmark number |
@@ -31,9 +33,11 @@ pip install "auditable[langgraph,llm]"   # for example_langgraph_llm_agent.py (a
 | POST | `example_post_rank_run.py` | After a run finishes | GRADE corpus results (see below) |
 | Capture | `example_langgraph_capture.py` | Capture a real LangGraph run, then rank it | None (capability demo) |
 | Capture | `example_langgraph_llm_agent.py` | Capture a real LLM-driven LangGraph run, then rank it | None (capability demo) |
+| Capture | `example_langchain_capture.py` | Capture a real LangChain runnable, then rank it | None (capability demo) |
 | Capture + LIVE | `example_langgraph_live_replay.py` | Capture a real LangGraph run, then replay and reverse its decision under drift | None (capability demo) |
 | Capture + Data | `example_state_anomaly.py` | Capture clean state history, fit from it, then score synthetic faults | None (concept demo) |
 | Capture | `example_touch_capture.py` | Capture any tool loop by hand, then rank it | None (capability demo) |
+| Capture | `example_mcp_capture.py` | Capture MCP tool traffic at the server boundary (ops-side mount) into an honest zero-coverage report | None (capability demo) |
 
 ## PRE: Lint a Declared Plan Before Deploy
 
