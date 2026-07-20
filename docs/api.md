@@ -11,6 +11,14 @@ renderer for both the PRE and POST reports; see the [Quickstart](quickstart.md#r
 
 ::: auditable
 
+## Data Module
+
+`DataAuditor` provides the freshness fallback and the optional fitted dependency-state
+path. See the [Data Module](data-module.md) for its feature schema, history-fitting
+helpers, fallback evidence, and detector-independent injection tools.
+
+::: auditable.data.DataAuditor
+
 ## Report Rendering
 
 The Markdown renderer for the typed reports: `render_report` (the top-level

@@ -206,4 +206,9 @@ report = DataAuditor(max_age_seconds=24 * 60 * 60).assess(snapshot)
 print(report.flag, report.score, report.reason)  # stale 1.0 ...
 ```
 
-The standalone auditors are inputs to the record; the composed full-chain record is the main line. See [Architecture](architecture.md) for how the three spans compose into one signed record.
+The example uses the freshness fallback; with `pip install "auditable[anomaly]"`,
+`DataAuditor` can also fit a PyOD detector on normal dependency snapshots. See the
+[Data Module](data-module.md) for the learned mode and its evidence boundary. The
+standalone auditors are inputs to the record, and the composed full-chain record is the
+main line. See [Architecture](architecture.md) for how the three spans compose into one
+signed record.

@@ -86,5 +86,6 @@ nav:
   - Reference:
       - PRE Coverage: pre-coverage.md
       - Audit Report: audit-report.md
+      - Data Module: data-module.md
       - Architecture: architecture.md
       - API Reference: api.md

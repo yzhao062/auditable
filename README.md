@@ -126,9 +126,11 @@ The core is dependency-free and torch-free. Structural-graph analysis (`analyze_
 
 ```bash
 pip install "auditable[graph]"
+pip install "auditable[anomaly]"
 ```
 
-The LIVE example runs on the core install alone.
+The graph extra adds NetworkX. The anomaly extra adds the fitted `DataAuditor` path
+through PyOD; freshness fallback and the LIVE example run on the core install alone.
 
 Docs: https://auditable-ai.readthedocs.io/
 
@@ -254,7 +256,12 @@ These standalone auditors are inputs to the record, not the headline. The compos
 
 **What ships today.** The full signed chain, replay under live state, executed recovery through a rail-neutral gate, two sinks (in-memory and append-only JSONL), the POST `analyze_run` ranking, the PRE `analyze_plan` lints plus preflight coverage report, and real-run capture into observed dependency edges (LangGraph via `instrument`, any loop via `TouchRecorder`).
 
-The release does **not** yet claim a learned data-anomaly method, a calibrated model-trust score, calibrated cross-layer risk, or live incremental scoring. The POST structural score is an uncalibrated ranking; the compound report is a transparent, explicitly uncalibrated debug bundle. Everything beyond this list is on the [roadmap](#roadmap).
+The fitted data-anomaly path ships as an unpromoted module API, and `LiveSession`
+prefix scoring ships. The release does **not** yet claim benchmark-grade detector
+evidence, a calibrated model-trust score, or calibrated cross-layer risk. The POST
+structural score is an uncalibrated ranking; the compound report is a transparent,
+explicitly uncalibrated debug bundle. Calibrated compound scoring remains on the
+[roadmap](#roadmap).
 
 </details>
 
@@ -265,11 +272,9 @@ The release does **not** yet claim a learned data-anomaly method, a calibrated m
 
 <br>
 
-Shipping today: the full capture, replay, and recover chain; PRE plan lints; POST run ranking; signed, hash-chained records; two sinks. Next:
+Shipping today: the full capture, replay, and recover chain; PRE plan lints; POST run ranking; `LiveSession` prefix scoring; signed, hash-chained records; two sinks. The fitted PyOD detector over dependency snapshots also ships as an unpromoted module API, with freshness as the fallback; promotion waits for benchmark-grade evidence. Next:
 
-- **Smarter drift detection.** Learn what healthy dependency state looks like and flag anomalies, not just staleness (PyOD backend, with freshness as the fallback).
-- **One calibrated risk score.** Combine the data, model, and action signals into a single calibrated score, with the model treated as a first-class node in the graph.
-- **Live scoring.** Score decisions on the prefix graph as the agent runs, not only after the run completes. (Capturing what each step read and wrote already ships for LangGraph and the `TouchRecorder`.)
+- **One calibrated compound score.** Combine the data, model, and action signals into a single calibrated score, with the model treated as a first-class node in the graph.
 - **Automatic fixes.** Refresh stale data, quarantine bad inputs, fall back to a safer model, or require human sign-off.
 - **Built-in CI checks.** A table-stakes OWASP-Agentic and CWE rule floor for continuous integration.
 - **Integrations (1.0).** LangGraph capture ships now (`instrument`); next are one-line hooks for LangChain and CrewAI, an MCP server, export to OpenTelemetry and LangSmith, downloadable evidence bundles, and a stable public API.

@@ -34,6 +34,8 @@ dependencies = []
 [project.optional-dependencies]
 graph = ["networkx>=3.0"]
 langchain = ["langchain-core>=0.3.0"]
+# Learned state anomaly detection; pyod brings numpy, scipy, and scikit-learn.
+anomaly = ["pyod>=1.1.0"]
 # Capture a real LangGraph run into the typed graph (auditable.integrations.langgraph).
 # Pulls NetworkX too, since capture feeds analyze_run. langgraph 1.x needs Python
 # >= 3.10, so the marker guards install on 3.9. Tested against langgraph 1.2.x.

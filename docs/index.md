@@ -87,6 +87,7 @@ The graph extra pulls in NetworkX, which the PRE and POST graph entries need.
 - [Lifecycle](lifecycle.md): the map across PRE, LIVE, and POST.
 - [PRE Coverage](pre-coverage.md): how the lints map to OWASP and CWE.
 - [Audit Report](audit-report.md): the Markdown and PDF report a run produces.
+- [Data Module](data-module.md): the fitted dependency-state API and its explicit freshness fallback.
 - [API Reference](api.md): the full public surface.
 
 The fastest way to see the whole lifecycle on one dataset is [`examples/example_end_to_end.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_end_to_end.py): one vendor payment walked through PRE, LIVE, and POST with a single `python examples/example_end_to_end.py`. To capture your own agent, [`examples/example_langgraph_capture.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_langgraph_capture.py) lowers a real LangGraph run into the observed dependency graph, and [`examples/example_touch_capture.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_touch_capture.py) does the same for any loop.

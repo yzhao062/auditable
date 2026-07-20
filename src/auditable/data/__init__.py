@@ -4,19 +4,20 @@
 dependency snapshot against a freshness budget and flags a stale snapshot. The mode is
 always made explicit in ``Report.evidence``, so the surfaced result is unambiguous.
 
-A fitted anomaly score on the dependency state is a forward-looking option (see the
-roadmap): when an envelope has been learned, the auditor can score a snapshot against it
-and fall back to the freshness rule otherwise. v0.1 surfaces the freshness rule; the
-fitted path is not claimed as a shipping v0.1 capability.
+A fitted anomaly score on the dependency state is an unpromoted module API. With the
+optional anomaly dependencies installed, callers can learn an envelope from explicit
+snapshots, captured ``DecisionRecord`` history, or a verified ``FileSink`` log, then
+score a snapshot against it. The auditor falls back to the freshness rule otherwise;
+the learned path remains a concept path rather than a benchmark-backed product claim.
 """
 from __future__ import annotations
 
 import time
 import warnings
 from contextlib import contextmanager
-from typing import Any, Optional, Sequence
+from typing import Any, Iterable, Optional, Sequence
 
-from ..record import Auditor, DependencySnapshot, Report
+from ..record import Auditor, DecisionRecord, DependencySnapshot, Report
 
 try:  # the forward-looking fitted path needs pyod + numpy, installed separately
     import numpy as np
@@ -93,6 +94,34 @@ class DataAuditor(Auditor):
         self._detector = detector
         self._fitted = True
         return self
+
+    def fit_records(
+        self,
+        records: Iterable[DecisionRecord],
+        *,
+        now: Optional[float] = None,
+    ) -> "DataAuditor":
+        """Learn from the non-empty dependency snapshots in captured records."""
+        snapshots = [
+            record.data.snapshot
+            for record in records
+            if record.data.snapshot.state
+        ]
+        if not snapshots:
+            raise ValueError(
+                "fit_records needs at least one record with a non-empty snapshot state."
+            )
+        return self.fit(snapshots, now=now)
+
+    def fit_from_log(
+        self, path: str, *, now: Optional[float] = None
+    ) -> "DataAuditor":
+        """Verify a ``FileSink`` JSONL log and learn from its captured snapshots."""
+        # Local so importing the data module does not eagerly traverse the graph package.
+        # The loader is pure Python and graph/__init__.py fails soft without networkx.
+        from ..graph.loader import load_log
+
+        return self.fit_records(load_log(path), now=now)
 
     # ---- assess -----------------------------------------------------------------
     def assess(self, subject: DependencySnapshot, *, now: Optional[float] = None) -> Report:
