@@ -16,6 +16,18 @@ pip install "auditable[graph]"
 
 The `graph` extra is required by `analyze_plan` (PRE), `analyze_run` (POST), and any graph projection. The LIVE capture, replay, and gate path runs on the core alone. The library is torch-free; only NetworkX is pulled in by the extra.
 
+## Running the Examples
+
+`pip install auditable` gives you the library. It does not give you the `examples/` directory, which the published wheel leaves out, so every `python examples/...` command on this site needs a source checkout first:
+
+```bash
+git clone https://github.com/yzhao062/auditable.git
+cd auditable
+python -m pip install ".[graph]"
+```
+
+Swap the extra for whatever a given example needs: `langgraph` for the LangGraph capture, `graph,mcp` for the MCP server capture. The LIVE payment demo needs no extra at all; it runs on the core install.
+
 ## LIVE: Replay Under Live State, Then Recover
 
 This is the sharpest demo. An agent approves a payment against a budget snapshot, the budget moves, and `replay` re-derives that the payment no longer holds, so the gate reverses it through a reference rail. The full runnable script is [`examples/example_payment_audit.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_payment_audit.py).
@@ -183,9 +195,12 @@ The blast-share scores are within-run structural fractions (how much of this one
 
 ## End-to-End: One Payment Across All Three Pillars
 
-The snippets above show one pillar each. [`examples/example_end_to_end.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_end_to_end.py) carries a single vendor payment through PRE, then LIVE, then POST on one dataset and one state, and closes by printing the aggregate audit report through `AuditReport.to_markdown`. Run it with one command:
+The snippets above show one pillar each. [`examples/example_end_to_end.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_end_to_end.py) carries a single vendor payment through PRE, then LIVE, then POST on one dataset and one state, and closes by printing the aggregate audit report through `AuditReport.to_markdown`. The wheel does not include repository examples, so run it from a source checkout:
 
 ```bash
+git clone https://github.com/yzhao062/auditable.git
+cd auditable
+python -m pip install ".[graph]"
 python examples/example_end_to_end.py
 ```
 

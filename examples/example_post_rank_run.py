@@ -2,21 +2,21 @@
 
 What this shows, in plain terms: given a run that already finished, auditable
 builds one typed decision graph over it, scores every step by how much of the
-rest of the run rests on it, and names the single step to review first (the
-keystone). This is the lifecycle pillar where the GRADE results live.
+rest of the run rests on it, and names the keystone that heads this structural
+triage order.
 
-GRADE relation (cite arXiv:2606.22741): the graph's two layers are what GRADE
-measures on a six-corpus benchmark. The dependency layer PREDICTS run failure
-(ROC-AUC 0.805 on SWE-Gym, +0.142 over the run-length baseline), and the
-execution layer LOCALIZES the faulting step (Top-3 0.614 on Who&When). IMPORTANT:
-those are GRADE full-corpus numbers, NOT outputs of this example. The trajectory
-below is a small illustrative tau-bench-style run; it prints a keystone ranking,
-not a benchmark score. The corpus-scale evaluation lives in GRADE.
+CatchBench relation: on SWE-Gym, ``auditable (size+deps)`` scores ROC-AUC 0.804
+against 0.663 for ``size (flat)``; comparisons with ECOD and GUARDIAN remain
+unresolved. On Who&When, Top-3 0.614 belongs to GRADE's supervised
+``exec-rank (sup.)``. The shipping ``auditable (blast share)`` method scores
+0.516 and ties the position prior at displayed precision. These are benchmark
+numbers, NOT outputs of this example. The trajectory below is a small
+illustrative tau-bench-style run and prints a structural keystone ranking.
 
 auditable attaches at three points in an agent's lifecycle. This is the POST
 pillar: read a recorded run after it completes, build one typed session decision
 graph, score every step by how much of the rest of the run transitively rests on
-it, and report the riskiest decision to review first. The other two pillars are
+it, and report the keystone that heads the structural triage order. The other two pillars are
 example_pre_lint_plan.py (PRE: lint a declared plan before deploy) and
 example_live_replay.py (LIVE: replay under live state and execute a fix). All
 three run over the same typed two-layer graph. No live agent, no API key, no
@@ -91,7 +91,7 @@ def main():
     print(
         f"\nKeystone: step {k.idx} ({k.node_attrs['tool']}) -- "
         f"two consequential writes (rebook, add bag) rest on this one read, "
-        f"so auditable ranks it first to review."
+        f"so it heads auditable's structural triage order."
     )
 
 

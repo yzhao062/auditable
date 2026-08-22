@@ -12,7 +12,7 @@ report = analyze_plan(plan, adapter=declared_plan_v1)
 print(report)
 ```
 
-A runnable plan that trips every check is in [`examples/example_pre_lint_plan.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_pre_lint_plan.py); run it with `python examples/example_pre_lint_plan.py` (needs the `graph` extra). The [PRE Examples](pre-examples.md) page walks through what it prints.
+A runnable plan that trips every check is in [`examples/example_pre_lint_plan.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_pre_lint_plan.py); run it from a [source checkout](quickstart.md#running-the-examples) with `python examples/example_pre_lint_plan.py` (needs the `graph` extra). The [PRE Examples](pre-examples.md) page walks through what it prints.
 
 The rest of this page is the reference: each lint's exact predicate, the keystone, the coverage report, and the one number PRE withholds on purpose. Read it when you want to know precisely what a finding means.
 

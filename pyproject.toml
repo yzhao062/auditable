@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "auditable"
-version = "0.2.0"
+version = "0.2.1"
 description = "An open-source system of record for AI-agent decisions: it captures what each decision relied on, replays it against live state, and rolls back the committed action when it no longer holds."
 readme = "README.md"
 requires-python = ">=3.9"

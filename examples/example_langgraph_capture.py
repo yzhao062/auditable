@@ -97,7 +97,7 @@ def main():
         print(
             f"\nKeystone: step {k.idx} ({k.node_attrs.get('langgraph_node')}) -- "
             f"the approval and the ledger entry both rest on this read, so a stale "
-            f"budget here is the first thing to review."
+            f"budget here would have broad downstream impact."
         )
 
 

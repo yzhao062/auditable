@@ -115,7 +115,8 @@ def main():
 
     print("\nHonesty note: this is a concept demo on synthetic faults, not benchmark evidence.")
     print(
-        "Benchmark-grade evidence is AuditableBench-Gold on a named-value substrate."
+        "An artifact-controlled CatchBench Gold board on a named-value substrate "
+        "remains the validation target."
     )
 
 

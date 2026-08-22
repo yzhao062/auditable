@@ -157,6 +157,6 @@ transaction amounts. It also keeps detector inputs separate from replay-derived
 labels: the detector sees dependency state, while replay produces labels from the
 action cost and live budget.
 
-That experiment is concept-demo evidence, not benchmark-grade validation. The pending
-benchmark-grade evidence target is AuditableBench-Gold on a named-value substrate.
-Promotion waits for that evidence.
+That experiment is concept-demo evidence, not benchmark-grade validation. An
+artifact-controlled CatchBench Gold board on a named-value substrate remains the
+validation target. Promotion waits for that evidence.

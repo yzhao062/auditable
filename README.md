@@ -27,32 +27,33 @@
 | One graph across plan, run, and review | ✅ | 🟡 | ❌ | ❌ |
 | Framework-agnostic, dependency-free core | ✅ | 🟡 | 🟡 | 🟡 |
 
-<sub>✅ yes · 🟡 partial · ❌ no, per each tool's public docs (2026). These categories are complementary to `auditable`, not competitors: tracing captures execution, evals score quality, guardrails block at runtime. `auditable` is the audit-and-recovery layer that plugs into them. See [References](#references).</sub>
+<sub>✅ yes · 🟡 partial · ❌ no, per the named tools' public docs (2026). These categories are complementary to `auditable`, not competitors: tracing captures execution, evals score quality, and guardrails block at runtime. `auditable` is the audit-and-recovery layer that plugs into them. See [References](#references).</sub>
 
-**`auditable` is the only column with the full set.** What makes it new:
+**Among the named tools in this documentation-based comparison, `auditable` is the only column with the full set.** What makes it new:
 
 - **A unified graph representation for agentic AI.** Every agent run becomes one typed graph that PRE, LIVE, and POST all read. One representation from plan to live operation to review, instead of three disconnected tools.
 - **Recover, do not just observe.** `auditable` captures the dependency state a decision relied on, replays it under the state that is live now, and reverses the committed action through a compensating rail when it no longer holds. Logging tells you what broke; `auditable` undoes it.
 - **One decision, three spans, judged together.** Data, model, and harness are bound in a single signed, hash-chained record, so a decision is audited as one unit, not three disconnected logs.
 
-### Proven on Public Agent Benchmarks
+### Measured on Public Agent Traces
 
-The graph is not just structure. Across six public agent corpora (GRADE, [arXiv:2606.22741](https://arxiv.org/abs/2606.22741)), the dependency layer predicts which runs fail at **ROC-AUC 0.805** where run length carries no signal, and the execution layer localizes the faulting step at **Top-3 0.614**. See [the benchmark detail](docs/post-analysis.md) for the full numbers and corpora.
+The graph is not just structure. On the CatchBench SWE-Gym board, **`auditable (size+deps)` scores ROC-AUC 0.804 against 0.663 for `size (flat)`**. Registered paired comparisons with ECOD and GUARDIAN remain unresolved. See [the benchmark detail](docs/post-analysis.md) for the localization results, full method names, and limitations.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/yzhao062/auditable/main/assets/grade-transfer.png" alt="Leave-one-corpus-out transfer ROC-AUC: the size-normalized dependency signal clears chance on all six held-out agent corpora, while run size drops below chance on tau-bench and SWE-Gym" width="49%">
-  <img src="https://raw.githubusercontent.com/yzhao062/auditable/main/assets/grade-localization.png" alt="Step-level fault localization on Who and When: ranking steps by execution-graph structure beats an early-fault position prior on top-1, top-3, and MRR" width="49%">
+  <img src="https://raw.githubusercontent.com/yzhao062/auditable/main/assets/grade-transfer.png" alt="GRADE leave-one-corpus-out transfer ROC-AUC for size-normalized dependency features and run size across six held-out agent corpora" width="70%">
 </p>
-<p align="center"><sub>Figures from GRADE (<a href="https://arxiv.org/abs/2606.22741">arXiv:2606.22741</a>).</sub></p>
+<p align="center"><sub>Leave-one-corpus-out transfer analysis from GRADE (<a href="https://arxiv.org/abs/2606.22741">arXiv:2606.22741</a>), separate from the CatchBench board result above.</sub></p>
 
-Agents act on dependency state that quietly drifts. A budget read minutes ago can fall below the amount already committed; a price pinned at plan time can move before the action lands. Most tools log what happened, yet they cannot re-decide under the state that is live now, so a stale decision stands until a human notices. `auditable` closes that recovery gap across the lifecycle on one graph: it captures the decision, replays it against live state, and reverses the committed action when it no longer holds.
+Agents act on dependency state that quietly drifts. A budget read minutes ago can fall below the amount already committed; a price pinned at plan time can move before the action lands. The named tracing, eval, and guardrail tools above do not combine dependency capture, live-state replay, and rollback in one layer. `auditable` closes that recovery gap across the lifecycle on one graph: it captures the decision, replays it against live state, and reverses the committed action when it no longer holds.
 
 ## The Flagship Moment
 
 One payment, walked through the whole lifecycle in 18 `auditable` calls. The agent approves a $2,083.20 vendor payment against a budget snapshot that covered it. Six days later the live budget has dropped below the amount. `replay` re-decides on the live state, and the gate reverses the committed payment. This is recovery, not a log line.
 
 ```bash
-pip install "auditable[graph]"
+git clone https://github.com/yzhao062/auditable.git
+cd auditable
+python -m pip install ".[graph]"
 python examples/example_end_to_end.py
 ```
 
@@ -78,7 +79,9 @@ print(report.keystone)                           # the step the rest of the run 
 ```
 
 ```bash
-pip install "auditable[langgraph]"
+git clone https://github.com/yzhao062/auditable.git
+cd auditable
+python -m pip install ".[langgraph]"
 python examples/example_langgraph_capture.py     # a real LangGraph run -> observed=100%, keystone named
 ```
 
@@ -116,7 +119,7 @@ The first six rows capture a real run; see [Plug In Your Agent](#plug-in-your-ag
 |---|---|---|---|
 | **PRE** | Before deploy | `analyze_plan` | Read-only structural lints on a declared plan. Names the control-flow chokepoint. Dependency-state risk withheld. |
 | **LIVE** | While running | `audit` + `replay` + `ActionGate` | Capture a decision, re-decide under live state, route a fix (allow, block, review, rollback) through a rail. The sharpest pillar. |
-| **POST** | After a run | `analyze_run` | Rank a finished run by structural blast share. Name the keystone the run rests on, so you review that step first. |
+| **POST** | After a run | `analyze_run` | Rank a finished run by structural blast share and name the keystone for structural triage. |
 
 ## Install
 
@@ -191,7 +194,7 @@ See [`examples/example_pre_lint_plan.py`](examples/example_pre_lint_plan.py) and
 <details>
 <summary><b>POST: rank a finished run, find the keystone</b> (`analyze_run` over a recorded trajectory)</summary>
 
-`analyze_run` reads a recorded agent run, builds one decision graph, and ranks every step by how much of the run transitively rests on it, so you review the keystone first. On a tau-bench airline trajectory, the one reservation read that both later writes depend on is the keystone.
+`analyze_run` reads a recorded agent run, builds one decision graph, and ranks every step by how much of the run transitively rests on it. The keystone heads this structural triage order. On a tau-bench airline trajectory, the one reservation read that both later writes depend on is the keystone.
 
 ![auditable analyze_run ranks a recorded tau-bench run by structural blast share and names the keystone decision](https://raw.githubusercontent.com/yzhao062/auditable/main/assets/analyze_run.png)
 
@@ -219,7 +222,7 @@ The graph kernel has two edge layers, and the distinction is load-bearing. Execu
 
 One agent decision crosses three spans, and `auditable` binds all three in a single signed, hash-chained record:
 
-| Span | What the Record Binds | Signal in v0.1 |
+| Span | What the Record Binds | Current Signal |
 |---|---|---|
 | **Data** | What the agent read and the dependency snapshot it relied on | Snapshot freshness |
 | **Model** | Which model produced the output, and its stated basis | Decision-basis trust flag |

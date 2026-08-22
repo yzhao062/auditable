@@ -65,7 +65,7 @@ See [Lifecycle](lifecycle.md) for each pillar in detail, and [`examples/example_
 - **One decision, three spans, judged together.** Data, model, and harness are bound in a single signed, hash-chained record, so a decision is audited as one unit, not three disconnected logs.
 - **Plug in the agent you already run.** Wrap a real LangGraph `StateGraph` (TypedDict state, plain sync or async function nodes) with `instrument(...)` and every node's reads and writes over the state channels become observed dependency edges; the framework-agnostic `TouchRecorder` does the same for any loop. See [Capturing a Real Run](architecture.md#capturing-a-real-run).
 
-| Span | What the record binds | Signal in v0.1 |
+| Span | What the record binds | Current signal |
 |---|---|---|
 | **Data** | What the agent read and the dependency snapshot it relied on | Snapshot freshness |
 | **Model** | Which model produced the output, and its stated basis | Decision-basis trust flag |
@@ -79,7 +79,7 @@ pip install "auditable[graph]"   # adds the graph analyses (PRE lints, POST anal
 pip install "auditable[langgraph]"   # capture a real LangGraph run
 ```
 
-The graph extra pulls in NetworkX, which the PRE and POST graph entries need.
+The graph extra pulls in NetworkX, which the PRE and POST graph entries need. The wheel carries the library only; the `examples/` directory needs a source checkout, described under [Running the Examples](quickstart.md#running-the-examples).
 
 ## Where to Start
 
@@ -90,4 +90,4 @@ The graph extra pulls in NetworkX, which the PRE and POST graph entries need.
 - [Data Module](data-module.md): the fitted dependency-state API and its explicit freshness fallback.
 - [API Reference](api.md): the full public surface.
 
-The fastest way to see the whole lifecycle on one dataset is [`examples/example_end_to_end.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_end_to_end.py): one vendor payment walked through PRE, LIVE, and POST with a single `python examples/example_end_to_end.py`. To capture your own agent, [`examples/example_langgraph_capture.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_langgraph_capture.py) lowers a real LangGraph run into the observed dependency graph, and [`examples/example_touch_capture.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_touch_capture.py) does the same for any loop.
+The fastest way to see the whole lifecycle on one dataset is [`examples/example_end_to_end.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_end_to_end.py): one vendor payment walked through PRE, LIVE, and POST with a single `python examples/example_end_to_end.py` from a [source checkout](quickstart.md#running-the-examples). To capture your own agent, [`examples/example_langgraph_capture.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_langgraph_capture.py) lowers a real LangGraph run into the observed dependency graph, and [`examples/example_touch_capture.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_touch_capture.py) does the same for any loop.

@@ -14,6 +14,11 @@ measured on a six-corpus benchmark in the GRADE paper (arXiv:2606.22741). Where 
 number appears below, it is a GRADE corpus result cited to that paper, not an
 output of the shipped example.
 
+Every command below runs from the root of a repository checkout
+(`git clone https://github.com/yzhao062/auditable.git`). The published wheel
+carries the library only, so a `pip install auditable` alone leaves these scripts
+absent.
+
 The graph examples need the graph extra (and the LangGraph capture example needs
 the langgraph extra):
 
@@ -115,22 +120,20 @@ python examples/example_live_monitor.py
 
 `example_post_rank_run.py` reads a run after it completes, builds one typed
 decision graph, scores every step by how much of the rest of the run transitively
-rests on it, and names the single step to review first (the keystone). The shipped
+rests on it, and names the keystone that heads the structural triage order. The shipped
 trajectory is a small illustrative tau-bench-style airline run: the agent reads one
 reservation, then makes two writes that both rest on that read, so the read is
 the keystone. The example prints a keystone ranking on this small trajectory, not
 a benchmark score.
 
-This is the pillar that surfaces the GRADE graph results. The two graph layers
-were measured on a six-corpus benchmark in GRADE (arXiv:2606.22741):
+CatchBench evaluates methods built from the two graph layers:
 
-- **Dependency layer PREDICTS run failure.** ROC-AUC 0.805 on SWE-Gym, +0.142
-  over the run-length baseline (0.663). Under leave-one-corpus-out transfer, the
-  dependency signal stays 0.551 to 0.662 above chance on all six corpora, while
-  the run-length baseline inverts below 0.5 (0.468 on tau-bench, 0.350 on SWE-Gym).
-- **Execution layer LOCALIZES the faulting step.** On Who&When (126 failed runs),
-  Top-3 0.614, MRR 0.454, Top-1 0.211; against a position prior at
-  0.516 / 0.407 / 0.159 and a random floor at 0.346 / 0.324 / 0.119.
+- **Dependency features detect failed runs beyond run size on SWE-Gym.**
+  `auditable (size+deps)` scores ROC-AUC 0.804 against 0.663 for `size (flat)`.
+  Its paired comparisons with ECOD and GUARDIAN remain unresolved.
+- **Top-3 0.614 belongs to GRADE's supervised `exec-rank (sup.)`.** On
+  Who&When (126 failed runs), the shipping `auditable (blast share)` method
+  scores 0.516 and ties the position prior at displayed precision.
 
 The six GRADE corpora are tau-bench and tau2-bench (tool use), SWE-agent,
 SWE-Gym, and OpenHands (coding), and AgentRewardBench (web). Who&When supplies the
@@ -138,10 +141,9 @@ SWE-Gym, and OpenHands (coding), and AgentRewardBench (web). Who&When supplies t
 SWE-agent) appear here only as GRADE evaluation corpora; that corpus data does not
 ship with this SDK, so no runnable SWE-Gym or coding example exists here.
 
-These numbers are GRADE full-corpus results, cited to arXiv:2606.22741. They are
-NOT outputs of the shipped `example_post_rank_run.py` example. The shipped example
+These numbers are NOT outputs of the shipped `example_post_rank_run.py` example. The shipped example
 runs on a small illustrative trajectory and prints a keystone ranking; the
-full-corpus evaluation lives in GRADE.
+full-corpus evaluation lives in CatchBench.
 
 Run it:
 

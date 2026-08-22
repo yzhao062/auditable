@@ -36,7 +36,7 @@ The library is torch-free. The graph layer depends only on NetworkX, installed t
 
 One agent decision spans three layers, and `auditable` records all three in a single `DecisionRecord` so the decision is judged as one unit rather than three disconnected logs.
 
-| Span | What it captures | Standalone auditor | v0.1 signal |
+| Span | What it captures | Standalone auditor | Current signal |
 |---|---|---|---|
 | Data | What the agent read, plus the dependency snapshot it relied on | `DataAuditor` | Snapshot freshness rule (`flag` / `score` / `reason`) |
 | Model | Which model produced the output, and its stated decision basis | `ModelAuditor` | Decision-basis trust flag |
@@ -46,7 +46,7 @@ Each span attaches a normalized `Report` (the leaf an `Auditor` returns), with a
 
 The three standalone auditors each subclass the `Auditor` base (the detect-face base class, analogous to a base detector in a detector library: set `stage` and `name`, implement `assess`, return a `Report`). Each is usable on its own with no agent and no chain. They are inputs to the record, and the composed full-chain record is the main line; see [Using a Single Layer](quickstart.md#using-a-single-layer) for the standalone path.
 
-The `CompoundReport` is a transparent v0.1 bundle over the three leaves. It preserves the per-stage breakdown and exposes an explicitly named `uncalibrated_score` (the maximum of the per-stage scores) for debugging. This score is uncalibrated by design, it is not decision-grade, and it does not drive recovery; recovery is driven by the replay verdict (see [LIVE Replay and Recovery](realtime-replay.md)). A calibrated cross-layer combiner is on the roadmap.
+The `CompoundReport` is a transparent bundle over the three leaves. It preserves the per-stage breakdown and exposes an explicitly named `uncalibrated_score` (the maximum of the per-stage scores) for debugging. This score is uncalibrated by design, it is not decision-grade, and it does not drive recovery; recovery is driven by the replay verdict (see [LIVE Replay and Recovery](realtime-replay.md)). A calibrated cross-layer combiner is on the roadmap.
 
 ## Ingestion Adapters: One Representation, Many Sources
 
@@ -64,12 +64,14 @@ The declared-plan adapter is the neutral seam a LangGraph, CrewAI, or AutoGen fr
 
 ## Capturing a Real Run
 
-The corpus and plan adapters above lower an existing artifact (a trajectory, a record chain, a plan dict). To capture a real agent run, two paths produce `observed` dependency edges with a structured `ResourceRef`, the runtime resource-touch contract in `auditable.graph.touch`.
+The corpus and plan adapters above lower an existing artifact (a trajectory, a record chain, a plan dict). Real-run capture produces `observed` dependency edges through the runtime resource-touch contract in `auditable.graph.touch`. The generic `TouchRecorder` is the foundation, with shipping integrations for LangGraph, LangChain, and FastMCP.
 
 The contract is a read-after-write match. A step records the resources it read and the resources it wrote; a read of a resource binds to the writer(s) of that resource committed in an earlier step. The match is **superstep-aware** (writes commit at a step barrier, so two steps that ran without seeing each other's writes never produce an edge between them) and **reducer-aware** (a channel that accumulates writes fans in from every writer, marked `modeled` in evidence; an overwrite channel binds the single last writer). The grade is `observed` as a channel-level touch match, with evidence carrying `granularity: "channel"` and `relation: "read_after_committed_write"`. It is an observed touch, not a precise causal claim.
 
 - **`TouchRecorder`** (`auditable.graph.touch`) is the framework-agnostic path: wrap each consequential step in `with rec.step(...) as st:` and declare `st.reads(...)` / `st.writes(...)`. It implements the `Adapter` protocol and is its own source, so `analyze_run(rec, adapter=rec)` lowers the run.
 - **LangGraph capture** (`auditable.integrations.langgraph.instrument`, optional `auditable[langgraph]` extra) derives those touches automatically. `instrument(StateGraph(State))` wraps each node so the state it receives logs the channels it reads, and the node's returned update logs the channels it writes; the superstep comes from `config["metadata"]["langgraph_step"]` and the reducer channels from the state-schema annotations. Build, compile, and invoke as usual, then call `analyze_run(builder, adapter=builder)`. The core never imports `langgraph`. Tested against langgraph 1.2.x; v1 captures TypedDict-shaped state and plain sync or async function nodes (Runnable nodes and conditional-routing reads pass through without capture).
+- **LangChain capture** (`auditable.integrations.langchain.LangChainCallbackHandler`, optional `auditable[langchain]` extra) records runnable and tool activity through a callback and lowers the captured run through the same analysis interface.
+- **MCP capture** (`auditable.integrations.mcp.instrument`, optional `auditable[mcp]` extra) instruments a FastMCP server in place and records tool-boundary traffic. Its v1 scope is FastMCP servers and tool traffic, not arbitrary low-level MCP servers or model-internal state.
 
 ## Sinks: Persisting the Signed Record
 
@@ -78,13 +80,12 @@ A sink signs each record and chains it to the previous one. Two concrete sinks s
 - `MemorySink` is the default in-process sink. It holds records in a list, signing and chaining each one as it is appended.
 - `FileSink` is an append-only JSONL sink: one signed record per line, durable across process exit. It fails closed on a corrupt tail. A blank line or an empty file is fine, but a corrupt, non-object, or `record_id`-less line raises rather than silently restarting the chain, which would otherwise let a damaged tail fork an append-only tamper-evident log.
 
-Pluggable sinks for external destinations (for example, OpenTelemetry or LangSmith) and exportable evidence bundles are on the roadmap.
+Pluggable sinks for external destinations (for example, OpenTelemetry or LangSmith) and exportable evidence bundles remain on the roadmap.
 
 ## Roadmap
 
-The shipping architecture is the typed two-layer graph, the three-span signed record, the three reference adapters, the two real-run capture paths (LangGraph `instrument` and the `TouchRecorder`), and the two sinks. Planned additions, all labeled as roadmap and not shipping today:
+The shipping architecture in v0.2.1 is the typed two-layer graph, the three-span signed record, the three reference adapters, real-run capture through `TouchRecorder`, LangGraph, LangChain, and FastMCP, `LiveSession` prefix scoring, the optional fitted PyOD `DataAuditor`, and the two sinks. Planned additions:
 
-- A fitted data-anomaly score (with a PyOD backend) on the data span, with the freshness rule as a fallback (v0.2).
 - A calibrated cross-layer compound and model-as-first-class-node grounding beyond the current deterministic check (v0.3).
-- Live / incremental scoring on the prefix graph as a run unfolds. (The runtime resource-touch contract that fills the structured `ResourceRef` from an observed read/write match now ships for the LangGraph capture path and the `TouchRecorder`; see [Capturing a Real Run](#capturing-a-real-run).)
-- Pluggable sinks (OpenTelemetry, LangSmith), exportable evidence bundles, and a stable public API (v1.0), plus more framework integrations (LangChain, CrewAI) and an MCP server.
+- A more efficient incremental kernel for `LiveSession`; the current implementation re-scores each prefix from scratch.
+- Pluggable sinks (OpenTelemetry, LangSmith), exportable evidence bundles, and a stable public API (v1.0), plus a CrewAI integration.

@@ -645,7 +645,7 @@ class AuditReport:
         ]
 
     def _md_keystone(self) -> List[str]:
-        """The ``## Keystone`` section: the single step to review first.
+        """The ``## Keystone`` section: the head of the structural triage order.
 
         The POST blast-radius keystone leads (it is the runtime triage signal). The
         PRE execution-topology chokepoint is reported alongside as a distinct named

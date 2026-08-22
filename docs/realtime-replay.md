@@ -17,7 +17,7 @@ verdict = replay(d.record, live_state=live_state, policy=policy)
 # 3. The verdict routes a fix; a gate reverses the action when it no longer holds.
 ```
 
-The full runnable script is [`examples/example_payment_audit.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_payment_audit.py): it captures a $4,200 payment, commits it, then replays under a dropped budget and rolls it back. Run it with `python examples/example_payment_audit.py`. The [LIVE Examples](realtime-examples.md) page walks the output. The capture, replay, and gate path runs on the core install; no extra is required.
+The full runnable script is [`examples/example_payment_audit.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_payment_audit.py): it captures a $4,200 payment, commits it, then replays under a dropped budget and rolls it back. Run it from a [source checkout](quickstart.md#running-the-examples) with `python examples/example_payment_audit.py`. The [LIVE Examples](realtime-examples.md) page walks the output. The capture, replay, and gate path runs on the core install; no extra is required.
 
 The rest of this page is the reference: the capture API, replay semantics, the four verdicts, the policy contract, and gate execution.
 

@@ -92,7 +92,7 @@ def main():
             f"\nKeystone: step {keystone.idx} "
             f"({keystone.node_attrs.get('runnable') or keystone.label}) -- "
             "the approval and ledger result both rest on this captured handoff, "
-            "so it is the first step to review."
+            "so it heads the structural triage order."
         )
 
 

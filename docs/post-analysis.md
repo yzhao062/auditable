@@ -1,6 +1,6 @@
 # POST: Rank a Finished Run, Find the Keystone
 
-POST reads a run after it finished and tells you which step to review first. It scores every step by how much of the rest of the run leans on it, then names the keystone: the one step that, if it went wrong, would have dragged the most of the run with it. When you have a failed run and a hundred steps, POST points at the step worth opening first.
+POST reads a run after it finished and produces a structural triage order. It scores every step by how much of the rest of the run leans on it, then names the keystone: the step that, if it went wrong, would have dragged the most of the run with it. This ordering is not a claim that the keystone is the fault or that it should precede other review evidence. On Who&When, the shipping blast-share ranker ties the position prior at displayed precision.
 
 You hand `analyze_run` a finished run and read the keystone off the report:
 
@@ -12,22 +12,22 @@ report = analyze_run(run, adapter=tau_bench_prior_db_reads_v1)
 print(report.keystone.idx)   # the step the rest of the run rests on
 ```
 
-The full runnable script is [`examples/example_post_rank_run.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_post_rank_run.py); run it with `python examples/example_post_rank_run.py` (needs the `graph` extra). The [POST Examples](post-examples.md) page walks the output.
+The full runnable script is [`examples/example_post_rank_run.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_post_rank_run.py); run it from a [source checkout](quickstart.md#running-the-examples) with `python examples/example_post_rank_run.py` (needs the `graph` extra). The [POST Examples](post-examples.md) page walks the output.
 
-The per-run score POST prints is a within-run ranking, not a benchmark number. The published benchmark evidence that the two graph layers carry real signal lives in GRADE, summarized next.
+The per-run score POST prints is a within-run ranking, not a benchmark number. CatchBench evaluates the package's structural methods against labeled runs, summarized next.
 
-## What the Graph Layers Predict (GRADE Evidence)
+## What CatchBench Establishes
 
-The POST ranking reads the typed two-layer graph: a dependency layer (what each step relied on) over an execution layer (control flow). GRADE ([arXiv:2606.22741](https://arxiv.org/abs/2606.22741)) measures each layer against labeled agent runs across six public corpora: tau-bench and tau2-bench (tool use); SWE-agent, SWE-Gym, and OpenHands (coding); and AgentRewardBench (web).
+The POST ranking reads the typed two-layer graph: a dependency layer (what each step relied on) over an execution layer (control flow). CatchBench scores named methods built from those layers against labeled agent runs.
 
-- **The dependency layer predicts whether a run will fail.** On SWE-Gym it reaches ROC-AUC 0.805, +0.142 over the run-length baseline (0.663), with reliable lift on the three size-weak corpora (5 of 5 seeds). Under a leave-one-corpus-out transfer test, the dependency signal stays 0.551 to 0.662 above chance on all six corpora, while the run-length baseline inverts below 0.5 (0.468 on tau-bench, 0.350 on SWE-Gym).
-- **The execution layer ranks steps toward the faulting step.** On Who&When (126 failed runs), ranking by execution structure reaches Top-3 0.614, MRR 0.454, and Top-1 0.211, against a position prior at 0.516 / 0.407 / 0.159 and a random floor at 0.346 / 0.324 / 0.119.
+- **Dependency features detect failed runs beyond run size on SWE-Gym.** `auditable (size+deps)` scores ROC-AUC 0.804 against 0.663 for `size (flat)`. Its paired comparisons with ECOD at 0.765 and GUARDIAN at 0.767 remain unresolved, so this board does not order those three methods.
+- **Top-3 0.614 belongs to the supervised execution-feature ranker, not the package's blast-share ranker.** On Who&When (126 failed runs), GRADE's `exec-rank (sup.)` scores Top-3 0.614, MRR 0.454, and Top-1 0.211. The shipping `auditable (blast share)` method scores 0.516 / 0.407 / 0.159 and ties the position prior at displayed precision.
 
 ![Leave-one-corpus-out transfer ROC-AUC: the size-normalized dependency signal clears chance on all six held-out agent corpora, while run size drops below chance on tau-bench and SWE-Gym](assets/grade-transfer.png)
 
-![Step-level fault localization on Who and When: ranking steps by execution-graph structure beats an early-fault position prior on top-1, top-3, and MRR](assets/grade-localization.png)
+![GRADE supervised exec-rank point estimates for step-level fault localization on Who and When, shown against a position prior and random floor](assets/grade-localization.png)
 
-These are GRADE's published benchmark results for the two layers. The POST per-run keystone signal below is the same structure applied to a single run, surfaced as an uncalibrated triage ranking rather than a calibrated probability.
+The transfer figure is GRADE's leave-one-corpus-out analysis; the method-specific values above are the current CatchBench board. The POST per-run keystone signal below is surfaced as an uncalibrated structural triage ranking rather than a calibrated probability.
 
 The rest of this page is the reference for `analyze_run`, the `AnalysisReport` it returns, the no-score gates, and the caveats that travel with the score.
 
@@ -51,11 +51,11 @@ print(report)
 
 The per-step score is the normalized transitive blast share: of the rest of the run, how much transitively depends on this step. It is computed as `downstream_reach` over the dependency DAG, normalized by the number of other steps. A step that many later steps rest on scores high, because a fault there would propagate widely. This is the keystone signal.
 
-The score is an uncalibrated triage ranking, not a calibrated probability. It orders steps so the one most worth reviewing first comes first; it does not assert a likelihood that any step is wrong. Calibration would require labeled data and is not claimed here.
+The score is an uncalibrated structural triage ranking, not a calibrated probability. It orders steps by transitive blast share; it does not assert a likelihood that any step is wrong or establish an advantage over the position prior. Calibration would require labeled data and is not claimed here.
 
 ### The Keystone
 
-The keystone is the worst-blast step: the one that the most of the run transitively rests on. It is surfaced as `AnalysisReport.keystone` (a `DecisionRisk` row) with `per_session` carrying its blast share (the run-level risk). The report's rendered summary names it directly, for example "two consequential writes rest on this one read, so it ranks first to review."
+The keystone is the worst-blast step: the one that the most of the run transitively rests on. It is surfaced as `AnalysisReport.keystone` (a `DecisionRisk` row) with `per_session` carrying its blast share (the run-level risk). The report's rendered summary names it directly and explains its position, for example "two consequential writes rest on this one read, so it heads the structural triage order."
 
 The POST keystone is computed over the dependency DAG and is a distinct concept from the PRE execution keystone, which is a structural control-flow chokepoint over the `handoff_to` projection (see [PRE Rules](pre-rules.md)). The two are named separately in the code and must not be conflated.
 
