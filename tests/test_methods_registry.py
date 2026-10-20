@@ -213,9 +213,22 @@ def test_citation_fields():
     assert c.title == "" and c.url == ""
 
 
-def test_readme_method_table_matches_registry():
+def test_readme_method_tables_match_registry():
     text = README.read_text(encoding="utf-8")
-    start, end = "<!-- methods:start -->", "<!-- methods:end -->"
-    assert start in text and end in text, "README lacks the method-table markers"
-    table = text.split(start, 1)[1].split(end, 1)[0].strip()
-    assert table == method_table(), "README method table is stale; regenerate it from method_table()"
+    for family in FAMILIES:
+        start, end = f"<!-- methods:{family}:start -->", f"<!-- methods:{family}:end -->"
+        assert start in text and end in text, f"README lacks the {family} method-table markers"
+        table = text.split(start, 1)[1].split(end, 1)[0].strip()
+        assert table == method_table(family), f"README {family} table is stale; regenerate it from method_table()"
+
+
+def test_method_table_lists_every_method_once():
+    ids = [c.method_id for c in list_methods()]
+    for detailed in (False, True):
+        rows = method_table(detailed=detailed).splitlines()[2:]
+        assert sorted(r.split("`")[1] for r in rows) == sorted(ids)
+    assert "| Baseline | `run.random` |" in method_table("run")
+    assert "| PyOD detector | `run.pyod_ecod` | ECOD on run size | [ECOD (Li et al., 2022)](https://arxiv.org/abs/2201.00382) |" \
+        in method_table("run")
+    assert "| `step.blast` | step (POST) | stateless | original | tabular-ad | auditable (blast) |" \
+        in method_table("step", detailed=True)

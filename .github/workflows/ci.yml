@@ -63,7 +63,7 @@ jobs:
         run: |
           set -o pipefail
           pytest -q -ra -p no:cacheprovider tests/test_methods_registry.py tests/test_featurize.py \
-            tests/test_llm.py tests/test_methods_slice.py tests/test_methods_config.py \
+            tests/test_llm.py tests/test_methods_slice.py tests/test_methods_config.py tests/test_datasets.py \
             tests/test_methods_run_tabular.py tests/test_methods_step_rules.py | tee pytest.out
           ! grep -q "SKIPPED" pytest.out
       - name: Standalone example from the built wheel

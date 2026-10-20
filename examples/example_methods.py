@@ -1,47 +1,24 @@
 """One method from each family on synthetic traces, with no benchmark data.
 
-Run from anywhere after ``pip install "auditable[tabular-ad]"``:
+Run from anywhere after ``pip install ".[tabular-ad]"`` in a checkout:
 
     python examples/example_methods.py
 
-The traces are generated here: each run is a sequence of agent steps, each step relies on
-one or two recent steps, and a failed run contains one stale read, a step that relies on
-state from much earlier in the run. The numbers printed describe this toy data only.
+The traces come from ``auditable.datasets.make_traces``: each run is a sequence of agent
+steps, each step relies on one or two recent steps, and a failed run contains one stale
+read, a step that relies on state from much earlier in the run. The numbers printed
+describe this toy data only.
 """
 import numpy as np
 
+from auditable.datasets import make_traces
 from auditable.featurize import AgentConfig
 from auditable.methods import get_method, list_methods
 
-AGENTS = ("planner", "coder", "tester")
-
-
-def make_trace(n_steps, rng, stale_at=None):
-    """A run of ``n_steps`` steps; ``stale_at`` (a step index) makes that step read step 0."""
-    steps = []
-    for i in range(n_steps):
-        if i == 0:
-            deps = []
-        elif i == stale_at:
-            deps = [0]
-        else:
-            deps = sorted({i - 1, max(0, i - 1 - int(rng.randint(0, 2)))})
-        steps.append({"idx": i, "agent": AGENTS[int(rng.randint(0, 3))],
-                      "kind": "tool_call" if rng.rand() < 0.5 else "decision", "deps": deps})
-    return steps
-
 
 def main():
-    rng = np.random.RandomState(0)
-    runs, labels, stale_steps = [], [], []
-    for r in range(80):
-        n = int(rng.randint(10, 20))
-        failed = r % 2 == 1
-        stale = int(rng.randint(n // 2, n)) if failed else None
-        runs.append(make_trace(n, rng, stale_at=stale))
-        labels.append(int(failed))
-        stale_steps.append(stale)
-    labels = np.array(labels)
+    runs, labels, mistakes = make_traces(n_runs=80, contamination=0.5, random_state=0)
+    failed = [i for i in range(len(runs)) if labels[i] == 1]
 
     print("Registered methods by family:")
     for family in ("config", "run", "step", "online"):
@@ -60,25 +37,23 @@ def main():
     print("\nPRE  config.owasp_asi_combined: flag =", finding.flag, "excess =", sorted(finding.excess))
 
     # LIVE: a causal alarm per step on one failed run; the stale read should be the peak.
-    failed_run = next(i for i, s in enumerate(stale_steps) if s is not None)
-    alarms = get_method("online.span_z")().step_alarm_scores(runs[failed_run])
+    alarms = get_method("online.span_z")().step_alarm_scores(runs[failed[0]])
     print(f"LIVE online.span_z: peak alarm at step {int(np.argmax(alarms))}, "
-          f"stale read at step {stale_steps[failed_run]}")
+          f"stale read at step {mistakes[failed[0]]}")
 
     # POST, step level: rank the steps of each failed run; how often is the stale read first?
     locator = get_method("step.dep_anomaly")()
-    hits = [locator.rank(runs[i])[0] == s for i, s in enumerate(stale_steps) if s is not None]
-    print(f"POST step.dep_anomaly: stale read ranked first in {sum(hits)} of {len(hits)} failed runs")
+    hits = sum(locator.rank(runs[i])[0] == mistakes[i] for i in failed)
+    print(f"POST step.dep_anomaly: stale read ranked first in {hits} of {len(failed)} failed runs")
 
-    # POST, run level: a supervised detector fit on half the runs, scored on the other half,
-    # next to an unsupervised one fit on all runs without labels.
-    train, test = np.arange(0, 80, 2), np.arange(1, 80, 2)
-    train, test = np.r_[train[:20], test[:20]], np.r_[train[20:], test[20:]]
-    detector = get_method("run.lr_flatdep")().fit([runs[i] for i in train], labels[train])
-    scores = detector.decision_function([runs[i] for i in test])
+    # POST, run level: a supervised detector fit on half the runs and scored on the other
+    # half, next to an unsupervised one fit on all runs without labels.
+    detector = get_method("run.lr_flatdep")().fit(runs[:40], labels[:40])
+    scores = detector.decision_function(runs[40:])
+    held_out = labels[40:]
     ecod = get_method("run.pyod_ecod")().fit_score(runs)
-    print(f"POST run.lr_flatdep: mean held-out score {scores[labels[test] == 1].mean():+.2f} on failed runs, "
-          f"{scores[labels[test] == 0].mean():+.2f} on the rest")
+    print(f"POST run.lr_flatdep: mean held-out score {scores[held_out == 1].mean():+.2f} on failed runs, "
+          f"{scores[held_out == 0].mean():+.2f} on the rest")
     print(f"POST run.pyod_ecod: mean outlier score {ecod[labels == 1].mean():.2f} on failed runs, "
           f"{ecod[labels == 0].mean():.2f} on the rest")
 

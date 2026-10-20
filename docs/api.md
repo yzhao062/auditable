@@ -2,9 +2,10 @@
 
 The method library lives in `auditable.methods` (the registry and the method classes),
 `auditable.base` (the family base classes and the method card), `auditable.featurize`
-(trace normalization and features), and `auditable.llm` (backends and the prediction
-cache). The record and graph modules keep their flat top-level API, and the graph
-analyses (PRE and the graph kernel) live under `auditable.graph.*`.
+(trace normalization and features), `auditable.llm` (backends and the prediction
+cache), and `auditable.datasets` (synthetic traces). The record and graph modules keep
+their flat top-level API, and the graph analyses (PRE and the graph kernel) live under
+`auditable.graph.*`.
 
 ## Method Registry
 
@@ -21,6 +22,10 @@ analyses (PRE and the graph kernel) live under `auditable.graph.*`.
 ## LLM Backends and Cache
 
 ::: auditable.llm
+
+## Synthetic Traces
+
+::: auditable.datasets
 
 ## Top-Level API
 

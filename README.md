@@ -19,100 +19,120 @@
 
 ## Quick Start
 
-A trace is a list of steps, each naming the acting agent, the kind of step, and the earlier steps it relied on. The same trace feeds every family.
+Install from a clone of this repository with `pip install ".[tabular-ad]"` (see [Install](#install)), then:
 
 ```python
-from auditable.methods import get_method, list_methods
+from sklearn.metrics import roc_auc_score
 
-trace = [
-    {"idx": 0, "agent": "planner", "kind": "decision",  "deps": []},
-    {"idx": 1, "agent": "coder",   "kind": "tool_call", "deps": [0]},
-    {"idx": 2, "agent": "coder",   "kind": "decision",  "deps": [1]},
-    {"idx": 3, "agent": "tester",  "kind": "tool_call", "deps": [2]},
-    {"idx": 4, "agent": "coder",   "kind": "decision",  "deps": [0]},   # reads state four steps old
-]
+from auditable.datasets import make_traces
+from auditable.methods import get_method
 
-# LIVE: a causal alarm per arriving step (step t sees steps 0..t only)
-monitor = get_method("online.span_z")()
-print(monitor.step_alarm_scores(trace))           # the stale read at step 4 is the peak
+# 100 toy agent runs; each failed run holds one stale read (a step relying on old state)
+traces, y, mistakes = make_traces(n_runs=100, contamination=0.5, random_state=0)
+train, test = slice(0, 50), slice(50, 100)
 
-# POST: which step is the decisive mistake, most suspected first
-locator = get_method("step.dep_anomaly")()
-print(locator.rank(trace))
-
-# POST: run-level failure detection, fitted on labelled runs (1 = failed)
+# Did the run fail? Fit on labelled runs, then score new ones, as with a PyOD detector.
 detector = get_method("run.lr_flatdep")()
-# detector.fit(train_traces, train_labels).decision_function(new_traces)
+detector.fit(traces[train], y[train])
+scores = detector.decision_function(traces[test])   # one score per run, higher = more likely failed
+print(f"run-level ROC-AUC: {roc_auc_score(y[test], scores):.3f}")
 
-print([card.method_id for card in list_methods(family="step")])
+# Which step was the mistake? Rank the steps of each failed run, most suspected first.
+locator = get_method("step.dep_anomaly")()
+failed = [i for i in range(100) if y[i] == 1]
+hits = sum(locator.rank(traces[i])[0] == mistakes[i] for i in failed)
+print(f"mistake ranked first in {hits} of {len(failed)} failed runs")
+
+# Can it be caught live? One causal alarm per arriving step (step t sees steps 0..t only).
+monitor = get_method("online.span_z")()
+alarms = monitor.step_alarm_scores(traces[failed[0]])
+print(f"first alarm peak at step {alarms.argmax()}, mistake at step {mistakes[failed[0]]}")
 ```
 
-[`examples/example_methods.py`](examples/example_methods.py) runs one method from each family on synthetic traces, with no benchmark data.
-
-## Method Families
-
-| Family | When | Input | Interface | Output |
-|---|---|---|---|---|
-| `config` | PRE | an agent configuration (`AgentConfig`) | `audit(config)` | a finding: flag or abstain, the excess capabilities, the rules that fired |
-| `run` | POST | a list of traces | `fit`, `decision_function`, `fit_score` | one score per run; higher means more likely failed |
-| `step` | POST | a list of failed traces | `fit`, `step_scores_batch`, `step_scores`, `rank`; `predict_step` for single-step methods | one score per step; higher means more likely the decisive mistake |
-| `online` | LIVE | one streaming trace | `step_alarm_scores`, `prefix_score` | one alarm per step, causal |
-
-Every method also declares how it is fitted: `stateless` (rules), `inductive` (fit once, then score unseen inputs), or `transductive` (fit and score one batch together, as PyGOD's autoencoders do). Its `MethodCard` records the fit scope, the trace fields it reads, the extras it needs, where it comes from, and the CatchBench row it reproduces. The [method contract](docs/methods-contract.md) defines all of this on one page.
+Every method is created from its ID with `get_method(id)()`, and the methods of one family share one interface, so trying another detector or locator changes one string. [`examples/example_methods.py`](examples/example_methods.py) adds a configuration audit before the run.
 
 ## Methods
 
-The table is generated from the registry (`auditable.methods.method_table()`); a test keeps it current.
+Configuration rules and the step-by-step and binary-search LLM judges run on the core install, graph detectors need the `graph-ad` extra, and every other method needs `tabular-ad`. The tables are generated from the registry: `list_methods(family=...)` returns each method's card, and `method_table(detailed=True)` prints the fit scope, fidelity to the source, extras, and the CatchBench row each method reproduces. The [method contract](docs/methods-contract.md) defines the four interfaces on one page.
 
-<!-- methods:start -->
-| Method | Family | Fit | Fidelity | Extras | CatchBench row |
-|---|---|---|---|---|---|
-| `config.flag_risky_perms` | config (PRE) | stateless | original | none | flag_risky_perms |
-| `config.llm_needed` | config (PRE) | stateless | faithful | none | llm_judge_needed(llama-3.3-70b) |
-| `config.owasp_asi_combined` | config (PRE) | stateless | original | none | owasp_asi_combined |
-| `config.owasp_excess_functionality` | config (PRE) | stateless | original | none | owasp_excess_functionality |
-| `config.owasp_excess_permissions` | config (PRE) | stateless | original | none | owasp_excess_permissions |
-| `config.owasp_privilege_escalation` | config (PRE) | stateless | original | none | owasp_privilege_escalation |
-| `config.sensitive_access` | config (PRE) | stateless | original | none | sensitive_access |
-| `config.unrequested_high_impact` | config (PRE) | stateless | original | none | unrequested_high_impact |
-| `run.gsafeguard_lite` | run (POST) | inductive, supervised | simplified | graph-ad | g-safeguard (sup GNN) |
-| `run.guardian_lite` | run (POST) | transductive | simplified | graph-ad | guardian (recon-AE) |
-| `run.lr_flat` | run (POST) | inductive, supervised | original | tabular-ad | size (flat) |
-| `run.lr_flatdep` | run (POST) | inductive, supervised | original | tabular-ad | auditable (size+deps) |
-| `run.lr_full` | run (POST) | inductive, supervised | original | tabular-ad | full |
-| `run.pygod_anomalydae` | run (POST) | transductive | wrapper | graph-ad | pygod-anomalydae |
-| `run.pygod_conad` | run (POST) | transductive | wrapper | graph-ad | pygod-conad |
-| `run.pygod_dominant` | run (POST) | transductive | wrapper | graph-ad | pygod (graph AD) |
-| `run.pygod_gaan` | run (POST) | transductive | wrapper | graph-ad | pygod-gaan |
-| `run.pyod_copod` | run (POST) | inductive | wrapper | tabular-ad | pyod-copod |
-| `run.pyod_ecod` | run (POST) | inductive | wrapper | tabular-ad | pyod-flatten (ECOD); pyod (ECOD) |
-| `run.pyod_hbos` | run (POST) | inductive | wrapper | tabular-ad | pyod-hbos |
-| `run.pyod_iforest` | run (POST) | inductive | wrapper | tabular-ad | pyod-iforest |
-| `run.pyod_knn` | run (POST) | inductive | wrapper | tabular-ad | pyod-knn |
-| `run.pyod_lof` | run (POST) | inductive | wrapper | tabular-ad | pyod-lof |
-| `run.random` | run (POST) | stateless | original | tabular-ad | random |
-| `step.blast` | step (POST) | stateless | original | tabular-ad | auditable (blast) |
-| `step.degree` | step (POST) | stateless | original | tabular-ad | degree |
-| `step.dep_anomaly` | step (POST) | stateless | original | tabular-ad | auditable (dep-anomaly) |
-| `step.exec_rank` | step (POST) | inductive, supervised | original | tabular-ad | exec-rank (sup.) |
-| `step.has_dep` | step (POST) | stateless | original | tabular-ad | has-dep (control) |
-| `step.llm_all_at_once` | step (POST) | stateless | faithful | tabular-ad | llm-judge all-at-once |
-| `step.llm_binary_search` | step (POST) | stateless | faithful | none | llm-judge binary-search |
-| `step.llm_step_by_step` | step (POST) | stateless | faithful | none | llm-judge step-by-step |
-| `step.max_span` | step (POST) | stateless | original | tabular-ad | max-span (control) |
-| `step.position_early_rule` | step (POST) | stateless | original | tabular-ad | position |
-| `step.position_supervised` | step (POST) | inductive, supervised | original | tabular-ad | position |
-| `step.pygod_dominant_sg4` | step (POST) | transductive | wrapper | graph-ad | pygod (graph AD) |
-| `step.pygod_dominant_ww8` | step (POST) | transductive | wrapper | graph-ad | pygod (graph AD) |
-| `step.random` | step (POST) | stateless | original | tabular-ad | random |
-| `online.dep_count_z` | online (LIVE) | stateless | original | tabular-ad | dep-count (control) |
-| `online.dep_span` | online (LIVE) | stateless | original | tabular-ad | dep-span (online) |
-| `online.random` | online (LIVE) | stateless | original | tabular-ad | random |
-| `online.raw_span` | online (LIVE) | stateless | original | tabular-ad | raw-span |
-| `online.span_z` | online (LIVE) | stateless | original | tabular-ad | auditable (span z-score) |
-<!-- methods:end -->
+### Config: Is the Agent Over-Privileged Before It Runs?
 
-Fidelity: `wrapper` calls the third-party library, `faithful` is a verbatim port, `simplified` (classes named `...Lite`) is a reduced port whose docstring lists what was simplified, and `original` was introduced with GRADE or CatchBench. The CatchBench row is the board label; a `control` or `oracle` there describes the board's use of the method, not its value here.
+`auditor.audit(config)` reads an `AgentConfig` (the declared capabilities and the task text) and returns a finding: `flag` (True, False, or None to abstain), the `excess` capabilities, and the `rules` that fired.
+
+<!-- methods:config:start -->
+| Type | Method | Algorithm | Reference |
+|---|---|---|---|
+| Rule | `config.flag_risky_perms` | Flag risky permission levels | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `config.owasp_asi_combined` | Combined OWASP and CWE scanner | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `config.owasp_excess_functionality` | Excess functionality | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `config.owasp_excess_permissions` | Excess permission level | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `config.owasp_privilege_escalation` | Unrequested privilege management | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `config.sensitive_access` | Unrequested sensitive access | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `config.unrequested_high_impact` | Unrequested high-impact action | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| LLM judge | `config.llm_needed` | LLM judge, needed capabilities | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+<!-- methods:config:end -->
+
+### Online: Can the Failure Be Caught While the Run Streams?
+
+`monitor.step_alarm_scores(trace)` returns one alarm per step, and the alarm at step t reads steps 0 to t only.
+
+<!-- methods:online:start -->
+| Type | Method | Algorithm | Reference |
+|---|---|---|---|
+| Rule | `online.dep_count_z` | Causal z-score of dependency count | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `online.dep_span` | Mean dependency span (running) | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `online.raw_span` | Raw dependency span | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `online.span_z` | Causal z-score of dependency span | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Baseline | `online.random` | Random alarm scores | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+<!-- methods:online:end -->
+
+### Run: Did the Run Fail?
+
+`detector.fit(traces, y)`, then `detector.decision_function(traces)`: one score per run, higher meaning more likely failed. Unsupervised detectors ignore `y`. Transductive detectors (the PyGOD detectors and GUARDIAN-Lite) fit and score one batch together with `detector.fit_score(traces)`.
+
+<!-- methods:run:start -->
+| Type | Method | Algorithm | Reference |
+|---|---|---|---|
+| Supervised | `run.lr_flat` | Logistic regression on run size (GRADE flat) | [GRADE (Zhao, 2026)](https://arxiv.org/abs/2606.22741) |
+| Supervised | `run.lr_flatdep` | Logistic regression on size and dependency (GRADE flatdep) | [GRADE (Zhao, 2026)](https://arxiv.org/abs/2606.22741) |
+| Supervised | `run.lr_full` | Logistic regression on all raw layers (GRADE full) | [GRADE (Zhao, 2026)](https://arxiv.org/abs/2606.22741) |
+| PyOD detector | `run.pyod_copod` | COPOD on run size | [COPOD (Li et al., 2020)](https://arxiv.org/abs/2009.09463) |
+| PyOD detector | `run.pyod_ecod` | ECOD on run size | [ECOD (Li et al., 2022)](https://arxiv.org/abs/2201.00382) |
+| PyOD detector | `run.pyod_hbos` | HBOS on run size | HBOS (Goldstein and Dengel, 2012) |
+| PyOD detector | `run.pyod_iforest` | Isolation Forest on run size | [Isolation Forest (Liu et al., 2008)](https://doi.org/10.1109/ICDM.2008.17) |
+| PyOD detector | `run.pyod_knn` | KNN distance on run size | KNN outlier score (Ramaswamy et al., 2000) |
+| PyOD detector | `run.pyod_lof` | Local outlier factor on run size | [LOF (Breunig et al., 2000)](https://doi.org/10.1145/335191.335388) |
+| Graph detector | `run.gsafeguard_lite` | G-Safeguard-Lite (supervised graph classifier) | [G-Safeguard (Wang et al., 2025)](https://arxiv.org/abs/2502.11127) |
+| Graph detector | `run.guardian_lite` | GUARDIAN-Lite (attribute-reconstruction autoencoder) | [GUARDIAN (Zhou et al., 2025)](https://arxiv.org/abs/2505.19234) |
+| Graph detector | `run.pygod_anomalydae` | AnomalyDAE dual autoencoder (PyGOD) | AnomalyDAE (Fan et al., 2020) |
+| Graph detector | `run.pygod_conad` | CONAD contrastive graph autoencoder (PyGOD) | CONAD (Xu et al., 2022) |
+| Graph detector | `run.pygod_dominant` | DOMINANT graph autoencoder (PyGOD) | [DOMINANT (Ding et al., 2019)](https://doi.org/10.1137/1.9781611975673.67) |
+| Graph detector | `run.pygod_gaan` | GAAN adversarial detector (PyGOD) | GAAN (Chen et al., 2020) |
+| Baseline | `run.random` | Random run scores | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+<!-- methods:run:end -->
+
+### Step: Which Step Was the Decisive Mistake?
+
+`locator.rank(trace)` orders the steps of a failed run, most suspected first, and `locator.step_scores(trace)` gives their scores. Supervised locators are first fitted with `fit(traces, y)`, where `y` holds the `idx` of each run's mistake. The step-by-step and binary-search LLM judges name one step with `predict_step(trace)`.
+
+<!-- methods:step:start -->
+| Type | Method | Algorithm | Reference |
+|---|---|---|---|
+| Rule | `step.blast` | Blast radius (downstream reach) | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `step.degree` | Dependency degree | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `step.dep_anomaly` | Dependency anomaly (within-run z-score) | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `step.has_dep` | Has a dependency | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `step.max_span` | Maximum dependency span | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Rule | `step.position_early_rule` | Early-position prior | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+| Supervised | `step.exec_rank` | Execution-feature step ranker | [GRADE (Zhao, 2026)](https://arxiv.org/abs/2606.22741) |
+| Supervised | `step.position_supervised` | Early-fault position prior | [GRADE (Zhao, 2026)](https://arxiv.org/abs/2606.22741) |
+| Graph detector | `step.pygod_dominant_sg4` | DOMINANT on the step dependency graph | [DOMINANT (Ding et al., 2019)](https://doi.org/10.1137/1.9781611975673.67) |
+| Graph detector | `step.pygod_dominant_ww8` | DOMINANT on the Who&When step matrix | [DOMINANT (Ding et al., 2019)](https://doi.org/10.1137/1.9781611975673.67) |
+| LLM judge | `step.llm_all_at_once` | LLM judge, all-at-once | [Who&When (Zhang et al., 2025)](https://arxiv.org/abs/2505.00212) |
+| LLM judge | `step.llm_binary_search` | LLM judge, binary-search | [Who&When (Zhang et al., 2025)](https://arxiv.org/abs/2505.00212) |
+| LLM judge | `step.llm_step_by_step` | LLM judge, step-by-step | [Who&When (Zhang et al., 2025)](https://arxiv.org/abs/2505.00212) |
+| Baseline | `step.random` | Random step scores | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
+<!-- methods:step:end -->
 
 ## Install
 

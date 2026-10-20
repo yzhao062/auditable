@@ -26,8 +26,8 @@ print([card.method_id for card in list_methods(family="run")])
 ## Where to Start
 
 - [Method Contract](methods-contract.md): the families, fit scopes, input forms, outputs, the method card, and how to add a method.
-- The [README](https://github.com/yzhao062/auditable#methods) lists every registered method with its source and CatchBench row.
-- [`examples/example_methods.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_methods.py) runs one method from each family on synthetic traces.
+- The [README](https://github.com/yzhao062/auditable#methods) lists every registered method by family, with its type and main reference; `method_table(detailed=True)` adds the fit scope, fidelity, extras, and CatchBench row.
+- `auditable.datasets.make_traces` generates toy traces with planted mistakes, and [`examples/example_methods.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_methods.py) runs one method from each family on them.
 
 ## Records and Graph Analysis
 

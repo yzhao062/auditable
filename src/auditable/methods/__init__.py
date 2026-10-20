@@ -82,16 +82,52 @@ def get_method(method_id: str) -> Type[BaseAuditingMethod]:
         raise KeyError(f"unknown method_id {method_id!r}; registered: {known}") from None
 
 
-def method_table() -> str:
-    """The registry as a Markdown table, one row per method in family order. The README's
-    method table is this output; a test keeps the two equal."""
-    order = {f: i for i, f in enumerate(("config", "run", "step", "online"))}
-    rows = ["| Method | Family | Fit | Fidelity | Extras | CatchBench row |", "|---|---|---|---|---|---|"]
-    for c in sorted(list_methods(), key=lambda c: (order[c.family], c.method_id)):
-        fit = c.fit_scope + (", supervised" if c.supervised else "")
-        extras = ", ".join(c.extras) or "none"
-        rows.append(f"| `{c.method_id}` | {c.family} ({c.information_state}) | {fit} | {c.fidelity} | "
-                    f"{extras} | {'; '.join(c.board_aliases) or 'none'} |")
+_FAMILY_ORDER = {f: i for i, f in enumerate(("config", "run", "step", "online"))}
+# The Type column of the method table: the module that defines a method names its kind
+# (methods/<family>/<group>.py), and the random floors are baselines wherever they live.
+_TYPES = {"rules": "Rule", "supervised": "Supervised", "pyod": "PyOD detector",
+          "graph": "Graph detector", "llm": "LLM judge", "baselines": "Baseline"}
+_TYPE_ORDER = {t: i for i, t in enumerate(("Rule", "Supervised", "PyOD detector", "Graph detector",
+                                           "LLM judge", "Baseline"))}
+
+
+def _method_type(card: MethodCard) -> str:
+    if card.method_id.endswith(".random"):
+        return "Baseline"
+    group = get_method(card.method_id).__module__.rsplit(".", 1)[-1]
+    return _TYPES.get(group, group)
+
+
+def _reference(card: MethodCard) -> str:
+    if not card.cite:
+        return ""
+    c = card.cite[0]
+    link = f"https://arxiv.org/abs/{c.arxiv}" if c.arxiv else c.url
+    return f"[{c.key}]({link})" if link else c.key
+
+
+def method_table(family: Optional[str] = None, detailed: bool = False) -> str:
+    """The registry as a Markdown table, in family order.
+
+    By default each row gives a method's type, ID, name, and main reference, grouped by
+    type; the README's per-family tables are this output for each ``family``, and a test
+    keeps them equal. ``detailed=True`` lists the card fields instead: family, fit scope,
+    fidelity, extras, and the CatchBench rows the method reproduces.
+    """
+    cards = list_methods(family=family)
+    if detailed:
+        rows = ["| Method | Family | Fit | Fidelity | Extras | CatchBench row |", "|---|---|---|---|---|---|"]
+        for c in sorted(cards, key=lambda c: (_FAMILY_ORDER[c.family], c.method_id)):
+            fit = c.fit_scope + (", supervised" if c.supervised else "")
+            extras = ", ".join(c.extras) or "none"
+            rows.append(f"| `{c.method_id}` | {c.family} ({c.information_state}) | {fit} | {c.fidelity} | "
+                        f"{extras} | {'; '.join(c.board_aliases) or 'none'} |")
+        return "\n".join(rows)
+    typed = [(c, _method_type(c)) for c in cards]
+    typed.sort(key=lambda ct: (_FAMILY_ORDER[ct[0].family], _TYPE_ORDER.get(ct[1], len(_TYPE_ORDER)),
+                               ct[0].method_id))
+    rows = ["| Type | Method | Algorithm | Reference |", "|---|---|---|---|"]
+    rows += [f"| {t} | `{c.method_id}` | {c.name} | {_reference(c)} |" for c, t in typed]
     return "\n".join(rows)
 
 
