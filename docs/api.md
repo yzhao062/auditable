@@ -1,21 +1,43 @@
 # API Reference
 
-The stable public surface is the flat top-level API. The graph analyses (PRE and the
-graph kernel) live under `auditable.graph.*`.
+The method library lives in `auditable.methods` (the registry and the method classes),
+`auditable.base` (the family base classes and the method card), `auditable.featurize`
+(trace normalization and features), and `auditable.llm` (backends and the prediction
+cache). The record and graph modules keep their flat top-level API, and the graph
+analyses (PRE and the graph kernel) live under `auditable.graph.*`.
+
+## Method Registry
+
+::: auditable.methods
+
+## Family Base Classes and the Method Card
+
+::: auditable.base
+
+## Features
+
+::: auditable.featurize
+
+## LLM Backends and Cache
+
+::: auditable.llm
 
 ## Top-Level API
 
 The capture, replay, and recovery flow, the standalone auditors, the POST
 offline-analysis entry, and `render_report` (the dependency-free Markdown
 renderer for both the PRE and POST reports; see the [Quickstart](quickstart.md#render-a-report-as-markdown)).
+`ActionGate` and `ReferenceLedger` are deprecated as of 0.3 and will be removed in a
+later release.
 
 ::: auditable
 
 ## Data Module
 
 `DataAuditor` provides the freshness fallback and the optional fitted dependency-state
-path. See the [Data Module](data-module.md) for its feature schema, history-fitting
-helpers, fallback evidence, and detector-independent injection tools.
+path. It is deprecated as of 0.3 and will be removed in a later release. See the
+[Data Module](data-module.md) for its feature schema, history-fitting helpers,
+fallback evidence, and detector-independent injection tools.
 
 ::: auditable.data.DataAuditor
 

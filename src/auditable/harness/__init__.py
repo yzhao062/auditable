@@ -8,6 +8,7 @@ agent-audit-style OWASP-Agentic and CWE checks, consumed rather than forked, and
 """
 from __future__ import annotations
 
+import warnings
 from dataclasses import dataclass
 from typing import Optional
 
@@ -18,6 +19,10 @@ except ImportError:  # pragma: no cover
 
 from ..chain import FixAction, Verdict
 from ..record import Action, Auditor, Report
+
+_LEGACY = ("{} is deprecated since auditable 0.3 and will be removed in a later release. The "
+           "library now centres on auditing methods (auditable.methods); see the Legacy section "
+           "of the README.")
 
 
 class HarnessAuditor(Auditor):
@@ -73,6 +78,7 @@ class ReferenceLedger:
     """In-process reference rail: commit spends, compensate refunds. For demo and tests."""
 
     def __init__(self, balance: float = 0.0):
+        warnings.warn(_LEGACY.format("ReferenceLedger"), DeprecationWarning, stacklevel=2)
         self.balance = balance
         self._open: dict = {}
         self._count = 0
@@ -99,6 +105,7 @@ class ActionGate:
     """
 
     def __init__(self, rail: Rail):
+        warnings.warn(_LEGACY.format("ActionGate"), DeprecationWarning, stacklevel=2)
         self.rail = rail
 
     def commit(self, action: Action):

@@ -1,5 +1,5 @@
 site_name: auditable
-site_description: "An open-source system of record for AI-agent decisions: it captures what each decision relied on, replays it against live state, and rolls back the committed action when it no longer holds."
+site_description: "A library of auditing methods for AI agents: configuration audits, online monitors, run-level failure detection, and step-level fault localization, with one interface per family."
 site_url: https://auditable-ai.readthedocs.io/
 site_author: Yue Zhao
 repo_url: https://github.com/yzhao062/auditable
@@ -74,6 +74,7 @@ plugins:
 
 nav:
   - Home: index.md
+  - Method Contract: methods-contract.md
   - Lifecycle: lifecycle.md
   - Quickstart: quickstart.md
   - PRE: pre-rules.md

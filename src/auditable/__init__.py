@@ -1,10 +1,13 @@
-"""auditable: capture, replay, and recover AI agent decisions.
+"""auditable: auditing methods for AI agents.
 
-Open-source SDK for live-state replay and recovery of consequential agent decisions.
-Capture a signed record of each decision with the dependency state it relied on, replay
-it under the state that is live now, and route and execute a fix (allow, block,
-human-review, rollback). One decision binds a data, model, and harness report in a single
-record (the full chain).
+The method library (``auditable.methods``) collects configuration audits (PRE), run-level
+failure detectors and step-level fault localizers (POST), and online monitors (LIVE),
+each family behind one interface; ``list_methods`` and ``get_method`` read the registry.
+``auditable.featurize`` turns traces into the features the methods read.
+
+The decision-record modules (``audit``, ``replay``, the record and sink types) and the
+graph analyses (``analyze_run``, ``LiveSession``) remain available. ``ActionGate``,
+``ReferenceLedger`` and ``DataAuditor`` are deprecated.
 """
 from .record import (
     Action,
@@ -35,11 +38,17 @@ from .harness import ActionGate, GateOutcome, HarnessAuditor, Rail, ReferenceLed
 from .analysis import AnalysisReport, LiveSession, analyze_run
 from .report import render_report
 from .graph.adapters import Adapter
+from .base import MethodCard
+from .methods import get_method, list_methods
 
-__version__ = "0.2.1"
+__version__ = "0.3.0.dev0"
 
 __all__ = [
     "__version__",
+    # Method library: the registry and the card every method carries.
+    "list_methods",
+    "get_method",
+    "MethodCard",
     # Composition surface (lead here): capture, replay, executed recovery.
     "audit",
     "replay",

@@ -15,9 +15,9 @@ This is the consolidation principle applied to security standards. The same decl
 | Overwhelming Human-in-the-Loop (OWASP agentic) | A consequential write whose control-predecessor chain holds no human-review node | `missing_human_gate` | Planned |
 | Privilege Compromise (OWASP agentic); least privilege; Confused Deputy (CWE-441) | Tool scope grows along a `handoff_to` edge | `scope_escalation_across_handoff` | Planned |
 | Unbounded Consumption (OWASP LLM10); Resource Overload (OWASP agentic) | Unbounded fan-out or a cycle in the execution topology | `unbounded_execution_topology` | Planned |
-| Repudiation & Untraceability (OWASP agentic) | Every decision is a signed, hash-chained record | Architecture, not a lint | Shipped |
+| Repudiation & Untraceability (OWASP agentic) | Every recorded decision is a signed, hash-chained record (a chain exposes later edits only when its head is anchored independently, and it cannot reveal unrecorded events) | Architecture, not a lint | Shipped |
 
-The four shipped lints are covered on the [PRE Overview](pre-rules.md). The three planned lints are graph-native control checks a flat rule list cannot express, because they need the control-flow and handoff topology the graph already carries; they are tracked on the [Roadmap](https://github.com/yzhao062/auditable#roadmap).
+The four shipped lints are covered on the [PRE Overview](pre-rules.md). The three planned lints are graph-native control checks a flat rule list cannot express, because they need the control-flow and handoff topology the graph already carries; none of the three is implemented yet.
 
 ## The Boundary
 

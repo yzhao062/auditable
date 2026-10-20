@@ -59,6 +59,10 @@ class DataAuditor(Auditor):
         schema: Optional[dict] = None,
         name: str = "snapshot-freshness",
     ):
+        warnings.warn(
+            "DataAuditor is deprecated since auditable 0.3 and will be removed in a later release. "
+            "Tabular anomaly detection belongs in PyOD; see the Legacy section of the README.",
+            DeprecationWarning, stacklevel=2)
         if max_age_seconds <= 0:
             raise ValueError("max_age_seconds must be positive.")
         self.max_age_seconds = max_age_seconds

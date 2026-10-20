@@ -10,17 +10,32 @@ Three nested feature groups, matching the two-layer view of the representation:
   - ``dep``: + dependency-layer structure from the ``depends_on`` DAG (how deep the
     chains run, the largest audit surface, the largest blast hub).
 
-The groups are nested so callers can inspect strict feature prefixes
-(``flat``, ``flat + exec``, ``flat + exec + dep``) without changing the
-downstream schema.
+Two size-normalized groups sit beside them: ``dep_dens`` (repeated-resource edges
+per step) and ``dep_shape`` (relative chain length and hub shares). They divide by
+``n_steps``, which reports per-step rates and shares; it does not by itself remove a
+feature's relationship to run size.
 
-Honest caveat about the dependency group: it carries independent signal only where
-the dependency edges are OBSERVED and sparse (tool I/O, file reads). Where they are
+The groups are nested, so adjacent ablations compare strict feature prefixes and
+each contrast is a paired difference between two fits of one learner.
+
+What the contrast does not show: a detector that beats ``flat`` is not evidence that
+the typed structure carries signal beyond run size. ``flat`` feeds a linear fit on
+four size counts, so a nonlinear function of run size inside the dependency block
+is scored as dependency signal. GRADE retired that reading on 2026-09-08; on
+SWE-Gym a cubic-spline fit on the same four counts reaches 0.832 against the
+dependency model's 0.804. Beating ``flat`` is a measurement of one model pair on one
+corpus.
+
+Caveat about the dependency group: it carries independent signal only where the
+dependency edges are OBSERVED and sparse (tool I/O, file reads). Where they are
 INFERRED under a full-context assumption (every step depends on every prior step),
 ``dep_depth`` and ``n_dep_edges`` are functions of ``n_steps`` and add nothing the
-flat group does not already have. The dependency group is therefore meaningful only
-on the observed-and-sparse case; the structural scorer withholds a score (low
+flat group does not already have. The structural scorer withholds a score (low
 coverage) when the dependency layer is mostly inferred or saturated.
+
+Ported from GRADE (https://github.com/yzhao062/grade, MIT License),
+``src/grade/features.py`` at commit 3839a57; the numeric code is unchanged, and the
+docstring follows GRADE's later revision.
 """
 from __future__ import annotations
 
@@ -41,7 +56,8 @@ def _gini(values) -> float:
 
 
 def layered_features(G) -> dict:
-    """Return named structural features grouped into ``flat`` / ``exec`` / ``dep``.
+    """Return named structural features grouped into ``flat`` / ``exec`` / ``dep`` /
+    ``dep_dens`` / ``dep_shape``.
 
     The graph is a typed ``MultiDiGraph`` from :func:`auditable.graph.build_graph`:
     agent nodes emit step nodes, step nodes form a handoff chain, and ``depends_on``
@@ -102,18 +118,44 @@ def layered_features(G) -> dict:
         "max_audit_outdeg": max(outdeg),
     }
 
-    return {"flat": flat, "exec": exec_, "dep": dep_}
+    # Size-normalized dependency block: the raw counts above are collinear with
+    # n_steps, so they re-encode run size. Dividing by n_steps reports per-step rates
+    # and shares instead of absolute volume and depth; it does not separate shape
+    # from size by construction.
+    ns = max(n_steps, 1)
+    # dep_dens is how often steps re-touch state; dep_shape is how deep the chains
+    # run and how concentrated the hubs are.
+    dep_dens = {
+        "dep_edges_per_step": dep.number_of_edges() / ns,
+    }
+    dep_shape = {
+        "rel_dep_depth": dep_depth / ns,
+        "max_blast_share": max(indeg) / ns,
+        "max_audit_share": max(outdeg) / ns,
+    }
+
+    return {"flat": flat, "exec": exec_, "dep": dep_, "dep_dens": dep_dens, "dep_shape": dep_shape}
 
 
 def feature_vector(G, *, layer: str = "full"):
     """Flatten :func:`layered_features` into an ordered (names, values) pair.
 
-    ``layer`` selects the nested group: ``"flat"``, ``"exec"`` (flat+exec), or
-    ``"full"`` (flat+exec+dep). Names are returned so callers can keep a stable
-    column order across runs.
+    ``layer`` selects the column set. Nested size groups: ``"flat"`` (size and
+    counts), ``"exec"`` (flat + execution topology), ``"full"`` (flat + exec + raw
+    dependency counts). Size-normalized variants: ``"flatdens"`` (flat + revisit
+    density), ``"flatdep"`` (flat + size-normalized dependency density and shape),
+    and ``"depnorm"`` (size-normalized dependency only). Names are returned so
+    callers can keep a stable column order across runs.
     """
     groups = layered_features(G)
-    order = {"flat": ["flat"], "exec": ["flat", "exec"], "full": ["flat", "exec", "dep"]}
+    order = {
+        "flat": ["flat"],
+        "exec": ["flat", "exec"],
+        "full": ["flat", "exec", "dep"],
+        "flatdens": ["flat", "dep_dens"],
+        "flatdep": ["flat", "dep_dens", "dep_shape"],
+        "depnorm": ["dep_dens", "dep_shape"],
+    }
     if layer not in order:
         raise ValueError(f"layer must be one of {sorted(order)}, got {layer!r}")
     names, values = [], []

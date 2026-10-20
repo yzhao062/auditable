@@ -1,4 +1,19 @@
-# auditable Examples: Running the Lifecycle
+# auditable Examples
+
+## The Method Library
+
+`example_methods.py` runs one method from each family of `auditable.methods` (a
+configuration rule, an online monitor, a step localizer, and two run detectors) on
+synthetic traces it generates, with no benchmark data and no API key. The method
+library is not on PyPI yet (the current release there, 0.2.1, predates it), so
+install it from the root of a repository checkout:
+
+```
+pip install ".[tabular-ad]"
+python examples/example_methods.py
+```
+
+## Running the Lifecycle
 
 `auditable` attaches to an agent at three points in its lifecycle, and these
 examples run one pillar each. All three operate on the same typed two-layer
@@ -67,8 +82,9 @@ python examples/example_pre_lint_plan.py
 
 ## LIVE: Capture, Replay, and Reverse a Payment
 
-LIVE is the flagship pillar, and its scenario is the most relatable: money moving
-under a budget that drifted. `example_live_replay.py` captures one consequential
+This example uses the legacy recovery flow: `ActionGate` and `ReferenceLedger` are
+deprecated as of 0.3 and will be removed in a later release. Its scenario is money
+moving under a budget that drifted. `example_live_replay.py` captures one consequential
 decision with the dependency state it relied on, replays it under the state that
 is live now, and executes a fix. An agent approves a vendor payment against a
 budget snapshot captured six days earlier, under which the payment was in policy,
@@ -128,9 +144,9 @@ a benchmark score.
 
 CatchBench evaluates methods built from the two graph layers:
 
-- **Dependency features detect failed runs beyond run size on SWE-Gym.**
-  `auditable (size+deps)` scores ROC-AUC 0.804 against 0.663 for `size (flat)`.
-  Its paired comparisons with ECOD and GUARDIAN remain unresolved.
+- **Run-level detection does not separate dependency structure from run size.**
+  A linear size baseline cannot distinguish dependency shape from a nonlinear
+  function of size, and GRADE retired the beyond-size reading on 2026-09-08.
 - **Top-3 0.614 belongs to GRADE's supervised `exec-rank (sup.)`.** On
   Who&When (126 failed runs), the shipping `auditable (blast share)` method
   scores 0.516 and ties the position prior at displayed precision.

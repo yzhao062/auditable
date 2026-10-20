@@ -20,14 +20,12 @@ The per-run score POST prints is a within-run ranking, not a benchmark number. C
 
 The POST ranking reads the typed two-layer graph: a dependency layer (what each step relied on) over an execution layer (control flow). CatchBench scores named methods built from those layers against labeled agent runs.
 
-- **Dependency features detect failed runs beyond run size on SWE-Gym.** `auditable (size+deps)` scores ROC-AUC 0.804 against 0.663 for `size (flat)`. Its paired comparisons with ECOD at 0.765 and GUARDIAN at 0.767 remain unresolved, so this board does not order those three methods.
+- **Run-level detection does not separate dependency structure from run size.** On SWE-Gym, `auditable (size+deps)` scores above the linear `size (flat)` row, but a linear size model cannot distinguish dependency shape from a nonlinear function of size. GRADE retired the reading that the dependency layers predict failure beyond run size on 2026-09-08, and CatchBench reports matched size controls for that question rather than a verdict.
 - **Top-3 0.614 belongs to the supervised execution-feature ranker, not the package's blast-share ranker.** On Who&When (126 failed runs), GRADE's `exec-rank (sup.)` scores Top-3 0.614, MRR 0.454, and Top-1 0.211. The shipping `auditable (blast share)` method scores 0.516 / 0.407 / 0.159 and ties the position prior at displayed precision.
-
-![Leave-one-corpus-out transfer ROC-AUC: the size-normalized dependency signal clears chance on all six held-out agent corpora, while run size drops below chance on tau-bench and SWE-Gym](assets/grade-transfer.png)
 
 ![GRADE supervised exec-rank point estimates for step-level fault localization on Who and When, shown against a position prior and random floor](assets/grade-localization.png)
 
-The transfer figure is GRADE's leave-one-corpus-out analysis; the method-specific values above are the current CatchBench board. The POST per-run keystone signal below is surfaced as an uncalibrated structural triage ranking rather than a calibrated probability.
+The method-specific values above are the current CatchBench board; the methods behind them are in `auditable.methods` (see the [method contract](methods-contract.md)). The POST per-run keystone signal below is surfaced as an uncalibrated structural triage ranking rather than a calibrated probability.
 
 The rest of this page is the reference for `analyze_run`, the `AnalysisReport` it returns, the no-score gates, and the caveats that travel with the score.
 

@@ -4,18 +4,18 @@ build-backend = "hatchling.build"
 
 [project]
 name = "auditable"
-version = "0.2.1"
-description = "An open-source system of record for AI-agent decisions: it captures what each decision relied on, replays it against live state, and rolls back the committed action when it no longer holds."
+version = "0.3.0.dev0"
+description = "A library of auditing methods for AI agents: configuration audits, run-level failure detection, step-level fault localization, and online monitors, behind one API per family."
 readme = "README.md"
 requires-python = ">=3.9"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [{ name = "Yue Zhao", email = "yzhao010@usc.edu" }]
 keywords = [
-    "ai-agents", "agent", "audit", "auditing", "replay", "ai-safety",
-    "ai-risk", "llm", "anomaly-detection", "observability", "compliance",
-    "agent-reliability", "trustworthy-ai", "langchain", "langgraph", "mcp",
-    "model-context-protocol",
+    "ai-agents", "agent", "audit", "auditing", "failure-detection",
+    "failure-attribution", "fault-localization", "anomaly-detection",
+    "graph-anomaly-detection", "llm", "ai-safety", "agent-reliability",
+    "trustworthy-ai", "benchmark", "langgraph", "mcp",
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -37,6 +37,19 @@ graph = ["networkx>=3.0"]
 langchain = ["langchain-core>=0.3.0,<2"]
 # Learned state anomaly detection; pyod brings numpy, scipy, and scikit-learn.
 anomaly = ["pyod>=1.1.0"]
+# The tabular auditing methods in auditable.methods: GRADE-layer logistic regressions,
+# PyOD detectors over run features, supervised step localizers, the step and online
+# rules, and the score vector of the all-at-once LLM judge. NetworkX builds the trace
+# graphs the features are read from.
+tabular-ad = ["pyod>=1.1.0", "scikit-learn>=1.0", "numpy>=1.21", "networkx>=3.0"]
+# The graph auditing methods (PyGOD detectors, GUARDIAN-Lite, G-Safeguard-Lite), plus
+# everything in tabular-ad. PyGOD also needs a sampling backend (pyg-lib or
+# torch-sparse) built for the installed torch, which pip cannot resolve from this
+# extra; install it from the PyG wheel index as the README describes.
+graph-ad = [
+    "pyod>=1.1.0", "scikit-learn>=1.0", "numpy>=1.21", "networkx>=3.0",
+    "torch>=2.0", "torch-geometric>=2.3", "pygod>=1.1.0",
+]
 # Capture a real LangGraph run into the typed graph (auditable.integrations.langgraph).
 # Pulls NetworkX too, since capture feeds analyze_run. langgraph 1.x needs Python
 # >= 3.10, so the marker guards install on 3.9. Tested against langgraph 1.2.x.
@@ -66,8 +79,8 @@ Issues = "https://github.com/yzhao062/auditable/issues"
 packages = ["src/auditable"]
 
 # sdist ships an explicit allow-list. Without this, hatchling's sdist default
-# bundles every VCS-tracked file, which would publish experiment/ (the private
-# moat scripts). Keep this a whitelist so a new tracked dir is excluded by default.
+# bundles every VCS-tracked file, which would publish experiment/ (internal
+# scripts). Keep this a whitelist so a new tracked dir is excluded by default.
 [tool.hatch.build.targets.sdist]
 include = [
     "src/auditable",

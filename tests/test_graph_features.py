@@ -13,7 +13,9 @@ def _linear(n, agent="a"):
 def test_groups_and_keys():
     G = build_graph(_linear(4), dependency="chain")
     f = layered_features(G)
-    assert set(f) == {"flat", "exec", "dep"}
+    assert set(f) == {"flat", "exec", "dep", "dep_dens", "dep_shape"}
+    assert set(f["dep_dens"]) == {"dep_edges_per_step"}
+    assert set(f["dep_shape"]) == {"rel_dep_depth", "max_blast_share", "max_audit_share"}
     assert set(f["flat"]) == {"n_steps", "n_tool_calls", "n_decisions", "n_agents"}
     assert set(f["exec"]) == {"max_agent_outdeg", "agent_gini", "n_agent_transitions", "agent_recurrence"}
     assert set(f["dep"]) == {"n_dep_edges", "dep_depth", "max_blast_indeg", "max_audit_outdeg"}

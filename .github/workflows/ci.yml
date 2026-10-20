@@ -33,6 +33,77 @@ jobs:
       - if: matrix.python-version != '3.9'
         run: python examples/example_live_monitor.py
 
+  # The method registry and the stdlib-only methods must work on the bare install,
+  # with no extras: the registry skips modules whose dependencies are absent.
+  methods-core-install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip
+      - run: pip install . pytest
+      - run: pytest -q -p no:cacheprovider tests/test_methods_registry.py
+
+  # The tabular methods with their extra installed. Every listed test must run: a
+  # skipped test here means an extra did not install, so any skip fails the job.
+  # The wheel step installs the built wheel into a fresh venv and runs the
+  # standalone example from outside the checkout.
+  methods-tabular:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip
+      - run: pip install -e ".[dev,tabular-ad]"
+      - name: Method tests (no skips allowed)
+        run: |
+          set -o pipefail
+          pytest -q -ra -p no:cacheprovider tests/test_methods_registry.py tests/test_featurize.py \
+            tests/test_llm.py tests/test_methods_slice.py tests/test_methods_config.py \
+            tests/test_methods_run_tabular.py tests/test_methods_step_rules.py | tee pytest.out
+          ! grep -q "SKIPPED" pytest.out
+      - name: Standalone example from the built wheel
+        run: |
+          python -m build --wheel
+          python -m venv /tmp/wheel-env
+          /tmp/wheel-env/bin/pip install "$(ls dist/*.whl)[tabular-ad]"
+          cd /tmp && /tmp/wheel-env/bin/python "$GITHUB_WORKSPACE/examples/example_methods.py"
+
+  # The graph methods from a fresh environment. PyGOD samples neighbours through a
+  # compiled backend (pyg-lib) that pip cannot resolve from the extra, so torch is
+  # pinned to a release pyg-lib publishes CPU wheels for, the backend is asserted
+  # before any test runs, and the tests include a real PyGOD fit. The pin matches
+  # CatchBench's board workflow.
+  methods-graph-ad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip
+      - name: Install torch, the pyg-lib backend, and the graph-ad extra
+        env:
+          TORCH_VERSION: "2.12.1"
+        run: |
+          python -m pip install "torch==${TORCH_VERSION}" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install pyg_lib -f "https://data.pyg.org/whl/torch-${TORCH_VERSION}+cpu.html"
+          python -m pip install -e ".[dev,graph-ad]"
+      - name: Refuse to test without the sampling backend
+        run: |
+          python -c "import torch, torch_geometric, pyg_lib, pygod; print('torch', torch.__version__, 'pyg', torch_geometric.__version__, 'pyg_lib', pyg_lib.__version__, 'pygod', pygod.__version__)"
+          python -c "import torch_geometric.typing as t; assert t.WITH_PYG_LIB, 'pyg-lib did not register'; print('pyg-lib backend registered')"
+      - name: Graph method tests (no skips allowed)
+        run: |
+          set -o pipefail
+          pytest -q -ra -p no:cacheprovider tests/test_methods_graph.py tests/test_methods_pygod_step.py | tee pytest.out
+          ! grep -q "SKIPPED" pytest.out
+
   # Pin the validated framework contracts for the LangChain and MCP adapters. The
   # matrix job above never installs these extras, so without this job every
   # adapter test would silently skip in CI. Pins match the reviewed versions; the

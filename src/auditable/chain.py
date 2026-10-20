@@ -122,7 +122,7 @@ class FileSink:
 
         Blank lines and an empty file are fine. A corrupt, non-object, or
         ``record_id``-less line raises rather than silently restarting the chain, which
-        would otherwise let a damaged tail fork an append-only tamper-evident log.
+        would otherwise let a damaged tail fork an append-only hash-chained log.
         """
         last_digest = None
         with open(path, "r", encoding="utf-8") as handle:

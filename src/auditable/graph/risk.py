@@ -87,7 +87,9 @@ def structural_risk(
     coverage = graph.coverage()
     completeness = graph.completeness
     G = graph.to_networkx()
-    features = layered_features(G)
+    # Keep the three raw groups so this result's schema does not change when the
+    # feature module grows (the size-normalized groups are read via feature_vector).
+    features = {k: v for k, v in layered_features(G).items() if k in ("flat", "exec", "dep")}
     n_steps = len(graph.steps)
 
     # Gate 1: a single decision has no cross-decision structure to score.

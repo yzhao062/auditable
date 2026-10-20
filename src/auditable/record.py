@@ -7,9 +7,11 @@ One agent decision spans three layers, and auditable records all three in one re
 - harness: the action the agent executed, and its cost.
 
 Each layer attaches a normalized ``Report`` (the leaf an ``Auditor`` produces). The
-record is content-addressed (SHA-256) and chained to the previous record, so the log is
-tamper-evident; the record digest is taken over the bound reports, so it commits to all
-three leaves.
+record is content-addressed (SHA-256) and chained to the previous record; the record
+digest is taken over the bound reports, so it commits to all three leaves. The chain
+authenticates only the records that were written, and it exposes a later edit only when
+its head is anchored with an independent party; it cannot reveal a decision that was
+never recorded.
 """
 from __future__ import annotations
 

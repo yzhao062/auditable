@@ -1,93 +1,51 @@
 # auditable
 
-`auditable` is an open-source system of record for AI-agent decisions: it captures what each decision relied on, replays it against live state, and rolls back the committed action when it no longer holds.
+`auditable` is a library of auditing methods for AI agents. It covers an agent configuration before a run (PRE), a run while it streams (LIVE), and a finished run (POST), with four method families and one interface per family:
 
-In plain terms: your AI agent makes a decision based on some state (a budget, a price, an allow-list), but that state can go stale by the time the agent acts. `auditable` records the decision, checks it again against the state that is live now, and undoes the action when the decision no longer holds. The same check also reviews a plan before you ship it and ranks a finished run so you know which step to look at first.
+| Family | When | Interface | Output |
+|---|---|---|---|
+| `config` | PRE | `audit(config)` | a finding: flag or abstain, excess capabilities, rules fired |
+| `run` | POST | `fit`, `decision_function`, `fit_score` | one failure score per run |
+| `step` | POST | `fit`, `step_scores_batch`, `step_scores`, `rank`, `predict_step` | one score per step, for locating the decisive mistake |
+| `online` | LIVE | `step_alarm_scores`, `prefix_score` | one causal alarm per arriving step |
 
-Here is the shortest taste. An agent pays a vendor against a budget that read $10,000. The budget later drops to $3,000, so the recorded decision no longer holds, and the payment is reversed:
+The library holds baselines from the literature (PyOD and PyGOD detectors, GUARDIAN, G-Safeguard, the Who&When LLM-judge protocols, OWASP-style configuration rules) beside the methods introduced with GRADE and CatchBench. [CatchBench](https://github.com/yzhao062/catchbench) is the benchmark: tasks, corpora, protocols, and metrics live there, and the methods here reproduce their CatchBench rows sample by sample.
 
 ```python
-from auditable import Action, ActionGate, DependencySnapshot, ReferenceLedger, audit, replay
+from auditable.methods import get_method, list_methods
 
-def policy(state, action):
-    ok = action.cost <= state["budget"]
-    return ok, "within budget" if ok else "over budget"
-
-ledger = ReferenceLedger(balance=10_000)
-gate = ActionGate(ledger)
-payment = Action("payment", {"to": "acme"}, cost=4_200)
-
-# The agent pays $4,200 against a budget snapshot that read $10,000.
-with audit("payment", snapshot=DependencySnapshot(state={"budget": 10_000})) as decision:
-    decision.act(payment)
-receipt = gate.commit(payment)                       # paid; balance is now 5,800
-
-# The live budget is now $3,000. Replay re-decides; the gate reverses the payment.
-verdict = replay(decision.record, live_state={"budget": 3_000}, policy=policy)
-gate.enforce_post_commit(verdict, receipt=receipt)
-print(verdict.action.value, "->", ledger.balance)   # rollback -> 10000
+trace = [
+    {"idx": 0, "agent": "planner", "kind": "decision",  "deps": []},
+    {"idx": 1, "agent": "coder",   "kind": "tool_call", "deps": [0]},
+    {"idx": 2, "agent": "coder",   "kind": "decision",  "deps": [0]},
+]
+print(get_method("online.span_z")().step_alarm_scores(trace))
+print([card.method_id for card in list_methods(family="run")])
 ```
-
-That is the LIVE pillar, the sharpest of three. The same library also lints a plan before deploy (PRE) and ranks a finished run (POST). The [Quickstart](quickstart.md) has the smallest snippet for each, and [Lifecycle](lifecycle.md) is the map across all three.
-
-## How It Works: One Graph Across the Lifecycle
-
-The rest of this page is the conceptual model behind the snippet. Skip to the [Quickstart](quickstart.md) if you just want to run code.
-
-`auditable` audits AI agent decisions at three points in an agent's life. The same typed two-layer decision graph is scored and reported before deploy, while the agent runs, and after a run finishes. Detection and report generation run on one graph kernel, so the same construction serves every pillar.
-
-## One Graph Consolidates Everything
-
-The differentiator is a single typed decision graph that three orthogonal views project onto. You do not assemble three disconnected tools; one structure carries the analysis.
-
-- **Lifecycle (when a check fires):** PRE before deploy, LIVE while running, POST after a run. One graph, three attach points.
-- **Signal (what each decision binds):** data, model, and harness, the three orthogonal spans bound per decision.
-- **Coverage (which standard a finding maps to):** OWASP and CWE threats expressed as graph-structural predicates rather than a flat checklist. See [PRE Coverage](pre-coverage.md).
-
-![One typed two-layer decision graph at the center, read by three lifecycle attach points: PRE lints a declared plan before deploy, LIVE replays and recovers while the agent runs, and POST ranks a finished run](assets/lifecycle.png)
-
-Because every view lands on one graph, detection and report run on one structure instead of three. That is the honest answer to "is this enough": not more rules, one consolidated substrate. Threats with no structural signature, such as prompt injection or content poisoning, route to LIVE or stay out of scope; the [Coverage](pre-coverage.md) page states that boundary.
-
-## The Lifecycle
-
-| Pillar | When it fires | Focus | Public entry |
-|---|---|---|---|
-| PRE | Design time, before any step runs | Lint a declared plan, name the control-flow chokepoint, withhold dependency-state risk | `analyze_plan` (from `auditable.graph.pre`) |
-| LIVE | While the agent runs | Capture a decision, re-decide under live state, route a fix through a rail | `replay` plus `ActionGate` |
-| POST | After a run completes | Rank a finished run by structural blast share, name the keystone | `analyze_run` |
-
-See [Lifecycle](lifecycle.md) for each pillar in detail, and [`examples/example_end_to_end.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_end_to_end.py) for one payment carried through all three.
-
-## What Makes It New
-
-- **A unified graph representation for agentic AI.** Every agent run becomes one typed graph that PRE, LIVE, and POST all read, one representation from plan to live operation to review. The two-layer model is introduced in GRADE ([arXiv:2606.22741](https://arxiv.org/abs/2606.22741)).
-- **Recover, do not just observe.** `auditable` captures the dependency state a decision relied on, replays it under the state that is live now, and reverses the committed action through a compensating rail when it no longer holds. Logging tells you what broke; `auditable` undoes it.
-- **One decision, three spans, judged together.** Data, model, and harness are bound in a single signed, hash-chained record, so a decision is audited as one unit, not three disconnected logs.
-- **Plug in the agent you already run.** Wrap a real LangGraph `StateGraph` (TypedDict state, plain sync or async function nodes) with `instrument(...)` and every node's reads and writes over the state channels become observed dependency edges; the framework-agnostic `TouchRecorder` does the same for any loop. See [Capturing a Real Run](architecture.md#capturing-a-real-run).
-
-| Span | What the record binds | Current signal |
-|---|---|---|
-| **Data** | What the agent read and the dependency snapshot it relied on | Snapshot freshness |
-| **Model** | Which model produced the output, and its stated basis | Decision-basis trust flag |
-| **Harness** | The action executed and its cost | A static cost-cap rule, plus the replay verdict |
-
-## Install
-
-```bash
-pip install auditable            # core: capture, replay, recovery
-pip install "auditable[graph]"   # adds the graph analyses (PRE lints, POST analyze_run)
-pip install "auditable[langgraph]"   # capture a real LangGraph run
-```
-
-The graph extra pulls in NetworkX, which the PRE and POST graph entries need. The wheel carries the library only; the `examples/` directory needs a source checkout, described under [Running the Examples](quickstart.md#running-the-examples).
 
 ## Where to Start
 
-- [Quickstart](quickstart.md): the smallest runnable snippet for each pillar, plus the Markdown report renderer.
-- [Lifecycle](lifecycle.md): the map across PRE, LIVE, and POST.
-- [PRE Coverage](pre-coverage.md): how the lints map to OWASP and CWE.
-- [Audit Report](audit-report.md): the Markdown and PDF report a run produces.
-- [Data Module](data-module.md): the fitted dependency-state API and its explicit freshness fallback.
-- [API Reference](api.md): the full public surface.
+- [Method Contract](methods-contract.md): the families, fit scopes, input forms, outputs, the method card, and how to add a method.
+- The [README](https://github.com/yzhao062/auditable#methods) lists every registered method with its source and CatchBench row.
+- [`examples/example_methods.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_methods.py) runs one method from each family on synthetic traces.
 
-The fastest way to see the whole lifecycle on one dataset is [`examples/example_end_to_end.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_end_to_end.py): one vendor payment walked through PRE, LIVE, and POST with a single `python examples/example_end_to_end.py` from a [source checkout](quickstart.md#running-the-examples). To capture your own agent, [`examples/example_langgraph_capture.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_langgraph_capture.py) lowers a real LangGraph run into the observed dependency graph, and [`examples/example_touch_capture.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_touch_capture.py) does the same for any loop.
+## Records and Graph Analysis
+
+The package also contains the modules it was first built around: decision records with `audit` and `replay`, the structural graph analyses `analyze_run` and `analyze_plan`, `LiveSession`, and capture integrations for LangGraph, LangChain, MCP, and any loop through `TouchRecorder`. The pages under [Lifecycle](lifecycle.md), [Quickstart](quickstart.md), PRE, LIVE, POST, and Reference describe them.
+
+Records are content-addressed and hash-chained, and that property is limited: a digest authenticates only the records that were written, a chain exposes a later edit only when its head is anchored with an independent party, and neither reveals a decision that was never recorded.
+
+`ActionGate`, `ReferenceLedger`, and `DataAuditor` are deprecated as of 0.3 and will be removed in a later release.
+
+## Install
+
+The method library is not on PyPI yet: the current release there (0.2.1) predates it. Until 0.3.0 is released, install from a clone of the repository:
+
+```bash
+git clone https://github.com/yzhao062/auditable.git
+cd auditable
+pip install .                  # core: the registry and the configuration rules
+pip install ".[tabular-ad]"    # run, step, and online methods on trace features
+pip install ".[graph-ad]"      # graph methods; also install torch and a matching pyg-lib wheel (see the README)
+pip install ".[graph]"         # the structural graph analyses (analyze_run, analyze_plan)
+```

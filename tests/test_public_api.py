@@ -13,6 +13,10 @@ import auditable
 # The pinned public set. Add to it deliberately; never remove (additive-only).
 EXPECTED_PUBLIC = {
     "__version__",
+    # method library registry
+    "list_methods",
+    "get_method",
+    "MethodCard",
     # capture, replay, executed recovery
     "audit",
     "replay",
