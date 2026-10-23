@@ -9,8 +9,8 @@ docs_dir: docs
 
 theme:
   name: material
-  logo: assets/auditable-mark.svg
-  favicon: assets/favicon.ico
+  logo: assets/brand/mark-white.svg
+  favicon: assets/brand/favicon.svg
   palette:
     - scheme: default
       primary: indigo

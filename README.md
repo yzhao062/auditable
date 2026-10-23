@@ -1,5 +1,12 @@
 <div align="center">
 
+<!-- logo-family -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/brand/logo-dark.svg">
+  <img src="docs/assets/brand/logo.svg" alt="auditable" width="350">
+</picture>
+
+
 # auditable
 
 **A library of auditing methods for AI agents: configuration audits before a run, online monitors while it runs, and failure detection and fault localization after it, with one interface per family.**
