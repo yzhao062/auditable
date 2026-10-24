@@ -17,6 +17,11 @@ EXPECTED_PUBLIC = {
     "list_methods",
     "get_method",
     "MethodCard",
+    # agentpile records in, method inputs and labels out
+    "from_agentpile",
+    "configs_from_agentpile",
+    "step_targets",
+    "run_targets",
     # capture, replay, executed recovery
     "audit",
     "replay",

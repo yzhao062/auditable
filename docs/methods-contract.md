@@ -32,9 +32,12 @@ Methods read traces through `auditable.featurize.normalize_trace`, which accepts
 - a `SessionGraph` from `auditable.graph.session`;
 - a list of step dicts with `idx` (a unique int), `agent`, `kind` (`"decision"` or `"tool_call"`), and optionally `deps` (indices of the steps it relied on) and `text`;
 - a run dict `{"steps": [...], "texts": [...], "G": typed_graph}`, where `texts` and `G` are optional;
-- a typed NetworkX graph from `auditable.graph.build_graph`, which is read as it is.
+- a typed NetworkX graph from `auditable.graph.build_graph`, which is read as it is;
+- a `TraceView`, which is what `auditable.from_agentpile` returns for agentpile records (public datasets, trace files, captured runs).
 
-Two differences between these forms matter. `SessionGraph.to_networkx()` has no `resource::shared_state` node, which `build_graph(..., shared_resource=True)` adds by default, so a method that reads every node sees different node sets. And a trace without `deps` has no dependency edges unless the caller passes `dependency="full_context"`, which makes every step depend on all earlier steps (the assumption of corpora such as Who&When) and replaces any recorded `deps`.
+Two differences between these forms matter. `SessionGraph.to_networkx()` has no `resource::shared_state` node, which `build_graph(..., shared_resource=True)` adds by default, so a method that reads every node sees different node sets; a `TraceView` carries its own `shared_resource` setting, which `from_agentpile(..., convention="grade")` sets as GRADE's loaders do (with the node for Who&When, without it elsewhere). And a trace without `deps` has no dependency edges unless the caller passes `dependency="full_context"`, which makes every step depend on all earlier steps (the assumption of corpora such as Who&When) and replaces any recorded `deps`. `from_agentpile` has no default for its `deps` argument for the same reason: agentpile infers no dependency when it loads, so the caller names the rules.
+
+Configuration methods read an `AgentConfig`; `auditable.configs_from_agentpile` builds one per agent from an agentpile record and refuses a record with neither task text nor spec tokens unless `allow_no_task=True`. Labels come from `auditable.step_targets` (the `idx` of the decisive-mistake step, -1 when unknown) and `auditable.run_targets` (1 failed, 0 succeeded, -1 unknown).
 
 A card's `requires` names the fields the method reads, such as `deps`, `step_text`, `exec_graph`, or `spec_tokens`. A method that needs a field the trace lacks raises a `ValueError` naming it, rather than guessing.
 

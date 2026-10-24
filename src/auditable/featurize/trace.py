@@ -32,13 +32,17 @@ _STEP_TYPES = ("decision", "tool_call")
 class TraceView:
     """A normalized trace. ``steps`` are ordered dicts with integer ``deps`` (indices of
     the steps each one relied on); ``texts`` aligns with ``steps`` when step text is
-    known; ``graph`` is the typed execution-and-dependency graph when one was supplied."""
+    known; ``graph`` is the typed execution-and-dependency graph when one was supplied.
+    ``shared_resource`` is whether a graph built from ``steps`` gets the
+    ``resource::shared_state`` node; GRADE builds its Who&When graphs with it and every
+    other corpus without it."""
 
     steps: List[Dict[str, Any]]
     texts: Optional[List[str]] = None
     graph: Any = None
     source: str = ""
     meta: Dict[str, Any] = field(default_factory=dict)
+    shared_resource: bool = True
 
     def __len__(self) -> int:
         return len(self.steps)
@@ -47,12 +51,15 @@ class TraceView:
     def step_ids(self) -> List[int]:
         return [s["idx"] for s in self.steps]
 
-    def typed_graph(self, *, dependency: str = "explicit", shared_resource: bool = True):
-        """The typed graph: the one supplied with the trace, or one built from ``steps``."""
+    def typed_graph(self, *, dependency: str = "explicit", shared_resource: Optional[bool] = None):
+        """The typed graph: the one supplied with the trace, or one built from ``steps``.
+        ``shared_resource=None`` uses the trace's own setting."""
         if self.graph is not None:
             return self.graph
         from auditable.graph import build_graph
 
+        if shared_resource is None:
+            shared_resource = self.shared_resource
         return build_graph(self.steps, dependency=dependency, shared_resource=shared_resource)
 
     def require_texts(self) -> List[str]:
@@ -138,6 +145,9 @@ def normalize_trace(x: Any, *, dependency: str = "explicit") -> TraceView:
         view = TraceView(steps=steps, texts=_texts_from_steps(steps), source="grade_steps")
     elif hasattr(x, "nodes") and hasattr(x, "edges"):
         view = _from_networkx(x)
+    elif type(x).__module__.startswith("agentpile") and hasattr(x, "events"):
+        raise TypeError("an agentpile Run is read through auditable.from_agentpile(runs, deps=...), which needs "
+                        "the dependency rules to be named")
     else:
         raise TypeError(f"cannot read a trace from {type(x).__name__}")
     if dependency == "full_context":
@@ -149,5 +159,5 @@ def normalize_trace(x: Any, *, dependency: str = "explicit") -> TraceView:
             filled.append(s)
             prior.append(s["idx"])
         view = TraceView(steps=filled, texts=view.texts, graph=view.graph, source=view.source,
-                         meta=dict(view.meta))
+                         meta=dict(view.meta), shared_resource=view.shared_resource)
     return view

@@ -1,0 +1,29 @@
+name: agentpile canary
+
+# The agentpile extra is capped below the next minor release, because agentpile may change its
+# record before 1.0. This job installs auditable first and then upgrades agentpile past that cap,
+# in its own environment, so a new agentpile release that breaks the adapter shows up here before
+# the cap is raised. A failure blocks nothing else.
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  latest-agentpile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip
+      - run: pip install -e ".[dev,graph]"
+      - run: pip install --upgrade "agentpile[hf]" numpy
+      - run: python -c "import agentpile; print('agentpile', agentpile.__version__)"
+      - name: Adapter tests on the latest agentpile (no skips allowed)
+        run: |
+          set -o pipefail
+          pytest -q -ra -p no:cacheprovider tests/test_agentpile_adapter.py | tee pytest.out
+          ! grep -q "SKIPPED" pytest.out
+      - run: python examples/example_agentpile.py

@@ -93,7 +93,8 @@ class BlastShare(BaseStepLocalizer):
     count. With ``dependency="full_context"`` (CatchBench's reading of Who&When) every step
     depends on all earlier ones, so the score is monotone in position and coincides with
     the position prior. With ``dependency="explicit"`` the graph uses the dependencies the
-    trace records."""
+    trace records. When the full-context reading changes the dependencies a trace records,
+    the method warns, since ``dependency="explicit"`` is then probably what was meant."""
 
     card = _card("step.blast", "Blast radius (downstream reach)", "auditable (blast)", "baseline",
                  "Number of steps that transitively depend on each step.",
@@ -113,6 +114,12 @@ class BlastShare(BaseStepLocalizer):
             raise ValueError("dependency must be 'full_context' or 'explicit'")
         steps = normalize_trace(trace).steps
         ids = [s["idx"] for s in steps]
+        if self.dependency == "full_context" and any(
+                "deps" in s and set(s["deps"] or ()) != set(ids[:pos]) for pos, s in enumerate(steps)):
+            import warnings
+
+            warnings.warn("step.blast with dependency='full_context' replaces the dependencies this trace "
+                          "records; pass dependency='explicit' to score the recorded ones", stacklevel=2)
         graph_steps = [
             Step(
                 idx=s["idx"],

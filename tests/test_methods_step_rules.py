@@ -15,6 +15,10 @@ pytest.importorskip("networkx")  # blast builds a typed graph
 from auditable.graph.session import DependencyEdge, SessionGraph, Step
 from auditable.methods import get_method, list_methods
 
+# The shared five-step run records its own dependencies, which step.blast's default full-context
+# reading replaces; that warning is asserted once below and ignored elsewhere in this module.
+pytestmark = pytest.mark.filterwarnings("ignore:step.blast with dependency='full_context':UserWarning")
+
 RULES = {
     "step.random": ("random", "control"),
     "step.position_early_rule": ("position", "baseline"),
@@ -124,7 +128,9 @@ def test_blast_full_context_reads_positions_when_ids_are_not_in_order():
 
 def test_blast_ignores_recorded_dependencies_in_full_context_mode():
     scrambled = [dict(s, deps=[]) for s in _steps()]
-    np.testing.assert_array_equal(_method("step.blast").step_scores(scrambled), EXPECTED["step.blast"])
+    with pytest.warns(UserWarning, match="dependency='explicit'"):
+        scores = _method("step.blast").step_scores(scrambled)
+    np.testing.assert_array_equal(scores, EXPECTED["step.blast"])
 
 
 def test_blast_explicit_drops_dependencies_on_unknown_steps():

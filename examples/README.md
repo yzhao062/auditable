@@ -13,6 +13,16 @@ pip install ".[tabular-ad]"
 python examples/example_methods.py
 ```
 
+`example_agentpile.py` runs the same families on records read through
+[agentpile](https://github.com/yzhao062/agentpile): an OpenAI-style conversation and an
+MCP tool list, built in the script, and with `--dataset` the first 20 tau-bench runs
+from Hugging Face.
+
+```
+pip install ".[agentpile,tabular-ad]"
+python examples/example_agentpile.py
+```
+
 ## Running the Lifecycle
 
 `auditable` attaches to an agent at three points in its lifecycle, and these

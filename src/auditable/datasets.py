@@ -1,10 +1,11 @@
-"""Synthetic agent traces for trying the methods without benchmark data.
+"""Agent traces to try the methods on: synthetic ones, or public datasets through agentpile.
 
->>> from auditable.datasets import make_traces
+>>> from auditable.datasets import load_traces, make_traces
 >>> traces, y, mistakes = make_traces(n_runs=100, random_state=0)   # doctest: +SKIP
+>>> traces, y, mistakes = load_traces("tau_bench", deps=["tool_call_id_v1"], limit=50)   # doctest: +SKIP
 
-The construction is a toy, not a benchmark: numbers measured on it describe these traces
-only. For real corpora and evaluation protocols, use CatchBench.
+The synthetic construction is a toy, not a benchmark: numbers measured on it describe these
+traces only. For real corpora and evaluation protocols, use CatchBench.
 """
 from __future__ import annotations
 
@@ -65,3 +66,31 @@ def make_traces(n_runs: int = 100, contamination: float = 0.5, n_steps: Tuple[in
                           "kind": "tool_call" if rng.rand() < 0.5 else "decision", "deps": deps})
         traces.append(steps)
     return traces, y, mistakes
+
+
+def load_traces(name: str, *, deps: Any, convention: str = "generic", limit: Optional[int] = None,
+                subagents: str = "error", **load_kwargs: Any):
+    """One agentpile dataset as ``(traces, y, mistakes)``, the shapes :func:`make_traces` returns.
+
+    ``name`` is an agentpile dataset (``agentpile.datasets.names()``) or a trace file path;
+    ``limit`` and ``load_kwargs`` (``subset=``, ``root=``, ``model=`` and the like) go to
+    ``agentpile.load``. ``deps``, ``convention`` and ``subagents`` go to
+    :func:`auditable.from_agentpile`; ``deps`` has no default.
+
+    Returns
+    -------
+    traces : a list of :class:`~auditable.featurize.TraceView`, one per run.
+    y : int array, 1 for a failed run, 0 for a successful one, -1 where the dataset gives no
+        outcome (:func:`auditable.run_targets`). A dataset whose runs all failed, such as
+        Who&When, has no second class to detect.
+    mistakes : int array, the ``idx`` of the labeled decisive-mistake step, -1 where there is
+        none (:func:`auditable.step_targets`).
+    """
+    import agentpile as ap
+
+    from auditable.featurize.agentpile import from_agentpile, run_targets, step_targets
+
+    if limit is not None:
+        load_kwargs["limit"] = limit
+    traces = from_agentpile(ap.load(name, **load_kwargs), deps=deps, convention=convention, subagents=subagents)
+    return traces, run_targets(traces), step_targets(traces)

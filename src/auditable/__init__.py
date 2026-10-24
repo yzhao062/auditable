@@ -3,7 +3,9 @@
 The method library (``auditable.methods``) collects configuration audits (PRE), run-level
 failure detectors and step-level fault localizers (POST), and online monitors (LIVE),
 each family behind one interface; ``list_methods`` and ``get_method`` read the registry.
-``auditable.featurize`` turns traces into the features the methods read.
+``auditable.featurize`` turns traces into the features the methods read, and
+``from_agentpile`` and ``configs_from_agentpile`` read agentpile records (public agent-trace
+datasets, trace files and captured runs) into the methods' inputs.
 
 The decision-record modules (``audit``, ``replay``, the record and sink types) and the
 graph analyses (``analyze_run``, ``LiveSession``) remain available. ``ActionGate``,
@@ -40,6 +42,7 @@ from .report import render_report
 from .graph.adapters import Adapter
 from .base import MethodCard
 from .methods import get_method, list_methods
+from .featurize.agentpile import configs_from_agentpile, from_agentpile, run_targets, step_targets
 
 __version__ = "0.3.0.dev0"
 
@@ -49,6 +52,11 @@ __all__ = [
     "list_methods",
     "get_method",
     "MethodCard",
+    # agentpile records in, method inputs and labels out.
+    "from_agentpile",
+    "configs_from_agentpile",
+    "step_targets",
+    "run_targets",
     # Composition surface (lead here): capture, replay, executed recovery.
     "audit",
     "replay",

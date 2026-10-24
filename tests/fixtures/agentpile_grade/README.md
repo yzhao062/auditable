@@ -1,0 +1,3 @@
+# GRADE Projection Fixtures
+
+Three synthetic records copied unchanged from agentpile's `tests/fixtures/grade/` (commit `8072495`, Apache-2.0, as this repository is): an OpenHands turn with three tool calls, a SWE-agent run with one command per turn, and AgentRewardBench run-file records. Each holds a raw row in its dataset's layout (`raw`) and the step list GRADE `3839a57` makes from it (`expected_steps`, or `expected_steps_hand` where the list was checked by hand). No record comes from a dataset. `tests/test_agentpile_adapter.py` converts each one with the dataset's own agentpile reader and compares `auditable.from_agentpile(..., deps="grade", convention="grade")` with the expected list.

@@ -68,7 +68,12 @@ mcp = ["mcp>=1.28.1,<2; python_version >= '3.10'"]
 # imports openai lazily and skips when it (or a key) is absent, so this extra is
 # optional even to run the example file.
 llm = ["openai>=1.0"]
-dev = ["pytest>=7.0", "build>=1.0", "twine>=5.0", "pyod>=1.1.0"]
+# Read agentpile records (public agent-trace datasets, trace files, captured runs) into the
+# methods' inputs (auditable.from_agentpile). Before agentpile 1.0 a minor release may change
+# the record, so the bound follows its minor version. The hf extra downloads the datasets;
+# NumPy holds the label arrays.
+agentpile = ["agentpile[hf]>=0.3,<0.4", "numpy>=1.21"]
+dev =["pytest>=7.0", "build>=1.0", "twine>=5.0", "pyod>=1.1.0"]
 
 [project.urls]
 Homepage = "https://github.com/yzhao062/auditable"

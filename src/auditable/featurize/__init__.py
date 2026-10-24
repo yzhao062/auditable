@@ -7,7 +7,7 @@ work. Run-level structural layers come from :mod:`auditable.graph.features`
 """
 from __future__ import annotations
 
-from typing import Any, List, Sequence, Tuple
+from typing import Any, List, Optional, Sequence, Tuple
 
 from auditable.featurize.pyg import NODE_FEATURES, to_pyg
 from auditable.featurize.step_deps import (
@@ -27,10 +27,11 @@ GRADE_LAYERS = ("flat", "exec", "full", "flatdens", "flatdep", "depnorm")
 
 
 def grade_layer(trace: Any, layer: str = "full", *, dependency: str = "explicit",
-                shared_resource: bool = True) -> Tuple[List[str], List[float]]:
+                shared_resource: Optional[bool] = None) -> Tuple[List[str], List[float]]:
     """``(names, values)`` of one GRADE structural layer for one trace. ``dependency`` and
     ``shared_resource`` apply only when the graph is built from the trace's steps; a typed
-    graph passed in is read as it is."""
+    graph passed in is read as it is. ``shared_resource=None`` uses the trace's own setting,
+    which is True unless the trace says otherwise."""
     from auditable.graph import feature_vector
 
     G = normalize_trace(trace).typed_graph(dependency=dependency, shared_resource=shared_resource)
@@ -38,7 +39,7 @@ def grade_layer(trace: Any, layer: str = "full", *, dependency: str = "explicit"
 
 
 def grade_layer_matrix(traces: Sequence[Any], layer: str = "full", *, dependency: str = "explicit",
-                       shared_resource: bool = True):
+                       shared_resource: Optional[bool] = None):
     """An (n_traces, n_features) float array of one GRADE layer, rows in input order."""
     import numpy as np
 

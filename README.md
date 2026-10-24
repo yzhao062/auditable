@@ -16,7 +16,7 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![CI](https://github.com/yzhao062/auditable/actions/workflows/ci.yml/badge.svg)](https://github.com/yzhao062/auditable/actions/workflows/ci.yml)
 
-[Quick Start](#quick-start) · [Methods](#methods) · [Install](#install) · [Reproducing CatchBench](#reproducing-catchbench) · [Adding a Method](#adding-a-method) · [Citation](#citation)
+[Quick Start](#quick-start) · [Real Agent Traces](#real-agent-traces) · [Methods](#methods) · [Install](#install) · [Reproducing CatchBench](#reproducing-catchbench) · [Adding a Method](#adding-a-method) · [Citation](#citation)
 
 </div>
 
@@ -57,6 +57,46 @@ print(f"first alarm peak at step {alarms.argmax()}, mistake at step {mistakes[fa
 ```
 
 Every method is created from its ID with `get_method(id)()`, and the methods of one family share one interface, so trying another detector or locator changes one string. [`examples/example_methods.py`](examples/example_methods.py) adds a configuration audit before the run.
+
+## Real Agent Traces
+
+[agentpile](https://github.com/yzhao062/agentpile) loads public agent-trace datasets (Who&When, TRAIL, MAST, tau-bench, SWE-Gym and others), trace files (OpenAI-style messages, OTLP JSON, Claude Code sessions, MCP tool lists) and captured runs into one record. `from_agentpile` turns those records into the traces every method reads, and `configs_from_agentpile` turns them into the configurations the config methods read. `pip install ".[agentpile]"` installs the conversion; the example below also runs tabular methods, so it needs `pip install ".[agentpile,tabular-ad]"`.
+
+```python
+import agentpile as ap
+import auditable as au
+from auditable.datasets import load_traces
+from auditable.methods import get_method
+
+# Any run: name the dependency rules, since agentpile infers none when it loads.
+runs = list(ap.load("tau_bench", limit=100))
+traces = au.from_agentpile(runs, deps=["tool_call_id_v1", "value_flow_v1"])
+scores = get_method("run.pyod_ecod")().fit_score(traces)   # one score per run
+y = au.run_targets(traces)                                 # 1 failed, 0 succeeded, -1 unknown
+
+# The same shapes as make_traces, on a public dataset; mistakes holds the labeled step (-1 if none).
+traces, y, mistakes = load_traces("who_and_when", deps="full_context", subset="Algorithm-Generated")
+labeled = [t for t, m in zip(traces, mistakes) if m >= 0]
+print(get_method("step.dep_anomaly")().rank(labeled[0])[:3])
+
+# Before a run: an MCP tools/list result plus the task the agent will get.
+configs = au.configs_from_agentpile(next(ap.load("tools.json")), task="Summarize the open issues.")
+print(get_method("config.owasp_asi_combined")().audit(configs[0]))
+```
+
+`deps` has no default. It is a list of agentpile rules, `"recorded"` for the dependencies the record already holds, or `"full_context"` for every earlier step, and each trace's `meta` keeps the rules that ran. The default `convention="generic"` makes one step per message and one per tool call with its result. `convention="grade"` with `deps="grade"` instead reproduces the steps, dependencies and graphs of the GRADE converters that CatchBench and the GRADE paper used, for the seven corpora below. [`benchmarks/agentpile_crosscheck`](benchmarks/agentpile_crosscheck) compares that output with GRADE's run by run.
+
+| Corpus | `load_traces` arguments | Runs in GRADE's output | Result |
+|---|---|---|---|
+| Who&When | `"who_and_when", convention="grade", deps="grade"` | 184 | equal; the 126 localization labels match |
+| tau-bench | `"tau_bench", convention="grade", deps="grade", model=[...]` | 660 | equal |
+| tau2-bench | `"tau2_bench", convention="grade", deps="grade", model=...` | 278 | equal to the frozen rule `tau2-frozen-v1`, since GRADE's own tau2 output changes with the hash seed |
+| SWE-Gym | `"swe_gym_openhands", convention="grade", deps="grade"` | 376 | equal |
+| AgentRewardBench | `"agent_reward_bench", convention="grade", deps="grade"` | 600 | equal on 3 runs; on the other 597, GRADE adds two steps for the page after the last action, which agentpile does not create, and the steps before them are equal |
+| SWE-rebench OpenHands | `"swe_rebench_openhands", convention="grade", deps="grade"` | 600 | equal |
+| SWE-agent | `"swe_agent_nebius", convention="grade", deps="grade"` | 600 | equal |
+
+A run with subagent trajectories (a Claude Code session with subagents, an Agents SDK handoff) raises an error, since this version does not flatten them; `subagents="skip"` reads its top-level trajectory.
 
 ## Methods
 
@@ -150,6 +190,7 @@ git clone https://github.com/yzhao062/auditable.git
 cd auditable
 pip install .                    # core: the registry and the configuration rules, no third-party dependencies
 pip install ".[tabular-ad]"      # run, step, and online methods on trace features (NumPy, scikit-learn, PyOD, NetworkX)
+pip install ".[agentpile]"       # read public datasets, trace files and captured runs through agentpile
 ```
 
 The LLM judges take any `prompt -> reply` function as their backend; `OpenAICompatibleBackend` reaches an OpenAI-compatible endpoint with the standard library alone.
@@ -165,7 +206,7 @@ python -c "import torch_geometric.typing as t; assert t.WITH_PYG_LIB"
 
 ## Traces and Inputs
 
-Methods read traces through `auditable.featurize.normalize_trace`, which accepts a list of step dicts, a run dict (`{"steps": ..., "texts": ...}`), a typed NetworkX graph from `auditable.graph.build_graph`, or a `SessionGraph`. Steps carry `idx`, `agent`, `kind` (`"decision"` or `"tool_call"`), and optionally `deps` and `text`; a `SessionGraph` also keeps parallel branches and merges of the execution order. A trace without dependency annotations can be read with `dependency="full_context"`, the assumption that each step relied on every earlier step. A method that needs a field the trace lacks (step text for an LLM judge, for example) raises an error naming it.
+Methods read traces through `auditable.featurize.normalize_trace`, which accepts a list of step dicts, a run dict (`{"steps": ..., "texts": ...}`), a typed NetworkX graph from `auditable.graph.build_graph`, a `SessionGraph`, or the `TraceView` that `from_agentpile` returns. Steps carry `idx`, `agent`, `kind` (`"decision"` or `"tool_call"`), and optionally `deps` and `text`; a `SessionGraph` also keeps parallel branches and merges of the execution order. A trace without dependency annotations can be read with `dependency="full_context"`, the assumption that each step relied on every earlier step. A method that needs a field the trace lacks (step text for an LLM judge, for example) raises an error naming it.
 
 `auditable.featurize` exposes the features the methods compute, so they can be inspected or reused: the GRADE structural layers (`grade_layer`, `grade_layer_matrix`), the Who&When step matrix (`who_when_step_matrix`), the step dependency graph and its statistics (`step_graph`, `span_series`, `run_max_span`), and graph encodings for PyGOD (`to_pyg`).
 
@@ -201,6 +242,7 @@ Records are content-addressed and hash-chained, and that property is limited. A 
 ## Related Projects
 
 - [CatchBench](https://github.com/yzhao062/catchbench): the benchmark for these methods (arXiv:2608.22808).
+- [agentpile](https://github.com/yzhao062/agentpile): loads public agent-trace datasets, trace files and captured runs into one record, which `from_agentpile` reads.
 - [GRADE](https://arxiv.org/abs/2606.22741): the typed two-layer graph of agent execution and dependency that the structural features read.
 - [awesome-auditable-ai](https://github.com/yzhao062/awesome-auditable-ai): a reading list on AI agent reliability and auditing.
 

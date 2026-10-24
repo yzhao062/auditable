@@ -1,0 +1,113 @@
+{
+ "about": "The GRADE expected step lists the agentpile cross-check compares with, as frozen on 2026-10-24: the SHA-256 of each decompressed JSONL file, its run, step and dependency-edge counts, and the GRADE commit its lines record. The files were made from GRADE 3839a57 independently of agentpile, when agentpile's GRADE projection was built and checked. run_crosscheck.py refuses files that differ from this record.",
+ "projection": "grade-steps-v1",
+ "corpora": {
+  "agent_reward_bench": {
+   "expected_file": "agent_reward_bench.jsonl",
+   "sha256": "f3727705ea901c35a3af736d71722f7200c345256e1f3cf73c2cbd669a1adb76",
+   "n_runs": 600,
+   "n_steps": 20840,
+   "n_dep_edges": 7970,
+   "grade_commit": [
+    "3839a57"
+   ],
+   "note": "Regenerated for two runs on 2026-10-20 (E18, a mirror splice) with GRADE 3839a57's own to_steps on the pinned bytes, which added two edges (7,968 to 7,970). The meta written with the first version still records sha256 b1afdfa2... and 7,968 edges; this record is the revised file. agentpile's network test asserts the same 7,970."
+  },
+  "swe_agent_nebius": {
+   "expected_file": "swe_agent_nebius.jsonl",
+   "sha256": "f87f7842d6e071573d3daafe1f3e4737f5900efc1d52849e70aa2c5d6807bf44",
+   "n_runs": 600,
+   "n_steps": 30846,
+   "n_dep_edges": 5380,
+   "grade_commit": [
+    "3839a57"
+   ]
+  },
+  "swe_gym_openhands": {
+   "expected_file": "swe_gym_openhands.jsonl",
+   "sha256": "95bc2a80d17313c9a88ede2127c69c9732a22d0ce7b59bcf21616975063e0fe7",
+   "n_runs": 376,
+   "n_steps": 13467,
+   "n_dep_edges": 3229,
+   "grade_commit": [
+    "3839a57"
+   ]
+  },
+  "swe_rebench_openhands": {
+   "expected_file": "swe_rebench_openhands.jsonl",
+   "sha256": "ab646753d53b271e0e01ae515d3f4fc1e0b866fc350bb6d367500b5718f8f06f",
+   "n_runs": 600,
+   "n_steps": 77140,
+   "n_dep_edges": 7827,
+   "grade_commit": [
+    "3839a57"
+   ]
+  },
+  "tau2_bench": {
+   "expected_file": "tau2_bench.jsonl",
+   "sha256": "6d259da40ac4af88f756acdb6aaae20b2b6d3670d5fecbff6c47511f2c7c088b",
+   "n_runs": 278,
+   "n_steps": 6653,
+   "n_dep_edges": 1250,
+   "grade_commit": [
+    "fe6e54d+tau2-frozen-v1"
+   ],
+   "note": "The tau2 converter at GRADE 3839a57 iterates a set and changes with PYTHONHASHSEED, so the reference is the frozen rule tau2-frozen-v1 on top of GRADE fe6e54d, as the grade_commit marker of every line says."
+  },
+  "tau_bench": {
+   "expected_file": "tau_bench.jsonl",
+   "sha256": "19c8ace49ec70383e375111bccf281d3d1cc1c4570302aba1c05cf5d63d5554c",
+   "n_runs": 660,
+   "n_steps": 20932,
+   "n_dep_edges": 5584,
+   "grade_commit": [
+    "3839a57"
+   ]
+  },
+  "who_and_when": {
+   "expected_file": "who_and_when.jsonl",
+   "sha256": "c86a6c678afd3686c6249dfb0c30ef8f365da530537db1b6030205a8d56d3499",
+   "n_runs": 184,
+   "n_steps": 4092,
+   "n_dep_edges": 126699,
+   "grade_commit": [
+    "3839a57"
+   ]
+  }
+ },
+ "inputs_about": "The source files each comparison reads, frozen on 2026-10-24 from the agentpile cache: for each corpus the number of files GRADE's expected runs come from, plus any file the reader joins into every run (AgentRewardBench's data/annotations.csv, SWE-rebench's tools.json; for CatchBench PRE, every data/pre/*.json file), and the SHA-256 of the sorted list of 'path<TAB>sha256' lines. run_crosscheck.py refuses inputs that differ and writes the per-file lines to --out.",
+ "inputs": {
+  "who_and_when": {
+   "n_files": 184,
+   "digest": "6c43cbece280665091584034760e4fa532d73a65ec6a62f1b5f26aa7e6d5bcf2"
+  },
+  "tau_bench": {
+   "n_files": 4,
+   "digest": "7ca7462d791d17fc93cced35e72e8196274cb276cd06bd135c06444d9e789a53"
+  },
+  "tau2_bench": {
+   "n_files": 1,
+   "digest": "ee5ca7f81a6f5b50ba74a49f87c20f90461fb050e2c1d19a68740b4f4ff84b68"
+  },
+  "swe_rebench_openhands": {
+   "n_files": 2,
+   "digest": "863c8f0431c4dfb55abe5007eef87313b811b3330183d58ebe165d45f0c798b4"
+  },
+  "swe_gym_openhands": {
+   "n_files": 2,
+   "digest": "5772c1d2fc4c3f5d8a9bf2395fc0b4ca310807d646c763f3145f919f73575a42"
+  },
+  "swe_agent_nebius": {
+   "n_files": 1,
+   "digest": "ac46d36e6691eea2ad7782b013fd6f88093f5ae794bacb1c81ac82f80bf99e27"
+  },
+  "agent_reward_bench": {
+   "n_files": 601,
+   "digest": "b90c51ede7256adc4f085c5a870258137a352fe98da49ef61a476f81c2c9a401"
+  },
+  "catchbench_pre": {
+   "n_files": 6,
+   "digest": "e2b8ca99b1fb01bdbe0ebb2827d8e46606773a093f4037a104ea8a7cf58c8231"
+  }
+ }
+}
