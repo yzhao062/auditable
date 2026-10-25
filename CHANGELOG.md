@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0 (2026-10-24)
+## 0.3.0 (2026-10-25)
 
 0.3.0 turns `auditable` into a library of auditing methods for AI agents, with one interface per family and the ability to read public agent traces through agentpile.
 

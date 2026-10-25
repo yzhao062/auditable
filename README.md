@@ -206,6 +206,8 @@ pip install "auditable[graph-ad]"
 python -c "import torch_geometric.typing as t; assert t.WITH_PYG_LIB"
 ```
 
+Where torch is already installed, as on Colab, keep it: skip the first line, and in the `pyg-lib` URL replace `2.12.1+cpu` with the installed version, which `python -c "import torch; print(torch.__version__)"` prints (for example `2.11.0+cu130`); the pinned CPU build would replace Colab's torch and break its preinstalled torchvision. The graph-ad install was checked on Colab CPU and T4 runtimes with Colab's torch, and on Linux aarch64 (DGX Spark) with the pinned one. The PyGOD methods run on the CPU (`gpu=-1`) even when a GPU is present.
+
 ## Traces and Inputs
 
 Methods read traces through `auditable.featurize.normalize_trace`, which accepts a list of step dicts, a run dict (`{"steps": ..., "texts": ...}`), a typed NetworkX graph from `auditable.graph.build_graph`, a `SessionGraph`, or the `TraceView` that `from_agentpile` returns. Steps carry `idx`, `agent`, `kind` (`"decision"` or `"tool_call"`), and optionally `deps` and `text`; a `SessionGraph` also keeps parallel branches and merges of the execution order. A trace without dependency annotations can be read with `dependency="full_context"`, the assumption that each step relied on every earlier step. A method that needs a field the trace lacks (step text for an LLM judge, for example) raises an error naming it.
