@@ -46,6 +46,14 @@ def _columns(trace: Any):
     return X.reshape(-1, 4), edges
 
 
+def _replaced(deps: Any, ids: list, pos: int) -> bool:
+    """True when the recorded deps of the step at ``pos`` differ, as a set, from every earlier step;
+    the common case, deps already listing the earlier steps in order, is decided without sets."""
+    if len(deps) == pos and list(deps) == ids[:pos]:
+        return False
+    return set(deps) != set(ids[:pos])
+
+
 @register
 class RandomStep(BaseStepLocalizer):
     """Uniform random step scores, a floor. Pass a shared ``numpy.random.RandomState`` as
@@ -104,34 +112,34 @@ class BlastShare(BaseStepLocalizer):
         self.dependency = dependency
 
     def step_scores(self, trace: Any):
+        import networkx as nx
         import numpy as np
 
         from auditable.featurize import normalize_trace
-        from auditable.graph import downstream_reach
+        from auditable.graph import dependency_dag
         from auditable.graph.session import DependencyEdge, SessionGraph, Step
 
         if self.dependency not in ("full_context", "explicit"):
             raise ValueError("dependency must be 'full_context' or 'explicit'")
         steps = normalize_trace(trace).steps
         ids = [s["idx"] for s in steps]
-        if self.dependency == "full_context" and any(
-                "deps" in s and set(s["deps"] or ()) != set(ids[:pos]) for pos, s in enumerate(steps)):
+        full = self.dependency == "full_context"
+        if full and any("deps" in s and _replaced(s["deps"] or (), ids, pos) for pos, s in enumerate(steps)):
             import warnings
 
             warnings.warn("step.blast with dependency='full_context' replaces the dependencies this trace "
                           "records; pass dependency='explicit' to score the recorded ones", stacklevel=2)
-        graph_steps = [
-            Step(
-                idx=s["idx"],
-                kind=s["kind"],
-                agent=s["agent"],
-                deps=[DependencyEdge(src_idx=j) for j in
-                      (ids[:pos] if self.dependency == "full_context" else s.get("deps", ()))],
-            )
-            for pos, s in enumerate(steps)
-        ]
+        # Built and validated (plain unique integer idx, known kind) in both modes; full_context adds no
+        # edges, since every later step depends on step i and its reach is the n - 1 - i steps after it.
+        graph_steps = [Step(idx=s["idx"], kind=s["kind"], agent=s["agent"],
+                            deps=[] if full else [DependencyEdge(src_idx=j) for j in s.get("deps", ())])
+                       for s in steps]
         graph = SessionGraph.from_steps(graph_steps).to_networkx()
-        return np.array([downstream_reach(graph, s["idx"]) for s in steps], dtype=float)
+        if full:
+            return np.arange(len(steps) - 1, -1, -1, dtype=float)
+        dep = dependency_dag(graph)  # built once; downstream_reach would rebuild it per step
+        return np.array([len(nx.ancestors(dep, f"step::{s['idx']}")) if f"step::{s['idx']}" in dep else 0
+                         for s in steps], dtype=float)
 
 
 @register

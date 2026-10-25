@@ -44,7 +44,7 @@ from .base import MethodCard
 from .methods import get_method, list_methods
 from .featurize.agentpile import configs_from_agentpile, from_agentpile, run_targets, step_targets
 
-__version__ = "0.3.0.dev0"
+__version__ = "0.3.0"
 
 __all__ = [
     "__version__",

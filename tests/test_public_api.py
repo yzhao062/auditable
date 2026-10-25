@@ -106,3 +106,38 @@ def test_graph_internals_reachable_under_submodule():
     from auditable.graph import build_graph  # noqa: F401  (the kernel)
     from auditable.graph.risk import structural_risk  # noqa: F401
     from auditable.graph.session import SessionGraph, Step  # noqa: F401
+
+
+def test_graph_all_lists_the_kernel_names_the_docs_render():
+    import auditable.graph as graph
+
+    # docs/api.md renders ``::: auditable.graph``, which shows only the names in __all__
+    assert set(graph.__all__) == {"NODE_TYPES", "EXECUTION_EDGES", "DEPENDENCY_EDGES", "build_graph",
+                                  "dependency_dag", "characterize", "downstream_reach", "execution_reach",
+                                  "layered_features", "feature_vector"}
+    assert all(hasattr(graph, name) for name in graph.__all__)
+
+
+# Constructor keywords a benchmark passes (CatchBench's board adapters); docs/methods-contract.md
+# lists them. Renaming one breaks a pinned consumer, so the names are fixed here.
+CONSTRUCTOR_KEYWORDS = {
+    "step.random": {"random_state"},
+    "online.random": {"random_state"},
+    "run.random": {"random_state"},
+    "run.gsafeguard_lite": {"seed"},
+    "run.guardian_lite": {"seed"},
+    "step.llm_all_at_once": {"backend", "model"},
+    "step.llm_step_by_step": {"backend", "model"},
+    "step.llm_binary_search": {"backend", "model"},
+    "config.llm_needed": {"backend", "model", "needed"},
+}
+
+
+def test_constructor_keywords_a_benchmark_passes():
+    import inspect
+
+    from auditable.methods import get_method
+
+    for method_id, names in CONSTRUCTOR_KEYWORDS.items():
+        # binding by keyword fails for a renamed, removed or positional-only parameter
+        inspect.signature(get_method(method_id)).bind_partial(**{name: None for name in names})

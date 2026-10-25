@@ -39,13 +39,10 @@ Records are content-addressed and hash-chained, and that property is limited: a 
 
 ## Install
 
-The method library is not on PyPI yet: the current release there (0.2.1) predates it. Until 0.3.0 is released, install from a clone of the repository:
-
 ```bash
-git clone https://github.com/yzhao062/auditable.git
-cd auditable
-pip install .                  # core: the registry and the configuration rules
-pip install ".[tabular-ad]"    # run, step, and online methods on trace features
-pip install ".[graph-ad]"      # graph methods; also install torch and a matching pyg-lib wheel (see the README)
-pip install ".[graph]"         # the structural graph analyses (analyze_run, analyze_plan)
+pip install auditable                  # core: the registry and the configuration rules
+pip install "auditable[tabular-ad]"    # run, step, and online methods on trace features
+pip install "auditable[agentpile]"     # read public datasets, trace files and captured runs through agentpile
+pip install "auditable[graph-ad]"      # graph methods; also install torch and a matching pyg-lib wheel (see the README)
+pip install "auditable[graph]"         # the structural graph analyses (analyze_run, analyze_plan)
 ```

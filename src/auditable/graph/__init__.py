@@ -154,3 +154,6 @@ def execution_reach(G, step_idx: int) -> int:
 # study to show each layer adds signal beyond run size. Imported last so the
 # module-level names above are bound before features.py resolves them.
 from .features import layered_features, feature_vector  # noqa: E402,F401
+
+__all__ = ["DEPENDENCY_EDGES", "EXECUTION_EDGES", "NODE_TYPES", "build_graph", "characterize", "dependency_dag",
+           "downstream_reach", "execution_reach", "feature_vector", "layered_features"]

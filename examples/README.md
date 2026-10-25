@@ -4,12 +4,11 @@
 
 `example_methods.py` runs one method from each family of `auditable.methods` (a
 configuration rule, an online monitor, a step localizer, and two run detectors) on
-synthetic traces it generates, with no benchmark data and no API key. The method
-library is not on PyPI yet (the current release there, 0.2.1, predates it), so
-install it from the root of a repository checkout:
+synthetic traces it generates, with no benchmark data and no API key. The scripts
+are in the repository, not the wheel, so run them from a checkout:
 
 ```
-pip install ".[tabular-ad]"
+pip install "auditable[tabular-ad]"
 python examples/example_methods.py
 ```
 
@@ -19,7 +18,7 @@ MCP tool list, built in the script, and with `--dataset` the first 20 tau-bench 
 from Hugging Face.
 
 ```
-pip install ".[agentpile,tabular-ad]"
+pip install "auditable[agentpile,tabular-ad]"
 python examples/example_agentpile.py
 ```
 

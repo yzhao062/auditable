@@ -11,9 +11,14 @@ configuration that never ran. This module is the seam on auditable's side:
 - :func:`step_targets` and :func:`run_targets` turn the record labels into ``y``.
 
 Two step conventions exist. ``"generic"`` reads ``run.events()``: one decision per user or
-agent message and one tool step per call, carrying its result. ``"grade"`` reproduces the step
-lists of GRADE's converters (commit 3839a57) for the seven corpora they cover, through the
-``grade-steps-v1`` projection in :mod:`auditable.featurize._grade_projection`. Dependencies are
+agent message and one tool step per call, carrying its result. Content that a source gives as a
+list of parts (dicts with a string ``type``, possibly mixed with bare strings) keeps its text and
+writes every other part as ``[<type>]``, dropping that part's other fields; any other list stays
+JSON. A ``user`` step is a step the record attributes to the user role, which is not
+always text a person wrote (a session's compact summary or a task notification also has that
+role). ``"grade"`` reproduces the step lists of GRADE's converters (commit 3839a57) for the
+seven corpora they cover, through the ``grade-steps-v1`` projection in
+:mod:`auditable.featurize._grade_projection`, on the dataset revisions it was checked on. Dependencies are
 never guessed: ``deps`` names the agentpile rules (or ``"recorded"``, ``"full_context"``,
 ``"grade"``), and the rules that ran are kept in each view's ``meta``.
 
@@ -40,6 +45,19 @@ Key = Tuple[Any, ...]
 def is_agentpile_run(x: Any) -> bool:
     """True for an agentpile ``Run``, recognized without importing agentpile."""
     return type(x).__module__.startswith("agentpile") and hasattr(x, "events") and hasattr(x, "record")
+
+
+def _agentpile():
+    try:
+        import agentpile
+    except ImportError as err:
+        raise ImportError('reading agentpile records needs agentpile: pip install "auditable[agentpile]"') from err
+    return agentpile
+
+
+def _subagent_steps(run: Any) -> int:
+    """ATIF steps in a run's subagent trajectories, nested ones included."""
+    return sum(len(sub.steps) + _subagent_steps(sub) for sub in run.subagents)
 
 
 def _as_runs(runs: Any) -> Tuple[List[Any], bool]:
@@ -72,21 +90,49 @@ def _text(value: Any) -> str:
     return text(value)
 
 
+def _is_parts(value: Any) -> bool:
+    """True for a list of content parts as chat APIs send them: every item a dict with a string ``type``
+    or a bare string (which some sources mix in as text), and at least one dict. A list of strings alone,
+    or a list with any other item, is ordinary JSON."""
+    return isinstance(value, list) and any(isinstance(p, dict) for p in value) and all(
+        isinstance(p, str) or (isinstance(p, dict) and isinstance(p.get("type"), str)) for p in value)
+
+
+def _content_text(value: Any, report: Dict[str, Any], kind: str) -> str:
+    """Step text of message or result content. A list of content parts keeps its text parts and bare
+    strings, in order and one per line, and writes every other part as ``[<type>]`` (its other fields,
+    an image's base64 payload or a file's path alike, are not kept); ``report`` counts the parts written
+    that way. Any other value reads as :func:`_text` does."""
+    if not _is_parts(value):
+        return _text(value)
+    lines = []
+    for part in value:
+        if isinstance(part, str):
+            lines.append(part)
+        elif part["type"] == "text" and isinstance(part.get("text"), str):
+            lines.append(part["text"])
+        else:
+            lines.append(f"[{part['type']}]")
+            report[f"{kind}_parts_replaced"] += 1
+    return "\n".join(lines)
+
+
 # -- the two step conventions -----------------------------------------------------------------------
 
-def _generic_steps(run: Any) -> Tuple[List[Dict[str, Any]], List[List[Dict[str, Any]]], Dict[str, int]]:
+def _generic_steps(run: Any) -> Tuple[List[Dict[str, Any]], List[List[Dict[str, Any]]], Dict[str, Any]]:
     """One decision per user or agent message, one tool step per call (with its results), in source order."""
     steps: List[Dict[str, Any]] = []
     owners: List[List[Dict[str, Any]]] = []
     tool_of_call: Dict[Key, int] = {}
-    report = {"system_messages_skipped": 0, "results_without_call": 0}
+    report: Dict[str, Any] = {"system_messages_skipped": 0, "results_without_call": 0,
+                              "message_parts_replaced": 0, "result_parts_replaced": 0}
     for ev in run.events():
         if ev.kind == "message":
             if ev.role == "system":
                 report["system_messages_skipped"] += 1
                 continue
             steps.append({"idx": len(steps), "agent": ev.actor or ev.role, "kind": "decision", "deps": [],
-                          "text": _text(ev.content)})
+                          "text": _content_text(ev.content, report, "message")})
             owners.append([dict(ev.address)])
         elif ev.kind == "call":
             tool_of_call[_key(ev.address)] = len(steps)
@@ -103,9 +149,28 @@ def _generic_steps(run: Any) -> Tuple[List[Dict[str, Any]], List[List[Dict[str, 
                 steps.append({"idx": pos, "agent": "env", "kind": "tool_call", "deps": [], "tool": ev.name,
                               "text": f"{ev.name}()"})
                 owners.append([])
-            steps[pos]["text"] += " -> " + _text(ev.content)
+            steps[pos]["text"] += " -> " + _content_text(ev.content, report, "result")
             owners[pos].append(dict(ev.address))
+    report.update(_coverage(run, owners))
     return steps, owners, report
+
+
+def _coverage(run: Any, owners: Sequence[Sequence[Dict[str, Any]]]) -> Dict[str, Any]:
+    """How the run's own ATIF steps map into the view: every source step is either mapped (some view step
+    holds one of its addresses) or unmapped, counted by its ``source`` role. One source step can give
+    several view steps (a message and its calls), so the view's step count is reported apart."""
+    mapped = {(a.get("trajectory"), a.get("step")) for addresses in owners for a in addresses}
+    unmapped: Dict[str, int] = {}
+    n_mapped = 0
+    for step in run.steps:
+        if (run.id, step.get("step_id")) in mapped:
+            n_mapped += 1
+        else:
+            role = str(step.get("source"))
+            unmapped[role] = unmapped.get(role, 0) + 1
+    return {"source_steps": len(run.steps), "source_steps_mapped": n_mapped,
+            "source_steps_unmapped": len(run.steps) - n_mapped, "unmapped_by_source": unmapped,
+            "view_steps": len(owners)}
 
 
 def _grade_steps(run: Any):
@@ -120,9 +185,14 @@ def _grade_steps(run: Any):
         raise ValueError(f"source.dataset of a {reader} run should be {G.DATASETS[reader]!r}, got {dataset!r}")
     if reader == "tau_bench" and not isinstance(run.dataset.get("model_path", "model"), str):
         raise ValueError("run.dataset['model_path'] of a tau_bench run should be a string")
+    revision = run.source.get("revision")
+    if revision != G.REVISIONS[reader]:
+        raise ValueError(f"run {run.id!r} comes from revision {revision!r} of {reader}, but the {PROJECTION} "
+                         f"projection was checked against GRADE only on revision {G.REVISIONS[reader]!r}, so its "
+                         f"steps on this one are unverified; read it with convention=\"generic\" and a generic "
+                         f"dependency setting (deps=\"full_context\" or a list of agentpile rules) instead")
     steps, nodes, owners = G.STEPS[reader](run)
-    tested = run.source.get("revision") == G.REVISIONS[reader]
-    return reader, steps, nodes, owners, G.SHARED_RESOURCE[reader], tested
+    return reader, steps, nodes, owners, G.SHARED_RESOURCE[reader]
 
 
 # -- dependencies -------------------------------------------------------------------------------------
@@ -143,7 +213,7 @@ def _rule_name(rule: Any) -> str:
 
 def _dep_entries(run: Any, deps: Any, reader: Optional[str]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
     """``(entries, rules)``: the dependency entries and, per rule asked for, what it resolved to and produced."""
-    import agentpile as ap
+    ap = _agentpile()
 
     if deps == "recorded":
         entries = [d for step in run.steps for d in (_ext(step).get("deps") or [])]
@@ -241,9 +311,15 @@ def from_agentpile(runs: Any, *, deps: Union[str, Iterable[Any]], convention: st
 
     Each view's ``meta`` records the adapter, agentpile version, convention, the dependency rules
     asked for and what they produced, the record address of every step (``addresses``, by
-    position), the labels with the step they point at, and the run's source and outcome.
+    position), the labels with the step they point at, and the run's source and outcome. With
+    ``convention="generic"``, ``meta["report"]`` also says how the run's ATIF steps map into the
+    view (``source_steps``, ``source_steps_mapped``, ``source_steps_unmapped`` by role in
+    ``unmapped_by_source``, and ``view_steps``, which differs because one message can give a
+    decision and its calls) and how many non-text content parts became ``[<type>]`` placeholders.
+    With ``convention="grade"``, a run from a dataset revision other than the one the projection
+    was checked on raises ``ValueError``.
     """
-    import agentpile as ap
+    ap = _agentpile()
 
     if convention not in CONVENTIONS:
         raise ValueError(f"convention must be one of {CONVENTIONS}, got {convention!r}")
@@ -268,16 +344,16 @@ def from_agentpile(runs: Any, *, deps: Union[str, Iterable[Any]], convention: st
                                 "source": dict(run.source), "outcome": dict(run.outcome), "convention": convention}
         n_sub = len(run.subagents)
         if n_sub and subagents == "error":
-            raise ValueError(f"run {run.id!r} has {n_sub} subagent trajectories, which auditable does not flatten; "
-                             f'pass subagents="skip" to read its top-level trajectory only')
+            raise ValueError(f"run {run.id!r} has {n_sub} subagent trajectories, which auditable does not flatten "
+                             f"into one trace. Convert each subagent as a trace of its own with "
+                             f"from_agentpile(run.subagents, ...), or pass subagents=\"skip\" to read the top-level "
+                             f"trajectory only (the subagents' steps are then left out)")
         meta["subagents_skipped"] = n_sub
+        meta["subagent_steps_skipped"] = _subagent_steps(run)
         reader = None
         if convention == "grade":
-            reader, steps, nodes, owners, shared, tested = _grade_steps(run)
-            meta.update(projection=PROJECTION, revision_tested=tested)
-            if not tested:
-                warnings.warn(f"run {run.id!r} comes from revision {run.source.get('revision')!r} of {reader}, not the "
-                              f"one the grade-steps-v1 projection was checked on", stacklevel=2)
+            reader, steps, nodes, owners, shared = _grade_steps(run)
+            meta.update(projection=PROJECTION, revision_tested=True)
             report: Dict[str, Any] = {}
             from auditable.featurize import _grade_projection as G
 

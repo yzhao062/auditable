@@ -409,3 +409,132 @@ def test_catchbench_pre_rows_carry_their_tokens_even_when_empty():
     (cfg,) = au.configs_from_agentpile(run)
     assert cfg.instance_id == "crewai-9999" and cfg.spec_tokens == ()
     assert cfg.declared_capabilities[0]["permission_level"] == "network"
+
+
+# -- generic convention on content parts, source-step coverage, and refusals --------------------------
+
+PARTS = [
+    {"role": "user", "content": [{"type": "text", "text": "look"},
+                                 {"type": "image_url", "image_url": {"url": "data:image/png;base64,QUFBQQ=="}}]},
+    {"role": "assistant", "content": None, "tool_calls": [_call("c1", "read", {}), _call("c2", "list", {})]},
+    {"role": "tool", "tool_call_id": "c1", "content": [
+        {"type": "text", "text": "ok"}, {"type": "image_url", "image_url": {"url": "data:image/png;base64,QkJCQg=="}}]},
+    {"role": "tool", "tool_call_id": "c2", "content": "done"},
+    {"role": "assistant", "content": "fine"},
+]
+
+
+def test_content_parts_keep_their_text_and_name_every_other_part():
+    view = au.from_agentpile(next(ap.load(PARTS)), deps="full_context")
+    assert "base64" not in "".join(view.texts)
+    assert view.texts[0] == "look\n[image_url]"
+    assert view.texts[2] == "read({}) -> ok\n[image_url]" and view.texts[3] == "list({}) -> done"
+    report = view.meta["report"]
+    assert report["message_parts_replaced"] == 1 and report["result_parts_replaced"] == 1
+
+
+def test_a_plain_json_list_is_not_read_as_content_parts():
+    from auditable.featurize.agentpile import _content_text
+
+    report = {"message_parts_replaced": 0}
+    assert _content_text([1, {"a": 1}], report, "message") == '[1, {"a": 1}]'
+    assert _content_text([], report, "message") == "[]"
+    assert _content_text(["a", "b"], report, "message") == '["a", "b"]'  # strings alone are a JSON array
+    assert _content_text([{"type": "text", "text": "x"}, {"no_type": 1}], report, "message").startswith("[{")
+    assert report["message_parts_replaced"] == 0
+
+
+def test_content_parts_may_mix_in_bare_strings_and_keep_only_the_type_of_other_parts():
+    from auditable.featurize.agentpile import _content_text
+
+    report = {"result_parts_replaced": 0}
+    image = {"type": "image", "source": {"type": "base64", "data": "QUFBQQ=="}}
+    assert _content_text(["caption", image], report, "result") == "caption\n[image]"
+    assert _content_text([{"type": "file", "path": "/tmp/a.txt", "size": 42}], report, "result") == "[file]"
+    assert report["result_parts_replaced"] == 2
+
+
+def _with_steps(run, *steps):
+    record = run.to_dict()
+    record["steps"] = record["steps"] + list(steps)
+    return ap.Run(record)
+
+
+def test_every_source_step_is_mapped_or_counted_by_role():
+    run = next(ap.load(PARTS))
+    report = au.from_agentpile(run, deps="full_context").meta["report"]
+    # three ATIF steps (user, agent with two calls and their results, agent) give five view steps
+    assert (report["source_steps"], report["source_steps_mapped"], report["source_steps_unmapped"]) == (3, 3, 0)
+    assert report["view_steps"] == 5 and report["unmapped_by_source"] == {}
+    report = au.from_agentpile(_messages_run(), deps="full_context").meta["report"]
+    assert report["source_steps_mapped"] + report["source_steps_unmapped"] == report["source_steps"]
+    assert report["unmapped_by_source"] == {"system": 1} and report["system_messages_skipped"] == 1
+
+
+def test_coverage_counts_steps_with_no_event_and_maps_a_step_holding_only_an_orphan_result():
+    missing = {"agentpile": {"message_state": "missing"}}
+    run = _with_steps(
+        next(ap.load(PARTS)),
+        # a step whose only event is a result naming no call it can be joined to
+        {"step_id": 4, "source": "agent", "message": "", "extra": missing,
+         "observation": {"results": [{"source_call_id": None, "content": "late"}]}},
+        {"step_id": 5, "source": "system", "message": "", "extra": missing},  # no event at all
+        {"step_id": 6, "source": "agent", "message": "", "extra": missing},  # no event at all
+    )
+    view = au.from_agentpile(run, deps=[])
+    report = view.meta["report"]
+    assert (report["source_steps"], report["source_steps_mapped"], report["source_steps_unmapped"]) == (6, 4, 2)
+    assert report["unmapped_by_source"] == {"system": 1, "agent": 1}
+    assert report["results_without_call"] == 1 and report["view_steps"] == 6 == len(view.steps)
+    assert view.texts[-1] == "None() -> late"
+    assert [a["step"] for a in view.meta["addresses"][-1]] == [4] and "result" in view.meta["addresses"][-1][0]
+
+
+def test_the_subagent_refusal_names_both_ways_to_read_the_run():
+    record = _messages_run().to_dict()
+    record["subagent_trajectories"] = [dict(record, session_id="child")]
+    run = ap.Run(record)
+    with pytest.raises(ValueError, match=r"from_agentpile\(run\.subagents, \.\.\.\)") as err:
+        au.from_agentpile(run, deps="full_context")
+    assert 'subagents="skip"' in str(err.value)
+    view = au.from_agentpile(run, deps="full_context", subagents="skip")
+    assert view.meta["subagent_steps_skipped"] == len(run.subagents[0].steps)
+    children = au.from_agentpile(run.subagents, deps="full_context")
+    assert len(children) == 1 and len(children[0].steps) == len(view.steps)
+
+
+def _with_revision(run, revision):
+    record = run.to_dict()
+    record["extra"]["agentpile"]["source"]["revision"] = revision
+    return ap.Run(record)
+
+
+def test_grade_refuses_an_untested_dataset_revision_and_names_the_generic_route():
+    run = _tau_run(MESSAGES[1:])
+    assert au.from_agentpile(run, deps="grade", convention="grade").meta["revision_tested"] is True
+    other = _with_revision(run, "0" * 40)
+    with pytest.raises(ValueError, match="unverified") as err:
+        au.from_agentpile(other, deps="grade", convention="grade")
+    message = str(err.value)
+    assert "0" * 40 in message and run.source["revision"] in message
+    assert 'convention="generic"' in message and 'deps="full_context"' in message
+    with warnings.catch_warnings():
+        warnings.simplefilter("error")
+        au.from_agentpile(other, deps="full_context")  # the generic route reads it
+
+
+def test_a_missing_agentpile_names_the_extra(monkeypatch):
+    import builtins
+
+    from auditable.featurize import agentpile as adapter
+
+    real = builtins.__import__
+
+    def refuse(name, *args, **kwargs):
+        if name == "agentpile" or name.startswith("agentpile."):
+            raise ImportError("no agentpile")
+        return real(name, *args, **kwargs)
+
+    monkeypatch.setattr(builtins, "__import__", refuse)
+    with pytest.raises(ImportError, match=r'pip install "auditable\[agentpile\]"'):
+        adapter._agentpile()

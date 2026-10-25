@@ -1,8 +1,10 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the paper in preferred-citation below."
 title: "auditable"
-abstract: "Audit any agent decision across its past, present, and future, on one typed graph."
+abstract: "A library of auditing methods for AI agents: configuration audits, run-level failure detection, step-level fault localization, and online monitors, behind one API per family."
 type: software
+version: "0.3.0"
+date-released: "2026-10-24"
 authors:
   - family-names: "Nian"
     given-names: "Yi"

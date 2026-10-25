@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "auditable"
-version = "0.3.0.dev0"
+version = "0.3.0"
 description = "A library of auditing methods for AI agents: configuration audits, run-level failure detection, step-level fault localization, and online monitors, behind one API per family."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -79,6 +79,7 @@ dev =["pytest>=7.0", "build>=1.0", "twine>=5.0", "pyod>=1.1.0"]
 Homepage = "https://github.com/yzhao062/auditable"
 Repository = "https://github.com/yzhao062/auditable"
 Issues = "https://github.com/yzhao062/auditable/issues"
+Documentation = "https://auditable-ai.readthedocs.io/"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/auditable"]
@@ -88,10 +89,11 @@ packages = ["src/auditable"]
 # scripts). Keep this a whitelist so a new tracked dir is excluded by default.
 [tool.hatch.build.targets.sdist]
 include = [
-    "src/auditable",
-    "README.md",
-    "LICENSE",
-    "pyproject.toml",
-    "examples",
-    "tests",
+    "/src/auditable",
+    "/README.md",
+    "/CHANGELOG.md",
+    "/LICENSE",
+    "/pyproject.toml",
+    "/examples",
+    "/tests",
 ]

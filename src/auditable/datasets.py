@@ -86,9 +86,9 @@ def load_traces(name: str, *, deps: Any, convention: str = "generic", limit: Opt
     mistakes : int array, the ``idx`` of the labeled decisive-mistake step, -1 where there is
         none (:func:`auditable.step_targets`).
     """
-    import agentpile as ap
+    from auditable.featurize.agentpile import _agentpile, from_agentpile, run_targets, step_targets
 
-    from auditable.featurize.agentpile import from_agentpile, run_targets, step_targets
+    ap = _agentpile()
 
     if limit is not None:
         load_kwargs["limit"] = limit

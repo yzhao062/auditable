@@ -2,8 +2,8 @@
 
 <!-- logo-family -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/brand/logo-dark.svg">
-  <img src="docs/assets/brand/logo.svg" alt="auditable" width="350">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/yzhao062/auditable/main/docs/assets/brand/logo-dark.svg">
+  <img src="https://raw.githubusercontent.com/yzhao062/auditable/main/docs/assets/brand/logo.svg" alt="auditable" width="350">
 </picture>
 
 
@@ -13,7 +13,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/auditable.svg)](https://pypi.org/project/auditable/)
 [![Python](https://img.shields.io/pypi/pyversions/auditable.svg)](https://pypi.org/project/auditable/)
-[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://github.com/yzhao062/auditable/blob/main/LICENSE)
 [![CI](https://github.com/yzhao062/auditable/actions/workflows/ci.yml/badge.svg)](https://github.com/yzhao062/auditable/actions/workflows/ci.yml)
 
 [Quick Start](#quick-start) · [Real Agent Traces](#real-agent-traces) · [Methods](#methods) · [Install](#install) · [Reproducing CatchBench](#reproducing-catchbench) · [Adding a Method](#adding-a-method) · [Citation](#citation)
@@ -26,7 +26,7 @@
 
 ## Quick Start
 
-Install from a clone of this repository with `pip install ".[tabular-ad]"` (see [Install](#install)), then:
+Install with `pip install "auditable[tabular-ad]"` (see [Install](#install)), then:
 
 ```python
 from sklearn.metrics import roc_auc_score
@@ -56,11 +56,11 @@ alarms = monitor.step_alarm_scores(traces[failed[0]])
 print(f"first alarm peak at step {alarms.argmax()}, mistake at step {mistakes[failed[0]]}")
 ```
 
-Every method is created from its ID with `get_method(id)()`, and the methods of one family share one interface, so trying another detector or locator changes one string. [`examples/example_methods.py`](examples/example_methods.py) adds a configuration audit before the run.
+Every method is created from its ID with `get_method(id)()`, and the methods of one family share one interface, so trying another detector or locator changes one string. [`examples/example_methods.py`](https://github.com/yzhao062/auditable/blob/main/examples/example_methods.py) adds a configuration audit before the run.
 
 ## Real Agent Traces
 
-[agentpile](https://github.com/yzhao062/agentpile) loads public agent-trace datasets (Who&When, TRAIL, MAST, tau-bench, SWE-Gym and others), trace files (OpenAI-style messages, OTLP JSON, Claude Code sessions, MCP tool lists) and captured runs into one record. `from_agentpile` turns those records into the traces every method reads, and `configs_from_agentpile` turns them into the configurations the config methods read. `pip install ".[agentpile]"` installs the conversion; the example below also runs tabular methods, so it needs `pip install ".[agentpile,tabular-ad]"`.
+[agentpile](https://github.com/yzhao062/agentpile) loads public agent-trace datasets (Who&When, TRAIL, MAST, tau-bench, SWE-Gym and others), trace files (OpenAI-style messages, OTLP JSON, Claude Code sessions, MCP tool lists) and captured runs into one record. `from_agentpile` turns those records into the traces every method reads, and `configs_from_agentpile` turns them into the configurations the config methods read. `pip install "auditable[agentpile]"` installs the conversion; the example below also runs tabular methods, so it needs `pip install "auditable[agentpile,tabular-ad]"`.
 
 ```python
 import agentpile as ap
@@ -84,7 +84,7 @@ configs = au.configs_from_agentpile(next(ap.load("tools.json")), task="Summarize
 print(get_method("config.owasp_asi_combined")().audit(configs[0]))
 ```
 
-`deps` has no default. It is a list of agentpile rules, `"recorded"` for the dependencies the record already holds, or `"full_context"` for every earlier step, and each trace's `meta` keeps the rules that ran. The default `convention="generic"` makes one step per message and one per tool call with its result. `convention="grade"` with `deps="grade"` instead reproduces the steps, dependencies and graphs of the GRADE converters that CatchBench and the GRADE paper used, for the seven corpora below. [`benchmarks/agentpile_crosscheck`](benchmarks/agentpile_crosscheck) compares that output with GRADE's run by run.
+`deps` has no default. It is a list of agentpile rules, `"recorded"` for the dependencies the record already holds, or `"full_context"` for every earlier step, and each trace's `meta` keeps the rules that ran. The default `convention="generic"` makes one step per message and one per tool call with its result. `convention="grade"` with `deps="grade"` instead reproduces the steps, dependencies and graphs of the GRADE converters that CatchBench and the GRADE paper used, for the seven corpora below. [`benchmarks/agentpile_crosscheck`](https://github.com/yzhao062/auditable/tree/main/benchmarks/agentpile_crosscheck) compares that output with GRADE's run by run.
 
 | Corpus | `load_traces` arguments | Runs in GRADE's output | Result |
 |---|---|---|---|
@@ -96,11 +96,15 @@ print(get_method("config.owasp_asi_combined")().audit(configs[0]))
 | SWE-rebench OpenHands | `"swe_rebench_openhands", convention="grade", deps="grade"` | 600 | equal |
 | SWE-agent | `"swe_agent_nebius", convention="grade", deps="grade"` | 600 | equal |
 
-A run with subagent trajectories (a Claude Code session with subagents, an Agents SDK handoff) raises an error, since this version does not flatten them; `subagents="skip"` reads its top-level trajectory.
+These results hold on the dataset revisions agentpile 0.3.0 loads by default. On any other revision, `convention="grade"` raises an error rather than return steps nobody has compared with GRADE's, and `convention="generic"` reads the run without that guarantee.
+
+In the generic convention, a `user` step is a step the record attributes to the user role, which is not always text a person typed (a session's compact summary or a task notification has that role too). Content given as a list of parts (dicts with a string `type`, possibly mixed with bare strings) keeps its text; an image, a document or any other non-text part becomes a placeholder such as `[image]` and its other fields are dropped, while any other list stays JSON. `meta["report"]` counts the replaced parts and accounts for every step of the record.
+
+A run with subagent trajectories (a Claude Code session with subagents, an Agents SDK handoff) raises an error, since this version does not flatten them into one trace. `from_agentpile(run.subagents, ...)` reads each subagent as a trace of its own, and `subagents="skip"` reads the top-level trajectory only; on the Claude Code sessions with subagents we measured, skipping left out about half of the steps.
 
 ## Methods
 
-Configuration rules and the step-by-step and binary-search LLM judges run on the core install, graph detectors need the `graph-ad` extra, and every other method needs `tabular-ad`. The tables are generated from the registry: `list_methods(family=...)` returns each method's card, and `method_table(detailed=True)` prints the fit scope, fidelity to the source, extras, and the CatchBench row each method reproduces. The [method contract](docs/methods-contract.md) defines the four interfaces on one page.
+Configuration rules and the step-by-step and binary-search LLM judges run on the core install, graph detectors need the `graph-ad` extra, and every other method needs `tabular-ad`. The tables are generated from the registry: `list_methods(family=...)` returns each method's card, and `method_table(detailed=True)` prints the fit scope, fidelity to the source, extras, and the CatchBench row each method reproduces. The [method contract](https://github.com/yzhao062/auditable/blob/main/docs/methods-contract.md) defines the four interfaces on one page.
 
 ### Config: Is the Agent Over-Privileged Before It Runs?
 
@@ -183,15 +187,13 @@ Configuration rules and the step-by-step and binary-search LLM judges run on the
 
 ## Install
 
-The method library is not on PyPI yet: the current release there (0.2.1) predates it. Until 0.3.0 is released, install from a clone of this repository:
-
 ```bash
-git clone https://github.com/yzhao062/auditable.git
-cd auditable
-pip install .                    # core: the registry and the configuration rules, no third-party dependencies
-pip install ".[tabular-ad]"      # run, step, and online methods on trace features (NumPy, scikit-learn, PyOD, NetworkX)
-pip install ".[agentpile]"       # read public datasets, trace files and captured runs through agentpile
+pip install auditable                  # core: the registry and the configuration rules, no third-party dependencies
+pip install "auditable[tabular-ad]"    # run, step, and online methods on trace features (NumPy, scikit-learn, PyOD, NetworkX)
+pip install "auditable[agentpile]"     # read public datasets, trace files and captured runs through agentpile
 ```
+
+The examples, tests and benchmark harnesses are in the repository, not the wheel; to run them, install from a clone with `pip install -e ".[dev,tabular-ad]"`.
 
 The LLM judges take any `prompt -> reply` function as their backend; `OpenAICompatibleBackend` reaches an OpenAI-compatible endpoint with the standard library alone.
 
@@ -200,7 +202,7 @@ The graph methods (PyGOD detectors, GUARDIAN-Lite, G-Safeguard-Lite) need torch,
 ```bash
 pip install "torch==2.12.1" --index-url https://download.pytorch.org/whl/cpu
 pip install pyg_lib -f https://data.pyg.org/whl/torch-2.12.1+cpu.html
-pip install ".[graph-ad]"
+pip install "auditable[graph-ad]"
 python -c "import torch_geometric.typing as t; assert t.WITH_PYG_LIB"
 ```
 
@@ -212,7 +214,7 @@ Methods read traces through `auditable.featurize.normalize_trace`, which accepts
 
 ## Reproducing CatchBench
 
-[`benchmarks/catchbench_parity`](benchmarks/catchbench_parity) checks the library against CatchBench 0.1.2 and GRADE at commit `3839a57`, the versions the CatchBench board pins. It is a development harness and is not part of the wheel.
+[`benchmarks/catchbench_parity`](https://github.com/yzhao062/auditable/tree/main/benchmarks/catchbench_parity) checks the library against CatchBench 0.1.2 and GRADE at commit `3839a57`, the versions the CatchBench board pins. It is a development harness and is not part of the wheel.
 
 ```bash
 export GRADE_DIR=/path/to/grade   # checked out at 3839a57
@@ -227,11 +229,11 @@ The checks compare every migrated method with its CatchBench or GRADE original o
 
 ## Adding a Method
 
-Subclass the family base class in `auditable.base`, give it a `MethodCard`, and register it with `@register`. The [method contract](docs/methods-contract.md) lists the conventions: input forms, label alignment for supervised step methods, output order, optional dependencies, the tests a method needs, and how to add a parity check when the method reproduces a CatchBench row.
+Subclass the family base class in `auditable.base`, give it a `MethodCard`, and register it with `@register`. The [method contract](https://github.com/yzhao062/auditable/blob/main/docs/methods-contract.md) lists the conventions: input forms, label alignment for supervised step methods, output order, optional dependencies, the tests a method needs, and how to add a parity check when the method reproduces a CatchBench row.
 
 ## Records and Graph Analysis
 
-The package also contains the modules it was first built around. `audit` and `replay` capture an agent decision with the dependency state it relied on and re-decide it against later state; `analyze_run` ranks the steps of a finished run by structural blast share; `analyze_plan` lints a declared plan; `LiveSession` scores a growing run; and `auditable.integrations` captures observed dependency edges from LangGraph, LangChain, MCP servers, or any loop through `TouchRecorder`. See [`examples/README.md`](examples/README.md) and the [documentation](https://auditable-ai.readthedocs.io/).
+The package also contains the modules it was first built around. `audit` and `replay` capture an agent decision with the dependency state it relied on and re-decide it against later state; `analyze_run` ranks the steps of a finished run by structural blast share; `analyze_plan` lints a declared plan; `LiveSession` scores a growing run; and `auditable.integrations` captures observed dependency edges from LangGraph, LangChain, MCP servers, or any loop through `TouchRecorder`. See [`examples/README.md`](https://github.com/yzhao062/auditable/blob/main/examples/README.md) and the [documentation](https://auditable-ai.readthedocs.io/).
 
 Records are content-addressed and hash-chained, and that property is limited. A signature or digest authenticates only the entries that were submitted, a hash chain exposes a later edit only when its head is anchored with an independent party, and neither reveals an event that was never written. The chain therefore does not establish that a log is complete.
 
@@ -269,4 +271,4 @@ If you use `auditable`, please cite the work behind the methods you use (each `M
 
 ## License
 
-[Apache-2.0](LICENSE). Ported code keeps the notice of its source (GRADE and CatchBench, both MIT License) at the top of each module.
+[Apache-2.0](https://github.com/yzhao062/auditable/blob/main/LICENSE). Ported code keeps the notice of its source (GRADE and CatchBench, both MIT License) at the top of each module.

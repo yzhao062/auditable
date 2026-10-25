@@ -268,3 +268,60 @@ def test_clone_keeps_parameters():
     base = pytest.importorskip("sklearn.base")
     cloned = base.clone(_method("step.blast", dependency="explicit"))
     assert cloned.dependency == "explicit"
+
+
+# --- blast: the computation against the per-step reach it replaced -----------------------------
+
+def _blast_reference(trace, dependency):
+    """step.blast as it was computed before 0.3.0: one downstream_reach call per step."""
+    from auditable.featurize import normalize_trace
+    from auditable.graph import downstream_reach
+
+    steps = normalize_trace(trace).steps
+    ids = [s["idx"] for s in steps]
+    graph_steps = [Step(idx=s["idx"], kind=s["kind"], agent=s["agent"],
+                        deps=[DependencyEdge(src_idx=j) for j in
+                              (ids[:pos] if dependency == "full_context" else s.get("deps", ()))])
+                   for pos, s in enumerate(steps)]
+    graph = SessionGraph.from_steps(graph_steps).to_networkx()
+    return np.array([downstream_reach(graph, s["idx"]) for s in steps], dtype=float)
+
+
+def _random_trace(rng, n):
+    ids = [int(i) for i in rng.choice(10 * n + 5, size=n, replace=False)]  # unique, unordered, gapped
+    steps = []
+    for pos, idx in enumerate(ids):
+        earlier = ids[:pos]
+        deps = sorted({int(x) for x in rng.choice(earlier, size=rng.randint(0, len(earlier) + 1))}) if earlier else []
+        steps.append({"idx": idx, "agent": "ab"[rng.randint(2)], "kind": ("decision", "tool_call")[rng.randint(2)],
+                      "deps": deps})
+    return steps
+
+
+@pytest.mark.parametrize("dependency", ["full_context", "explicit"])
+def test_blast_equals_the_per_step_reach_bit_for_bit(dependency):
+    rng = np.random.RandomState(0)
+    traces = [[], _steps()] + [_random_trace(rng, n) for n in (1, 2, 3, 7, 20, 60) for _ in range(5)]
+    parallel = [Step(idx=0, kind="decision", agent="a"), Step(idx=1, kind="decision", agent="b", exec_preds=[]),
+                Step(idx=2, kind="tool_call", agent="a", deps=[DependencyEdge(src_idx=0)], exec_preds=[0, 1])]
+    traces.append(SessionGraph.from_steps(parallel))  # two execution roots joined at step 2
+    method = _method("step.blast", dependency=dependency)
+    for trace in traces:
+        got, want = method.step_scores(trace), _blast_reference(trace, dependency)
+        assert got.dtype == want.dtype and got.shape == want.shape
+        assert got.tobytes() == want.tobytes()
+
+
+@pytest.mark.parametrize("dependency", ["full_context", "explicit"])
+@pytest.mark.parametrize("bad", [
+    [{"idx": 0, "agent": "a", "kind": "decision"}, {"idx": 0, "agent": "a", "kind": "decision"}],  # duplicate idx
+    [{"idx": True, "agent": "a", "kind": "decision"}],  # bool idx
+    [{"idx": 0, "agent": "a", "kind": "other"}],  # unknown kind
+    [{"idx": 0, "agent": "a"}],  # no kind
+])
+def test_blast_rejects_what_it_rejected_before(dependency, bad):
+    with pytest.raises(Exception) as want:
+        _blast_reference(copy.deepcopy(bad), dependency)
+    with pytest.raises(type(want.value)) as got:
+        _method("step.blast", dependency=dependency).step_scores(copy.deepcopy(bad))
+    assert str(got.value) == str(want.value)

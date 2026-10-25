@@ -147,3 +147,61 @@ def test_judges_label_steps_by_position_not_idx(mid, replies):
 def test_protocols_return_prediction_and_log():
     pred, raw = PROTOCOLS["binary_search"]({"steps": _run(2), "texts": ["a", "b"]}, lambda p: "VERDICT: FIRST")
     assert pred == {"top": 0, "ranking": [0]} and raw.startswith("[0-1 mid0] FIRST")
+
+
+# --- the protocol text CatchBench pins ---------------------------------------------------------------
+
+# CatchBench's _protocol_prompt_sha: MD5 (first 12 hex digits) of inspect.getsource of each strategy's
+# driver and prompt function, concatenated. Its LLM caches record these values, so an edit to any of the
+# six functions changes a hash and makes those caches stale; this test fails first.
+PROMPT_SHA = {"all_at_once": ("_all_at_once", "all_at_once_prompt", "35fe2d42f55b"),
+              "step_by_step": ("_step_by_step", "_step_prompt", "e4e35c9bd9e3"),
+              "binary_search": ("_binary_search", "_interval_prompt", "292b9b0a0d4c")}
+
+
+@pytest.mark.parametrize("strategy", sorted(PROMPT_SHA))
+def test_protocol_source_hashes_are_frozen(strategy):
+    import hashlib
+    import inspect
+
+    from auditable.llm import who_when
+
+    driver, prompt, expected = PROMPT_SHA[strategy]
+    src = "".join(inspect.getsource(getattr(who_when, name)) for name in (driver, prompt))
+    assert hashlib.md5(src.encode("utf-8")).hexdigest()[:12] == expected
+    assert PROTOCOLS[strategy] is getattr(who_when, driver)
+
+
+def test_the_helpers_catchbench_reads_keep_their_signatures():
+    import inspect
+
+    from auditable.llm import who_when
+
+    signatures = {"_trace_block": "(run: 'dict', max_chars: 'int' = 1500) -> 'str'",
+                  "parse_prediction": "(text: 'str', n_steps: 'int') -> 'dict'",
+                  "_parse_step_answer": "(raw: 'str', upto: 'int')",
+                  "_parse_half": "(ans: 'str') -> 'Optional[str]'",
+                  "_score_vector": "(pred: 'dict', n_steps: 'int')"}
+    for name, signature in signatures.items():
+        assert str(inspect.signature(getattr(who_when, name))) == signature, name
+
+
+def test_parsers_on_replies_that_do_not_follow_the_format():
+    # the source hashes do not cover parsing, so its behaviour is pinned here
+    assert parse_prediction("  Mistake_Step:3 \n ranking : 3 ,3, 1 , 7", 4) == {"top": 3, "ranking": [3, 1]}
+    assert parse_prediction("MISTAKE_STEP: 9\nRANKING: 9, 8", 4) == {"top": None, "ranking": []}
+    assert _parse_step_answer("  verdict = 2  ", 3) == 2
+    assert _parse_step_answer("VERDICT: 4", 3) is None  # beyond the prefix shown
+    assert _parse_step_answer("step 2", 3) is None  # neither a verdict nor a bare index
+    assert _parse_half("Verdict=second, not the FIRST") == "second"
+    assert _parse_half("") is None
+
+
+def test_score_vector_ranks_the_shortlist_and_puts_the_decisive_step_first():
+    np = pytest.importorskip("numpy")
+    from auditable.llm.who_when import _score_vector
+
+    # rank r of n steps scores n - r; the decisive step scores n + 1; out-of-range entries are skipped
+    np.testing.assert_array_equal(_score_vector({"top": 2, "ranking": [1, 2, 0]}, 4), [2.0, 4.0, 5.0, 0.0])
+    np.testing.assert_array_equal(_score_vector({"top": None, "ranking": []}, 3), [0.0, 0.0, 0.0])
+    np.testing.assert_array_equal(_score_vector({"top": 7, "ranking": [5, 1]}, 3), [0.0, 2.0, 0.0])

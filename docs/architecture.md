@@ -84,8 +84,8 @@ Pluggable sinks for external destinations (for example, OpenTelemetry or LangSmi
 
 ## Roadmap
 
-The shipping architecture in v0.2.1 is the typed two-layer graph, the three-span signed record, the three reference adapters, real-run capture through `TouchRecorder`, LangGraph, LangChain, and FastMCP, `LiveSession` prefix scoring, the optional fitted PyOD `DataAuditor`, and the two sinks. Planned additions:
+Beside the method library (0.3.0), the record and graph modules ship the typed two-layer graph, the three-span signed record, the three reference adapters, real-run capture through `TouchRecorder`, LangGraph, LangChain, and FastMCP, `LiveSession` prefix scoring, the optional fitted PyOD `DataAuditor`, and the two sinks. Planned additions:
 
-- A calibrated cross-layer compound and model-as-first-class-node grounding beyond the current deterministic check (v0.3).
+- A calibrated cross-layer compound and model-as-first-class-node grounding beyond the current deterministic check.
 - A more efficient incremental kernel for `LiveSession`; the current implementation re-scores each prefix from scratch.
 - Pluggable sinks (OpenTelemetry, LangSmith), exportable evidence bundles, and a stable public API (v1.0), plus a CrewAI integration.

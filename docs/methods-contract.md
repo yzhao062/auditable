@@ -47,6 +47,16 @@ Supervised step methods take `y` with one entry per trace: the `idx` of the deci
 
 Random baselines take `random_state`, which may be a shared `numpy.random.RandomState`; draws then follow call order, so a benchmark can feed several methods one stream.
 
+## What a Pinned Consumer Relies On
+
+The CatchBench parity harness exercises the behaviours below, and CatchBench's move to computing its board through a pinned release of this library relies on the same ones, so they are part of the contract, each with a test.
+
+- `features(X)` exists on `run.pyod_*` (the flat layer), `run.lr_flat`, `run.lr_flatdep` and `run.lr_full` (their GRADE layer), and `run.gsafeguard_lite` (one `(node_features, edge_index)` pair per run), with one entry per trace in input order. Its result can be passed back to the same detector's `fit`, `fit_score` and `decision_function` in place of the traces and gives the same scores, so a protocol that scores the same traces many times computes it once. Other run detectors have no `features`.
+- Constructor keywords: `random_state` on `step.random`, `online.random` and `run.random` (an int, or a `RandomState` shared by several methods); `seed` on `run.gsafeguard_lite` and `run.guardian_lite`; `backend` and `model` on the three LLM judges and on `config.llm_needed`; `needed` on `config.llm_needed`, a replay table `{instance_id: [capability names]}`.
+- `AgentConfig.from_view(view)` builds a configuration from a CatchBench `method_view()` entry; a board reads `ConfigFinding.flag` and `ConfigFinding.excess`.
+- `auditable.graph.build_graph(steps, dependency="explicit", shared_resource=False)` builds the typed graph from the recorded dependencies only and without the shared-resource node, the setting CatchBench's LIVE prefix detectors use.
+- Six functions of `auditable.llm.who_when` are frozen because CatchBench hashes their source text into the metadata of its LLM caches: `_all_at_once`, `all_at_once_prompt`, `_step_by_step`, `_step_prompt`, `_binary_search` and `_interval_prompt`. `_trace_block`, `parse_prediction`, `_parse_step_answer`, `_parse_half` and `_score_vector` keep their signatures and the behaviour the tests pin, since CatchBench's tools call them. The hashes do not cover parsing, so the parsers' behaviour has tests of its own.
+
 ## Outputs
 
 Scores are higher-is-more-suspicious and uncalibrated unless the card says otherwise. A method with `output_kind="single"` names one step per trace through `predict_step`, as its 0-based position, and raises `NotSupported` from `step_scores`: padding a one-step answer into a full ranking would credit guesses the method never made. `output_kind="ranking"` methods return scores whose order is the ranking. Config findings abstain with `flag=None`; an abstention is never read as "not over-privileged".

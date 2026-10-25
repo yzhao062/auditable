@@ -7,6 +7,12 @@ of a failed multi-agent run is the decisive mistake: show the whole trace once
 MIT License) at release 0.1.2, ``llm_judge.py``; the function bodies and prompt wording
 are kept character for character so a prediction cache made by either copy stays valid.
 
+Six functions are frozen: ``_all_at_once``, ``all_at_once_prompt``, ``_step_by_step``,
+``_step_prompt``, ``_binary_search`` and ``_interval_prompt``. CatchBench hashes their source
+text (``inspect.getsource``) into the metadata of its LLM caches, so any edit to them, a
+docstring or whitespace included, makes those caches stale; ``tests/test_llm.py`` pins the
+hashes, and the parsers' behaviour separately.
+
 A ``run`` here is a dict with ordered ``steps`` (each with ``idx``, ``agent``, ``kind``)
 and aligned ``texts``. Each driver takes ``(run, complete)``, where ``complete`` maps a
 prompt to a reply, and returns ``(prediction, raw_log)`` with
