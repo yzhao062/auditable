@@ -3,7 +3,9 @@
 The harness compares the library against CatchBench 0.1.2 and GRADE at the commit the
 CatchBench golden board pins. It refuses to run when either reference is missing or at
 another version, rather than skipping: a parity claim against the wrong reference is
-worse than none.
+worse than none. CatchBench 0.1.3 and later compute their board through this library, so
+a later board cannot be the reference for the board check; 0.1.2 is the last release whose
+board CatchBench computes with its own code.
 """
 from __future__ import annotations
 

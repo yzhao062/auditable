@@ -94,3 +94,5 @@ Each registered class carries a `MethodCard`:
 - compares every migrated method with its CatchBench original on the real corpora, sample by sample and bit for bit (`run_parity.py checks`);
 - reruns the full CatchBench board with every migrated row, breakdown, and robustness table routed through the library, and with the retired original scoring cores replaced by functions that raise (`run_parity.py board`); the result must be byte-identical to the board before migration;
 - reruns the board with the library outputs perturbed and confirms that every migrated row changes and no other row does (`run_parity.py consumption`).
+
+CatchBench 0.1.3 and later compute these rows through this library, by way of `catchbench.via_auditable`, and their CI checks that the board reads the library (`tools/board_consumption.py`). The harness stays on 0.1.2, the last release whose board computes them with CatchBench's own code, so its board check has a reference the library did not produce.

@@ -216,7 +216,7 @@ Methods read traces through `auditable.featurize.normalize_trace`, which accepts
 
 ## Reproducing CatchBench
 
-[`benchmarks/catchbench_parity`](https://github.com/yzhao062/auditable/tree/main/benchmarks/catchbench_parity) checks the library against CatchBench 0.1.2 and GRADE at commit `3839a57`, the versions the CatchBench board pins. It is a development harness and is not part of the wheel.
+[`benchmarks/catchbench_parity`](https://github.com/yzhao062/auditable/tree/main/benchmarks/catchbench_parity) checks the library against CatchBench 0.1.2 and GRADE at commit `3839a57`, the versions the CatchBench board pins. It is a development harness and is not part of the wheel. Since CatchBench 0.1.3, the board itself computes its 79 migrated entries through this library (`catchbench.via_auditable`); the harness stays on 0.1.2, the last release whose board computes them with CatchBench's own code.
 
 ```bash
 export GRADE_DIR=/path/to/grade   # checked out at 3839a57
@@ -252,7 +252,19 @@ Records are content-addressed and hash-chained, and that property is limited. A 
 
 ## Citation
 
-If you use `auditable`, please cite the work behind the methods you use (each `MethodCard.cite`) and, for the structural features and the benchmark, GRADE and CatchBench:
+If you use `auditable`, please cite Auditable Agents:
+
+```bibtex
+@misc{nian2026auditable,
+  title         = {Auditable Agents},
+  author        = {Nian, Yi and Yuan, Aojie and Zhang, Haiyue and Li, Jiate and Li, Li and Hu, Xiyang and Wei, Hua and Xiao, Xiongye and Xiao, Chaowei and Zhao, Yue},
+  year          = {2026},
+  eprint        = {2604.05485},
+  archivePrefix = {arXiv}
+}
+```
+
+If you use the structural features or the benchmark, please also cite GRADE and CatchBench, and for each method, the work behind it (its `MethodCard.cite`):
 
 ```bibtex
 @article{zhao2026grade,
