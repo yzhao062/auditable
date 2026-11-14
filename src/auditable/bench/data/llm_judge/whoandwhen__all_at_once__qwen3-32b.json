@@ -1,0 +1,1854 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "all_at_once",
+    "model": "qwen3-32b",
+    "n_runs": 126,
+    "prompt_sha": "12cff8a0af5b",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "001-5697e89b281b": {
+      "top": 5,
+      "ranking": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 6, 7, 8, 9, 0, 2, 3, 4, 1"
+    },
+    "000-7b14128ce504": {
+      "top": 2,
+      "ranking": [
+        2,
+        3,
+        4,
+        5,
+        0,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 3, 4, 5, 0, 1"
+    },
+    "003-cfa39baedf59": {
+      "top": 5,
+      "ranking": [
+        5,
+        3,
+        2,
+        1,
+        0,
+        6,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 5  \nRANKING: 5, 3, 2, 1, 0, 6, 7"
+    },
+    "004-d57d322d4115": {
+      "top": 5,
+      "ranking": [
+        5,
+        1,
+        3,
+        6,
+        8,
+        9,
+        4,
+        2,
+        7,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 1, 3, 6, 8, 9, 4, 2, 7, 0"
+    },
+    "002-a04041638aa4": {
+      "top": 2,
+      "ranking": [
+        2,
+        9,
+        7,
+        5,
+        3,
+        1,
+        0,
+        6,
+        8,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 9, 7, 5, 3, 1, 0, 6, 8, 4"
+    },
+    "009-537a267c0756": {
+      "top": 2,
+      "ranking": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        1,
+        7,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 3, 4, 5, 6, 1, 7, 0"
+    },
+    "008-00a173727b41": {
+      "top": 2,
+      "ranking": [
+        2,
+        4,
+        0,
+        1,
+        5,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 4, 0, 1, 5, 3"
+    },
+    "005-b82f729abea8": {
+      "top": 4,
+      "ranking": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 4  \nRANKING: 4, 5, 6, 7, 8, 9, 1, 2, 3, 0"
+    },
+    "010-12509faada72": {
+      "top": 4,
+      "ranking": [
+        4,
+        8,
+        6,
+        2,
+        0,
+        7,
+        1,
+        3,
+        5,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 8, 6, 2, 0, 7, 1, 3, 5, 9"
+    },
+    "012-d731749a39ca": {
+      "top": 4,
+      "ranking": [
+        4,
+        6,
+        8,
+        1,
+        2,
+        3,
+        5,
+        7,
+        0,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 6, 8, 1, 2, 3, 5, 7, 0, 9"
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 3,
+      "ranking": [
+        3,
+        5,
+        1,
+        4,
+        0,
+        2,
+        6,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 5, 1, 4, 0, 2, 6, 7"
+    },
+    "006-b40c7e455b08": {
+      "top": 2,
+      "ranking": [
+        2,
+        5,
+        7,
+        0,
+        1,
+        3,
+        4,
+        6,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 5, 7, 0, 1, 3, 4, 6, 8, 9"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 2,
+      "ranking": [
+        2,
+        6,
+        8,
+        1,
+        3,
+        4,
+        5,
+        7,
+        9,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 6, 8, 1, 3, 4, 5, 7, 9, 0"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 0,
+      "ranking": [
+        0,
+        4,
+        5,
+        6,
+        1,
+        2,
+        3,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 0  \nRANKING: 0, 4, 5, 6, 1, 2, 3, 7, 8, 9"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 4,
+      "ranking": [
+        4,
+        3,
+        5,
+        6,
+        7,
+        8,
+        1,
+        0,
+        2
+      ],
+      "raw": "MISTAKE_STEP: 4  \nRANKING: 4, 3, 5, 6, 7, 8, 1, 0, 2"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 5,
+      "ranking": [
+        5,
+        6,
+        0,
+        1,
+        3,
+        7,
+        8,
+        9,
+        4,
+        2
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 6, 0, 1, 3, 7, 8, 9, 4, 2"
+    },
+    "017-3f81e1d1cad3": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 2, 3, 4, 5, 6, 0"
+    },
+    "016-2f776a306c77": {
+      "top": 4,
+      "ranking": [
+        4,
+        5,
+        6,
+        3,
+        7,
+        1,
+        0,
+        2,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 5, 6, 3, 7, 1, 0, 2, 8"
+    },
+    "019-2c7247a57061": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 0  \nRANKING: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9"
+    },
+    "018-874e62353ead": {
+      "top": 3,
+      "ranking": [
+        3,
+        1,
+        2,
+        4,
+        5,
+        6,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 3  \nRANKING: 3, 1, 2, 4, 5, 6, 0"
+    },
+    "020-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1,
+        3,
+        2,
+        5,
+        0,
+        4,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 3, 2, 5, 0, 4, 6"
+    },
+    "022-ae51d1d52d64": {
+      "top": 2,
+      "ranking": [
+        2,
+        3,
+        4,
+        1,
+        5,
+        6,
+        7,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 3, 4, 1, 5, 6, 7, 0"
+    },
+    "024-aa646cf62171": {
+      "top": 6,
+      "ranking": [
+        6,
+        2,
+        5,
+        1,
+        9,
+        8,
+        7,
+        4,
+        3,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 6  \nRANKING: 6, 2, 5, 1, 9, 8, 7, 4, 3, 0"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 1,
+      "ranking": [
+        1,
+        0,
+        2,
+        3,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 0, 2, 3, 4"
+    },
+    "021-9d62146b7652": {
+      "top": 1,
+      "ranking": [
+        1,
+        4,
+        3,
+        5,
+        7,
+        8,
+        9,
+        2,
+        6,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 4, 3, 5, 7, 8, 9, 2, 6, 0"
+    },
+    "025-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1,
+        0,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 0, 2, 3, 4, 5, 6"
+    },
+    "027-6479bd8a2bba": {
+      "top": 3,
+      "ranking": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        0,
+        1,
+        2
+      ],
+      "raw": "MISTAKE_STEP: 3  \nRANKING: 3, 4, 5, 6, 7, 8, 9, 0, 1, 2"
+    },
+    "026-945822c59fe9": {
+      "top": 4,
+      "ranking": [
+        4,
+        7,
+        5,
+        3,
+        2,
+        1,
+        9,
+        0,
+        6,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 7, 5, 3, 2, 1, 9, 0, 6, 8"
+    },
+    "030-0319cbd03980": {
+      "top": 1,
+      "ranking": [
+        1,
+        4,
+        5,
+        2,
+        3,
+        6,
+        7,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 4, 5, 2, 3, 6, 7, 0"
+    },
+    "028-3a559ca1aea1": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        5,
+        4,
+        2,
+        1,
+        0,
+        6,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 5, 4, 2, 1, 0, 6, 3"
+    },
+    "029-606d391c364b": {
+      "top": 3,
+      "ranking": [
+        3,
+        5,
+        7,
+        8,
+        2,
+        1,
+        4,
+        6,
+        0,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 3  \nRANKING: 3, 5, 7, 8, 2, 1, 4, 6, 0, 9"
+    },
+    "031-da9aec084a98": {
+      "top": 1,
+      "ranking": [
+        1,
+        7,
+        8,
+        9,
+        2,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 7, 8, 9, 2, 3, 4, 5, 6, 0"
+    },
+    "032-af0933cfcd09": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        3,
+        5,
+        7,
+        9,
+        2,
+        4,
+        6,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 0  \nRANKING: 0, 1, 3, 5, 7, 9, 2, 4, 6, 8"
+    },
+    "033-620b58b7aa60": {
+      "top": 4,
+      "ranking": [
+        4,
+        8,
+        6,
+        9,
+        5,
+        3,
+        2,
+        1,
+        0,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 8, 6, 9, 5, 3, 2, 1, 0, 7"
+    },
+    "038-3c2adf8c14b1": {
+      "top": 2,
+      "ranking": [
+        2,
+        4,
+        3,
+        1,
+        0,
+        5,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 4, 3, 1, 0, 5, 6"
+    },
+    "034-04dc240da7b8": {
+      "top": 2,
+      "ranking": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 1, 3, 4, 5, 6, 7, 8, 9, 0"
+    },
+    "035-a3d5b34baf48": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        4,
+        6,
+        8,
+        9,
+        3,
+        7,
+        5,
+        2
+      ],
+      "raw": "MISTAKE_STEP: 0\nRANKING: 0, 1, 4, 6, 8, 9, 3, 7, 5, 2"
+    },
+    "040-a181eb120cb2": {
+      "top": 2,
+      "ranking": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 1, 3, 4, 5, 0"
+    },
+    "037-14508845755c": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        2,
+        5,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 0  \nRANKING: 0, 1, 3, 4, 6, 7, 2, 5, 8, 9"
+    },
+    "036-88562a8be980": {
+      "top": 8,
+      "ranking": [
+        8,
+        7,
+        9,
+        5,
+        6,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 8  \nRANKING: 8, 7, 9, 5, 6, 4, 3, 2, 1, 0"
+    },
+    "039-2b969539d7db": {
+      "top": 5,
+      "ranking": [
+        5,
+        6,
+        0,
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 6, 0, 1, 2, 3, 7, 8, 9, 4"
+    },
+    "041-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0,
+        4,
+        2,
+        1,
+        5,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 0  \nRANKING: 0, 4, 2, 1, 5, 3"
+    },
+    "044-e214187ad13a": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        5,
+        8,
+        7,
+        6,
+        4,
+        3,
+        9,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 2, 5, 8, 7, 6, 4, 3, 9, 0"
+    },
+    "043-d53734deeead": {
+      "top": 4,
+      "ranking": [
+        4,
+        2,
+        0,
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 4  \nRANKING: 4, 2, 0, 1, 3, 5, 6, 7, 8, 9"
+    },
+    "047-5d32c1eba366": {
+      "top": 9,
+      "ranking": [
+        9,
+        7,
+        8,
+        5,
+        6,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 7, 8, 5, 6, 4, 3, 2, 1, 0"
+    },
+    "042-833c47739be2": {
+      "top": 9,
+      "ranking": [
+        9,
+        7,
+        5,
+        3,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 9  \nRANKING: 9, 7, 5, 3, 1"
+    },
+    "045-c43d472268d8": {
+      "top": 3,
+      "ranking": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 4, 5, 6, 7, 8, 2, 1, 0"
+    },
+    "046-2e76694a8fe5": {
+      "top": 3,
+      "ranking": [
+        3,
+        1,
+        4,
+        5,
+        7,
+        9,
+        2,
+        0,
+        6,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 1, 4, 5, 7, 9, 2, 0, 6, 8"
+    },
+    "049-324f53bff996": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 2, 3, 4, 5, 6, 7"
+    },
+    "051-8f84910e124b": {
+      "top": 3,
+      "ranking": [
+        3,
+        4,
+        6,
+        8,
+        9,
+        2,
+        1,
+        5,
+        7,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 3  \nRANKING: 3, 4, 6, 8, 9, 2, 1, 5, 7, 0"
+    },
+    "048-e5f2767e1b04": {
+      "top": 3,
+      "ranking": [
+        3,
+        4,
+        7,
+        8,
+        9,
+        0,
+        1,
+        2,
+        5,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 3  \nRANKING: 3, 4, 7, 8, 9, 0, 1, 2, 5, 6"
+    },
+    "050-6784fd6fd246": {
+      "top": 3,
+      "ranking": [
+        3,
+        2,
+        4,
+        0,
+        1,
+        5,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 3  \nRANKING: 3, 2, 4, 0, 1, 5, 6"
+    },
+    "052-25639162f57c": {
+      "top": 1,
+      "ranking": [
+        1,
+        8,
+        5,
+        6,
+        3,
+        9,
+        0,
+        2,
+        4,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 8, 5, 6, 3, 9, 0, 2, 4, 7"
+    },
+    "054-c81ed3b0a45a": {
+      "top": 4,
+      "ranking": [
+        4,
+        5,
+        6,
+        2,
+        3,
+        1,
+        0,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 4  \nRANKING: 4, 5, 6, 2, 3, 1, 0, 7"
+    },
+    "057-3196a02a724f": {
+      "top": 3,
+      "ranking": [
+        3,
+        4,
+        1,
+        2,
+        0,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 3  \nRANKING: 3, 4, 1, 2, 0, 5"
+    },
+    "056-0e66261209b3": {
+      "top": 3,
+      "ranking": [
+        3,
+        2,
+        4,
+        5,
+        6,
+        1,
+        0,
+        7,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 3  \nRANKING: 3, 2, 4, 5, 6, 1, 0, 7, 8"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 5,
+      "ranking": [
+        5,
+        1,
+        3,
+        4,
+        2,
+        6,
+        8,
+        9,
+        0,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 5  \nRANKING: 5, 1, 3, 4, 2, 6, 8, 9, 0, 7"
+    },
+    "053-908be3172c8e": {
+      "top": 4,
+      "ranking": [
+        4,
+        5,
+        1,
+        6,
+        7,
+        8,
+        9,
+        0,
+        2,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 4  \nRANKING: 4, 5, 1, 6, 7, 8, 9, 0, 2, 3"
+    },
+    "055-238f0c23d791": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        8,
+        9,
+        2,
+        5,
+        6,
+        4,
+        7,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 0  \nRANKING: 0, 1, 8, 9, 2, 5, 6, 4, 7, 3"
+    },
+    "058-f0ccb40243d8": {
+      "top": 2,
+      "ranking": [
+        2,
+        3,
+        4,
+        1,
+        0,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 3, 4, 1, 0, 5"
+    },
+    "063-945c18bc1c72": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 2, 3, 4, 5, 0"
+    },
+    "062-1d3b288462be": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 2, 3, 4, 5, 0"
+    },
+    "061-d5e74f5edef1": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        0,
+        7,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 2, 3, 4, 5, 6, 0, 7, 8"
+    },
+    "065-a16ae072deff": {
+      "top": 6,
+      "ranking": [
+        6,
+        5,
+        9,
+        7,
+        1,
+        0,
+        2,
+        3,
+        4,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 6\nRANKING: 6, 5, 9, 7, 1, 0, 2, 3, 4, 8"
+    },
+    "066-4835ec93a6d1": {
+      "top": 1,
+      "ranking": [
+        1,
+        3,
+        0,
+        2,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 3, 0, 2, 4"
+    },
+    "060-6df45b66a14f": {
+      "top": 3,
+      "ranking": [
+        3,
+        2,
+        1,
+        0,
+        4,
+        5,
+        6,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 3  \nRANKING: 3, 2, 1, 0, 4, 5, 6, 7"
+    },
+    "064-67329dda61f8": {
+      "top": 5,
+      "ranking": [
+        5,
+        3,
+        4,
+        6,
+        7,
+        8,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5  \nRANKING: 5, 3, 4, 6, 7, 8, 2, 1, 0"
+    },
+    "067-d7caaed0d413": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        4,
+        6,
+        0,
+        3,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 2, 4, 6, 0, 3, 5"
+    },
+    "068-54f5f481feb1": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 2, 3, 4, 5, 0"
+    },
+    "069-5486f0bb8912": {
+      "top": 6,
+      "ranking": [
+        6,
+        5,
+        3,
+        2,
+        7,
+        8,
+        9,
+        0,
+        1,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 6  \nRANKING: 6, 5, 3, 2, 7, 8, 9, 0, 1, 4"
+    },
+    "070-0528f540243a": {
+      "top": 2,
+      "ranking": [
+        2,
+        6,
+        8,
+        4,
+        0,
+        1,
+        3,
+        5,
+        7,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 6, 8, 4, 0, 1, 3, 5, 7, 9"
+    },
+    "074-27ef8756352a": {
+      "top": 4,
+      "ranking": [
+        4,
+        6,
+        8,
+        2,
+        0,
+        3,
+        5,
+        7,
+        9,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 4  \nRANKING: 4, 6, 8, 2, 0, 3, 5, 7, 9, 1"
+    },
+    "073-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 0  \nRANKING: 0, 1, 2, 3, 4, 5"
+    },
+    "071-03b230b92593": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 2, 3, 4, 5, 6, 7, 8, 0"
+    },
+    "072-c6399b46fd3c": {
+      "top": 3,
+      "ranking": [
+        3,
+        7,
+        9,
+        5,
+        2,
+        0,
+        1,
+        4,
+        6,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 7, 9, 5, 2, 0, 1, 4, 6, 8"
+    },
+    "076-769191cea270": {
+      "top": 2,
+      "ranking": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 1, 3, 4, 5, 6, 7, 8, 9, 0"
+    },
+    "075-dc792a0fa32f": {
+      "top": 1,
+      "ranking": [
+        1,
+        0,
+        2,
+        3,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 0, 2, 3, 4"
+    },
+    "077-a1dc061cb971": {
+      "top": 4,
+      "ranking": [
+        4,
+        8,
+        9,
+        6,
+        5,
+        1,
+        2,
+        3,
+        0,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 4  \nRANKING: 4, 8, 9, 6, 5, 1, 2, 3, 0, 7"
+    },
+    "078-e16678e8c43e": {
+      "top": 4,
+      "ranking": [
+        4,
+        5,
+        0,
+        7,
+        1,
+        3,
+        8,
+        2,
+        6,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 4  \nRANKING: 4, 5, 0, 7, 1, 3, 8, 2, 6, 9"
+    },
+    "082-933179cfbd8d": {
+      "top": 5,
+      "ranking": [
+        5,
+        6,
+        7,
+        1,
+        3,
+        4,
+        2,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5  \nRANKING: 5, 6, 7, 1, 3, 4, 2, 0"
+    },
+    "079-72b0c0014ede": {
+      "top": 2,
+      "ranking": [
+        2,
+        3,
+        1,
+        0,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 3, 1, 0, 4"
+    },
+    "080-252fc8554126": {
+      "top": 1,
+      "ranking": [
+        1,
+        3,
+        2,
+        4,
+        5,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 3, 2, 4, 5, 0"
+    },
+    "081-6b8e879881c0": {
+      "top": 6,
+      "ranking": [
+        6,
+        9,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        7,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 6\nRANKING: 6, 9, 5, 4, 3, 2, 1, 0, 7, 8"
+    },
+    "085-dc5e30ffc725": {
+      "top": 3,
+      "ranking": [
+        3,
+        5,
+        4,
+        2,
+        1,
+        6,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 3  \nRANKING: 3, 5, 4, 2, 1, 6, 0"
+    },
+    "083-b73a239fdad1": {
+      "top": 6,
+      "ranking": [
+        6,
+        4,
+        5,
+        7,
+        8,
+        9,
+        3,
+        1,
+        2,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 6  \nRANKING: 6, 4, 5, 7, 8, 9, 3, 1, 2, 0"
+    },
+    "084-8cad8cae382d": {
+      "top": 2,
+      "ranking": [
+        2,
+        4,
+        7,
+        9,
+        0,
+        1,
+        3,
+        5,
+        6,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 4, 7, 9, 0, 1, 3, 5, 6, 8"
+    },
+    "089-93088535fb95": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 2, 3, 4, 5"
+    },
+    "088-3a55b5705c39": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 2, 3, 4, 5, 0"
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 5,
+      "ranking": [
+        5,
+        9,
+        1,
+        7,
+        3,
+        0,
+        6,
+        2,
+        4,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 9, 1, 7, 3, 0, 6, 2, 4, 8"
+    },
+    "092-a5a8d627e455": {
+      "top": 2,
+      "ranking": [
+        2,
+        6,
+        8,
+        9,
+        1,
+        5,
+        7,
+        3,
+        4,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 6, 8, 9, 1, 5, 7, 3, 4, 0"
+    },
+    "086-e5db53c29991": {
+      "top": 5,
+      "ranking": [
+        5,
+        6,
+        2,
+        7,
+        3,
+        0,
+        1,
+        4,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 5  \nRANKING: 5, 6, 2, 7, 3, 0, 1, 4, 8, 9"
+    },
+    "090-e273f2fabe96": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 2, 3, 4, 5, 6, 7, 8, 9, 0"
+    },
+    "094-7e3d81abcddf": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 0  \nRANKING: 0, 1, 2, 3, 4, 5"
+    },
+    "091-23de28edf643": {
+      "top": 3,
+      "ranking": [
+        3,
+        4,
+        5,
+        2,
+        1,
+        0,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 3  \nRANKING: 3, 4, 5, 2, 1, 0, 6"
+    },
+    "098-43bbd8019fea": {
+      "top": 8,
+      "ranking": [
+        8,
+        6,
+        4,
+        5,
+        7,
+        9,
+        1,
+        3,
+        0,
+        2
+      ],
+      "raw": "MISTAKE_STEP: 8  \nRANKING: 8, 6, 4, 5, 7, 9, 1, 3, 0, 2"
+    },
+    "096-89be76878d79": {
+      "top": 2,
+      "ranking": [
+        2,
+        5,
+        4,
+        3,
+        7,
+        8,
+        9,
+        1,
+        6,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 5, 4, 3, 7, 8, 9, 1, 6, 0"
+    },
+    "095-91ab842a22b2": {
+      "top": 3,
+      "ranking": [
+        3,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 1, 2, 4, 5, 6, 7, 8, 9, 0"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 5,
+      "ranking": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 6, 7, 8, 9, 4, 3, 2, 1, 0"
+    },
+    "097-aa341e34fc51": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        0,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 2, 3, 5, 6, 0, 4"
+    },
+    "099-59e337ae1fbb": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        5,
+        3,
+        4,
+        6,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 2, 5, 3, 4, 6, 0"
+    },
+    "100-364b09fd59b8": {
+      "top": 5,
+      "ranking": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 6, 7, 8, 9, 0, 1, 2, 3, 4"
+    },
+    "104-9f0fb174fad0": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        6,
+        2,
+        7,
+        8,
+        9,
+        0,
+        1,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 6, 2, 7, 8, 9, 0, 1, 3"
+    },
+    "101-7011a3ca2fe8": {
+      "top": 7,
+      "ranking": [
+        7,
+        6,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 7  \nRANKING: 7, 6, 8, 9, 1, 2, 3, 4, 5, 0"
+    },
+    "102-a6862e302014": {
+      "top": 7,
+      "ranking": [
+        7,
+        1,
+        3,
+        5,
+        0,
+        2,
+        4,
+        6,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 7\nRANKING: 7, 1, 3, 5, 0, 2, 4, 6, 8, 9"
+    },
+    "103-5593276388b1": {
+      "top": 3,
+      "ranking": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        1,
+        2,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 4, 5, 6, 7, 8, 9, 1, 2, 0"
+    },
+    "108-13c9a4c03793": {
+      "top": 1,
+      "ranking": [
+        1,
+        8,
+        2,
+        5,
+        7,
+        3,
+        4,
+        9,
+        0,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 8, 2, 5, 7, 3, 4, 9, 0, 6"
+    },
+    "107-de407cd051d7": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 5  \nRANKING: 5, 4, 3, 2, 1, 0, 6"
+    },
+    "106-00e6e023a028": {
+      "top": 6,
+      "ranking": [
+        6,
+        5,
+        4,
+        2,
+        1,
+        0,
+        7,
+        8,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 6\nRANKING: 6, 5, 4, 2, 1, 0, 7, 8, 3"
+    },
+    "109-33e9e888adb4": {
+      "top": 4,
+      "ranking": [
+        4,
+        6,
+        7,
+        2,
+        0,
+        1,
+        3,
+        5,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 6, 7, 2, 0, 1, 3, 5, 8"
+    },
+    "105-7a7794e34798": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 0\nRANKING: 0, 1, 2, 3, 4, 5, 6, 7"
+    },
+    "110-e240abd96f2e": {
+      "top": 3,
+      "ranking": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        0,
+        1,
+        2
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 4, 5, 6, 7, 8, 0, 1, 2"
+    },
+    "115-03d92b3118e2": {
+      "top": 2,
+      "ranking": [
+        2,
+        1,
+        0,
+        3,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 1, 0, 3, 4"
+    },
+    "112-7d8dcb80a290": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        2,
+        1,
+        0,
+        3,
+        6,
+        7,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 2, 1, 0, 3, 6, 7, 8"
+    },
+    "117-b056cbb2e661": {
+      "top": 8,
+      "ranking": [
+        8,
+        6,
+        7,
+        2,
+        3,
+        0,
+        1,
+        4,
+        5,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 8  \nRANKING: 8, 6, 7, 2, 3, 0, 1, 4, 5, 9"
+    },
+    "113-ccbf973529c4": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 0  \nRANKING: 0, 1, 2, 3, 4, 5, 6, 8, 9, 7"
+    },
+    "111-bb45c75cb2de": {
+      "top": 2,
+      "ranking": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 1, 3, 4, 5, 6, 0"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 1,
+      "ranking": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        0,
+        2,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 4, 5, 6, 7, 8, 9, 0, 2, 3"
+    },
+    "118-d69039766c83": {
+      "top": 5,
+      "ranking": [
+        5,
+        1,
+        4,
+        2,
+        3,
+        0,
+        7,
+        6,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 5  \nRANKING: 5, 1, 4, 2, 3, 0, 7, 6, 8, 9"
+    },
+    "114-af259c3de825": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        3,
+        5,
+        7,
+        8,
+        2,
+        4,
+        6,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 0  \nRANKING: 0, 1, 3, 5, 7, 8, 2, 4, 6, 9"
+    },
+    "120-3ea26fdedd38": {
+      "top": 6,
+      "ranking": [
+        6,
+        7,
+        8,
+        9,
+        2,
+        4,
+        0,
+        1,
+        3,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 6\nRANKING: 6, 7, 8, 9, 2, 4, 0, 1, 3, 5"
+    },
+    "119-6ec2674e0d3a": {
+      "top": 4,
+      "ranking": [
+        4,
+        2,
+        1,
+        0,
+        5,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 4  \nRANKING: 4, 2, 1, 0, 5, 3"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 1,
+      "ranking": [
+        1,
+        3,
+        7,
+        9,
+        5,
+        0,
+        4,
+        6,
+        2,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 1  \nRANKING: 1, 3, 7, 9, 5, 0, 4, 6, 2, 8"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 2,
+      "ranking": [
+        2,
+        4,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 2  \nRANKING: 2, 4, 7"
+    },
+    "121-62bf36bb4ce7": {
+      "top": 2,
+      "ranking": [
+        2,
+        1,
+        7,
+        3,
+        4,
+        5,
+        6,
+        9,
+        0,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 1, 7, 3, 4, 5, 6, 9, 0, 8"
+    },
+    "124-d60e28a0fa62": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 2, 3, 4, 5, 6, 0"
+    },
+    "125-a445e2da8734": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 0  \nRANKING: 0, 1, 2, 3, 4, 5, 6"
+    }
+  }
+}

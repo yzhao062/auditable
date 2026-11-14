@@ -1,0 +1,896 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "binary_search",
+    "model": "nova-micro",
+    "n_runs": 126,
+    "prompt_sha": "292b9b0a0d4c",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "000-7b14128ce504": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "001-5697e89b281b": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n[5-9 mid7] FIRST :: VERDICT: FIRST (steps 5-7)\n[5-7 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n[5-6 mid5] FIRST :: VERDICT: FIRST (steps 5-5)"
+    },
+    "003-cfa39baedf59": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n[2-3 mid2] FIRST :: VERDICT: FIRST (steps 2-2)"
+    },
+    "002-a04041638aa4": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "005-b82f729abea8": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "008-00a173727b41": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)"
+    },
+    "004-d57d322d4115": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "009-537a267c0756": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n[2-3 mid2] FIRST :: VERDICT: FIRST (steps 2-2)"
+    },
+    "006-b40c7e455b08": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "010-12509faada72": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n[2-3 mid2] FIRST :: VERDICT: FIRST (steps 2-2)"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "012-d731749a39ca": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "016-2f776a306c77": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "017-3f81e1d1cad3": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n[2-3 mid2] FIRST :: VERDICT: FIRST (steps 2-2)"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "019-2c7247a57061": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)"
+    },
+    "021-9d62146b7652": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)"
+    },
+    "020-85a096b8759f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "022-ae51d1d52d64": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n[2-3 mid2] SECOND :: VERDICT: SECOND (steps 3-3)"
+    },
+    "018-874e62353ead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "024-aa646cf62171": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "025-85a096b8759f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "026-945822c59fe9": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "027-6479bd8a2bba": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "028-3a559ca1aea1": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND\n[5-9 mid7] SECOND :: VERDICT: SECOND (steps 8-9)\n[8-9 mid8] SECOND :: VERDICT: SECOND (steps 9-9)"
+    },
+    "030-0319cbd03980": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n[2-3 mid2] FIRST :: VERDICT: FIRST (steps 2-2)"
+    },
+    "029-606d391c364b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "032-af0933cfcd09": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n[5-9 mid7] SECOND :: VERDICT: SECOND (steps 8-9)\n[8-9 mid8] SECOND :: VERDICT: SECOND (steps 9-9)"
+    },
+    "031-da9aec084a98": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "033-620b58b7aa60": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "034-04dc240da7b8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)"
+    },
+    "036-88562a8be980": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND"
+    },
+    "038-3c2adf8c14b1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "035-a3d5b34baf48": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "037-14508845755c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "039-2b969539d7db": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "040-a181eb120cb2": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "041-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "043-d53734deeead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "042-833c47739be2": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] SECOND :: VERDICT: SECOND"
+    },
+    "044-e214187ad13a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)"
+    },
+    "047-5d32c1eba366": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n[5-9 mid7] SECOND :: VERDICT: SECOND (steps 8-9)\n[8-9 mid8] SECOND :: VERDICT: SECOND (steps 9-9)"
+    },
+    "046-2e76694a8fe5": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "049-324f53bff996": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n[2-3 mid2] FIRST :: VERDICT: FIRST (steps 2-2)"
+    },
+    "048-e5f2767e1b04": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "045-c43d472268d8": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "050-6784fd6fd246": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "052-25639162f57c": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)"
+    },
+    "051-8f84910e124b": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)"
+    },
+    "053-908be3172c8e": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n[5-9 mid7] FIRST :: VERDICT: FIRST (steps 5-7)\n[5-7 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n[5-6 mid5] FIRST :: VERDICT: FIRST (steps 5-5)"
+    },
+    "054-c81ed3b0a45a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "057-3196a02a724f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)"
+    },
+    "055-238f0c23d791": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "056-0e66261209b3": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)"
+    },
+    "058-f0ccb40243d8": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "060-6df45b66a14f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "061-d5e74f5edef1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "063-945c18bc1c72": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "062-1d3b288462be": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "067-d7caaed0d413": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n[2-3 mid2] SECOND :: VERDICT: SECOND (steps 3-3)"
+    },
+    "066-4835ec93a6d1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "065-a16ae072deff": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "064-67329dda61f8": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "068-54f5f481feb1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "069-5486f0bb8912": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "070-0528f540243a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "073-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "071-03b230b92593": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "072-c6399b46fd3c": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "075-dc792a0fa32f": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "074-27ef8756352a": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n[5-9 mid7] SECOND :: VERDICT: SECOND (steps 8-9)\n[8-9 mid8] SECOND :: VERDICT: SECOND (steps 9-9)"
+    },
+    "077-a1dc061cb971": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n[5-9 mid7] SECOND :: VERDICT: SECOND (steps 8-9)\n[8-9 mid8] FIRST :: VERDICT: FIRST (steps 8-8)"
+    },
+    "079-72b0c0014ede": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "076-769191cea270": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "080-252fc8554126": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)"
+    },
+    "078-e16678e8c43e": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "082-933179cfbd8d": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "085-dc5e30ffc725": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "081-6b8e879881c0": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "083-b73a239fdad1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "086-e5db53c29991": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "084-8cad8cae382d": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "088-3a55b5705c39": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)"
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "089-93088535fb95": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "090-e273f2fabe96": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "091-23de28edf643": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n[2-3 mid2] SECOND :: VERDICT: SECOND (steps 3-3)"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)"
+    },
+    "092-a5a8d627e455": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "094-7e3d81abcddf": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "095-91ab842a22b2": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "097-aa341e34fc51": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "098-43bbd8019fea": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n[5-9 mid7] FIRST :: VERDICT: FIRST (steps 5-7)\n[5-7 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n[5-6 mid5] FIRST :: VERDICT: FIRST (steps 5-5)"
+    },
+    "096-89be76878d79": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n[5-9 mid7] FIRST :: VERDICT: FIRST (steps 5-7)\n[5-7 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n[5-6 mid5] SECOND :: VERDICT: SECOND"
+    },
+    "099-59e337ae1fbb": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "100-364b09fd59b8": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n[5-9 mid7] FIRST :: VERDICT: FIRST (steps 5-7)\n[5-7 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n[5-6 mid5] SECOND :: VERDICT: SECOND (steps 6-6)"
+    },
+    "101-7011a3ca2fe8": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n[5-9 mid7] FIRST :: VERDICT: FIRST (steps 5-7)\n[5-7 mid6] SECOND :: VERDICT: SECOND"
+    },
+    "103-5593276388b1": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "102-a6862e302014": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "104-9f0fb174fad0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)"
+    },
+    "107-de407cd051d7": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "108-13c9a4c03793": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND"
+    },
+    "105-7a7794e34798": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "106-00e6e023a028": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "110-e240abd96f2e": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "112-7d8dcb80a290": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-8 mid4] SECOND :: VERDICT: SECOND (steps 5-8)\n[5-8 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n[5-6 mid5] SECOND :: VERDICT: SECOND (steps 6-6)"
+    },
+    "111-bb45c75cb2de": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "109-33e9e888adb4": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-8 mid4] SECOND :: VERDICT: SECOND (steps 5-8)\n[5-8 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n[5-6 mid5] FIRST :: VERDICT: FIRST' (steps 5-5)"
+    },
+    "115-03d92b3118e2": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "114-af259c3de825": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "113-ccbf973529c4": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)"
+    },
+    "117-b056cbb2e661": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)"
+    },
+    "120-3ea26fdedd38": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)"
+    },
+    "119-6ec2674e0d3a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "118-d69039766c83": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "121-62bf36bb4ce7": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "124-d60e28a0fa62": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "125-a445e2da8734": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n[2-3 mid2] SECOND :: VERDICT: SECOND (steps 3-3)"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    }
+  }
+}

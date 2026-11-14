@@ -1,0 +1,896 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "step_by_step",
+    "model": "claude-opus-4.8",
+    "n_runs": 126,
+    "prompt_sha": "e4e35c9bd9e3",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "001-5697e89b281b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The task asks for the population difference between the largest county seat and smallest county seat **by land area** in"
+    },
+    "003-cfa39baedf59": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan delegation. The plan is reasonable\u2014gather pricing info, compute both scenarios, c\n[0..1] Steps 0 and 1 are setup and planning. Step 0 restates the task and provides a reasonable plan. Step 1 outlines the infor\n[0..2] The steps so far show planning and gathering daily ticket prices. Let me check the accuracy of the pricing claimed in st"
+    },
+    "004-d57d322d4115": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan reception. The agent hasn't taken any substantive action yet\u2014no information gathe\n[0..1] The decisive concern in step 1 is the filtering step. The agent compiled a list and filtered to films under 2 hours, but"
+    },
+    "002-a04041638aa4": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan description being given to the Movie_Expert. No actual decision or factual claim \n[0..1] Steps 0 and 1 are setup and coordination. Step 0 lays out the plan correctly, and step 1 is the streaming expert simply \n[0..2] The task requires finding the highest-rated Daniel Craig movie under 150 minutes on Netflix US. The plan calls for the M"
+    },
+    "006-b40c7e455b08": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is the initial task setup and framing for the PythonDebugging_Expert. It outlines the task, the plan, output form\n[0..1] Looking at these steps:\n\n**Step 0:** The PythonDebugging_Expert is given a task to debug code that fails with \"unknown l\n[0..2] Looking at this audit:\n\n**Step 0:** The expert receives a task with very vague information \u2014 \"unknown language unknown\" "
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Step 0 is simply the task assignment and planning step. The Local_Knowledge_Expert is receiving the general task and the\n[0..1] The steps shown are reasonable setup: understanding the task and planning to use mapping services to find gyms within 20\n[0..2] The task requires finding gyms within 200m of Tompkins Square Park with classes before 7am. The steps so far set up a re\n[0..3] Analyzing the steps:\n\n- Step 0: Task setup, no error.\n- Step 1: Reasonable plan to use mapping API, though no API key\u2014a "
+    },
+    "000-7b14128ce504": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] Looking at step 0, this is the initial task setup and planning step. The manager's plan correctly identifies that:\n- Odd\n[0..1] Looking at the steps:\n\nStep 0 correctly sets up the task: sunset awning = houses facing west = even-numbered street addr\n[0..2] The logic appears sound through steps 0-2. The task is correctly understood (sunset = west-facing = even-numbered addres\n[0..3] The logic here looks sound: sunset = facing west = even-numbered addresses. The code extracts the leading number from th\n[0..4] I need to evaluate whether the answer of 4 is correct.\n\nLooking at the key business logic concern: extracting street num\n[0..5] The key question is whether extracting just the first number via `r'(\\d+)'` correctly captures the street address number"
+    },
+    "005-b82f729abea8": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] Step 0 is a setup/decision step that frames the task and outlines a reasonable plan. There's no substantive error in the\n[0..1] The steps so far are reasonable. Step 0 sets up the task correctly. Step 1 correctly identifies the location of Harkness\n[0..2] Looking at steps 0-2:\n\n- Step 0: Sets up the task properly.\n- Step 1: Correctly identifies the park location and initiat\n[0..3] Looking at steps 0-3:\n\n- Step 0: Sets up the task correctly.\n- Step 1: Correctly identifies Harkness Memorial State Park\n[0..4] Looking at the steps:\n\n- Step 0: Setup/task description. No error.\n- Step 1: Correctly identifies park location, perform\n[0..5] Looking at this audit, I need to identify the FIRST step whose error caused the run to fail.\n\nLet me analyze each step:\n"
+    },
+    "008-00a173727b41": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This step 0 is essentially a task setup/framing step where the agent receives instructions. The task itself contains an \n[0..1] The task itself is framed around verifying a pre-supposed answer ($5,200,000), but the steps shown are reasonable given \n[0..2] The task starts with a manager-provided plan that asks to \"verify\" a pre-determined answer of $5,200,000. This is a prem"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Looking at step 0, this is the manager's plan and task framing being handed to the Geography_Expert. The plan itself con\n[0..1] The decisive error appears to originate in step 0, where the manager's plan already presupposes that Menards, Whole Food"
+    },
+    "010-12509faada72": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] Step 0 is essentially the task setup and restating the plan. The agent is receiving the task and the manager's suggestio\n[0..1] Looking at these steps:\n\nStep 0 sets up the task and includes a plan from the manager. The plan focuses on specific boar\n[0..2] The task is to identify which Apple board member did NOT hold a C-suite position when they joined the board.\n\nLet me exa\n[0..3] Let me analyze this task. The question asks which Apple board member did not hold C-suite positions at their companies w\n[0..4] The key issue here is identifying which board member did not hold a C-suite position when they JOINED the board.\n\nThe cr"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan description being given to the DataCollection_Expert. No actual data collection o\n[0..1] Looking at steps 0 and 1, both are essentially planning/restating the approach. Neither step has yet produced concrete d\n[0..2] The task requires gathering specific recommendation data (from \"people with kids\") which presumably comes from a source \n[0..3] Looking at this audit, I need to identify whether a decisive error has occurred in steps 0-3.\n\nThe critical issue is the"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] This step is just the task setup and plan description. The plan itself is reasonable\u2014locate historical data, count rainy\n[0..1] The steps shown are setting up the task and planning approach. Step 0 lays out a reasonable plan. Step 1 raises the conc\n[0..2] The task requires actual historical weather data for Seattle. Let me trace what happened:\n\n- Step 0: The DataAnalysis_Ex"
+    },
+    "009-537a267c0756": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan distribution to the Genomics Expert. No substantive action or factual claim has b\n[0..1] Steps 0 and 1 are setup and planning. Step 0 introduces the task. Step 1 provides a general summary and outlines a plan \n[0..2] Looking at the steps:\n\n- Step 0: Sets up the task appropriately - understanding the dog genome history and finding the r\n[0..3] The task asks specifically about the dog genome reference assembly most relevant in May 2020 (which would be the UCSC ca\n[0..4] Looking at the steps:\n\n- Step 0: Sets up the task appropriately.\n- Step 1: Provides a reasonable summary and outlines st\n[0..5] The task asks for a specific link to dog genome files \"most relevant in May 2020.\" This is a known question referring to\n[0..6] The task asks for \"the link to the files that were most relevant in May 2020.\" This is a specific question. The phrasing\n[0..7] The task asks for \"the link to the files that were most relevant in May 2020.\" This phrasing strongly suggests the answe"
+    },
+    "012-d731749a39ca": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan delegation. No substantive error or incorrect information has been introduced yet\n[0..1] Steps 0 and 1 are reasonable setup and planning. Step 0 lays out the task and a sensible plan. Step 1 proposes retrievin\n[0..2] These steps are all setup and information-gathering. The agents are properly planning to retrieve and verify Wikipedia d\n[0..3] Looking at steps 0-3:\n\n- Step 0: Sets up the task correctly.\n- Step 1: DataAnalysis_Expert proposes a reasonable approac\n[0..4] The steps shown are all reasonable investigative actions toward solving the task. The agents are searching for and attem\n[0..5] The task is to count studio albums. So far the agents are still gathering data. Step 5 returned an empty list, but that'\n[0..6] Looking at this audit, the steps through step 6 are all reasonable attempts to gather data:\n\n- Step 0: Task setup, corre\n[0..7] The steps shown are exploratory data-gathering attempts that hit technical obstacles. Let me evaluate whether any consti\n[0..8] The task is to count Mercedes Sosa's studio albums between 2000 and 2009. Let me trace through the steps.\n\nSteps 0-8 are\n[0..9] The agents are trying to extract Mercedes Sosa's discography from Wikipedia. Let me trace through the steps.\n\nThe data a"
+    },
+    "017-3f81e1d1cad3": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is a setup/decision step that frames the task and outlines the plan. It does not yet execute any data collection \n[0..1] Looking at these steps:\n\n**Step 0**: Sets up the task, restating the general task and the manager's plan to verify the d\n[0..2] The task requires obtaining real Zillow data for houses sold in Prince Edward Island. In steps 0-2, the agents assumed a"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] Step 0 is just the agent receiving the task and the plan from the manager. It outlines a reasonable approach: collect da\n[0..1] Step 0 is just the task setup/planning, which is reasonable. Step 1 shows a code execution failure (IndentationError), b\n[0..2] Steps 0-2 show:\n- Step 0: Reasonable task setup and plan.\n- Step 1: An indentation error in code (a minor, recoverable e\n[0..3] The steps so far show:\n- Step 0: Task setup, reasonable plan.\n- Step 1: An indentation error in code (a minor technical \n[0..4] The steps shown so far reflect:\n- Step 0: Setup/task framing \u2014 reasonable.\n- Step 1: An indentation error in code \u2014 a tr\n[0..5] Looking at the steps:\n\n- Step 0: Reasonable task setup following the manager's plan.\n- Step 1: A code execution failure "
+    },
+    "019-2c7247a57061": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and restatement of the plan. No substantive action has been taken yet\u2014no data has been col\n[0..1] Steps 0 and 1 are reasonable setup steps. Step 0 restates the task and plan. Step 1 outlines the approach and attempts t\n[0..2] The decisive issue here is the assumption of a dataset that doesn't exist. In step 1, the agent assumed there was a CSV "
+    },
+    "018-874e62353ead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Looking at step 0, this is essentially the setup/framing of the task. It restates the problem and includes \"Results from\n[0..1] The verification expert in step 1 explicitly states they cannot access external websites and proceeds to \"verify\" the co"
+    },
+    "016-2f776a306c77": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] This step is simply the agent receiving the task and the manager's plan. It's a setup/decision step that restates the ta\n[0..1] Both steps shown are just planning and restating the approach. No substantive action with errors has occurred yet\u2014no inc\n[0..2] Steps 0-2 set up the task and perform an initial web search, which is a reasonable approach. No decisive error has occur\n[0..3] Looking at steps 0-3:\n\n- Step 0: Sets up the task correctly, restating the requirements accurately.\n- Step 1: Outlines a\n[0..4] The steps so far show a reasonable plan and approach. Steps 0-3 are setup and information gathering. Step 4 is a scrapin\n[0..5] Looking at steps 0-5, the agents are still in the data collection phase. They've identified relevant search results and \n[0..6] The task requires gathering real data: review counts, ratings, and accessibility mentions from TripAdvisor. The scraping"
+    },
+    "020-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is the initial task assignment/framing given to the JSON_Expert agent. It describes the error (\"unknown language \n[0..1] The error \"unknown language json\" is a classic error from Markdown rendering libraries (like Pygments) when a code block"
+    },
+    "021-9d62146b7652": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This step is just setting up the task\u2014restating the general task, the manager's plan, and the output format. No actual d\n[0..1] Looking at these steps:\n\n- Step 0: Sets up the task correctly, restating the problem and the plan. No error here.\n- Step\n[0..2] The decisive issue here is that the Statistics_Expert wrote code assuming a CSV file exists locally, without first actua"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is a setup/decision step that lays out the task and plan. The plan itself is reasonable and accurate. No actual e\n[0..1] The step 1 list has errors. Windsor Gardens is NOT after Mansfield. The correct order on the Franklin/Foxboro line is: S"
+    },
+    "022-ae51d1d52d64": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The step shown is a setup/decision step that restates the task and the plan. The key issue is that the plan calls for us\n[0..1] The task requires calculating distance \"by car\" but the plan uses the Haversine formula, which calculates straight-line "
+    },
+    "025-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This step 0 is simply the agent receiving the task assignment and the plan. It hasn't yet taken any substantive action t\n[0..1] The error \"unknown language json\" typically comes from a markdown/syntax highlighting renderer or a code block parser th"
+    },
+    "027-6479bd8a2bba": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Step 0 is a setup/decision step that frames the task and outlines a reasonable plan (verify addresses, geocode, calculat\n[0..1] Steps 0 and 1 are just setup and planning. No actual data collection, geocoding, or distance calculation has occurred ye\n[0..2] The steps shown are mostly setup and planning. Step 0 establishes the task. Step 1 outlines a reasonable plan but ends b\n[0..3] I need to assess whether the addresses provided in step 3 are accurate, since the entire task depends on correct identif"
+    },
+    "026-945822c59fe9": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] This step 0 is essentially the setup/task assignment with a plan from the manager. The agent is being given the task and\n[0..1] The steps shown are setting up the task and following the manager's plan. The plan involves verifying a candidate list o\n[0..2] The decisive question is whether the predefined list of bars in the manager's plan (step 0) constrains the search to a p\n[0..3] The key question is whether the candidate list of bars (Grace and Proper, 2nd Street Brew House, O'Jung's Tavern Bar, Ga"
+    },
+    "024-aa646cf62171": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] This step is just the task setup and delegation of roles. It restates the general task, provides a reasonable plan, and \n[0..1] Looking at these steps:\n\nStep 0: The Food_Expert receives the task and plan. This is a standard task setup that correctl\n[0..2] Looking at the steps:\n\n- Step 0: Sets up the task properly, no error.\n- Step 1: Verification Expert lays out a reasonabl\n[0..3] Looking at this run:\n\n- Step 0: Sets up the task reasonably, following the manager's plan. No error.\n- Step 1: Verificat\n[0..4] Looking at this run:\n\n- Step 0: Sets up the task correctly.\n- Step 1: The Verification Expert plans to verify informatio\n[0..5] Looking at the steps:\n\n- Step 0: Task setup - fine.\n- Step 1: Verification plan - reasonable.\n- Step 2: Module not found"
+    },
+    "029-606d391c364b": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan delegation. It restates the task and outlines a reasonable approach (locate NYSE,\n[0..1] The steps shown are reasonable setup actions. Step 0 sets up the task correctly. Step 1 identifies the NYSE location (th\n[0..2] Looking at these steps:\n\n- Step 0: Sets up the task correctly.\n- Step 1: Identifies NYSE location correctly and outlines\n[0..3] Looking at the steps:\n\n- Steps 0-1: Setup and identifying NYSE location. Correct.\n- Step 2: Proposing candidate schools \n[0..4] Looking at the steps:\n\n- Steps 0-2 set up the task properly and identify NYSE location.\n- Step 3 identifies three school"
+    },
+    "030-0319cbd03980": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and a reasonable plan. No substantive error has occurred yet\u2014the plan is sound and no inco\n[0..1] Steps 0 and 1 are reasonable setup steps. Step 0 lays out a sound plan, and step 1 begins executing it with a web search\n[0..2] The steps shown are setup and initial information gathering. Step 0 is task framing (correct). Step 1 attempts a web sea\n[0..3] Looking at steps 0-3:\n\n- Step 0: Reasonable task setup and plan.\n- Step 1: Reasonable approach to search for current C-s\n[0..4] The steps so far show technical execution failures (the search function not iterating properly, then NameError), but the\n[0..5] Looking at this audit, the decisive issue is in step 5, where the agent makes substantive factual claims about C-suite m"
+    },
+    "028-3a559ca1aea1": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] The step shown is the initial task setup/decision where the agent receives the task and the manager's plan. The plan its\n[0..1] The steps so far are reasonable. Step 0 sets up the task and even notes the IPO year as 2020 (which is correct - Fubo we\n[0..2] The steps shown are all reasonable setup actions: understanding the task, planning to confirm the IPO year, and executin\n[0..3] The steps shown are all reasonable and correct. The task is set up properly, the IPO year (2020) is being confirmed via \n[0..4] The task assumes the IPO was in 2020 (stated in the output format), and the Reuters article from 2020 confirms this. The\n[0..5] Looking at steps 0-5:\n\n- Step 0: Sets up the task correctly. The plan assumes IPO year is 2020, which is correct (fuboTV\n[0..6] Looking at the steps so far:\n\n- Steps 0-6 establish the task, confirm the IPO year (2020, via the Reuters article and th\n[0..7] The steps shown represent a reasonable research process: confirming the IPO year (2020) and searching for management tea\n[0..8] Looking at the steps:\n\n- Steps 0-7 establish the task, confirm the IPO year (2020), and begin gathering management team \n[0..9] The task requires gathering the actual joining years of each management team member to compare against 2020. Through ste"
+    },
+    "032-af0933cfcd09": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and a reasonable plan. No decisive error has occurred yet.\n\nVERDICT: NO\n[0..1] The task chain looks reasonable. Step 0 sets up the plan correctly. Step 1 introduces \"Frontier Restaurant\" as the resta\n[0..2] Let me trace through the reasoning.\n\nThe task: Ali Khan's cost-conscious TV show that started in 2015 is \"Cheap Eats\" (C"
+    },
+    "035-a3d5b34baf48": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The longest-lived vertebrate is the Greenland shark, named after Greenland. The task setup correctly identifies Greenlan"
+    },
+    "034-04dc240da7b8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Step 0 is just the initial task setup and planning. The plan is reasonable\u2014it correctly identifies the goal and outlines\n[0..1] Steps 0 and 1 are both planning/decision steps that lay out a reasonable approach: identify the video, retrieve captions\n[0..2] Looking at the steps:\n\n- Step 0: Sets up the task correctly, restating the problem and plan. No error.\n- Step 1: Plans t\n[0..3] Looking at the steps:\n\n- Step 0: Sets up the task correctly, restating the problem and plan. No error.\n- Step 1: Reasona"
+    },
+    "033-620b58b7aa60": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] Step 0 is just the agent receiving the task and setup instructions. No actual reasoning, computation, or decision that c\n[0..1] Steps 0 and 1 are reasonable setup actions. Step 0 just restates the task, and step 1 correctly loads the dictionary fro\n[0..2] The steps shown are all setup: understanding the task, loading the dictionary, and verifying it loaded successfully (370\n[0..3] The steps shown so far are all correct setup:\n\n- Step 0: Task understanding is fine.\n- Step 1: Loading the dictionary fr\n[0..4] The board representation and DFS algorithm look correct. The board matches the given layout, directions cover all 8 neig\n[0..5] Looking at this audit, I need to find the FIRST step whose error caused the run to fail.\n\nLet me examine each step:\n\n- *"
+    },
+    "038-3c2adf8c14b1": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just the initial task setup and plan description. The DataAnalysis_Expert is receiving the task and the manage\n[0..1] Steps 0 and 1 only show the task setup and a non-substantive terminal message. No actual data collection or analysis has\n[0..2] Looking at steps 0-2:\n\n- Step 0: Sets up the task correctly with a reasonable plan.\n- Step 1: A no-op message from the t"
+    },
+    "037-14508845755c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Step 0 is the initial setup and reasonable response to an underspecified task. The error message (\"unknown language plai\n[0..1] The error message \"unknown language plaintext\" suggests the actual issue is that the code block was tagged with an unsup\n[0..2] The error message \"unknown language plaintext\" is actually a meaningful clue here. It suggests that the code execution f"
+    },
+    "040-a181eb120cb2": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] I need to verify whether the manager's identification of \"Thriller\" as the fifth single from Michael Jackson's sixth stu"
+    },
+    "031-da9aec084a98": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and a reasonable plan. No substantive error or incorrect claim has been made yet\u2014it's rest\n[0..1] Both steps so far are reasonable. Step 0 correctly sets up the task. Step 1 correctly identifies the twelve zodiac anima\n[0..2] Looking at steps 0-2:\n\n- Step 0: Sets up the task correctly, identifying that the exhibition is titled after the 2015 zo\n[0..3] The steps so far correctly identify the zodiac animals, recognize 2015 as the Year of the Goat/Ram, and locate the relev\n[0..4] The agents correctly identified the zodiac animals and correctly determined that 2015 was the Year of the Goat/Ram. The \n[0..5] Looking at this run, I need to identify whether a decisive error has occurred.\n\nThe task asks about a specific artwork: \n[0..6] The key issue here is the artwork identification. The exhibition was titled after the 2015 zodiac animal (the Ram/Goat).\n[0..7] The key question is whether the agents correctly identified the relevant exhibition and artwork.\n\nThe task asks about th\n[0..8] Looking at this audit, I need to find the FIRST step whose error caused the run to fail.\n\nThe critical issue centers on "
+    },
+    "039-2b969539d7db": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] This step is just the task setup and plan description. No actual action or error has occurred yet\u2014it's outlining the app\n[0..1] The task is to count Wikipedia edits to a page. The plan involves obtaining a Wikimedia API token, but this is unnecessa\n[0..2] The task is to count edits to a Wikipedia page. The plan involves obtaining an API token, but this is unnecessarily comp\n[0..3] The task is to count Wikipedia edits to a page. This doesn't require an authenticated API token at all \u2014 Wikipedia's rev"
+    },
+    "036-88562a8be980": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan\u2014it restates the general task and the manager's suggestions without making any sub\n[0..1] The task is straightforward: identify the stanza number with indented lines in the poem. The correct answer is the secon\n[0..2] The steps so far are reasonable. The agents are correctly trying to obtain the poem text, and step 2 launches a web sear\n[0..3] The task requires identifying a specific factual detail about the poem (the stanza number with indented lines). Through \n[0..4] The steps shown are mostly procedural back-and-forth about obtaining the poem text. The agents are attempting reasonable\n[0..5] Looking at the steps, the agents are trying to obtain the poem text. The web search in step 5 actually succeeded in retu\n[0..6] Looking at steps 0-6, the agents are still in the process of locating the poem text. They've performed a web search and \n[0..7] The decisive question is whether the poem text retrieved and used by the agents correctly preserves the indentation that\n[0..8] The correct answer to this question is stanza 4 (the indented lines appear in the fourth stanza of the poem). The decisi"
+    },
+    "041-02730601827c": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] This step is just the setup/framing of the task. The agent is receiving the task description, the manager's plan, and th\n[0..1] The script executed successfully (exitcode 0) and produced output 220. For numbers [2,4,6,8,10] or similar, sum of squar\n[0..2] Let me analyze these steps.\n\nStep 0: The expert sets up the task to debug a Python script that should sum squares of eve\n[0..3] Looking at the steps:\n\n- Step 0: Sets up the task to debug a Python script. The script is truncated but the task is clea\n[0..4] Looking at the steps:\n\n- Step 0: Sets up the task, debugging a script that should sum squares of even numbers. The scrip\n[0..5] The task was solved correctly: the script computes the sum of squares of even numbers (220 for the sample list), edge ca"
+    },
+    "043-d53734deeead": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan description. It frames the problem and outlines a reasonable debugging approach. \n[0..1] Looking at these steps:\n\n**Step 0:** The expert receives a task that references failed code execution with output \"unkno\n[0..2] The task is genuinely missing the actual code \u2014 the \"code output\" is just an error message with no source code provided.\n[0..3] The task itself never includes the actual code to debug. The expert's job is to work with what's available. Let me exami"
+    },
+    "045-c43d472268d8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Looking at step 0, this is a setup/decision step that lays out the task and the manager's plan. The constraints correctl\n[0..1] The task setup correctly identifies the relevant facts: Girls Who Code states the percentage went from 37% (in 1995) to \n[0..2] The task asks how long it took for the percentage to change from 37%. The source data shows: 1995 = 37%, 2017/Today = 24\n[0..3] The search results clearly show: \"In 1995, 37% of computer scientists were women. Today, it's only 24%.\" The data also s"
+    },
+    "046-2e76694a8fe5": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The manager's plan asserts the track is \"Sweet Sweet Canyon.\" Let me consider whether this is correct.\n\nThe original tas"
+    },
+    "044-e214187ad13a": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and planning delegation. It accurately restates the task and provides a reasonable plan. N\n[0..1] Steps 0 and 1 are both setting up the approach. Step 0 establishes the task and plan, which is reasonable. Step 1 begins\n[0..2] The search returned papers from December 2024, not June 2022. The query approach in step 1 was flawed\u2014it searched for \"A\n[0..3] The search in step 1 used a query \"AI regulation\" with sortby='submittedDate' but the results returned 2024 papers, not \n[0..4] Looking at the steps:\n\n- **Step 0**: Sets up the task properly, reasonable plan.\n- **Step 1**: Attempts a search with a "
+    },
+    "042-833c47739be2": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] Step 0 is simply the agent receiving the task and the plan from the manager. It restates the general task and outlines t\n[0..1] The accession number 29.100.5 corresponds to a known portrait (Pope Innocent X by Vel\u00e1zquez, in the Met's collection). S\n[0..2] The portrait with accession number 29.100.5 is the famous portrait of Cardinal Fernando Ni\u00f1o de Guevara by El Greco. The\n[0..3] The portrait with accession number 29.100.5 is the famous \"Portrait of a Cardinal\" \u2014 actually it's Vel\u00e1zquez's \"Portrait\n[0..4] The portrait with accession number 29.100.5 is the famous portrait of Cardinal Fernando Ni\u00f1o de Guevara by El Greco. The\n[0..5] The steps so far show only failed tool execution attempts (undefined functions, placeholder API keys), but no substantiv\n[0..6] The steps shown so far involve repeated attempts to identify the portrait, all of which failed for technical/tooling rea\n[0..7] Looking at steps 0-7, the agents are attempting to identify the portrait via web searches. The searches have all failed \n[0..8] Looking at the steps:\n\n- Steps 0-1: Setup and reasonable approach.\n- Steps 3-7: Various attempts to search for the portr\n[0..9] The steps shown are all attempts to identify the portrait (accession number 29.100.5). The agents encounter various tech"
+    },
+    "049-324f53bff996": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and a reasonable plan. No error has occurred yet.\n\nVERDICT: NO\n[0..1] The decisive task here is extracting the numbers from the image and performing the calculation. Step 0 is just the task \n[0..2] Looking at steps 0-2:\n\n- Step 0: Sets up the task correctly, following a reasonable plan.\n- Step 1: Just a terminal mess\n[0..3] The plan and approach so far are reasonable. The OCR attempt at step 2 is a legitimate strategy, and the timeout at step\n[0..4] The decisive mistake occurs at step 4. After the OCR approach timed out, the Verification_Expert chose to fabricate (\"si"
+    },
+    "050-6784fd6fd246": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 simply restates the task and outlines the approach. No actual error has been made\u2014no incorrect ingredient list, n\n[0..1] The task requires transcribing an audio file to extract ingredients. In step 0, the AudioProcessing_Expert simply restat\n[0..2] I need to assess whether the transcription in step 2 is accurate, since that's the critical piece of information driving"
+    },
+    "048-e5f2767e1b04": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] This step is just the task setup and planning. No actual investigation, error, or incorrect conclusion has been made yet\n[0..1] Looking at these steps:\n\nStep 0: This is the task setup with the manager's plan. The plan is reasonable\u2014track Wikipedia \n[0..2] Looking at these steps:\n\n- Step 0: Sets up the task correctly, with a reasonable plan to track Wikipedia page history.\n-\n[0..3] The task requires examining the Wikipedia revision history to find when a picture of St. Thomas Aquinas was first added."
+    },
+    "051-8f84910e124b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The key claim in step 0 is that Mask-RCNN support was added in OpenCV 4.1.2. Let me consider this.\n\nMask-RCNN support wa"
+    },
+    "047-5d32c1eba366": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and planning description. It restates the task and provides a reasonable plan for solving \n[0..1] The agent has navigated to the correct Wikipedia page. Step 0 is just task setup, and step 1 is navigation to the correc\n[0..2] The task requires following the FIRST citation reference link on Carl Nebel's Wikipedia page. In step 1, the agent navig\n[0..3] The task requires following the first citation reference link ([1], cite_note-thb-1) on Carl Nebel's Wikipedia page, the\n[0..4] The task requires navigating to Carl Nebel's Wikipedia page, finding the first citation reference link (footnote [1] \"th\n[0..5] The task requires finding the first citation reference link on Carl Nebel's Wikipedia page, following it to a webpage, a\n[0..6] Looking at the steps:\n\n- Step 0 sets up the task correctly.\n- Steps 1-6 show the agent repeatedly loading the Carl Nebel\n[0..7] The decisive question is: what is the \"first citation reference link\" on Carl Nebel's Wikipedia page, and where does it "
+    },
+    "054-c81ed3b0a45a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is the initial task setup and planning step. The plan outlined is reasonable: segregate steam locomotives, use Wh\n[0..1] The steps so far just read the file and extracted the wheel configurations. The steam locomotives use Whyte notation (0-\n[0..2] Looking at steps 0-2, the work so far involves correctly reading the file, extracting unique wheel configurations, and c\n[0..3] Looking at the steps:\n\n- Step 0: Sets up the task correctly.\n- Step 1: Extracts unique wheel configurations correctly.\n-\n[0..4] Let me analyze this carefully.\n\nThe task asks for the total number of wheels on the listed steam locomotives. The key qu"
+    },
+    "056-0e66261209b3": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and assignment of roles. No actual analysis or extraction has occurred yet, so no error co\n[0..1] Looking at steps 0 and 1:\n\nStep 0 sets up the task correctly - it describes the problem of extracting fractions using / \n[0..2] The task asks for fractions that use / as the fraction line AND the answers to sample problems. The OCR extracted text f"
+    },
+    "052-25639162f57c": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan description. No actual research or factual claim has been made yet\u2014it's the initi\n[0..1] Steps 0 and 1 only set up the task and initiate a reasonable web search. No decisive error has occurred yet.\n\nVERDICT: N\n[0..2] The USGS NAS (Nonindigenous Aquatic Species) database has a specific answer for this (the American Alligator was first f\n[0..3] The steps shown are all reasonable setup actions. The task is defined correctly, a web search is initiated, the first at\n[0..4] The steps shown are reasonable progress: the task was defined, a web search was attempted, the import error was fixed, a\n[0..5] The steps shown represent a reasonable investigative process. Step 0 sets up the task, step 1 begins a search, step 2 ha\n[0..6] The steps so far show a reasonable investigative process: identifying the task, searching, fixing the import error, find\n[0..7] The team has correctly identified the relevant USGS source (the Species Profile fact sheet at speciesID=221) and is in t\n[0..8] The task requires finding a specific year from the USGS Species Profile (the NAS database, which has a collection record\n[0..9] The task requires finding a specific year from the USGS species profile, which contains a \"Nonindigenous Occurrences\" or"
+    },
+    "055-238f0c23d791": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and a reasonable plan. There's no error here\u2014the plan is sound for solving the task.\n\nVERD\n[0..1] Looking at these steps:\n\nStep 0 is just the task setup and plan, which is reasonable and not a mistake.\n\nStep 1 is a Bin\n[0..2] The task requires examining the edit history of the Wikipedia \"Dragon\" page on leap days before 2008 (specifically Feb 2\n[0..3] The agent needs to access the historical edit history of the Dragon page on a specific leap day before 2008 (Feb 29, 200"
+    },
+    "057-3196a02a724f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the agent receiving the task description and setting up the problem. No actual reasoning or computation h\n[0..1] Looking at step 1, there's an error in counting the cube pieces.\n\nA standard Rubik's cube has:\n- 6 center pieces (one co"
+    },
+    "053-908be3172c8e": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan delegation. It correctly restates the task and provides a reasonable plan. No sub\n[0..1] Steps 0 and 1 are setting up the task and beginning a reasonable approach (web search for the DOI). No substantive error\n[0..2] The steps shown so far are reasonable. The task was correctly understood, a plan was made, and a web search using the DO\n[0..3] Looking at steps 0-3:\n\n- Step 0: Sets up the task correctly.\n- Step 1: Reasonable plan to perform a web search.\n- Step 2\n[0..4] Looking at the steps:\n\n- Steps 0-1: Setting up the task and plan, no errors.\n- Steps 2-3: Successfully located the book \n[0..5] The task requires finding a specific endnote on page 11 of a book. Let me trace through the steps:\n\n- Steps 0-1: Setup a\n[0..6] Looking at the steps, the agents have:\n- Correctly identified the book via DOI\n- Found the JSTOR link\n- Attempted to ext\n[0..7] Looking at the steps:\n\n- Steps 0-3 are reasonable: understanding the task, searching for the DOI, locating the JSTOR pag\n[0..8] Looking at steps 0-8, the agents have been attempting to access the book and extract the needed information. Let me trac\n[0..9] The agents have been struggling to access the book but haven't yet produced a wrong final answer or committed to an inco"
+    },
+    "060-6df45b66a14f": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan description. It restates the task correctly and outlines a reasonable approach. N\n[0..1] These two steps are just task setup and coordination. No actual data gathering or factual claims have been made yet, so \n[0..2] In step 2, the HawaiiRealEstate_Expert provided sales data ($850,000 and $950,000) without citing any source or actually"
+    },
+    "058-f0ccb40243d8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] This step is just the task setup and planning. The plan is reasonable and no actual error in identification or reasoning\n[0..1] The Polish version of \"Everybody Loves Raymond\" is \"Wszyscy kochaj\u0105 Romana,\" with Bart\u0142omiej Kasprzykowski playing the l\n[0..2] I need to verify the factual claim made in step 2.\n\nThe Polish-language version of \"Everybody Loves Raymond\" is indeed \"\n[0..3] Let me verify the facts here.\n\nThe Polish version of \"Everybody Loves Raymond\" is indeed \"Wszyscy kochaj\u0105 Romana.\" The a\n[0..4] The key claim is in step 2: that the actor who played Ray Barone (Roman) in the Polish version \"Wszyscy kochaj\u0105 Romana\" "
+    },
+    "062-1d3b288462be": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task description/setup being given to the agent. No actual decision or translation work has been perf\n[0..1] Since \"Maktay\" means \"is pleasing to,\" the thing being liked (apples) is the subject, and the person (I) is the object.\n"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan, which correctly identifies the goal (clownfish from Finding Nemo, USGS nonnative\n[0..1] The steps so far correctly identify the species (Amphiprion ocellaris, the Ocellaris clownfish) as Nemo, and outline a r\n[0..2] The task is to find the species and its USGS nonnative occurrences. Let me check the steps.\n\nStep 0: Sets up the task co\n[0..3] I need to evaluate whether a decisive mistake has occurred in steps 0-3.\n\nLet me analyze the actual answer to this task."
+    },
+    "063-945c18bc1c72": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is a setup/decision step that restates the task and outlines a reasonable plan. No factual computation or data re\n[0..1] The task requires correct census data. The actual 2011 Bulgarian census figures for tertiary education are approximately"
+    },
+    "061-d5e74f5edef1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 simply restates the task, the plan, and the approach. It defines the function, derivative, and the iteration stra\n[0..1] Looking at steps 0 and 1:\n\nStep 0 sets up the task correctly, defining the function and the plan.\n\nStep 1 correctly:\n- C\n[0..2] The error in step 2 is a code bug (NameError because `x` was defined inside the function but used at module level). This"
+    },
+    "066-4835ec93a6d1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The plan contains a conceptual error: the manager's suggestion to use a \"false positive rate based on the p-value thresh"
+    },
+    "068-54f5f481feb1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the agent receiving the task and the manager's plan. No actual computation or identification of symbol va\n[0..1] The symbol identifications are wrong. \ud809\udc1c is not \"DISH\" representing 10. Let me assess the actual values.\n\nThe cuneiform s"
+    },
+    "067-d7caaed0d413": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the setup/framing of the task\u2014it presents the problem and the agent's role without making any substantive\n[0..1] Let me analyze the logic puzzle.\n\nEach resident says \"At least one of us is a human.\"\n\nIf a vampire says this, the state"
+    },
+    "064-67329dda61f8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan description. No actual analysis or decision with an error has been made yet\u2014it's \n[0..1] The task requires accessing specific passenger data for the Tri-Rail train on May 27, 2019. \n\nIn step 0, the DataAnalysi\n[0..2] Looking at these steps:\n\n- Step 0: Sets up the task properly with a reasonable plan.\n- Step 1: Empty terminal output - n\n[0..3] The steps 0-3 show the agents setting up the task and beginning analysis. Step 3 assumes a file `passenger_data_may_27_2\n[0..4] The critical issue here is that the data being analyzed appears to be fabricated. The task is a real-world question abou"
+    },
+    "070-0528f540243a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and assignment to the DataExtraction_Expert. No actual extraction or reasoning error has o\n[0..1] The DataExtraction_Expert in step 0 only restated the task without actually extracting any data from the document. Howev\n[0..2] The task involves a .docx file, which is a structured document, not an image. Using OCR (optical_character_recognition) "
+    },
+    "069-5486f0bb8912": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Step 0 is just the setup/decision step that restates the task and the manager's plan. No actual calculation or substanti\n[0..1] Steps 0 and 1 contain only setup and a no-op terminal message. No substantive geometric reasoning or calculation has occ\n[0..2] The steps so far show setup and coordination. No actual measurement or calculation has been made yet that could be wrong\n[0..3] The steps so far show the agents recognizing they need to verify the polygon and side lengths from the image. The Geomet\n[0..4] The task requires analyzing an image to determine the polygon shape and side lengths. The key issue is that the agents l"
+    },
+    "071-03b230b92593": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan\u2014it restates the problem and outlines a reasonable approach. No actual error in id\n[0..1] I need to determine which 2019 game won the British Academy Games Awards.\n\nThe question asks about \"the 2019 game that w\n[0..2] The task asks for the 2019 game that won the British Academy Games Awards. The 2019 BAFTA Games Awards (held in 2019) ga"
+    },
+    "074-27ef8756352a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The decisive issue here would be whether the Tropicos ID for Helotiales is correct. The actual Tropicos ID for Helotiale"
+    },
+    "065-a16ae072deff": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan distribution. It restates the task and provides a reasonable plan for solving it.\n[0..1] The steps shown are reasonable setup actions. Step 0 establishes the task correctly. Step 1 begins a logical approach\u2014se\n[0..2] Looking at steps 0-2:\n\n- Step 0: Sets up the task correctly.\n- Step 1: Reasonable approach to search for the YouTube pag\n[0..3] The steps 0-3 show the agents setting up the task, performing a web search, and identifying Eva Draconis's YouTube page.\n[0..4] The steps shown are all reasonable preliminary actions: planning, searching for the YouTube page, and finding the correc\n[0..5] Steps 0-5 show the agents setting up the task, performing a web search, finding the YouTube page, and planning to naviga\n[0..6] Looking at the steps:\n\n- Steps 0-5 are reasonable setup: understanding the task, searching for the YouTube page, and try\n[0..7] The steps shown are all setup and navigation. The agents correctly found the YouTube page, identified the personal websi\n[0..8] Looking at steps 0-8, the agents are still in the process of navigating to the website and have not yet produced any inc\n[0..9] At step 9, the GraphicDesign_Expert claims to have accessed the website and analyzed the symbol, but the entire descript"
+    },
+    "075-dc792a0fa32f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This step 0 is essentially the task setup and framing\u2014the agent is receiving the task and the manager's plan. The conten\n[0..1] The task asks about articles \"listed in January 2020\" with \"ps versions available.\" This requires querying the Arxiv lis"
+    },
+    "076-769191cea270": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] Step 0 is just the agent receiving the task and restating the plan. No actual action, data extraction, or erroneous reas\n[0..1] Steps 0 and 1 are both reasonable setup and planning. Step 0 restates the task correctly, and step 1 outlines a sensible\n[0..2] Looking at these steps:\n\n- Step 0: Sets up the task correctly - finding the enrollment count of the H. pylori/acne vulga\n[0..3] Looking at steps 0-3:\n\n- Step 0: Sets up the task correctly.\n- Step 1: Lays out a reasonable search plan but doesn't act\n[0..4] In steps 0-4, the agents are essentially planning, coordinating, and stating intentions. The Clinical_Trial_Data_Analysi\n[0..5] The decisive step is step 5, where the analyst claims to have located the trial and reports specific data: NCT03480528 w"
+    },
+    "073-02730601827c": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] Step 0 is the initial task setup and framing. The agent is receiving the task description, manager's plan, and the Pytho\n[0..1] The task is to debug a script that processes a list and returns the sum of squares of even numbers. \n\nIn step 0, the exp\n[0..2] Let me verify the calculations in these steps.\n\nStep 0: Task setup, identifies the script and plan. The \"seek_experts_he\n[0..3] Looking at the steps:\n\n- Step 0: Sets up the task correctly (the \"Function seek_experts_help not found\" is an unrelated \n[0..4] The task was to debug a Python script that processes a list of numbers and returns the sum of squares of even numbers. L\n[0..5] The task was solved correctly: the script computes the sum of squares of even numbers, returns 220, edge cases are teste"
+    },
+    "079-72b0c0014ede": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just the agent receiving the task and the manager's plan. It hasn't taken any substantive action yet\u2014no extrac\n[0..1] The task requires comparing applicants against job qualifications. Steps 0-1 show the extraction of the ZIP file and lis\n[0..2] The task requires analyzing applicants' qualifications. The applicants' data is in \"Applicants.xlsx\" (visible in the fil"
+    },
+    "072-c6399b46fd3c": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] Step 0 is just a setup/decision step describing the task and plan. It restates the problem correctly and outlines a reas\n[0..1] Looking at these steps:\n\n- Step 0: The DataAnalysis_Expert sets up the task correctly, restating the problem and the pla\n[0..2] The steps shown are all setup and coordination. No actual data extraction, calculation, or analysis has been performed y\n[0..3] Looking at these steps:\n\n- Step 0: Sets up the task properly.\n- Step 1: Terminal has nothing to execute, benign.\n- Step \n[0..4] The error at step 4 is a column name mismatch \u2014 the code assumed column names that don't exist. However, this is a recov\n[0..5] The error at step 4 (KeyError for column names) was an assumption mistake, but it's immediately recoverable and step 5 c\n[0..6] Looking at the steps:\n\n- Steps 0-2: Setup and planning, no errors.\n- Step 3: An assumption about column names that turne\n[0..7] Looking at this trace, I need to identify whether a decisive error has occurred in steps 0-7.\n\nSteps 0-2: Setup and task\n[0..8] Looking at the steps, the agents are making reasonable progress:\n\n- Steps 0-2: Setting up the task and plan.\n- Step 3-4:\n[0..9] I need to determine whether a decisive error has occurred in steps 0-9.\n\nLet me analyze the data structure issue. The sp"
+    },
+    "077-a1dc061cb971": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0..0] This step is just the task setup and planning\u2014it lays out a reasonable approach to find the article and paper. No actual\n[0..1] The agent has correctly located the article about mysterious filaments at the center of the Milky Way, published in Univ\n[0..2] The agent has correctly located the article (about mysterious filaments at the center of the Milky Way, which matches Ca\n[0..3] The agent has correctly:\n- Located the correct article (June 6, 2023, about Milky Way filaments)\n- Navigated through all\n[0..4] The steps so far correctly:\n- Located the article (correct URL about Milky Way filaments, published June 6, 2023)\n- Navi\n[0..5] The agents correctly identified the article, located the correct paper at the bottom, and attempted to access it. Steps \n[0..6] The agents correctly identified the article, navigated to the correct paper link, and attempted to access it. They hit a\n[0..7] The agents correctly identified the article and the correct paper linked at the bottom. The CAPTCHA block at step 5 is a\n[0..8] The agents correctly identified the article and the linked paper. The CAPTCHA block at step 5 is an environmental obstac\n[0..9] The agents correctly identified the article and the paper. The CAPTCHA block at step 5 was an external obstacle, not an "
+    },
+    "080-252fc8554126": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the agent receiving the task and restating the plan. No actual work, no incorrect claim, and no decision \n[0..1] The task asks about a specific factual detail from the Scikit-Learn July 2017 changelog. The expected answer relates to "
+    },
+    "082-933179cfbd8d": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The journal name \"Fafnir\" needs verification. Hreidmar's sons include Fafnir, Regin, and Otr. The one who guarded his ho\n[0..1] The correct answer to this question is \"fluffy\" - that's the word quoted from two different authors in distaste for drag"
+    },
+    "078-e16678e8c43e": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] Step 0 is essentially a task/role setup and planning step. It restates the problem and outlines a reasonable plan (verif\n[0..1] The task requires computing distances along specific routes, the number of bottles, and the recycling rate. Steps 0-1 ar\n[0..2] I need to determine whether the decisive error occurred in steps 0-2.\n\nLet me analyze the task. The problem requires:\n1.\n[0..3] Looking at this task, the key computation involves:\n1. Distance from LA to Cincinnati (I-40) then Cincinnati to Augusta \n[0..4] Let me analyze this problem.\n\nThe task requires:\n1. Calculating total distance (I-40 LA to Cincinnati, then I-90 Cincinn"
+    },
+    "084-8cad8cae382d": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is a setup/task assignment step that lays out the problem and plan. It hasn't actually executed anything or made \n[0..1] In step 0, the expert was given the task and the plan, but didn't actually produce any code or take concrete action. In \n[0..2] The task explicitly says to run the Python script in the attached image against the array. The image presumably contains"
+    },
+    "081-6b8e879881c0": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan description. The DataExtraction_Expert is receiving the task and the manager's su\n[0..1] Step 0 lays out a reasonable plan. Step 1 is an execution error (incorrect Selenium initialization syntax), but this is \n[0..2] The task itself contains a conceptual issue: \"certain\" recommendation isn't a standard OpenReview NeurIPS 2022 acceptanc\n[0..3] The key question is whether the decisive mistake\u2014the first step whose error caused the run to fail\u2014has occurred within s"
+    },
+    "083-b73a239fdad1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and planning. The plan itself is reasonable\u2014gather Survivor unique winners, gather America\n[0..1] Looking at steps 0 and 1:\n\nStep 0 is the task setup, which correctly states the problem and plan. The plan is reasonable\n[0..2] The key facts: After 44 seasons of Survivor, there were 44 seasons but with one two-time winner (Sandra Diaz-Twine), so "
+    },
+    "085-dc5e30ffc725": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Step 0 is just the task setup/framing being given to the Literature_Expert. It describes the task and the plan but doesn\n[0..1] Steps 0 and 1 are just setup and planning. The task is being understood correctly, and the plan to retrieve the article \n[0..2] The steps shown are all setup and planning\u2014retrieving the article and stating intent to compare. No actual comparison or\n[0..3] The task is to identify the word in the citation that doesn't match the original. The agent claims the discrepancy is \"m"
+    },
+    "089-93088535fb95": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan restatement by the BiblicalScholar_Expert. No actual answer or identification has\n[0..1] The first place mentioned by name in Esther 1:1 (NIV) is \"India\" (\"ruled over 127 provinces stretching from India to Cus"
+    },
+    "090-e273f2fabe96": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the agent receiving the task and restating the plan. No actual decision, search, or factual claim has bee\n[0..1] The task asks about a \"National Geographic short\" countdown that contains a \"#9\" item \u2014 this strongly suggests a video l"
+    },
+    "088-3a55b5705c39": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] Step 0 is simply the task assignment and restatement of the plan. The agent has not yet taken any substantive action tha\n[0..1] Steps 0 and 1 are just setting up the task and beginning a reasonable web search. No decisive error has occurred yet.\n\nV\n[0..2] The steps so far show the task setup, a reasonable plan, and a web search that, despite a code error iterating over None\n[0..3] The steps so far have proceeded reasonably:\n- Step 0 sets up the task correctly.\n- Step 1 plans a web search.\n- Step 2 f\n[0..4] The team has correctly located the blog post and is in the process of attempting to analyze the video. The steps so far \n[0..5] The task requires actually watching the last video and identifying the command. The agents found the correct blog post, "
+    },
+    "086-e5db53c29991": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan delegation. No actual analysis or calculation has been performed yet, so no decis\n[0..1] Looking at this:\n\n- Step 0: The MusicTheory_Expert receives the task and the plan. This is just task setup/decision\u2014no a\n[0..2] The steps shown are:\n- Step 0: Task setup and plan, no error\n- Step 1: An OCR attempt that produced no output (a tool ex\n[0..3] The steps shown are all setup/process steps. The agents are still trying to access and analyze the image. No substantive\n[0..4] Looking at steps 0-4:\n\n- Step 0: Sets up the task correctly.\n- Step 1: OCR attempt produced no output (a failure, but no\n[0..5] The decisive mistake occurs at step 5. The MusicTheory_Expert fabricates note data (\"hypothetical note analysis based on"
+    },
+    "091-23de28edf643": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan, which is reasonable. No decisive mistake has occurred yet.\n\nVERDICT: NO\n[0..1] The question asks for cities \"farthest apart from the westernmost to the easternmost going east.\" This is a longitude-ba"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and planning phase. The expert is given the task and a reasonable plan to analyze the pape\n[0..1] The paper in question is a University of Leicester student journal publication (Journal of Physics Special Topics), not "
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0..0] Step 0 is just the setup/decision step where the agent receives the task and plan. No substantive error has occurred yet\n[0..1] Steps 0 and 1 are reasonable setup and search initiation. No decisive error yet\u2014they're just beginning to gather informa\n[0..2] The steps shown are setup and an initial web search. The search results returned are generic and didn't identify the pho\n[0..3] The steps 0-3 show the agents setting up the task and performing web searches. The initial searches didn't return specif\n[0..4] The steps shown are all reasonable investigative actions: setting up the task, performing web searches, and refining sea\n[0..5] The task requires identifying a photograph by accession number, then the book the person holds, then the book's author, \n[0..6] The task requires identifying a specific photograph (accession 2022.128) and the book/author shown. Let me consider whet\n[0..7] Looking at this audit, the key question is whether the decisive mistake\u2014the one that caused the run to fail\u2014occurred wit"
+    },
+    "095-91ab842a22b2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This step is just the task setup and plan restatement. No actual extraction or counting has been performed yet, so no de\n[0..1] The task requires the **latest 2022 version** of the Lego article, not the current live version. Using the live URL \"htt"
+    },
+    "094-7e3d81abcddf": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is the initial task setup and framing. It restates the task, the manager's plan, and the constraints. This is a r\n[0..1] Looking at this:\n\n**Step 0:** The expert receives the task. The original error is \"unknown language unknown\" with exit c\n[0..2] Looking at this run:\n\n- **Step 0**: The expert is set up to analyze the failure. The original problem is that code outpu"
+    },
+    "097-aa341e34fc51": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and planning\u2014receiving the general task and the manager's suggestions. No substantive answ\n[0..1] The episode is \"Heaven Sent\" (Series 9, Episode 11), where the Doctor is trapped in a shifting castle. The claim at step"
+    },
+    "099-59e337ae1fbb": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and assignment of roles\u2014it restates the general task and the manager's plan. No actual dat\n[0..1] The task requires gathering actual data from ScienceDirect. In step 1, the agent admits it likely doesn't have access to"
+    },
+    "096-89be76878d79": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Looking at step 0, this is the initial task setup and decision to follow the manager's plan. The plan itself is reasonab\n[0..1] The task setup in step 0 is reasonable and aligns with the general task. Step 1 is just the terminal noting there's no c\n[0..2] Looking at steps 0-2:\n\n- Step 0: Task setup, correctly framing the problem. No error.\n- Step 1: Terminal has nothing to \n[0..3] The task asks about the \"06 - Regression\" label (or similar) in numpy.polynomial issues. Let me examine the steps.\n\nThe "
+    },
+    "101-7011a3ca2fe8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is a reasonable decision: the task requires analyzing a video to count bird species, and downloading the video pl\n[0..1] The task at step 0 was to download the video and extract frames. The plan is reasonable. At step 1, the terminal shows a"
+    },
+    "092-a5a8d627e455": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan reception. No actual error has occurred yet\u2014this is the agent receiving instructi\n[0..1] The steps shown are reasonable setup steps. Step 0 establishes the task correctly, and step 1 begins a sensible approach\n[0..2] The task is straightforward: find Teal'c's response to \"Isn't that hot?\" The known answer is something simple (\"It is no\n[0..3] Looking at these steps:\n\n- Step 0: Setup of the task, no error.\n- Step 1: Attempted to use an undefined function `youtub\n[0..4] The steps shown represent reasonable progress: the agent received the task, attempted a download with an undefined funct\n[0..5] Looking at steps 0-5, the agents are still in the process of:\n- Downloading the video (successful at step 4)\n- Attemptin\n[0..6] The task requires determining Teal'c's exact spoken response to \"Isn't that hot?\" in the video. So far:\n\n- Steps 0-4 are\n[0..7] Looking at this trace, the agents are working toward extracting Teal'c's response from the video. Let me evaluate each s\n[0..8] Looking at the steps:\n\n- Steps 0-5: Setup, video download, attempt at captions \u2014 all reasonable approaches that recovere\n[0..9] Looking at this run, the agents are still actively working toward the solution. Let me trace through the steps:\n\n- Steps"
+    },
+    "098-43bbd8019fea": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0..0] Step 0 is just the setup/restatement of the task and plan. No actual work or factual claim has been made yet, so no deci\n[0..1] Steps 0 and 1 are just setup and planning. No factual error or decisive mistake has occurred yet\u2014the agent is simply pre\n[0..2] The expert intended to perform a web search but provided no actual executable code or search action, leading the termina\n[0..3] The steps shown are all setup and procedural. Step 0 is task assignment, step 1 announces intent to search but produces \n[0..4] Looking at steps 0-4:\n\n- Step 0: Reasonable task setup and plan.\n- Step 1: Historian states intent to search; no actual \n[0..5] The steps so far have correctly identified the Word of the Day for June 27, 2022 as \"Jingoism\" via the search result. Al\n[0..6] The search result contains a suspicious URL: \"candidate-2022-06-27\" rather than a standard Word of the Day URL. This \"ca"
+    },
+    "103-5593276388b1": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Step 0 is just the task assignment and planning phase. The agent is receiving the task description and the manager's pla\n[0..1] Steps 0 and 1 are setup and planning steps. Step 0 lays out the task and plan correctly. Step 1 just describes the inten\n[0..2] Looking at these steps:\n\n- Step 0: Sets up the task correctly, with a reasonable plan.\n- Step 1: Outlines an approach bu\n[0..3] Looking at the steps:\n\n- Step 0: Sets up the task correctly.\n- Step 1: Plans the approach, no execution yet.\n- Step 2: E"
+    },
+    "104-9f0fb174fad0": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] Step 0 is a planning/decision step where the agent is simply receiving and restating the task and the manager's suggesti\n[0..1] The code in step 1 failed with an IndentationError, but this is a recoverable error that can be fixed in subsequent step\n[0..2] The task requires reading cell colors from the Excel file. Using pandas (`pd.read_excel`) only reads cell values, not fo\n[0..3] The task fundamentally requires reading the **cell colors** (fill colors) to identify blue cells and to report the hex c\n[0..4] The critical issue here is that the entire approach relies on reading cell colors, but the code is reading cell *values*"
+    },
+    "105-7a7794e34798": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just the initial task setup and framing for the PythonDebugging_Expert. It restates the task, the manager's pl\n[0..1] Looking at these steps:\n\n- Step 0 is the setup/context describing the task: debugging code that failed with exit code 1 \n[0..2] Looking at this trace:\n\n**Step 0:** The PythonDebugging_Expert sets up the task. The output mentions \"Nowak 2160 unknown"
+    },
+    "102-a6862e302014": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] Step 0 is just the task assignment and planning phase. The Literature_Expert is receiving the task and the plan, which i\n[0..1] The task is correctly understood and the approach (web search for the book by DOI) is reasonable for an initial step. No\n[0..2] The book with DOI 10.1353/book.24372 is about Sigmund Freud, and the answer (endopsychic myths influence) is known to be\n[0..3] The book with DOI 10.1353/book.24372 concerns Sigmund Freud, and the correct answer to \"who influenced his belief in end\n[0..4] The task is to find the author who influenced the neurologist (Freud) regarding \"endopsychic myths\" \u2014 the answer is Popp\n[0..5] The steps shown are all about setting up and attempting a web search to find the book. The repeated failures (steps 2, 4\n[0..6] The task is progressing correctly. The agents identified the book via web search (found \"A Dark Trace\" at the correct DO\n[0..7] Looking at the steps:\n\n- Steps 0-1: Setup and initial search plan \u2014 correct approach.\n- Steps 2-5: Code execution errors\n[0..8] The book is correctly identified as \"A Dark Trace\" (about Freud). The steps so far have successfully identified the corr\n[0..9] The book is correctly identified (\"A Dark Trace,\" about Freud). The actual answer (Fliess influenced Freud's belief in e"
+    },
+    "100-364b09fd59b8": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and a reasonable plan. No actual error has been committed yet.\n\nVERDICT: NO\n[0..1] The task is just being set up. Step 0 restates the task and plan correctly. Step 1 begins verification and mentions chec\n[0..2] In step 1, the Validation_Expert assumes Tamai's number is 19 (since it mentions identifying pitchers with numbers 18 an\n[0..3] I need to determine Taish\u014d Tamai's actual jersey number and check whether the steps committed a decisive error.\n\nTaish\u014d \n[0..4] Let me analyze this carefully.\n\nThe task is to find the pitchers with numbers immediately before and after Taish\u014d Tamai'\n[0..5] I need to determine whether the decisive mistake has occurred within steps 0-5.\n\nTaish\u014d Tamai's actual jersey number wit\n[0..6] The decisive mistake hinges on identifying Tamai's correct jersey number. Tamai's actual number as of July 2023 is 19, s\n[0..7] Let me analyze this audit.\n\nThe task is to find pitchers with numbers immediately before and after Taish\u014d Tamai's number\n[0..8] Looking at this trace, I need to identify whether the decisive mistake has occurred.\n\nThe key fact: Taish\u014d Tamai's jerse\n[0..9] Looking at the steps, the agents are still in the process of verifying Taish\u014d Tamai's jersey number. The key factual que"
+    },
+    "106-00e6e023a028": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan description. No actual decision or identification has been made yet\u2014it's reciting\n[0..1] The August 2021 Vogue cover (US edition, featuring Jennifer Lawrence) shows the Statue of Liberty in the background. The\n[0..2] The steps shown are reasonable setup: defining the task, asking for the cover image, and proposing a web search to ident\n[0..3] The steps 0-3 show a reasonable approach: understand the task, attempt to find the cover image, and search the web. The \n[0..4] Let me analyze this run.\n\nThe task is to identify the landmark on the August 2021 Vogue cover and find its height. \n\nSte"
+    },
+    "110-e240abd96f2e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan description. It restates the task and provides a reasonable plan. No actual actio\n[0..1] Looking at these steps:\n\n- Step 0: The agent receives the task and plan. This is just setup, no error.\n- Step 1: The age\n[0..2] The agent is still in the early information-gathering phase. Steps 0-2 involve receiving the task and beginning to navig\n[0..3] I need to analyze whether the decisive mistake occurred in steps 0-3.\n\nThe task requires:\n1. Find the oldest flavor's he"
+    },
+    "108-13c9a4c03793": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the agent receiving the task and the manager's plan. It hasn't taken any concrete action yet that could c\n[0..1] Both steps are planning/exploration steps. Step 0 sets up the task properly. Step 1 begins exploring an existing CSV fil\n[0..2] The steps so far show:\n- Step 0: Setup/planning, no error.\n- Step 1: The agent decides to explore an \"already downloaded\n[0..3] The agents are working with a \"placeholder dataset\" (`nonindigenous_aquatic_species.csv`) that was supposedly already do\n[0..4] The placeholder file `nonindigenous_aquatic_species.csv` is actually an HTML \"Example Domain\" page, not real data. This "
+    },
+    "107-de407cd051d7": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan description. It restates the problem and outlines a reasonable approach (verify p\n[0..1] Let me check the values.\n\nThe minimum perigee on the Wikipedia Moon page is 356,500 km. That's correct.\n\nKipchoge's mara\n[0..2] Let me check the key facts.\n\nThe minimum perigee on the Wikipedia Moon page is 356,500 km \u2014 this is correct.\n\nKipchoge's\n[0..3] The key data point to check is the minimum perigee value. The task explicitly says to use the minimum perigee value from\n[0..4] The key issues:\n\n1. **Perigee value**: The task explicitly asks for the *minimum* perigee value from the Wikipedia page \n[0..5] The key issue is the perigee value. The question asks for the minimum perigee value from the Wikipedia page for the Moon\n[0..6] The key value here is the minimum perigee distance. The task explicitly requires using the minimum perigee value from th"
+    },
+    "109-33e9e888adb4": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0..0] Step 0 is the manager's setup and task delegation. It describes the task, provides a reasonable plan, and assigns the wo\n[0..1] The decisive mistake in this task would be providing an incorrect chess move. In steps 0-1, the Chess_Expert has only re\n[0..2] The known correct answer to this task is \"Rd5\". The steps shown so far are all setup and procedural messages\u2014no actual a\n[0..3] The task requires analyzing the actual chess position from the image. None of the steps so far have actually examined th\n[0..4] Steps 0-4 show setup and a reasonable approach: the agents are still trying to analyze the image using an appropriate to\n[0..5] The task requires accurate analysis of the chess position from the image. Through steps 0-5, the agents have set up the \n[0..6] The agents have not yet produced an incorrect move. Steps 0-6 show setup, a failed tool call, and requests to manually a\n[0..7] The task requires analyzing an actual chess position from an image. The decisive failure is that none of the agents succ"
+    },
+    "111-bb45c75cb2de": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is the manager's task setup and plan. It correctly restates the task and provides a reasonable plan. No actual se\n[0..1] Looking at these steps:\n\n- Step 0 sets up the task correctly, restating the problem and plan. This is a reasonable start\n[0..2] Looking at these steps:\n\n- Step 0: Reasonable task setup and plan. No error.\n- Step 1: A connection timeout occurred whe\n[0..3] Analyzing the steps:\n\n- Step 0: Setup of the task, no error.\n- Step 1: A connection timeout occurred during web scraping"
+    },
+    "112-7d8dcb80a290": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the agent receiving the task description and the manager's plan. No actual analysis, album listing, or an\n[0..1] The task specifies albums released \"before 1999.\" Step 1 correctly lists *Tidal*, *Harbinger*, and *This Fire* as pre-19\n[0..2] I need to assess the factual claims about Christgau's grades.\n\nThe task asks for albums released **before 1999**. \"When "
+    },
+    "115-03d92b3118e2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] I need to evaluate whether step 0 contains the decisive mistake.\n\nStep 0 appears to just be the setup/framing of the tas\n[0..1] The decisive error is in step 1's setup. The constraint \"one box must contain 6 more coins than another box\" was incorre"
+    },
+    "114-af259c3de825": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan description. No actual decision or factual claim has been made yet\u2014it's outlining\n[0..1] In step 0, the Baseball_Historian_Expert sets up the task correctly without producing erroneous conclusions\u2014it's just re\n[0..2] In step 2, the claim is that Reggie Jackson had the most walks for the 1977 Yankees with 86 walks. Let me check this.\n\nI"
+    },
+    "113-ccbf973529c4": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is essentially the task assignment and plan restatement. The plan is reasonable, and no concrete erroneous action\n[0..1] The task requires finding when Apple stock first went above $50 without adjusting for stock split. Let me examine the st\n[0..2] The core challenge of this task is actually obtaining the historical Apple stock data from Google Finance. Steps 0-2 nev"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and planning phase. It restates the task and outlines a reasonable approach (find the diss\n[0..1] Steps 0 and 1 are just setup and planning. Step 0 restates the task correctly. Step 1 proposes a search script that does\n[0..2] The steps so far are early information-gathering. While the script in step 1 is ineffective (it just prints URLs rather \n[0..3] The steps shown are early-stage setup. While inefficient (the script merely prints search URLs rather than fetching cont\n[0..4] Looking at these steps, the agents have made no real progress toward solving the task. However, I need to identify wheth"
+    },
+    "119-6ec2674e0d3a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just setting up the task and plan\u2014it restates the problem and outlines a reasonable approach involving experts\n[0..1] The question asks about the color of the object Bond and Pussy Galore concealed themselves under at the end of Goldfinge\n[0..2] The question asks about the color of the parachute Bond and Pussy Galore hide under at the end of Goldfinger. The actual"
+    },
+    "118-d69039766c83": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan presentation. The plan is reasonable and no actual erroneous action has been take\n[0..1] The task lacks the actual code to debug. Step 0 is the expert receiving the task setup; it's a framing/decision step tha\n[0..2] The task itself lacks the actual code\u2014only an error message is provided. Let me evaluate each step.\n\nStep 0: The PythonD\n[0..3] The task itself lacks the actual code\u2014only an error message (\"unknown language unknown\") and exit code 1 are provided. T\n[0..4] The task at step 0 provides a vague general task (\"unknown language unknown\") with no actual code. The PythonDebugging_E"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] Step 0 is just the task assignment and plan setup. It restates the problem and outlines a reasonable approach. No actual\n[0..1] The steps so far show task setup (step 0) and a reasonable first action to scrape the Wikipedia page (step 1). Neither c\n[0..2] The error in step 2 is a recoverable execution error (function not imported/defined), not a decisive logical mistake. It\n[0..3] The steps shown are all reasonable setup actions. Step 0 properly restates the task. Step 1 attempts to scrape the Wikip\n[0..4] Looking at the steps:\n\n- Step 0: Task setup, reasonable.\n- Step 1: Attempt to scrape, function not defined.\n- Step 2: Er"
+    },
+    "121-62bf36bb4ce7": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and planning phase. The expert is restating the task and outlining a reasonable plan. No a\n[0..1] The authors of the paper are Pietro Murano and Iram N. Khan. In step 1, the agent identifies them, with Iram N.'s name a\n[0..2] The authors of this paper are Pietro Murano and Iram N. Khan. The agent in step 1 references \"Pietro Murano and Iram N.\"\n[0..3] The authors of the paper are Pietro Murano and Iram N. Khan. The correct answer requires identifying that Pietro Murano \n[0..4] The authors of the paper are Pietro Murano and Iram N. Khan. In step 1 and step 4, the second author is referred to as \"\n[0..5] The decisive mistake is the fabrication of Pietro Murano's earliest paper. The actual first paper by Pietro Murano is no"
+    },
+    "120-3ea26fdedd38": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and plan being handed to the expert. The plan is reasonable (review the video, compare cha\n[0..1] Looking at these steps:\n\n- Step 0: The expert is given the task and a reasonable plan. This is just setup/framing, no su\n[0..2] Looking at steps 0-2:\n\n- Step 0: Sets up the task properly with a reasonable plan.\n- Step 1: Computer terminal has nothi\n[0..3] The task is to identify a bird species in a specific BBC Earth video. In steps 0-3, the agents are just setting up and a\n[0..4] The agents are still attempting to gather information via web search. The searches in steps 2 and 4 didn't execute prope\n[0..5] The search results in step 5 successfully identified the correct video (the BBC Earth \"Top 5 Silliest Animal Moments!\" v\n[0..6] The agents have correctly identified the right video (Top 5 Silliest Animal Moments! | BBC Earth). The description even \n[0..7] The agents found the correct video URL (step 5). However, the critical issue is that none of the agents can actually wat"
+    },
+    "125-a445e2da8734": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the agent receiving the task and outlining the plan. The plan itself is reasonable and no actual erroneou\n[0..1] In step 1, the AnalyticalReasoning_Expert uses fabricated/assumed pricing data (\"this is just an example and must be ver"
+    },
+    "117-b056cbb2e661": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0..0] Step 0 is just the task setup and a reasonable plan. No error has occurred yet.\n\nVERDICT: NO\n[0..1] The execution failed at step 1 due to an IndentationError, but this is a recoverable error - it can be fixed and retried\n[0..2] The steps shown are setup and a reasonable first attempt at solving the task. Step 0 is task framing. Step 1 is an inden\n[0..3] The errors so far (steps 1 and 3) are recoverable execution issues. Step 1 was a trivial indentation error. Step 3 revea\n[0..4] The steps so far show a reasonable iterative debugging process. Let me analyze each:\n\n- Step 0: Sets up the task correct\n[0..5] The errors in steps 1-3 are recoverable mistakes (indentation error, wrong column assumption). Step 4 correctly responds\n[0..6] Let me analyze the steps.\n\nThe task is iterative debugging of a spreadsheet load. The agents are progressively discoveri\n[0..7] Looking at this audit, I need to determine if a decisive mistake has occurred in steps 0-7.\n\nThe steps so far show itera\n[0..8] Looking at the steps, the agents are iteratively debugging and discovering the spreadsheet structure. Let me trace the d"
+    },
+    "124-d60e28a0fa62": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is just the setup/framing of the task being received. It describes the agent receiving the general task and the i\n[0..1] This is the GAIA \"Pick That Ping-Pong\" riddle. The known correct answer is ball number 100 (or 3, depending on interpret"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Step 0 is just the setup/task assignment to the expert, outlining the plan. No actual research or substantive decision w\n[0..1] Steps 0 and 1 are just setup and reasonable initial planning/requests. No substantive error or incorrect information has\n[0..2] Looking at the steps:\n\n- Step 0: Sets up the task correctly.\n- Step 1: Reasonable approach to identify the dinosaur arti\n[0..3] The task is to find the dinosaur Featured Article promoted in November 2016 and its nominator.\n\nLooking at the steps:\n- "
+    }
+  }
+}

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "auditable"
-version = "0.3.0"
+version = "0.4.0"
 description = "A library of auditing methods for AI agents: configuration audits, run-level failure detection, step-level fault localization, and online monitors, behind one API per family."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -73,6 +73,10 @@ llm = ["openai>=1.0"]
 # the record, so the bound follows its minor version. The hf extra downloads the datasets;
 # NumPy holds the label arrays.
 agentpile = ["agentpile[hf]>=0.3,<0.4", "numpy>=1.21"]
+# Reproduce the CatchBench leaderboard (auditable.bench): the tabular and PyOD methods,
+# NetworkX for trace graphs, and agentpile[hf] to fetch and convert the public corpora.
+# Add graph-ad (and its pyg-lib backend) for the PyGOD, GUARDIAN-Lite and G-Safeguard-Lite rows.
+bench = ["pyod>=1.1.0", "scikit-learn>=1.0", "numpy>=1.21", "networkx>=3.0", "agentpile[hf]>=0.3,<0.4"]
 dev =["pytest>=7.0", "build>=1.0", "twine>=5.0", "pyod>=1.1.0"]
 
 [project.urls]

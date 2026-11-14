@@ -1,0 +1,896 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "step_by_step",
+    "model": "deepseek-r1",
+    "n_runs": 126,
+    "prompt_sha": "e4e35c9bd9e3",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "001-5697e89b281b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "003-cfa39baedf59": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "002-a04041638aa4": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "004-d57d322d4115": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "006-b40c7e455b08": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "008-00a173727b41": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "000-7b14128ce504": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "005-b82f729abea8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "010-12509faada72": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "012-d731749a39ca": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "016-2f776a306c77": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "018-874e62353ead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "019-2c7247a57061": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "017-3f81e1d1cad3": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "022-ae51d1d52d64": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "020-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] VERDICT: 1"
+    },
+    "021-9d62146b7652": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "024-aa646cf62171": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "025-85a096b8759f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "026-945822c59fe9": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "028-3a559ca1aea1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "027-6479bd8a2bba": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "029-606d391c364b": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] VERDICT: 2"
+    },
+    "030-0319cbd03980": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] VERDICT: 1"
+    },
+    "031-da9aec084a98": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "009-537a267c0756": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "035-a3d5b34baf48": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "036-88562a8be980": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "032-af0933cfcd09": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "033-620b58b7aa60": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "034-04dc240da7b8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "040-a181eb120cb2": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "038-3c2adf8c14b1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "041-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "043-d53734deeead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "044-e214187ad13a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "039-2b969539d7db": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] VERDICT: NO\n[0..3] VERDICT: NO\n[0..4] VERDICT: 3"
+    },
+    "045-c43d472268d8": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "042-833c47739be2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "047-5d32c1eba366": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "046-2e76694a8fe5": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "048-e5f2767e1b04": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "051-8f84910e124b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "049-324f53bff996": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "050-6784fd6fd246": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "053-908be3172c8e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "054-c81ed3b0a45a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "056-0e66261209b3": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "052-25639162f57c": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "055-238f0c23d791": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "058-f0ccb40243d8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "037-14508845755c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] VERDICT: NO\n[0..3] VERDICT: NO\n[0..4] VERDICT: NO\n[0..5] VERDICT: NO\n[0..6] VERDICT: NO\n[0..7] VERDICT: 0"
+    },
+    "057-3196a02a724f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "061-d5e74f5edef1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "060-6df45b66a14f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "062-1d3b288462be": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "065-a16ae072deff": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "064-67329dda61f8": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "067-d7caaed0d413": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "066-4835ec93a6d1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "069-5486f0bb8912": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "063-945c18bc1c72": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] VERDICT: 1"
+    },
+    "071-03b230b92593": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "068-54f5f481feb1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "072-c6399b46fd3c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "070-0528f540243a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "074-27ef8756352a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "077-a1dc061cb971": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "075-dc792a0fa32f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "076-769191cea270": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "078-e16678e8c43e": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "073-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] VERDICT: 0"
+    },
+    "081-6b8e879881c0": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "080-252fc8554126": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "082-933179cfbd8d": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "084-8cad8cae382d": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "079-72b0c0014ede": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "083-b73a239fdad1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "085-dc5e30ffc725": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "086-e5db53c29991": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "091-23de28edf643": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "088-3a55b5705c39": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "090-e273f2fabe96": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "094-7e3d81abcddf": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "096-89be76878d79": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "092-a5a8d627e455": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "095-91ab842a22b2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "097-aa341e34fc51": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "099-59e337ae1fbb": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "089-93088535fb95": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "101-7011a3ca2fe8": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "098-43bbd8019fea": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "103-5593276388b1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "100-364b09fd59b8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "102-a6862e302014": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "105-7a7794e34798": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "104-9f0fb174fad0": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "107-de407cd051d7": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "106-00e6e023a028": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "108-13c9a4c03793": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "110-e240abd96f2e": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "111-bb45c75cb2de": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "113-ccbf973529c4": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "114-af259c3de825": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "109-33e9e888adb4": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "117-b056cbb2e661": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "118-d69039766c83": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "120-3ea26fdedd38": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "121-62bf36bb4ce7": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "119-6ec2674e0d3a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "115-03d92b3118e2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "124-d60e28a0fa62": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: 0"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "112-7d8dcb80a290": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] VERDICT: NO\n[0..3] VERDICT: 1"
+    },
+    "125-a445e2da8734": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] VERDICT: 1"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    }
+  }
+}

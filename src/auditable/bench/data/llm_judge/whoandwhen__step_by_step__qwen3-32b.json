@@ -1,0 +1,896 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "step_by_step",
+    "model": "qwen3-32b",
+    "n_runs": 126,
+    "prompt_sha": "e4e35c9bd9e3",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "001-5697e89b281b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The step provided (step 0) is a setup and planning phase where the Validation_Expert is given instructions and a plan. T\n[0..1] The task requires finding the population difference between the largest and smallest county seats in Washington state **"
+    },
+    "002-a04041638aa4": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a clear and logical plan for solving the task. The Movie_Expert is correctly\n[0..1] The first step (step 0) outlines the task and provides a clear plan for solving it: identifying Daniel Craig's movies, f\n[0..2] The decisive mistake has occurred in **step 2**. The Movie_Expert provided a list of Daniel Craig movies that are less t"
+    },
+    "003-cfa39baedf59": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. The agent is instructed to determine t\n[0..1] The first step (step 0) outlines the task and provides a clear plan for solving it, including gathering pricing informat\n[0..2] The first two steps of the process appear to be on track. In step 0, the agent correctly identifies the task and outline\n[0..3] The steps up to this point have been accurate and consistent with the task. The agent has correctly gathered pricing inf\n[0..4] The steps up to this point have been executed correctly. The pricing information for both daily tickets and annual passe\n[0..5] The calculations in step 5 indicate that annual passes cost $255.00, while daily tickets cost $232.00, resulting in a ne"
+    },
+    "005-b82f729abea8": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] The provided step (step 0) outlines the initial setup and plan for solving the task. The Eateries_Expert is given a clea\n[0..1] The first step (step 0) outlines the task and the plan for solving it, and the second step (step 1) begins executing the\n[0..2] The steps so far have been executed as follows:\n\n- **Step 0**: The Eateries_Expert is given the task and a plan. The tas\n[0..3] The steps so far have followed a logical sequence: identifying the location of Harkness Memorial State Park, searching f\n[0..4] The decisive mistake occurs in **step 4**, where a Python script fails due to a `TypeError: 'NoneType' object is not ite"
+    },
+    "000-7b14128ce504": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. It includes the correct logic that eve\n[0..1] The task requires determining how many clients will receive the sunset awning design, which is for houses with even-numb\n[0..2] Based on the information provided in steps 0 through 2, the decisive mistake has not yet occurred. The steps so far have\n[0..3] The steps provided show the process of analyzing a spreadsheet to determine how many clients will receive the sunset awn\n[0..4] The steps provided show a logical progression in solving the task. Let's analyze each step to determine if a mistake has\n[0..5] The task involves determining how many clients will receive the sunset awning design, which is assigned to houses with e"
+    },
+    "006-b40c7e455b08": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this stage, no actual code or imple\n[0..1] The issue in step 0 is that the agent (PythonDebugging_Expert) is being asked to debug a code execution failure, but no "
+    },
+    "004-d57d322d4115": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines the task and the plan for solving it. The Filmography_Expert is given a clear task a\n[0..1] The Filmography_Expert has correctly identified the task and begun by compiling a list of Isabelle Adjani's feature film\n[0..2] The first two steps appear to be executed correctly. In step 0, the Filmography_Expert is given a clear task and plan. I\n[0..3] The process so far has followed the plan correctly. Step 0 outlined the task and plan, step 1 compiled and filtered the \n[0..4] The process up to step 4 appears to be logically sound and consistent with the plan outlined in step 0. The Filmography_\n[0..5] The process followed in the steps appears to be logically sound and consistent with the plan provided in step 0. The Fil\n[0..6] The steps taken so far follow the plan correctly: the Filmography_Expert compiled a list of Isabelle Adjani's films and \n[0..7] The process followed the plan correctly up to step 5, where the IMDB ratings for the available films were retrieved and \n[0..8] The process followed in steps 0 through 8 appears to be logically sound and consistent with the plan provided. The Filmo\n[0..9] The multi-agent run followed a logical and systematic approach to solve the task. The Filmography_Expert correctly ident"
+    },
+    "010-12509faada72": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a clear plan for solving the task, including assigning roles to the agents a\n[0..1] The first step (step 0) outlines a clear plan for solving the task: the corporate governance expert will provide general"
+    },
+    "009-537a267c0756": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Based on the information provided in step 0, the task is clearly defined, and the plan for solving it is outlined. The G\n[0..1] The first step (step 0) outlines the task and provides a plan for solving it. The Genomics_Expert is assigned to provide\n[0..2] The task requires identifying the most relevant dog genome files in May 2020. In step 0, the Genomics_Expert outlines th\n[0..3] The decisive mistake has occurred in step 3. The `perform_web_search` function is not defined, which caused the executio"
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a clear task and a reasonable plan for solving it. The agent is instructed t\n[0..1] The Local_Knowledge_Expert has correctly interpreted the task and outlined a plan to identify gyms near Tompkins Square \n[0..2] The task involves identifying gyms near Tompkins Square Park (<200m) that offer fitness classes before 7am. In **step 0*\n[0..3] The decisive mistake has occurred in **step 3**. The error is that the agent (Fitness_Expert) assumes that gyms were suc"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines a task and a plan to verify information about supermarkets near Lincoln Park in Chic\n[0..1] The decisive mistake has already occurred in step 0. The Geography_Expert is tasked with verifying the accuracy of super"
+    },
+    "008-00a173727b41": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a task and a plan to verify the highest sale price of a high-rise apartment \n[0..1] The decisive mistake has not yet occurred within steps 0 to 1. In step 0, the DataAnalysis_Expert is given a task and a \n[0..2] The task is to determine whether the decisive mistake has already occurred in steps 0 through 2 of a multi-agent run. Le"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a clear and logical plan for solving the task. The DataAnalysis_Expert is in\n[0..1] The first step (step 0) outlines a clear plan for solving the task: locate historical weather data, analyze it to count \n[0..2] The decisive mistake has occurred in step 2. The attempt to load the dataset `seattle_weather.csv` failed because the fi"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a clear plan for solving the task, including cross-referencing recommendatio\n[0..1] The first step (step 0) outlines the task and the plan for solving it, which includes cross-referencing recommendations,\n[0..2] The task involves identifying hikes in Yellowstone that meet two criteria: (1) recommended by at least three different p\n[0..3] The steps so far have outlined a plan to gather data on hikes in Yellowstone that meet specific criteria. Step 0 defines\n[0..4] The decisive mistake occurs in **step 4**, where the code execution failed due to a `TypeError: 'NoneType' object is not"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the general task and the plan for solving it. The task is to determine the l\n[0..1] The decisive mistake has occurred in step 1. The error message indicates an `IndentationError` in the Python code, which"
+    },
+    "012-d731749a39ca": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] At this point, only step 0 is visible, which outlines the task and the plan. There is no action or decision made yet tha\n[0..1] So far, the process has followed the outlined plan: Step 0 sets up the task and provides a clear plan involving a music \n[0..2] The first two steps appear to be on track. Step 0 sets up the task and provides a clear plan. Step 1 outlines the proces\n[0..3] The first three steps of the multi-agent run are reviewed to determine if a decisive mistake has already occurred. Here'\n[0..4] The task requires identifying studio albums published by Mercedes Sosa between 2000 and 2009 using the latest 2022 versi\n[0..5] The decisive mistake has occurred in step 4. The DataAnalysis_Expert decided to scrape the main Wikipedia page for Merce"
+    },
+    "017-3f81e1d1cad3": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. The DataAnalysis_Expert is instructed \n[0..1] The steps provided show the initial planning and approach for the task. In step 0, the DataAnalysis_Expert is given the \n[0..2] The decisive mistake has already occurred in **step 2**. The error in the code (`FileNotFoundError`) indicates that the "
+    },
+    "016-2f776a306c77": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan to solve it. The Hiking_Expert is given a clear direct\n[0..1] The task requires identifying hiking trails in Yosemite National Park that meet specific criteria: (1) lead to waterfall\n[0..2] The steps provided so far show a logical progression in addressing the task. In step 0, the Hiking_Expert is given a cle\n[0..3] The task is to identify popular hiking trails to waterfalls in Yosemite National Park that meet three specific criteria:\n[0..4] The decisive mistake has occurred in **step 4**. The error in the code (`AttributeError: 'NoneType' object has no attrib"
+    },
+    "019-2c7247a57061": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines the task and the plan for solving it. At this stage, the DataAnalysis_Expert is simp\n[0..1] The task involves identifying the lowest price a Single Family house was sold in Queen Anne in January 2023. Step 0 outl\n[0..2] The decisive mistake has already occurred in step 1. The decision to use the file `'real_estate_transactions.csv'` witho"
+    },
+    "020-85a096b8759f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The error message \"unknown language json\" suggests that there was an issue with parsing or identifying JSON data during "
+    },
+    "021-9d62146b7652": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task, the plan for solving it, and the expected output format. At this s\n[0..1] The first step (step 0) outlines the task and plan for solving the problem, which is to determine the likelihood of a da\n[0..2] The decisive mistake has already occurred in **step 0**. The task requires determining the likelihood of a maximum tempe"
+    },
+    "022-ae51d1d52d64": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The provided step (step 0) outlines the task and the plan for verifying the list of gyms near the Mothman Museum. It inc\n[0..1] The first step (step 0) involves the Geometry_Expert agent receiving a task and a plan to verify the accuracy of gyms ne\n[0..2] The decisive mistake has not yet occurred within steps 0 to 2. The process is still in the early stages of verification \n[0..3] The decisive mistake occurs in **step 3**, where the code fails due to an **invalid Google Maps API key**. This is a cri"
+    },
+    "024-aa646cf62171": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task, the plan for solving it, and the constraints. At this point, no de\n[0..1] The steps provided are:\n\n- **Step 0**: The Food_Expert is given a task to identify restaurants within 1 block of Washing\n[0..2] The decisive mistake has occurred in step 2. The error message indicates that the code failed to execute due to a missin"
+    },
+    "026-945822c59fe9": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task, the plan, and the constraints for solving the problem. The agent (\n[0..1] VERDICT: 0"
+    },
+    "025-85a096b8759f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The error message \"unknown language json\" suggests that there is an issue with JSON processing or recognition in the sys\n[0..1] The error message \"unknown language json\" indicates that the system or application encountered the keyword \"json\" but di\n[0..2] The decisive mistake has already occurred in **step 0**, where the task is described as encountering an error with the m"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] The information provided in step 0 includes the task description, a plan for solving the task, and constraints. At this \n[0..1] The first step (step 0) outlines the task and the plan for solving it. The task is to count the number of stops between \n[0..2] The first two steps appear to be correctly executed. In step 0, the task is clearly defined, and the plan is logical. In\n[0..3] The process followed in the steps appears to be accurate up to step 3. The Franklin-Foxboro Line stops were listed corre\n[0..4] The task is to determine the number of stops between South Station and Windsor Gardens on the MBTA\u2019s Franklin-Foxboro li"
+    },
+    "018-874e62353ead": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The task involves verifying the costs of a daily ticket and a season pass for California's Great America in 2024. The pr\n[0..1] The first step (step 0) provides the initial task and the results from the ProblemSolving_Expert, who reported the cost \n[0..2] The task involves verifying the costs of a daily ticket and a season pass for California's Great America in 2024. Let's \n[0..3] The task requires verifying the accuracy of the provided costs for a daily ticket and a season pass for California's Gre\n[0..4] The task involves determining the savings from purchasing a season pass instead of daily tickets for four visits to Cali\n[0..5] The task was to verify the costs of a daily ticket and a season pass for California's Great America in 2024 and calculat\n[0..6] The task involves verifying the costs of a daily ticket and a season pass for California's Great America in 2024 and cal"
+    },
+    "027-6479bd8a2bba": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The provided step (step 0) outlines the task, the manager's plan, and the constraints. It does not yet contain any actio\n[0..1] The task involves identifying paintball places in Cologne, Germany that are within a 10-minute walk from a karting track"
+    },
+    "030-0319cbd03980": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a general task and a plan for solving it. It includes a clear task descripti\n[0..1] So far, the agent has correctly outlined the plan to solve the task and has taken the first step by initiating a web sea\n[0..2] The decisive mistake has occurred in step 2. The error message indicates that the `perform_web_search` function returned"
+    },
+    "029-606d391c364b": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines a clear and reasonable plan for solving the task. The agent is instructed to identif\n[0..1] So far, the process has followed the plan correctly. In step 0, the NYC_Local_Expert was given the task and a plan to so\n[0..2] The task requires identifying martial arts classes within a five-minute walk from the New York Stock Exchange (NYSE) tha"
+    },
+    "032-af0933cfcd09": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this point, the agent has only rece\n[0..1] The first step in the plan was to identify the TV show that started in 2015 featuring Ali Khan. However, step 1 skipped "
+    },
+    "034-04dc240da7b8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The provided step 0 outlines the task and the plan for solving it. It includes identifying the correct video, using the \n[0..1] The first step (step 0) outlines the task and the plan, which includes using the YouTube Data API to locate the correct \n[0..2] The decisive mistake has occurred in step 2. The error message indicates that the agent tried to use an API (`get_youtub"
+    },
+    "031-da9aec084a98": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a clear plan for solving the task. The agent is instructed to research the 2\n[0..1] The first step (step 0) outlines the task and provides a plan for solving it. The plan includes researching the exhibiti\n[0..2] The decisive mistake has occurred in step 2. The error in the code (`TypeError: 'NoneType' object is not iterable`) indi"
+    },
+    "035-a3d5b34baf48": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The information provided in step 0 indicates that the estimated population of Greenland in 2020 was determined based on "
+    },
+    "036-88562a8be980": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this stage, the agent is simply bei\n[0..1] VERDICT: 1"
+    },
+    "033-620b58b7aa60": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] The information provided in step 0 is a setup for the task and does not contain any decisions or actions that could be c\n[0..1] The first step (step 0) involves the Boggle_Board_Expert receiving the task and the general instructions. The instructio\n[0..2] The first two steps appear to be functioning correctly. In step 0, the task is clearly defined, and the agent is instruc\n[0..3] So far, the steps taken are:\n\n- **Step 0**: The Boggle_Board_Expert is given the task of finding the longest valid word \n[0..4] The code in step 4 contains a critical mistake that will cause the run to fail. The `dfs` function is designed to yield "
+    },
+    "037-14508845755c": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 indicates that the code execution failed with an exit code of 1, but the specific err\n[0..1] The first step (step 0) involves the Debugging_Problem_Solving_Expert requesting the code that caused the error in order\n[0..2] The first two steps (0 and 1) are both asking for the code that caused the error, which is a reasonable and necessary fi"
+    },
+    "038-3c2adf8c14b1": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines the task and the plan for solving it. It does not yet contain any decisions or actio\n[0..1] The first step (step 0) outlines the task and the plan for solving it, which is to identify the country with the least n\n[0..2] The decisive mistake has not yet occurred within steps 0 to 2. The task is being approached methodically, with the plan \n[0..3] The decisive mistake has occurred in step 3. The code output incorrectly identifies \"CHN\" (China) as the country with th"
+    },
+    "028-3a559ca1aea1": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a clear and logical plan for solving the task. The Research_Expert has been \n[0..1] So far, the Research_Expert has outlined a clear and logical plan to solve the task. In step 0, they have defined the ta\n[0..2] So far, the Research_Expert has correctly identified the first step in the plan: confirming the IPO year of Fubo. In ste\n[0..3] The information provided in step 3 indicates that Fubo's IPO occurred in 2020 (implied by the context of the article's d\n[0..4] The steps up to this point have been executed correctly. Step 0 provided a clear plan for solving the task. Step 1 outli\n[0..5] The steps taken so far follow a logical plan: first confirming the IPO year of Fubo and then planning to gather the join\n[0..6] The steps up to this point have been executed correctly. The IPO year of Fubo was confirmed through a web search, and th\n[0..7] The process up to step 7 has followed the plan correctly: the IPO year was confirmed as 2020, and the next step was to g\n[0..8] The steps up to this point have been generally appropriate and aligned with the plan. The IPO year was correctly identif\n[0..9] The decisive mistake has occurred in step 9. The error message indicates that the function `perform_web_search` is not d"
+    },
+    "040-a181eb120cb2": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The first step (step 0) sets up the task correctly by identifying the song \"Thriller\" as the target and outlining a clea\n[0..2] The task is to identify the last word before the second chorus of Michael Jackson's song \"Thriller.\" Let's analyze the s\n[0..3] The task is to identify the last word before the second chorus of Michael Jackson's song \"Thriller.\" Let's evaluate the "
+    },
+    "042-833c47739be2": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the general plan for solving it. At this stage, no decisions ha\n[0..1] In step 0, the task is clearly defined: identify the subject of the portrait with accession number 29.100.5, then determ\n[0..2] The first two steps of the multi-agent run are as follows:\n\n- **Step 0**: The task is clearly defined, and a plan is out"
+    },
+    "039-2b969539d7db": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a plan for solving the task of determining the number of edits to the Wikipe\n[0..1] In step 0, the agent is given a clear task and a plan involving using the Wikimedia API to determine the number of edits\n[0..2] The first step (step 0) outlines a plan to determine the number of edits to the Wikipedia page on Antidisestablishmentar\n[0..3] The steps taken so far have been focused on obtaining a valid Wikimedia API token, which is the first step in the plan p\n[0..4] The first four steps of the process involve researching how to obtain a Wikimedia API token and providing instructions f\n[0..5] The task involves determining the number of edits made to the Wikipedia page on \"Antidisestablishmentarianism\" from its \n[0..6] The decisive mistake has occurred in step 5. The error message in the code output indicates that the API response does n"
+    },
+    "043-d53734deeead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this stage, no actual code or imple\n[0..1] The decisive mistake has not yet occurred within steps 0 to 1. Step 0 outlines a plan for debugging and resolving the is\n[0..2] The decisive mistake has not yet occurred within steps 0 to 2. At this point, the process is still in the information-ga\n[0..3] The issue appears in **step 0**, where the PythonDebugging_Expert is instructed to analyze and resolve a code execution "
+    },
+    "044-e214187ad13a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a task and a plan for solving it. The plan involves two experts: one to extr\n[0..1] The task requires identifying a label word from a figure in a June 2022 AI regulation paper that also appears in a Physi\n[0..2] The decisive mistake has already occurred in **step 1**. The task requires identifying a paper submitted to arXiv.org in"
+    },
+    "045-c43d472268d8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this point, no decisions or actions\n[0..1] The first step (step 0) outlines the task and provides a plan for solving it, including identifying the starting and fin\n[0..2] The information provided in step 2 indicates that the percentage of women in computer science dropped from 37% in 1995 t\n[0..3] The decisive mistake has already occurred in step 3. The expert correctly identified the starting year (1995) and the fi"
+    },
+    "046-2e76694a8fe5": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 includes the task description and the plan for solving it. The task is to determine t\n[0..1] The first step (step 0) correctly identifies the task and provides a clear plan for solving it, including the specific t\n[0..2] The decisive mistake has already occurred in step 1. The agent attempted to execute a Python script to perform a web sea"
+    },
+    "041-02730601827c": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] The information provided in step 0 indicates that the general task has an error: \"Function seek_experts_help not found.\"\n[0..1] The task involves debugging a Python script to compute the sum of the squares of even numbers in a list. In **step 0**, \n[0..2] Based on the information provided in steps 0 through 2, the task involves debugging a Python script that calculates the \n[0..3] The task involves debugging a Python script that calculates the sum of the squares of even numbers in a list. Let's anal\n[0..4] The task was to debug a Python script that calculates the sum of the squares of even numbers in a list. Let's analyze th\n[0..5] The task was to debug a Python script that calculates the sum of the squares of even numbers in a list. Let's analyze th"
+    },
+    "049-324f53bff996": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this stage, no actions have been ta\n[0..1] The first step (step 0) outlines the task and plan for solving the problem, which includes extracting red and green numb\n[0..2] The first step (step 0) outlines the task and plan correctly. The task is to calculate the average of the standard popul"
+    },
+    "047-5d32c1eba366": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The provided step (step 0) outlines the task and the plan for solving it. At this stage, no action has been taken yet, a\n[0..1] The task requires identifying the latest chronological year date written in an image on a webpage found by following the\n[0..2] The task requires identifying the **latest chronological year date written in an image** on a webpage found by following"
+    },
+    "050-6784fd6fd246": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The provided step 0 outlines the task and the general instructions for the agent. It includes the context of the problem\n[0..1] The task involves an audio file (\"Strawberry pie.mp3\") that needs to be processed to extract a list of ingredients for a"
+    },
+    "048-e5f2767e1b04": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task, the plan, and the output format. There is no action taken yet, onl\n[0..1] The first step (step 0) outlines a clear plan for solving the task: using a Wikipedia historian to track changes, a data\n[0..2] The task is to determine when a picture of St. Thomas Aquinas was first added to the Wikipedia page on the Principle of \n[0..3] The task is to determine when a picture of St. Thomas Aquinas was first added to the Wikipedia page on the Principle of "
+    },
+    "052-25639162f57c": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this stage, no decisions have been \n[0..1] The decision in step 1 is to perform a web search using the query \"first sighting of American Alligator west of Texas US\n[0..2] The decisive mistake has occurred in step 1. The agent attempted to use a function called `perform_web_search`, which is"
+    },
+    "051-8f84910e124b": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. The task is to identify a contributor \n[0..1] The first step (step 0) sets up the task and provides a plan for solving it. The plan is generally reasonable: identify \n[0..2] The decisive mistake has already occurred in **step 1**. The agent (Chinese_Political_History_Expert) correctly outlined"
+    },
+    "053-908be3172c8e": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task, the plan, and the output format. It does not yet involve any actio\n[0..1] The task involves retrieving a specific piece of information from a book referenced by a DOI. In **step 0**, the DOI_Exp\n[0..2] The first two steps do not contain any errors that would cause the run to fail. The DOI is correctly used to search for \n[0..3] The process has followed the correct plan so far: the DOI was used to locate the book, and the next steps involve access\n[0..4] The decisive mistake has not yet occurred within steps 0 to 4. The process is still in the early stages of attempting to\n[0..5] The decisive mistake occurred in **step 4**, where the agent attempted to extract text from a PDF file (`responsibility_"
+    },
+    "056-0e66261209b3": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The provided step (step 0) outlines the task and plan for processing an image to extract fractions and solve them. The s\n[0..1] In step 0, the ImageProcessing_Expert is given a clear task: to extract all fractions using `/` as the fraction line fro"
+    },
+    "054-c81ed3b0a45a": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task, the plan for solving it, and the constraints. At this point, no ac\n[0..1] The first step (step 0) outlines the task and plan for determining the total number of wheels on listed steam locomotive\n[0..2] The process so far has followed these steps:\n\n- **Step 0**: The task is clearly defined: to calculate the total number o\n[0..3] The steps provided so far indicate a logical progression in solving the task. In step 0, the agent is given a clear task\n[0..4] The steps so far have been:\n\n- **Step 0**: The task is clearly defined: to calculate the total number of wheels on the l"
+    },
+    "055-238f0c23d791": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a clear plan for solving the task, including identifying leap days before 20\n[0..1] The first step (step 0) outlines a clear plan for solving the task: identifying leap days before 2008, checking the Wiki\n[0..2] The first step (step 0) outlines a clear plan to solve the task: identify leap days before 2008, check the Wikipedia edi\n[0..3] The steps provided show the initial actions of the agent in addressing the task. Let's analyze each step to determine if\n[0..4] The task requires identifying a joke removed from the Wikipedia page for \"Dragon\" on a leap day before 2008. The plan in"
+    },
+    "057-3196a02a724f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 is a setup and initial decision point for solving the Rubik's cube problem. It includ\n[0..1] The information in step 1 is a reasonable and accurate interpretation of the problem setup. The agent correctly identifi\n[0..2] The first two steps of the multi-agent run involve analyzing and verifying the Rubik's cube problem. The task is to dete"
+    },
+    "058-f0ccb40243d8": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a clear and logical plan for solving the task. The expert is instructed to i\n[0..1] So far, the Polish_TV_Series_Expert has been given the task and has passed it along to the PolishLanguage_Expert, who ha\n[0..2] The first two steps appear to be executed correctly. In step 0, the task is clearly defined, and a plan is outlined. In \n[0..3] The steps so far have proceeded logically and accurately:\n\n- **Step 0** sets up the task clearly and defines the plan.\n-\n[0..4] The steps followed appear to be logically consistent and factually accurate. The process correctly identifies the actor \n[0..5] The task was to identify the first name of the character played by the actor who portrayed Ray in the Polish-language ve"
+    },
+    "060-6df45b66a14f": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task, the plan, and the roles of the agents involved. At this stage, no \n[0..1] VERDICT: NO\n[0..2] Let's analyze the steps to determine if the decisive mistake has already occurred within steps 0 to 2.\n\n### Step 0:\n- Th"
+    },
+    "061-d5e74f5edef1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this point, no actions have been ta\n[0..1] The task is to find the smallest $ n $ such that Newton's Method converges to four decimal places when starting from $ x\n[0..2] The error in step 2 is due to a `NameError` where the variable `x` is not defined before being used in the `sp.Lambda` f"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a clear plan for solving the task: identifying the fish from *Finding Nemo*,\n[0..1] The first step (step 0) outlines the task and provides a general plan for solving it. The agent correctly identifies the\n[0..2] The first two steps appear to be on track. Step 0 defines the task and provides a plan, and Step 1 correctly identifies \n[0..3] The first three steps do not contain a decisive mistake that would cause the run to fail. The agents have correctly iden\n[0..4] The process up to step 4 has followed a logical sequence: identifying the correct species (Amphiprion ocellaris), consul\n[0..5] The task involves identifying the species of fish popularized by the movie *Finding Nemo* (Amphiprion ocellaris), and de\n[0..6] The process followed in the steps appears to be methodical and accurate. The experts correctly identified the species (A\n[0..7] The task involves identifying the zip codes of nonnative occurrences of the Ocellaris clownfish (Amphiprion ocellaris) i\n[0..8] The task was to identify the zip codes of locations where the Ocellaris clownfish (Amphiprion ocellaris), popularized in\n[0..9] The process followed in steps 0 through 9 appears to be methodical and accurate. The experts correctly identified the sp"
+    },
+    "062-1d3b288462be": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] The information provided in step 0 is a setup for the task and does not contain any decisions or actions that could be c\n[0..1] The translation process in step 1 appears to follow the rules and information provided in step 0 correctly. The structur\n[0..2] The translation process in step 1 follows the correct structure and rules of the Tizin language as described in the gene\n[0..3] The task is to translate \"I like apples\" into Tizin, where the sentence structure is Verb - Direct Object - Subject. The\n[0..4] The translation process followed the rules of the Tizin language as described in the task. The structure Verb-Object-Sub\n[0..5] The translation process was followed correctly according to the rules provided in the general task. The structure Verb -"
+    },
+    "063-945c18bc1c72": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this stage, there is no action take\n[0..1] The task requires calculating the difference between the number of men and women who completed tertiary education in Bul\n[0..2] The task requires returning the difference in thousands of women. In step 1, the Verification_Expert correctly identifie\n[0..3] The process followed in the steps appears to be correct up to step 3. The data retrieved in step 1 is plausible, and the\n[0..4] The task required returning the difference in thousands of women. The data from the 2011 Bulgarian census was correctly \n[0..5] The task required calculating the difference between the number of men and women who completed tertiary education in Bul"
+    },
+    "066-4835ec93a6d1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The decisive mistake has not yet occurred within steps 0 to 0, as only the initial step (step 0) is shown, and it outlin\n[0..1] The decisive mistake has already occurred in step 0 or step 1. The problem is that the agents are assuming that a p-valu"
+    },
+    "067-d7caaed0d413": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The provided step (step 0) outlines the setup of a task where the agent is to act as Van Helsing and investigate a vampi\n[0..1] The decisive mistake has occurred in step 1. The Behavioral_Expert misinterpreted the residents' statements. The residen"
+    },
+    "065-a16ae072deff": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines the initial task and plan for solving the problem. It includes a clear description o\n[0..1] The first step (step 0) sets up the task and provides a clear plan for solving it. The Web_Design_Expert is instructed t\n[0..2] The decisive mistake has occurred in **step 1**. The WebDevelopment_Expert agent attempted to perform a web search to fi"
+    },
+    "064-67329dda61f8": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0..0] Based on the information provided in step 0, no actionable decision has been made yet. The step outlines the task and th\n[0..1] The information provided in step 0 outlines a clear plan for solving the task: analyzing passenger data to find the trai\n[0..2] The steps so far have outlined a plan where the DataAnalysis_Expert is to identify the train with the most passengers, a\n[0..3] The steps so far have been:\n\n- **Step 0**: The DataAnalysis_Expert is assigned the task of identifying the train with th\n[0..4] The steps up to this point appear to be functioning correctly. The plan is to identify the train with the most passenger\n[0..5] The steps so far have followed a logical sequence: identifying the train with the most passengers (Train ID 5) and then \n[0..6] The steps up to step 6 appear to be logically consistent and correct. The DataAnalysis_Expert identified the train with \n[0..7] The process followed the plan correctly: the DataAnalysis_Expert identified the train with the most passengers (Train ID\n[0..8] The task was to determine the scheduled arrival time in Pompano Beach for the Tri-Rail train that carried the most passe"
+    },
+    "069-5486f0bb8912": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. The Geometry_Expert is instructed to c\n[0..1] In step 0, the Geometry_Expert is correctly instructed to analyze the task, verify the polygon type and side lengths fro"
+    },
+    "070-0528f540243a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the general task and the task description, including the context of the Secr\n[0..1] The first step (step 0) sets up the task correctly by identifying the problem: determining who did not give a gift in a \n[0..2] The decisive mistake has occurred in step 2. The Validation_Expert incorrectly assumes that OCR is needed to extract tex"
+    },
+    "071-03b230b92593": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Based on the information provided in step 0, the agent is correctly interpreting the task and outlining a logical plan t\n[0..1] The decisive mistake has not yet occurred within steps 0 to 1. Both steps are logically sound: step 0 outlines the task \n[0..2] The decisive mistake has already occurred in step 2. The output indicates that the number of revisions before the releas"
+    },
+    "074-27ef8756352a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The provided step (step 0) outlines the task and includes a Python code snippet that is truncated. At this point, no act\n[0..1] The first step (step 0) involves the expert (ISBNCheckDigit_Expert) being given a task to compute the ISBN-10 check digi"
+    },
+    "072-c6399b46fd3c": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the general plan for solving it. The task is to find the vendor\n[0..1] The first step (step 0) outlines a clear plan for solving the task: reading the Excel file, calculating the revenue-to-r\n[0..2] The task is to find the vendor with the least money relative to the rent it pays, which requires calculating a ratio of \n[0..3] The steps provided so far (0 through 3) do not contain a decisive mistake. The DataAnalysis_Expert is correctly instruct\n[0..4] The decisive mistake has occurred in step 4. The error indicates that the code attempted to extract columns named 'vendo"
+    },
+    "073-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The information provided in step 0 indicates that there is a \"General Task Error: Function seek_experts_help not found.\"\n[0..1] The task involves debugging a Python script that is supposed to compute the sum of the squares of even numbers in a list\n[0..2] The provided steps indicate a sequence of actions taken during the debugging and testing of a Python script. Let's analy"
+    },
+    "068-54f5f481feb1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving the problem of converting Mesopotamian/Bab\n[0..1] The Mesopotamian/Babylonian number system is a base-60 (sexagesimal) system, where symbols are grouped into digits, and \n[0..2] The Mesopotamian/Babylonian number system is a base-60 (sexagesimal) system, where each position represents increasing p"
+    },
+    "077-a1dc061cb971": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this stage, no action has been take\n[0..1] The first step (step 0) outlines the task and the plan for solving it, which includes revisiting the article, finding th\n[0..2] The task requires identifying a paper linked at the bottom of a specific article by Carolyn Collins Petersen published o"
+    },
+    "078-e16678e8c43e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. The agent is instructed to verify the \n[0..1] The decisive mistake has not yet occurred within steps 0 to 1. In step 0, the AlgorithmDesign_Expert is correctly instru\n[0..2] The decisive mistake has not yet occurred within steps 0 to 2. The agents are following a logical sequence: the Algorith\n[0..3] The decisive mistake has occurred in **step 1**. The RecyclingRate_Expert assumes that a Wikipedia URL has already been "
+    },
+    "075-dc792a0fa32f": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this stage, the agent is simply ack\n[0..1] The decisive mistake has not yet occurred within steps 0 to 1. In step 0, the Data_Extraction_Expert correctly interpret\n[0..2] The task is to determine how many High Energy Physics - Lattice articles listed in January 2020 on Arxiv had ps versions\n[0..3] The steps provided show a logical progression for solving the task. In step 0, the Data_Extraction_Expert correctly inte\n[0..4] The task is to determine how many High Energy Physics - Lattice articles listed in January 2020 on Arxiv had ps versions"
+    },
+    "079-72b0c0014ede": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task, the plan for solving it, and the constraints. It does not yet invo\n[0..1] The first step (step 0) outlines a clear plan for solving the task: verifying ZIP extraction, listing files, extracting \n[0..2] The first three steps of the multi-agent run are reviewed as follows:\n\n- **Step 0 (TextExtraction_Expert, decision):** T"
+    },
+    "080-252fc8554126": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The step provided is the initial setup and decision-making step for the agent. At this stage, the agent is being given i\n[0..1] The first step (step 0) correctly outlines the task and provides a clear plan for solving it. It specifies the need to i"
+    },
+    "081-6b8e879881c0": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the general task and the plan for solving it. It includes the use of Seleniu\n[0..1] The decisive mistake has already occurred in step 0. The plan assumes the use of Selenium with a Chrome WebDriver, which"
+    },
+    "082-933179cfbd8d": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines the task and the plan for solving it. At this stage, the agent is simply being given\n[0..1] The first step (step 0) sets up the task correctly by identifying the goal: to find a word quoted from two different aut\n[0..2] The task is to find a word quoted from two different authors in distaste for the nature of dragon depictions in Emily Mi"
+    },
+    "083-b73a239fdad1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] At this point, step 0 simply outlines the task and provides a plan for solving it. There is no indication of an error or\n[0..1] The first step (step 0) outlines the task and plan clearly, and step 1 begins the process of gathering data for Survivor\n[0..2] The decisive mistake has occurred in step 1. The code written in step 1 is flawed and will not correctly extract the num"
+    },
+    "076-769191cea270": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this point, there is no indication \n[0..1] Based on the information provided in steps 0 and 1, the Clinical_Trial_Data_Analysis_Expert is following a logical plan \n[0..2] The first two steps appear to be on track. In step 0, the Clinical Trial Data Analysis Expert is assigned the task and g\n[0..3] The steps so far have been:\n\n- **Step 0**: The Clinical_Trial_Data_Analysis_Expert is assigned the task of finding the e\n[0..4] The first four steps do not contain a decisive mistake. The Clinical_Trial_Data_Analysis_Expert is correctly tasked with\n[0..5] The information provided in step 5 appears to be accurate and consistent with the task. The Clinical_Trial_Data_Analysis\n[0..6] The steps provided show a logical and accurate progression of the multi-agent task. The Clinical_Trial_Data_Analysis_Exp\n[0..7] The process followed in the steps appears to be correct and consistent with the task. The Clinical_Trial_Data_Analysis_E\n[0..8] The task was to find the actual enrollment count of a clinical trial on H. pylori in acne vulgaris patients from Jan-May\n[0..9] The task was to find the actual enrollment count of a clinical trial on H. pylori in acne vulgaris patients from Jan-May"
+    },
+    "084-8cad8cae382d": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan to execute the Python script against the given array o\n[0..1] The decisive mistake has not yet occurred within steps 0 to 1. Step 0 outlines the task and plan, and step 1 simply note\n[0..2] The decisive mistake has already occurred in **step 2**. \n\nIn **step 0**, the PythonProgramming_Expert is correctly inst"
+    },
+    "088-3a55b5705c39": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this point, no action has been take\n[0..1] The first step (step 0) sets up the task correctly by defining the goal and plan. The second step (step 1) proposes a re\n[0..2] The decisive mistake has already occurred in step 1. The query used for the web search is incorrect or insufficient, lea"
+    },
+    "089-93088535fb95": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this point, no decisions or actions\n[0..1] VERDICT: 1"
+    },
+    "086-e5db53c29991": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Based on the information provided in step 0, there is no clear mistake that would cause the run to fail. The step outlin\n[0..1] In step 0, the MusicTheory_Expert is given a task involving analyzing a sheet music image to determine a person's age ba\n[0..2] The first three steps do not yet contain a clear mistake that would cause the run to fail. Step 0 sets up the task and p\n[0..3] The steps so far have followed a logical progression: the task was introduced, an initial OCR attempt failed, and a manu\n[0..4] The decisive mistake has already occurred in **step 0**, where the task is ambiguously defined and lacks clarity on how "
+    },
+    "085-dc5e30ffc725": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The information provided in step 0 is the initial setup of the task, where the Literature_Expert is given instructions t\n[0..1] The first step (step 0) involves the Literature_Expert receiving the task and the general instructions for fact-checking\n[0..2] The steps provided show a logical and appropriate progression for fact-checking the citation. Step 0 sets up the task cl\n[0..3] The decisive mistake has not occurred within steps 0 to 3. The process followed the correct procedure: the task was clea\n[0..4] The decisive mistake has occurred in step 3. At this point, the Literature_Expert identified a discrepancy in the citati"
+    },
+    "092-a5a8d627e455": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task, the plan, and the constraints. It does not yet contain any actions\n[0..1] In step 0, the VideoContentAnalysis_Expert is given a clear task: to determine what Teal'c says in response to the quest\n[0..2] The decisive mistake has occurred in step 1, where the agent attempted to use a function `youtube_download` that is not "
+    },
+    "090-e273f2fabe96": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines the task and the plan for solving it. At this point, no actions have been taken yet,\n[0..1] In step 0, the task is clearly defined: to find the maximum length in meters of #9 in the first National Geographic shor\n[0..2] The task involves identifying the first National Geographic short on YouTube, determining what #9 refers to in that vide"
+    },
+    "091-23de28edf643": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines the general task and the plan for solving it. At this stage, the agent is simply ack\n[0..1] The first step (step 0) outlines the general task and the plan for solving it. The task is to identify the two U.S. citi\n[0..2] The decisive mistake has already occurred in step 0. The task asks for the two cities that are farthest apart from the w"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task, the plan for solving it, and the expected output format. It does n\n[0..1] The first step involves searching for the paper titled \"Can Hiccup Supply Enough Fish to Maintain a Dragon\u2019s Diet?\" on t\n[0..2] The decisive mistake has occurred in step 1. The expert incorrectly assumed that the paper titled \"Can Hiccup Supply Eno"
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task, the plan for solving it, and the constraints. At this point, no de\n[0..1] The decisive mistake has not yet occurred within steps 0 to 1. The task is being approached methodically: step 0 outline\n[0..2] The decisive mistake has not yet occurred within steps 0 to 2. The process is still in the early stages of identifying t\n[0..3] The steps so far have focused on identifying the photograph in the Whitney Museum of American Art's collection with acce\n[0..4] The decisive mistake has not yet occurred within steps 0 to 4. The agents are still in the process of identifying the bo\n[0..5] The process up to step 5 has followed a logical sequence: identifying the task, performing web searches, refining querie\n[0..6] The steps taken so far have been methodical and appropriate for the task. The team first attempted to gather information\n[0..7] The steps taken so far have followed a logical and methodical approach to solving the task. The agents have:\n\n- Conducte\n[0..8] The steps taken so far have followed a logical and methodical approach to solving the task. The team has attempted to id\n[0..9] The steps taken so far have been methodical and appropriate for the task. The team has attempted to identify the book an"
+    },
+    "095-91ab842a22b2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this stage, the agents have only be\n[0..1] The mistake has occurred in step 1. The DataExtraction_Expert is using the `scrape_wikipedia_tables` function with the h"
+    },
+    "097-aa341e34fc51": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. The task is to identify the location w\n[0..1] The first step (step 0) outlines the task and the plan for solving it, assigning roles to the Doctor Who Script Expert, "
+    },
+    "099-59e337ae1fbb": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the general plan for solving it. At this stage, the Data Collec\n[0..1] Based on the information provided in steps 0 and 1, the task involves collecting data on the number of Reference Works i"
+    },
+    "096-89be76878d79": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a clear plan and task description for solving the problem. There is no indic\n[0..1] The first step (step 0) sets up the task and plan correctly: using the GitHub API to find Regression-labeled, closed iss\n[0..2] The decisive mistake has not occurred yet. The API_Expert has outlined a valid plan and started drafting the necessary c\n[0..3] The decisive mistake has not yet occurred within steps 0 to 3. The problem may stem from a later step or external factor\n[0..4] The decisive mistake has occurred in step 3. The API_Expert's code in step 2 was designed to fetch closed issues with th"
+    },
+    "101-7011a3ca2fe8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The provided step (step 0) outlines the initial task and plan for downloading a YouTube video and extracting frames. At \n[0..1] The mistake has already occurred in step 1. The error message indicates that the video file could not be opened at the s"
+    },
+    "098-43bbd8019fea": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines the task and the plan for solving it. At this point, no action has been taken, and n\n[0..1] The first step (step 0) outlines the task and the plan for solving it, assigning roles to different experts (Merriam-Web\n[0..2] The first three steps of the multi-agent run are as follows:\n\n- **Step 0**: The task is clearly defined: to identify the\n[0..3] The first three steps do not contain any errors that would cause the run to fail. The task is being followed according t\n[0..4] The steps provided so far show a logical and appropriate progression for solving the task. The Merriam-Webster Word of t\n[0..5] The decisive mistake has occurred in step 4. The code written in step 4 attempts to iterate over the results of a web se"
+    },
+    "094-7e3d81abcddf": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] Based on the information provided in step 0, the task is to analyze and resolve the issue causing the code execution to \n[0..1] The decisive mistake has not yet occurred within steps 0 to 1. Step 0 outlines the task and plan for debugging, and step\n[0..2] The task is to determine if the decisive mistake that caused the run to fail has already occurred within steps 0 through\n[0..3] The task involves debugging a code execution that failed with exit code 1 and output \"unknown language unknown.\" Let's a\n[0..4] The steps provided indicate a sequence of actions taken to debug and resolve a code execution failure. Let's analyze eac\n[0..5] The task was to resolve a code execution failure with exit code 1 and output \"unknown language unknown.\" The steps show "
+    },
+    "104-9f0fb174fad0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 includes the task description, movement rules, and the goal of determining the 6-digi\n[0..1] The decisive mistake has occurred in step 1. The error is an `IndentationError` in the Python code, which indicates that"
+    },
+    "100-364b09fd59b8": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines the task and the plan for solving it. It does not yet attempt to solve the task or m\n[0..1] The mistake has not yet occurred. In step 0, the Baseball_Expert is given a clear task and a plan to follow. The instruc\n[0..2] The steps so far have been:\n\n- **Step 0**: The Baseball_Expert is given a task to identify the pitchers with the numbers\n[0..3] VERDICT: NO\n[0..4] The decisive mistake has not yet occurred within steps 0 to 4. The agents are correctly following the plan to first iden\n[0..5] The decisive mistake has not yet occurred within steps 0 to 5. The team is following a logical plan to verify Taish\u014d Tam\n[0..6] The decisive mistake has occurred in **step 5**. At this point, the Validation_Expert proposed a Python script to scrape"
+    },
+    "102-a6862e302014": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. There is no indication of an error or \n[0..1] The first step (step 0) outlines the task and provides a clear plan for solving it, including accessing the book via its\n[0..2] The decisive mistake has already occurred in step 1. The Literature_Expert decided to perform a web search using a query"
+    },
+    "103-5593276388b1": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. The task is to use the Wayback Machine\n[0..1] The first step (step 0) outlines the task and provides a general plan for solving it. The agent is instructed to use the\n[0..2] The steps provided up to this point (steps 0 through 2) outline a logical and appropriate plan for solving the task. The\n[0..3] The decisive mistake has not yet occurred in steps 0 through 3. The plan is logically sound and follows the correct appr\n[0..4] The decisive mistake has occurred in **step 3**. The error in step 4 is a result of incorrect or incomplete URLs being u"
+    },
+    "108-13c9a4c03793": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The provided step 0 outlines a plan for solving the task of determining the number of nonindigenous crocodiles found in \n[0..1] The first step (step 0) outlines a general plan for solving the task, including confirming the dataset name and URL, dow"
+    },
+    "105-7a7794e34798": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] Based on the information provided in step 0, the PythonDebugging_Expert has been assigned a task to debug a code that re\n[0..1] The information provided in step 0 outlines the task and the plan for debugging a code failure with exit code 1 and an o\n[0..2] The steps provided so far suggest a debugging process for a Python script that failed with exit code 1 and output \"Nowak"
+    },
+    "109-33e9e888adb4": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines the task and the plan for solving it. The agent is instructed to analyze a chess pos\n[0..1] In step 0, the Chess_Expert is given a task to analyze a chess position from an image and determine the winning move for"
+    },
+    "110-e240abd96f2e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines the initial decision and plan for solving the task. It includes a clear understandin\n[0..1] The first step (step 0) outlines a clear and logical plan for solving the task: navigating to the Ben & Jerry's flavor g\n[0..2] The task requires identifying the **oldest flavor's headstone** in the Ben & Jerry's flavor graveyard and then finding t\n[0..3] The decisive mistake has already occurred in step 3. The agent incorrectly identified the headstone in the background of"
+    },
+    "107-de407cd051d7": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this stage, no calculations have be\n[0..1] The information provided in steps 0 and 1 appears to be accurate and consistent with the task requirements. The Celestia\n[0..2] The steps provided show a logical progression in solving the problem. In step 0, the task is clearly defined, and the pl\n[0..3] The steps so far appear to be logically consistent and follow the plan provided. Step 0 outlines the task and the plan. \n[0..4] The steps provided show a logical and accurate progression in solving the problem. The minimum perigee distance is corre\n[0..5] The task involves calculating how long it would take Eliud Kipchoge to run the distance between the Earth and the Moon a\n[0..6] The task was to calculate how many thousand hours it would take Eliud Kipchoge to run the distance between the Earth and"
+    },
+    "106-00e6e023a028": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. The Fashion_Vogue_Expert is given a cl\n[0..1] The Fashion_Vogue_Expert has correctly initiated the task by attempting to identify the landmark on the August 2021 Vogu\n[0..2] The first two steps appear to be on track. In step 0, the Fashion_Vogue_Expert is assigned the task of identifying the l\n[0..3] The first three steps of the multi-agent run are as follows:\n\n- **Step 0**: The Fashion_Vogue_Expert is given the task t\n[0..4] The decisive mistake has not yet occurred within steps 0 to 4. The team has correctly followed the plan by identifying t\n[0..5] The Fashion_Vogue_Expert and DataVerification_Expert correctly identified the landmark as the Eiffel Tower on the August\n[0..6] The process up to step 6 appears to be logically sound and accurate. The Fashion_Vogue_Expert identified the landmark as\n[0..7] The process followed the correct steps: identifying the landmark (Eiffel Tower) on the August 2021 Vogue cover, converti\n[0..8] The process followed the correct steps: identifying the landmark (Eiffel Tower) on the August 2021 Vogue cover, converti"
+    },
+    "111-bb45c75cb2de": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. It includes the general task, the spec\n[0..1] The first step (step 0) outlines a logical plan for solving the task, including searching for articles under DDC 633 on \n[0..2] The decisive mistake has occurred in **step 0**. The plan outlined in step 0 assumes direct access to the Bielefeld Univ"
+    },
+    "113-ccbf973529c4": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this point, no action has been take\n[0..1] The decisive mistake has occurred in step 1. The error is an `IndentationError` in the Python code, which indicates a sy"
+    },
+    "114-af259c3de825": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. It does not yet contain any decisions,\n[0..1] Based on the information provided in steps 0 and 1, no decisive mistake has occurred yet. Step 0 outlines the task and t\n[0..2] Based on the information provided in the steps, the Baseball_Historian_Expert in step 0 was tasked with identifying the "
+    },
+    "115-03d92b3118e2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The provided step (step 0) outlines the setup of a problem involving a game show and a strategy for Bob to maximize his \n[0..1] The problem involves determining the optimal strategy for Bob to maximize his winnings in a game where he guesses the nu"
+    },
+    "112-7d8dcb80a290": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The MusicHistorian_Expert has correctly outlined the plan for solving the task. The plan includes listing all relevant a\n[0..1] The decisive mistake has not occurred in steps 0 to 1. The task is to identify albums released by Fiona Apple and Paula \n[0..2] The task is to identify albums by Fiona Apple and Paula Cole released before 1999 that did not receive a letter grade fr"
+    },
+    "117-b056cbb2e661": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The provided step (step 0) outlines the initial decision and plan for solving the task. It includes a clear plan to load\n[0..1] The error in step 1 indicates that there was an `IndentationError` in the Python script that was being executed. This is"
+    },
+    "118-d69039766c83": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving the issue, but it does not include any spe\n[0..1] The task involves debugging a code execution failure with exit code 1 and output \"unknown language unknown.\" In step 0, "
+    },
+    "120-3ea26fdedd38": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this stage, the agent has only been\n[0..1] The first step (step 0) outlines a task and a plan for identifying a bird species in a specific BBC Earth YouTube video."
+    },
+    "121-62bf36bb4ce7": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task, the plan for solving it, and the expected output format. At this p\n[0..1] The task involves identifying the authors of a specific 2015 paper, determining which of them had authored papers prior "
+    },
+    "122-4bbeaacae4cd": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The step provided (step 0) outlines the task and the plan for solving it. It does not yet contain any decisions or actio\n[0..1] The first step (step 0) outlines the task and provides a plan for solving it, including retrieving data from Wikipedia a\n[0..2] The decisive mistake has occurred in step 1, where the `scrape_wikipedia_tables` function is used without being defined "
+    },
+    "119-6ec2674e0d3a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. At this point, no decisions have been \n[0..1] In step 0, the task is clearly defined: to determine the color(s) of the object that James Bond and Pussy Galore conceal\n[0..2] The first two steps appear to be on track. In step 0, the JamesBondFilms_Expert is correctly instructed to gather inform\n[0..3] The steps provided so far (0 through 3) show a logical progression of the task. In step 0, the task is clearly defined, \n[0..4] The question asks for the color of the object that James Bond concealed himself and his companion with at the end of the"
+    },
+    "124-d60e28a0fa62": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The information provided in step 0 is a setup for a riddle or game scenario and does not include any decisions, actions,\n[0..1] The first step (step 0) provides context and a description of the game mechanics, while the second step (step 1) outline\n[0..2] The steps provided outline a problem involving a game with ping-pong balls and pistons, followed by a simulation approac"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines the task and the plan for solving it. It does not yet contain any actions ta\n[0..1] The first step (step 0) outlines a general task and a plan involving three roles: a Wikipedia historian, a Wikipedia edi\n[0..2] The steps so far have been:\n\n- **Step 0**: The WikipediaHistory_Expert is assigned the task of identifying the person wh\n[0..3] The decisive mistake has occurred in step 3. The Python script executed successfully (exitcode: 0), but it returned an e"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a plan for solving the task, but no action has been taken yet. The plan incl\n[0..1] The first step (step 0) sets up the task and provides a general plan for solving it. It correctly identifies the need to\n[0..2] The task involves identifying the absolute difference between chapter numbers quoted in titles of two paintings in the S\n[0..3] The steps so far have been focused on locating Federico Lauria's 2014 dissertation via online searches using specific ke\n[0..4] The task requires identifying the absolute difference between chapter numbers of two paintings in the Smithsonian Americ\n[0..5] The task requires identifying the absolute difference between the chapter numbers of two paintings in the Smithsonian Am\n[0..6] The task requires identifying a mistake in the first step that caused the run to fail. So far, the agents have:\n\n- Gener\n[0..7] The task requires identifying the absolute difference between chapter numbers of two paintings in the Smithsonian Americ\n[0..8] The task requires identifying the absolute difference between chapter numbers of two paintings in the Smithsonian Americ\n[0..9] The task requires identifying the absolute difference between the chapter numbers of two paintings in the Smithsonian Am"
+    },
+    "125-a445e2da8734": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0..0] The information provided in step 0 outlines a clear and logical plan for solving the task. The expert is instructed to g\n[0..1] In step 0, the Ticket_Pricing_Expert is correctly instructed to gather pricing information and follow the manager's plan\n[0..2] The decisive mistake has not yet occurred within steps 0 to 2. The process is still in the phase of gathering and verify\n[0..3] The steps provided show a logical progression in solving the task of calculating savings from annual passes versus daily\n[0..4] The multi-agent run appears to have followed a logical and consistent process. The Ticket_Pricing_Expert (step 0) outlin\n[0..5] The run was successful, with accurate calculations and verification. The savings of $120 were correctly determined based\n[0..6] The process followed the correct steps to calculate the savings by comparing the cost of annual passes to daily tickets."
+    }
+  }
+}

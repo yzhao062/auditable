@@ -1,0 +1,896 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "binary_search",
+    "model": "gpt-5.4",
+    "n_runs": 126,
+    "prompt_sha": "292b9b0a0d4c",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "000-7b14128ce504": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: The first causal mistake is in the first half.\n\nStep 1 already reveals a problem: the sheet has only 4 rows total, and s\n[0-2 mid1] SECOND :: The first decisive error is in **step 2**.\n\nReason: step 1 only reports the columns and a count output of 4 from some ea"
+    },
+    "003-cfa39baedf59": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake is in the first half: steps 2\u20133 introduced unsupported pricing figures, and everything after that j\n[0-3 mid1] SECOND :: The first decisive error is in steps 2\u20133, where the agent introduces specific ticket and annual pass prices without veri\n[2-3 mid2] FIRST :: The first decisive mistake is in step 2, where the daily ticket prices were introduced. Since step 2 is in the first hal"
+    },
+    "001-5697e89b281b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the first half.\n\nReason: the task required identifying the **largest and smallest county seat\n[0-4 mid2] FIRST :: The decisive error is in the first half.\n\nBy step 0, the agent accepted the manager\u2019s flawed plan to compare **Seattle a\n[0-2 mid1] FIRST :: The first decisive mistake is in **step 0**: it accepts the manager\u2019s plan to compare **Seattle and Colville** as the la\n[0-1 mid0] FIRST :: The first decisive error is in step 0: it misidentified the \u201clargest county seat and smallest county seat, by land area "
+    },
+    "002-a04041638aa4": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the **first half**.\n\nWhy: by step 2, the Movie_Expert provides an incomplete/incorrect ca\n[0-4 mid2] FIRST :: The first decisive error is in **steps 0\u20132**.\n\nWhy: in **step 2**, the Movie_Expert provides an incomplete/incorrect can\n[0-2 mid1] SECOND :: The decisive first error is in **step 2**, so it falls in the **second half**.\n\nWhy:\n- Step 1 is just a handoff/request "
+    },
+    "005-b82f729abea8": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the first half.\n\nWhy: step 4 is the first error that actually derails the run. Up to step 3, \n[0-4 mid2] SECOND :: The decisive first error is in the second half.\n\nSteps 0\u20132 are just setting up the task, locating the park, and doing an\n[3-4 mid3] SECOND :: The decisive mistake is in step 4, not step 3.\n\nStep 3 is just a reasonable plan to extract nearby eateries and verify W"
+    },
+    "004-d57d322d4115": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the first half.\n\nReason: the failure stems from the early filtering/list-building work. In st\n[0-4 mid2] FIRST :: The decisive first error is in the **first half**.\n\nWhy: step 1\u2019s filtering is wrong. It excludes valid Isabelle Adjani \n[0-2 mid1] FIRST :: The decisive mistake is in **step 1**, where the film list/filtering was incomplete and incorrect. It omitted eligible I\n[0-1 mid0] SECOND :: The first decisive error is in step 1, not step 0.\n\nStep 0 is just restating the task and plan.  \nStep 1 makes the harmf"
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy: by step 3, the agent claims it \u201cused Google Maps and Yelp\u201d to i\n[0-3 mid1] SECOND :: The first decisive error is in **steps 2\u20133**.\n\nWhy:\n- Steps 0\u20131 are mostly planning and an attempted data-gathering appr\n[2-3 mid2] SECOND :: The decisive first error is in step 3, not step 2.\n\nStep 2 merely shows an empty successful execution. The failure begin"
+    },
+    "008-00a173727b41": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake is in the FIRST half.\n\nWhy: step 1 asserts specific prices from Zillow/Redfin/Trulia/Realtor.com wi\n[0-2 mid1] FIRST :: The first decisive error is in step 1, where the agent presents unsupported \u201ccollected data\u201d from Zillow/Redfin/Trulia/R\n[0-1 mid0] SECOND :: The first decisive error is in step 1, not step 0.\n\nStep 0 mainly restates the task and a plan, including an unverified "
+    },
+    "006-b40c7e455b08": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first mistake is in the **FIRST half**.\n\nWhy: the run goes off track immediately by **step 2**. Instead of \n[0-4 mid2] FIRST :: The decisive mistake is in the **FIRST half**.\n\nWhy: the earliest causal error is **step 2**. After step 1 explicitly sa\n[0-2 mid1] FIRST :: The first decisive mistake is in **step 0\u20131**.\n\nWhy:\n- **Step 0** framed the task as if code had been provided and instr\n[0-1 mid0] FIRST :: The first decisive mistake is in step 0: the agent proceeded as if it had code to review/debug, even though no actual co"
+    },
+    "009-537a267c0756": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive mistake is in the second half.\n\nReason: steps 0\u20133 include an execution mistake (`perform_web_search` undefi\n[4-7 mid5] SECOND :: The decisive first error is in steps 6\u20137, not 4\u20135.\n\nReason: steps 4\u20135 successfully recovered from the tool error and pro\n[6-7 mid6] FIRST :: The decisive mistake is in step 6, where the verification expert falsely treated weak, mostly irrelevant search results "
+    },
+    "010-12509faada72": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in **step 4**, where the run concludes that all listed members had held C-suite roles and im\n[0-4 mid2] SECOND :: The decisive mistake is in the **second half**.\n\nWhy: by step 2, the team had only listed a subset of Apple directors an\n[3-4 mid3] SECOND :: The decisive first error is in step 4, not step 3.\n\nStep 3 is just an incomplete search on Alex Gorsky, but it doesn\u2019t y"
+    },
+    "012-d731749a39ca": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in the **first half**.\n\nWhy: step 4 chooses a flawed extraction method, calling `scrape_wiki\n[0-4 mid2] SECOND :: The first decisive mistake is in the **SECOND half**.\n\nWhy:\n- Steps 0\u20132 are just planning/search setup. Nothing there cl\n[3-4 mid3] SECOND :: The first decisive mistake is in step 4, not step 3.\n\n- Step 3 only returned search results successfully.\n- Step 4 chose"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the first half.\n\nReason: by step 2, the run computed distances from an unspecified/geocoded p\n[0-4 mid2] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy:\n- By **step 2**, the run computed distances like 41\u201347 blocks f\n[0-2 mid1] SECOND :: The decisive first error is in **step 2**, not steps 0\u20131.\n\nWhy:\n- Steps 0 and 1 are just framing the verification task a"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy: by step 4, the run had already gone off track. The search/scrap\n[0-4 mid2] SECOND :: The first decisive error is in the second half.\n\nSteps 0\u20132 are mostly setup/planning plus a failed check (`False`), but \n[3-4 mid3] FIRST :: The first decisive error is in step 3.\n\nStep 3 introduced an unsupported candidate list of hikes and pivoted to searchin"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the **FIRST half**.\n\nReason: by step 4, the agent pivoted to an API approach using a plac\n[0-4 mid2] SECOND :: The decisive mistake is in the **SECOND half**.\n\nReason: steps 1\u20133 are mostly setup/debugging issues around a missing lo\n[3-4 mid3] SECOND :: The decisive mistake is in **step 4**.\n\nStep 3 only reports a missing local CSV file, which is just an observation. The "
+    },
+    "016-2f776a306c77": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive first error is in the **FIRST half**.\n\nReason: by step 4, they had already taken the wrong path operational\n[0-4 mid2] SECOND :: The first decisive mistake is in the **second half**.\n\nSteps 0\u20132 are just setting up the plan and gathering initial sear\n[3-4 mid3] FIRST :: The decisive first error is in step 3: the agent selected/treated broad listing pages and unverified URLs as if they wer"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the **SECOND half**.\n\nWhy: the early steps 0\u20134 mainly show inability to access a local CSV an\n[5-9 mid7] FIRST :: The decisive mistake is in the **first half**.\n\nWhy: step 5\u2019s proposed script uses a single continuous range from **2020\n[5-7 mid6] FIRST :: The decisive first error is in steps 5\u20136.\n\nStep 5 proposes a Meteostat script, but the shown script logic uses a single \n[5-6 mid5] FIRST :: The decisive first error is in **step 5**.\n\nWhy:\n- Step 5 proposes a script using Meteostat.\n- But it sets the date rang"
+    },
+    "017-3f81e1d1cad3": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is in the FIRST half.\n\nThe key error happens at step 3: after the real dataset/file is missing, the\n[0-3 mid1] SECOND :: The decisive mistake is in the SECOND half.\n\nReason: step 2 is just a file-not-found execution failure, but step 3 is th\n[2-3 mid2] SECOND :: The decisive mistake is in step 3, not step 2.\n\nStep 2 is just a failed file read (`FileNotFoundError`), which is an env"
+    },
+    "018-874e62353ead": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy: by step 1, the Verification_Expert explicitly says they **canno\n[0-3 mid1] FIRST :: The decisive first error is in steps 0\u20131.\n\nStep 1 explicitly admits it cannot access external websites, yet proceeds to \n[0-1 mid0] SECOND :: The first decisive error is in step 1. Step 0 mostly restates the task/plan. In step 1, the verifier admits they cannot "
+    },
+    "020-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is in the **FIRST half**.\n\nReason: by step 1, the agent already misdiagnosed the problem as a runti\n[0-3 mid1] FIRST :: The decisive first mistake is in the **FIRST half**.\n\nWhy: by step 1, the agent had already misdiagnosed the problem as \n[0-1 mid0] SECOND :: The decisive first mistake is in **step 1**.\n\nStep 0 mostly restates the task context, including the key clue: the execu"
+    },
+    "019-2c7247a57061": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake happened in the first half.\n\nThe key causal error was early: they assumed a nonexistent CSV/file pa\n[0-4 mid2] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy: step 2 reveals the initial failure mode \u2014 they tried to read a \n[0-2 mid1] FIRST :: The first decisive mistake is in **steps 0\u20131**.\n\nStep 1 assumed a specific CSV file (`real_estate_transactions.csv`) wit\n[0-1 mid0] SECOND :: The decisive first error is in **step 1**.\n\nStep 0 is just a reasonable restatement of the task and plan.  \nStep 1 intro"
+    },
+    "022-ae51d1d52d64": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive first error is in the **SECOND half**.\n\nReason: steps 0\u20133 mainly set up the task and then hit an API-key fa\n[4-7 mid5] FIRST :: The decisive mistake is in the **FIRST half**.\n\nReason: at **step 4**, after the API failure, the agent switched to **si\n[4-5 mid4] FIRST :: The decisive first error is in step 4. That\u2019s where the agent abandoned verification and introduced fabricated \u201cpredefin"
+    },
+    "021-9d62146b7652": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive mistake is in the **first half**.\n\nReason: the run failed when they chose to proceed with a **mock CS\n[0-4 mid2] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy: by step 1, the agent proposed analyzing a CSV file that was onl\n[0-2 mid1] FIRST :: The first decisive mistake is in **steps 0\u20131**.\n\nWhy: by step 1, the Statistics_Expert proposed analysis assuming a loca\n[0-1 mid0] SECOND :: The first decisive error is in step 1.\n\nStep 0 is just a reasonable high-level restatement of the task and plan.  \nStep "
+    },
+    "023-4ad39d56ae5e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake is in the first half.\n\nStep 1 contains the key error: it lists the Franklin/Foxboro Line stops inco\n[0-2 mid1] FIRST :: The decisive mistake is in step 1, where the stop list is wrong: it mixes Franklin branch and Foxboro branch stops into \n[0-1 mid0] SECOND :: The first decisive error is in step 1.\n\nReason: step 1 lists the Franklin-Foxboro stops incorrectly by combining/stitchi"
+    },
+    "024-aa646cf62171": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive error is in the second half.\n\nReason: the run only becomes unrecoverably wrong when it proceeds from \n[5-9 mid7] SECOND :: The decisive first error is in the **SECOND half**.\n\nWhy: step 7 is imperfect but still a recoverable pivot to manual ve\n[8-9 mid8] FIRST :: The decisive first error is in step 8: it introduces unsupported/manual claims and includes places clearly not within 1 "
+    },
+    "025-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive first error is in the **FIRST half**.\n\nReason: by step 1, the agent already misdiagnosed the problem as an \n[0-3 mid1] FIRST :: The decisive first error is in the **FIRST half**.\n\nReason: by **step 1**, the agent had already misdiagnosed the proble\n[0-1 mid0] SECOND :: The decisive first error is in step 1, not step 0.\n\nStep 0 is just the task framing: identify why execution failed with "
+    },
+    "026-945822c59fe9": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the first half: step 3/4, where the agent attempted to use an undefined `perform_web_sear\n[0-4 mid2] SECOND :: The decisive mistake is in the second half. Steps 0\u20132 are just planning/requesting searches. The first actual error that\n[3-4 mid3] FIRST :: The decisive first error is in **step 3**: the agent wrote code calling `perform_web_search(bar)` without defining or im"
+    },
+    "028-3a559ca1aea1": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive first error is in the SECOND half.\n\nReason: steps 0\u20134 are still on a valid path. The first real mistake hap\n[5-9 mid7] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy:\n- Step 7 is the first clearly wrong move. The agent incorrectly\n[5-7 mid6] SECOND :: The decisive first error is in step 7.\n\nSteps 5\u20136 successfully retrieved relevant sources, including Fubo\u2019s management t"
+    },
+    "027-6479bd8a2bba": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive error is in the **second half**.\n\nWhy: steps 0\u20134 are mostly setup plus an initial failed geocoding at\n[5-9 mid7] FIRST :: The decisive first error is in the **FIRST half**.\n\nReason: step 5 sends the run down an unnecessary and invalid path by\n[5-7 mid6] FIRST :: The decisive first error is in **steps 5\u20136**.\n\nAt **step 5**, the agent responds to a 403 from geopy/Nominatim by switch\n[5-6 mid5] FIRST :: The decisive mistake is in step 5.\n\nWhy:\n- Step 5 introduces the wrong recovery strategy: switching to Google Maps and r"
+    },
+    "029-606d391c364b": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the first half.\n\nWhy: by step 3, they selected and framed **Anderson\u2019s Martial Arts Acade\n[0-4 mid2] FIRST :: The first decisive error is in **step 2**.\n\nWhy:\n- Step 2 is where the agent first picks candidate schools, and it picks\n[0-2 mid1] SECOND :: The first decisive error is in step 2. That\u2019s where the agent introduced likely irrelevant candidates and anchored the s"
+    },
+    "030-0319cbd03980": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive mistake is in the **SECOND half**.\n\nReason: steps 0\u20133 mostly set up the task and had recoverable tooling is\n[4-7 mid5] FIRST :: The decisive mistake is in the **FIRST half**.\n\nStep 5 is the first causally important error: the agent manually asserte\n[4-5 mid4] SECOND :: The decisive mistake is in step 5, not step 4.\n\nStep 4 is just a tool failure: `perform_web_search` wasn\u2019t defined. That"
+    },
+    "031-da9aec084a98": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive error is in the **second half**.\n\nWhy:\n- Steps 0\u20134 are mostly reasonable setup: identify the zodiac s\n[5-9 mid7] FIRST :: The decisive mistake is in the **FIRST half**.\n\nWhy: step 5 is where the run first goes off track in a causally importan\n[5-7 mid6] FIRST :: The first decisive mistake is in **step 5**.\n\nWhy:\n- Step 5 claims the agent reviewed the source and then says it will u\n[5-6 mid5] FIRST :: The first decisive error in steps 5\u20136 is at step 5.\n\nStep 5 says they will use `image_qa` and \u201cmove to the next source,\u201d"
+    },
+    "033-620b58b7aa60": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in **step 4**.\n\nWhy:\n- Up to step 3, they correctly loaded the dictionary and represented th\n[0-4 mid2] SECOND :: The first decisive error is in steps 3\u20134.\n\nWhy:\n- Steps 0\u20132 are fine: they identify the dictionary source and successful\n[3-4 mid3] SECOND :: The first decisive error is in step 4, not step 3.\n\nStep 3 only sets up the board and states the plan. Step 4 introduces"
+    },
+    "032-af0933cfcd09": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake starts in the **second half**.\n\nUp through step 4, they are still just unsuccessfully searching. Th\n[5-9 mid7] FIRST :: The first decisive error is in **step 7**.\n\nWhy:\n- Up to step 5, the agent is still broadly exploring.\n- In **step 7**, \n[5-7 mid6] SECOND :: The first decisive mistake is in **step 7**.\n\nWhy:\n- Steps 5\u20136 are weak and unproductive, but they\u2019re still broadly expl"
+    },
+    "034-04dc240da7b8": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the **first half**.\n\nWhy: by **step 4**, the agent had already fabricated or at least unj\n[0-4 mid2] SECOND :: The first decisive error is in the **second half**.\n\nSteps 0\u20132 are mostly setup plus a failed caption API attempt. That \n[3-4 mid3] SECOND :: The first decisive error is in step 4, not step 3.\n\nStep 3 only changes strategy after the API failure and proposes a ma"
+    },
+    "035-a3d5b34baf48": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the **FIRST half**.\n\nReason: the run\u2019s eventual failure stems from an early conceptual error:\n[0-4 mid2] SECOND :: The first decisive mistake is in **steps 3\u20134**.\n\nWhy: steps 0\u20132 are mostly setup and an initial failed/non-actionable at\n[3-4 mid3] FIRST :: The first decisive error is in step 3.\n\nAt step 3, the agent incorrectly gives up and asks for manual user action instea"
+    },
+    "036-88562a8be980": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive error is in the second half.\n\nUp through steps 0\u20134, the agents are just fumbling around trying to get\n[5-9 mid7] FIRST :: The decisive mistake is in the **first half**.\n\nStep 7 is the first clearly causal error: the Poetry_Expert claims to pr\n[5-7 mid6] SECOND :: The decisive mistake is in step 7. Up through steps 5\u20136, they had only retrieved search results and selected a likely so"
+    },
+    "037-14508845755c": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the first half.\n\nBy step 1, the agent asks the user to provide code instead of using the info\n[0-4 mid2] FIRST :: The first decisive mistake is in the first half.\n\nReason: by step 1, the agent asks the user to provide code, even thoug\n[0-2 mid1] FIRST :: The first decisive mistake is in step 1, where the agent asks for code instead of using the available task context. That\n[0-1 mid0] SECOND :: The decisive first error is in step 1: the agent asked the user for code instead of using the provided context/trace to "
+    },
+    "038-3c2adf8c14b1": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is in the first half.\n\nReason: the failure was caused when the run introduced and relied on an unsu\n[0-3 mid1] SECOND :: The first decisive error is in **steps 2\u20133**.\n\n- **Step 0** is just restating the task/plan.\n- **Step 1** is a failed/em\n[2-3 mid2] SECOND :: The decisive mistake is in **step 3**.\n\nStep 2 is just a generic plan and does not yet introduce the wrong factual resul"
+    },
+    "040-a181eb120cb2": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake appears in the first half.\n\nWhy: by step 2, the agent had already made the key erroneous determinat\n[0-2 mid1] SECOND :: The first decisive error is in step 2. Step 0 is just setup, and step 1\u2019s album/single identification is acceptable enou"
+    },
+    "039-2b969539d7db": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy: the task was to count Wikipedia page edits up to June 2023, but\n[0-4 mid2] SECOND :: The decisive first error is in **steps 3\u20134**.\n\nWhy:\n- Steps 0\u20132 are inefficient/misdirected, but they only gather info a\n[3-4 mid3] FIRST :: The decisive first error is in step 3.\n\nStep 3 incorrectly treated \u201cobtain a valid Wikimedia API token\u201d as necessary and"
+    },
+    "041-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The failure-inducing mistake is in the first half.\n\nBy step 2, the agents had already gone off track: instead of actuall\n[0-2 mid1] FIRST :: The first decisive error is in **step 0**, where the agent reports **\u201cFunction seek_experts_help not found\u201d** instead of\n[0-1 mid0] FIRST :: The first decisive error is in step 0: the agent ignored the explicit general-task failure (`Error: Function seek_expert"
+    },
+    "042-833c47739be2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy:  \n- **Step 1** is the first genuinely wrong move: instead of ac\n[0-4 mid2] FIRST :: The first decisive mistake is in the **FIRST half**.\n\nReason: step 1 is the first causal error. Instead of acting on the\n[0-2 mid1] FIRST :: The first decisive mistake is in **step 1**.\n\nReason: step 1 should have actively looked up the accession number using a\n[0-1 mid0] SECOND :: The first decisive error is in step 1, not step 0.\n\nStep 0 is just restating the task/plan.  \nStep 1 is where the agent "
+    },
+    "045-c43d472268d8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive first error is in the **first half**.\n\nWhy: by **step 3**, the agent makes the unsupported assumption that \n[0-4 mid2] SECOND :: The first decisive error is in step 3.\n\nUp through steps 0\u20132, the agents correctly identified the relevant claim from Gi\n[3-4 mid3] FIRST :: The first decisive error is in step 3: it assumes \u201ctoday\u201d means 2022 and computes 27 years without sufficient verificati"
+    },
+    "044-e214187ad13a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy: step 1\u2019s search approach was already faulty/mis-specified, lead\n[0-4 mid2] FIRST :: The first decisive mistake is in **steps 0\u20132**.\n\nReason: by **step 1**, the agent chose a weak/incorrect search approach\n[0-2 mid1] FIRST :: The first causal mistake is in step 1: it launched a vague arXiv search for `\"AI regulation\"` without properly constrain\n[0-1 mid0] SECOND :: The first decisive mistake is in **step 1**: it launched a vague arXiv search for `\"AI regulation\"` without first identi"
+    },
+    "043-d53734deeead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the first half.\n\nReason: by step 4, the agent invents a sample \u201clanguage detection\u201d progr\n[0-4 mid2] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy:\n- **Step 0** already mishandles the task by proceeding as if th\n[0-2 mid1] FIRST :: The decisive first mistake is in the first half.\n\nStep 0 framed the task as if there were provided code to debug, but no\n[0-1 mid0] FIRST :: The decisive first error is in step 0: the agent should have recognized there was no actual code provided to debug, but "
+    },
+    "046-2e76694a8fe5": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in the first half.\n\nAt step 1, the agent prematurely assumes the track is \u201cSweet Sweet Canyo\n[0-4 mid2] FIRST :: The first decisive mistake is in **step 1**: it assumes the track is **Sweet Sweet Canyon** without establishing that th\n[0-2 mid1] FIRST :: The first decisive error is in step 1: it prematurely assumed the track was \u201cSweet Sweet Canyon\u201d without establishing th\n[0-1 mid0] SECOND :: The first decisive error is in **step 1**.\n\nStep 0 may have included an assumption about the track, but from the trace s"
+    },
+    "048-e5f2767e1b04": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the **FIRST half**.\n\nReason: step 3 makes an unsupported claim that the date was **Octobe\n[0-4 mid2] SECOND :: The first decisive error is in **step 3**: it makes a confident factual claim (\u201cOctober 2, 2019\u201d) without actually showi\n[3-4 mid3] FIRST :: The decisive first error is in step 3: the agent asserted a specific date, \u201cOctober 2, 2019,\u201d without actually verifying"
+    },
+    "047-5d32c1eba366": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive first error is in the **second half**.\n\nReason: steps 0\u20134 mainly show navigation/repetition, but the actual\n[5-9 mid7] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy:\n- In **step 7**, the Historian_Expert claims the first citation\n[5-7 mid6] SECOND :: The decisive first error is in **step 7**.\n\nWhy:\n- Steps 5\u20136 show unhelpful navigation on the Wikipedia page, but they d"
+    },
+    "049-324f53bff996": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-7 mid3] SECOND :: The first decisive error is in the second half.\n\nReason: steps 0\u20133 are still attempting a valid approach to extract the \n[4-7 mid5] FIRST :: The decisive first error is in step 4: they abandoned extracting the actual numbers from the image and **invented/simula\n[4-5 mid4] FIRST :: The decisive first error is in step 4: they chose to \u201csimulate\u201d numbers instead of extracting the actual red and green n"
+    },
+    "050-6784fd6fd246": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is in the first half.\n\nBy step 2, the run already invents a transcription without actually using th\n[0-3 mid1] SECOND :: The first decisive error is in **steps 2\u20133**. Step 0 is just task framing, and step 1 is a non-action/tool message. The \n[2-3 mid2] FIRST :: The decisive mistake is in step 2: the transcript was asserted without actually using/grounding on the audio, and that u"
+    },
+    "051-8f84910e124b": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the first half.\n\nWhy: by step 4 they had already reached the wrong conclusion (\u201cnone of t\n[0-4 mid2] SECOND :: The decisive first error is in the **SECOND half**.\n\nWhy:\n- Steps 0\u20132 are clumsy, but not yet decisively wrong. Step 2 a\n[3-4 mid3] FIRST :: The first decisive error is in step 3: it proceeds from an incomplete contributor list and frames the comparison incorre"
+    },
+    "053-908be3172c8e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in the first half.\n\nUp through step 3, they had at least found the correct JSTOR item. The k\n[0-4 mid2] SECOND :: The first decisive mistake is in steps 3\u20134.\n\nUp through step 2, the agents had at least successfully identified the corr\n[3-4 mid3] FIRST :: The decisive first error is in step 3. Instead of continuing the planned investigation with available tools, it handed t"
+    },
+    "052-25639162f57c": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive first error is in the **SECOND half**.\n\nReason: steps 0\u20134 are just setup plus a successful search that find\n[5-9 mid7] FIRST :: The decisive first error is in the **FIRST half**.\n\nReason: step 5 starts the failure by saying it will \u201creview this sou\n[5-7 mid6] FIRST :: The decisive first error is in the **FIRST half (steps 5\u20136)**.\n\nReason: step 5 and especially step 6 fail to actually in\n[5-6 mid5] FIRST :: The first decisive mistake in the 5\u20136 window is step 5.\n\nStep 5 says it will \u201creview this source\u201d but does not actually "
+    },
+    "054-c81ed3b0a45a": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive mistake is in the **second half**.\n\nReason: by step 4, they make the key incorrect assumption in the calcul\n[4-7 mid5] FIRST :: The decisive mistake is in the FIRST half.\n\nReason: at step 4, they misapplied Whyte notation by summing the notation nu\n[4-5 mid4] FIRST :: The decisive mistake is in step 4.\n\nThey correctly identified the steam configurations, but then used `sum(parts) * 2`, "
+    },
+    "056-0e66261209b3": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake is in the **FIRST half**.\n\nReason: by step 2, the agent already made the key semantic error: it **s\n[0-4 mid2] FIRST :: The decisive mistake is in the FIRST half.\n\nWhy: step 2 introduces the core error by changing the task from \u201cprovide all\n[0-2 mid1] SECOND :: The decisive first error is in step 2.\n\nWhy:\n- The task asked to list the fractions as they appear and the answers to sa"
+    },
+    "055-238f0c23d791": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake appears in the **first half**.\n\nReason: by steps 0\u20134, the agent already failed to execute the manag\n[0-4 mid2] SECOND :: The first decisive error is in the **second half**.\n\nSteps 0\u20132 are still broadly on track: the agent reads the plan, sea\n[3-4 mid3] FIRST :: The first decisive mistake is in step 3: instead of checking the page history/revisions for leap-day edits, the agent su"
+    },
+    "058-f0ccb40243d8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: The first decisive error is in step 2: it incorrectly identifies the actor who played Ray/Roman in the Polish version. T\n[0-2 mid1] SECOND :: The first decisive error is in step 2: it incorrectly identifies the actor who played Ray/Roman in the Polish version as"
+    },
+    "057-3196a02a724f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake is in the early reasoning, before the tool error. By step 2, the agent is already making incorrect \n[0-2 mid1] FIRST :: The first decisive error is in step 1, where the agent makes incorrect assumptions about edge counts/adjacencies on a fa\n[0-1 mid0] SECOND :: The first decisive mistake is in **step 1**.\n\nStep 0 is just the task/setup. In step 1, the agent makes the key incorrec"
+    },
+    "060-6df45b66a14f": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake is in the FIRST half.\n\nReason: the likely failure-causing error is step 2, where the HawaiiRealEsta\n[0-3 mid1] SECOND :: The first decisive error is in step 2: the HawaiiRealEstate_Expert supplies sale prices without showing any evidence or \n[2-3 mid2] FIRST :: The first decisive mistake is in step 2: the HawaiiRealEstate_Expert provides sale prices without showing any actual ret"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in the early part of the trace.\n\nBy step 3, the agents are already asserting specific zip co\n[0-4 mid2] FIRST :: The first decisive error is in **step 1**, where the agent prematurely \u201cconfirms\u201d both the species and implied USGS find\n[0-2 mid1] FIRST :: The first decisive error is in step 1: it incorrectly identifies Nemo\u2019s species as *Amphiprion ocellaris* and then proce\n[0-1 mid0] SECOND :: The first decisive error is in step 1, not step 0.\n\nStep 0 is just framing the task.  \nStep 1 makes the key mistaken ass"
+    },
+    "062-1d3b288462be": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake is in the first half.\n\nStep 1 makes the key wrong assumption: it treats \u201cI\u201d as the subject in the u\n[0-2 mid1] FIRST :: The first decisive error is in step 1, where the agent chooses the nominative **Pa** for \u201cI\u201d and treats \u201cI\u201d as the subje\n[0-1 mid0] SECOND :: The first decisive error is in step 1.\n\nStep 0 appears to just restate the task context and setup. The actual wrong reas"
+    },
+    "063-945c18bc1c72": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake is in the first half: step 1 introduces unsupported census figures and performs the key calculation\n[0-2 mid1] FIRST :: The decisive mistake is in step 1: the Verification_Expert introduces specific census numbers without showing retrieval/\n[0-1 mid0] SECOND :: The first decisive error is in step 1: it introduces specific census numbers without showing retrieval/validation, and t"
+    },
+    "061-d5e74f5edef1": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake is in the **first half**.\n\nReason: by step 4 they already adopted the wrong stopping criterion: che\n[0-4 mid2] SECOND :: The first decisive error is in **steps 3\u20134**.\n\nReason: step 2 is just a coding failure (`x` undefined), but that was cor\n[3-4 mid3] SECOND :: The decisive mistake is in step 4\u2019s interpretation/output usage, not step 3\u2019s code fix.\n\nStep 3 correctly repaired the m"
+    },
+    "064-67329dda61f8": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-8 mid4] SECOND :: The first causal error is in the **SECOND half**.\n\nReason: steps 0\u20134 only identify the train with the maximum passengers\n[5-8 mid6] FIRST :: The first causative error is in steps 5\u20136: the Database_Expert queried `train_schedule.csv` using assumed column names/f\n[5-6 mid5] FIRST :: The first decisive mistake is in step 5, where the Database_Expert assumes the correct lookup key is simply `train_id = "
+    },
+    "066-4835ec93a6d1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake is in the first half.\n\nWhy: step 1 introduces the critical unsupported assumption: \u201cfor demonstrati\n[0-2 mid1] FIRST :: The first decisive mistake is in step 1, where the agent arbitrarily assumes there were 1000 Nature articles in 2020 ins\n[0-1 mid0] SECOND :: The decisive first error is in step 1.\n\nStep 0 appears to be just restating the task and manager guidance. Step 1 introd"
+    },
+    "065-a16ae072deff": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first clearly decisive error is in the second half.\n\nSteps 0\u20134 are mostly setup: finding the YouTube page and intend\n[5-9 mid7] FIRST :: The first decisive error is in the **FIRST half**.\n\nWhy: step 6 claims they had \u201cmanually checked the page\u201d and found th\n[5-7 mid6] FIRST :: The decisive first error is in steps 5\u20136.\n\nStep 5 is still just a plan to inspect the YouTube page manually.  \nStep 6 is\n[5-6 mid5] SECOND :: The decisive first error is in step 6.\n\nStep 5 is just a plan to inspect the YouTube page manually; it does not yet asse"
+    },
+    "067-d7caaed0d413": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is in the first half.\n\nBy step 1, the reasoning already goes wrong: it treats the statement \u201cAt lea\n[0-3 mid1] FIRST :: The decisive mistake appears in step 1: it incorrectly concludes the villagers\u2019 statement is consistent with \u201call humans\n[0-1 mid0] SECOND :: The first decisive error is in step 1.\n\nStep 0 is just setup/instructions and does not yet contain the faulty logical in"
+    },
+    "068-54f5f481feb1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The first decisive error is in step 1, where the symbols are misidentified/misvalued (e.g. treating \ud809\udc1a as 60 as a digit s\n[0-2 mid1] FIRST :: The first decisive error is in step 1: it misidentifies the cuneiform symbols/values and starts an incorrect conversion.\n[0-1 mid0] SECOND :: The first decisive error is in step 1, where the agent assigns incorrect values to the cuneiform signs and begins an inv"
+    },
+    "070-0528f540243a": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive mistake is in the second half.\n\nReason: by step 5 they had extracted text showing the document struct\n[5-9 mid7] SECOND :: The first decisive error is in the SECOND half.\n\nReason: steps 5\u20137 only extracted and parsed the document, and while the\n[8-9 mid8] FIRST :: The first decisive mistake is in step 8.\n\nReason: step 8 assumes they can identify the non-giver just by matching the 11"
+    },
+    "069-5486f0bb8912": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive first error is in the **SECOND half**.\n\nReason: steps 0\u20134 are mostly setup and a failed OCR attempt. That f\n[5-9 mid7] FIRST :: The decisive first error is in steps 5\u20137.\n\nStep 5 is where they first go wrong: instead of finding the actual polygon fr\n[5-7 mid6] FIRST :: The decisive mistake is in the **first half**.\n\nStep 5 is the first causal error: instead of acknowledging insufficient \n[5-6 mid5] FIRST :: The decisive first error is in step 5.\n\nStep 5 is where they first abandon evidence from the image and propose proceedin"
+    },
+    "072-c6399b46fd3c": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive error is in the **second half**.\n\nReason: steps 0\u20134 contain an initial wrong assumption about column \n[5-9 mid7] SECOND :: The decisive mistake is in the **SECOND half**.\n\nReason: steps 5\u20138 correctly diagnose the header issue and successfully \n[8-9 mid8] SECOND :: The first decisive error is in step 9, not step 8.\n\nStep 8 only shows extracted data and reveals a likely issue (a secti"
+    },
+    "071-03b230b92593": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake is in the **first half**.\n\nReason: the run locks onto the wrong target at **step 1**. The question \n[0-4 mid2] FIRST :: The decisive first error is in the **first half**.\n\nReason: at **step 1**, the agent identifies the target as the 2019 B\n[0-2 mid1] FIRST :: The decisive first error is in **step 1**: it identifies the wrong target as \u201cthe 2019 game that won the British Academy\n[0-1 mid0] SECOND :: The first decisive error is in **step 1**.\n\nStep 1 identifies the wrong target by saying the 2019 British Academy Games "
+    },
+    "073-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake is in the first half.\n\nReason: by step 2, the agent claims the script \u201cexecuted successfully and re\n[0-2 mid1] FIRST :: The first decisive mistake is in **step 0\u20131**, specifically step 0: the agent failed to actually debug/review the script\n[0-1 mid0] FIRST :: The decisive first error is in step 0: it reports `Error: Function seek_experts_help not found`, which indicates the age"
+    },
+    "074-27ef8756352a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in the **first half**.\n\nReason: by step 2 they had already introduced the wrong Tropicos ID \n[0-4 mid2] FIRST :: The first decisive error is in **step 2**.\n\nWhy:\n- Step 1 is just an empty output, not yet a substantive reasoning error\n[0-2 mid1] SECOND :: The first decisive error is in step 2: they assume the Tropicos ID is `\"8200000\"` and proceed with an incorrect ISBN-10 "
+    },
+    "075-dc792a0fa32f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake is in the **first half**.\n\nWhy: step 2\u2019s code output of `0` already reflects the faulty method. In \n[0-2 mid1] FIRST :: The decisive mistake is in the first half.\n\nStep 1 set up the wrong verification method: it apparently checked whether `\n[0-1 mid0] SECOND :: The first decisive mistake is in **step 1**.\n\nStep 0 only restates the task and plan.  \nStep 1 introduces the faulty met"
+    },
+    "076-769191cea270": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive error is in step 5: the agent claims it \u201csuccessfully located\u201d the trial and asserts specific details\n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half.\n\nReason: step 5 is where the team first asserts the specific trial and enroll\n[5-7 mid6] FIRST :: The decisive first error is in the FIRST half.\n\nStep 5 is where the substantive claim is first made: the agent says it \u201c\n[5-6 mid5] FIRST :: The first decisive error is in step 5: the analyst claims to have \u201csuccessfully located\u201d the trial and asserts the enrol"
+    },
+    "079-72b0c0014ede": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake is in the FIRST half.\n\nReason: by step 2, the Verification_Expert is already accepting and repeatin\n[0-2 mid1] SECOND :: The first decisive error is in step 2, where the verifier accepts and repeats an unsupported conclusion (\u201conly one appli"
+    },
+    "077-a1dc061cb971": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive error is in the second half.\n\nSteps 0\u20134 correctly identified the relevant Universe Today article and \n[5-9 mid7] FIRST :: The decisive mistake is in the **FIRST half**.\n\nReason: step 5 is just encountering a CAPTCHA, which is not itself an er\n[5-7 mid6] FIRST :: The decisive first error is in the FIRST half.\n\nStep 5 is just an external obstacle: CAPTCHA.\nStep 6 is the first actual\n[5-6 mid5] SECOND :: The first decisive mistake is in step 6, not step 5.\n\nStep 5 is just an observed obstacle: the agent hit a CAPTCHA on IO"
+    },
+    "078-e16678e8c43e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in **step 4**.\n\nUp through steps 1 and 3, the agent is blocked waiting for the Wikipedia URL\n[0-4 mid2] FIRST :: The first decisive error is in the **FIRST half**.\n\nWhy:  \n- **Step 1** incorrectly asks the user for the Wikipedia URL \n[0-2 mid1] FIRST :: The first decisive error is in step 1, where the agent asks the user for the Wikipedia URL instead of using the provided\n[0-1 mid0] SECOND :: The first decisive mistake is in **step 1**.\n\nStep 0 mostly restates the task and plan.  \nStep 1 is where the agent wron"
+    },
+    "080-252fc8554126": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-5 mid2] SECOND :: The first decisive error is in the second half.\n\nSteps 0\u20132 are just setup and a failed/non-actionable tool call; no wron\n[3-5 mid4] FIRST :: The decisive mistake is in steps 3\u20134: step 3 asserts **BaseBagging** without evidence, and step 4 incorrectly approves i\n[3-4 mid3] FIRST :: The first decisive error is in step 3: it asserts **\"BaseBagging\"** without showing evidence from the changelog, and ste"
+    },
+    "082-933179cfbd8d": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-7 mid3] FIRST :: The first decisive error is in the **first half**.\n\nBy step 1, the agent states the answer **\u201cclich\u00e9d\u201d** as if it had \u201ca\n[0-3 mid1] FIRST :: The first decisive error is in **step 1**. It prematurely asserted that the answer had \u201calready [been] identified\u201d as **\n[0-1 mid0] SECOND :: The first decisive error is in step 1, not step 0.\n\nStep 0 just states the task and a reasonable plan.  \nStep 1 is where"
+    },
+    "083-b73a239fdad1": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in **step 4**\u2019s result/preceding extraction attempt: getting **192** \u201cunique winners\u201d for Su\n[0-4 mid2] SECOND :: The first decisive error is in the **second half**.\n\nSteps 0\u20132 only show an initial failed scrape returning 0, but that \n[3-4 mid3] SECOND :: The first decisive mistake in the specified range is at step 4, where the bad parsing approach produced the absurd count"
+    },
+    "081-6b8e879881c0": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive first error is in the **SECOND half**.\n\nWhy:\n- Steps 0\u20135 are mostly failed attempts to set up Selenium; ine\n[5-9 mid7] FIRST :: The decisive mistake is in the **FIRST half**.\n\nWhy:\n- Step 6 switched to `requests` + BeautifulSoup and assumed the Ope\n[5-7 mid6] FIRST :: The decisive mistake is in the **FIRST half (steps 5\u20136)**.\n\nReason: step 5 is just another environment failure with Fire\n[5-6 mid5] SECOND :: The decisive first mistake in the 5\u20136 window is step 6.\n\nStep 5 is just another tool failure while trying Firefox; it do"
+    },
+    "084-8cad8cae382d": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive mistake is in **step 4**.\n\nUp through step 3, they only concatenated the strings naively and got a ga\n[0-4 mid2] SECOND :: The first decisive error is in step 4.\n\nUp through step 3, they had only concatenated the strings and observed the raw o\n[3-4 mid3] SECOND :: The first decisive mistake is in **step 4**, not step 3.\n\n- **Step 3** correctly executed the provided Python code and p"
+    },
+    "085-dc5e30ffc725": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The first decisive error is in steps 0\u20133: step 3 asserts the quote differs only by \u201cmis-transmission\u201d vs. \u201cmistransmissi\n[0-3 mid1] SECOND :: The decisive mistake is in steps 2\u20133: step 3 asserts a specific textual discrepancy without actually showing verified ev\n[2-3 mid2] SECOND :: VERDICT: SECOND"
+    },
+    "086-e5db53c29991": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive error is in the **second half**.\n\nReason: steps 0\u20134 are mostly setup and attempts to access/view the \n[5-9 mid7] FIRST :: The decisive mistake is in the **FIRST half**.\n\nReason: step 5 is the first causal error. The MusicTheory_Expert explici\n[5-7 mid6] FIRST :: The decisive first error is in step 5: the MusicTheory_Expert explicitly says the note analysis is \u201chypothetical\u201d and no\n[5-6 mid5] FIRST :: The decisive first error is in step 5, where the MusicTheory_Expert explicitly says the note analysis is \u201chypothetical\u201d "
+    },
+    "088-3a55b5705c39": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-5 mid2] SECOND :: The first decisive mistake is in the **SECOND half**.\n\nWhy: steps 0\u20132 were imperfect, but they still surfaced the correc\n[3-5 mid4] FIRST :: The decisive mistake was in steps 3\u20134: instead of continuing the investigation, the agent handed the task back to the us\n[3-4 mid3] FIRST :: The first decisive mistake is in step 3: instead of continuing the investigation, the agent offloaded the core task back"
+    },
+    "089-93088535fb95": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake is in the **first half**.\n\nReason: in **step 1**, the agent identifies **\u201cSusa\u201d** as the first plac\n[0-2 mid1] FIRST :: The decisive first error is in step 1: it identifies the first place mentioned by name as **Susa**, but Esther 1:1 names\n[0-1 mid0] SECOND :: The decisive first error is in step 1: it identifies **Susa** as the first place mentioned by name, but Esther 1:1 menti"
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the **SECOND half**.\n\nReason: steps 0\u20134 are just unsuccessful but still reasonable attempts t\n[5-9 mid7] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy:\n- **Step 5** abandons available online investigation too early \n[5-7 mid6] FIRST :: The decisive mistake is in the **FIRST half**.\n\nAt **step 5**, instead of continuing with obtainable evidence from the W\n[5-6 mid5] FIRST :: The decisive first error is in step 5.\n\nAt step 5, the agent chose an inappropriate next action: \u201creach out directly to "
+    },
+    "091-23de28edf643": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The first decisive error is in steps 0\u20133.\n\nReason: step 2\u2019s tool output says the farthest pair is **Braintree, Massachus\n[0-3 mid1] SECOND :: The first decisive error is in step 3.\n\nStep 2\u2019s tool output says the farthest pair is **Braintree, Massachusetts** and \n[2-3 mid2] SECOND :: The decisive first error is in step 3.\n\nStep 2\u2019s tool output says the farthest-apart cities are **Braintree, Massachuset"
+    },
+    "090-e273f2fabe96": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the first half.\n\nBy step 2, they had already adopted an unverified, likely fabricated ide\n[0-4 mid2] FIRST :: The decisive mistake is in the first half.\n\nBy step 2, the run had already committed to an unverified and likely incorre\n[0-2 mid1] FIRST :: The first decisive error is in step 1, where the agent asserts an unverified identification of the \u201cfirst National Geogr\n[0-1 mid0] SECOND :: The first decisive error is in step 1, not step 0.\n\nStep 0 just restates the task and a reasonable plan.  \nStep 1 is whe"
+    },
+    "092-a5a8d627e455": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive error is in the second half.\n\nSteps 1 and 3 made some clumsy tool assumptions, but they were recovera\n[5-9 mid7] FIRST :: The decisive first error is in the **FIRST half**.\n\nReason: step 5 sends the run down the wrong path by trying to use `g\n[5-7 mid6] FIRST :: The decisive first error is in steps 5\u20136.\n\nAt step 5, the agent chose a caption-fetching API path (`get_youtube_caption`\n[5-6 mid5] FIRST :: The decisive first error in the specified window is at step 5: the agent chose a caption-fetching API path (`get_youtube"
+    },
+    "094-7e3d81abcddf": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake is in the **first half**.\n\nWhy: by step 2, the agent had already made the key incorrect assumption:\n[0-2 mid1] SECOND :: The decisive mistake is in **step 2**.\n\nReason: step 1 only reports the observed behavior from execution: `Error: unsupp"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in the **FIRST half**.\n\nWhy: by step 4, the agent had already gone off track. Instead of con\n[0-4 mid2] FIRST :: The first decisive error is in **steps 0\u20132**.\n\nReason: the run goes off track at **step 1**, where the agent assumes the\n[0-2 mid1] FIRST :: The first decisive mistake is in step 1, where the agent chose to search arXiv specifically for the paper without eviden\n[0-1 mid0] SECOND :: The first decisive error is in **step 1**.\n\nStep 0 is just the task framing and plan.  \nStep 1 is where the agent makes "
+    },
+    "095-91ab842a22b2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in **step 3/4**, where they switch to counting all HTML `<img>` tags on the live Wikipedia p\n[0-4 mid2] SECOND :: The decisive mistake is in the **SECOND half**.\n\nWhy: steps 0\u20132 only show an unsuccessful initial approach (`scrape_wiki\n[3-4 mid3] FIRST :: The decisive first error is in step 3: they switch to counting all `<img>` tags in the raw HTML, which is an invalid met"
+    },
+    "096-89be76878d79": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive mistake was in step 3/4 territory: they queried for label `\"Regression\"` and concluded none existed, \n[0-4 mid2] FIRST :: The first decisive mistake was in steps 0\u20132: the agent assumed the label name was exactly \"Regression\" and generated cod\n[0-2 mid1] SECOND :: The first decisive mistake was in step 2: it queried the wrong label name (`Regression`) instead of the actual GitHub la"
+    },
+    "097-aa341e34fc51": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is in the first half. By step 1, the agent asserted **\"INT. CASTLE BEDROOM\"** as the first scene he\n[0-3 mid1] FIRST :: The decisive first error is in step 1: it asserts **\"INT. CASTLE BEDROOM\"** as coming from the official script without a\n[0-1 mid0] SECOND :: The first decisive error is in step 1: it asserts a specific scene heading without actually verifying from the official "
+    },
+    "098-43bbd8019fea": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive first error is in the second half.\n\nUp through step 5, they had actually found the correct Word of the Day \n[5-9 mid7] SECOND :: The decisive mistake is in the **second half**.\n\nSteps 5\u20137 are imperfect, but they still move toward the correct page an\n[8-9 mid8] FIRST :: The first decisive mistake is in step 8: the Verification Expert incorrectly concluded that no writer was quoted, and st"
+    },
+    "099-59e337ae1fbb": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is in the **first half**.\n\nWhy: by step 2, the DataAnalysis agent says \u201cThank you for providing the\n[0-3 mid1] SECOND :: The decisive error is in the **SECOND half**.\n\nReason: steps 0\u20131 only describe a plan to gather data; they do not yet in\n[2-3 mid2] FIRST :: The first decisive error is in step 2: the analyst invents/proceeds with unsupported data (\u201cThank you for providing the "
+    },
+    "100-364b09fd59b8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in the **FIRST half**.\n\nReason: by steps 1 and 3, the agents made an unsupported assumption \n[0-4 mid2] SECOND :: The first decisive mistake is in the **SECOND half**.\n\nReason: steps 1 and 2 are not yet the key failure. Step 1 propose\n[3-4 mid3] FIRST :: The first decisive mistake is in **step 3**.\n\nReason: step 3 incorrectly tried to delegate a plain web-checking task to "
+    },
+    "101-7011a3ca2fe8": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the second half.\n\nReason: steps 0\u20135 successfully got the video and extracted frames. The fail\n[5-9 mid7] FIRST :: The decisive mistake is in the **FIRST half**.\n\nReason: step 6 introduces the key wrong approach: instead of solving the\n[5-7 mid6] FIRST :: The first decisive mistake is in **step 6**.\n\nUp to step 5, the process is still on track: the video was downloaded and \n[5-6 mid5] SECOND :: The first decisive mistake is at step 6, where the agent chose an unnecessary and fragile ML-based bird-species-recognit"
+    },
+    "102-a6862e302014": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive error is in the second half.\n\nWhy: steps 0\u20134 are just failed attempts to run a search due to formatti\n[5-9 mid7] SECOND :: The first decisive mistake is in the **SECOND half**.\n\nWhy:\n- Steps 5\u20137 are clumsy, but they still make progress: they s\n[8-9 mid8] SECOND :: The decisive mistake is in step 9, not step 8.\n\nStep 8 merely downloaded content successfully. The failure-causing error"
+    },
+    "103-5593276388b1": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the first half.\n\nUp through step 4, the run already goes off the rails: in step 3 they use wi\n[0-4 mid2] SECOND :: The first decisive error is in the **second half**.\n\nReason: steps 0\u20132 are just setup/planning and an empty tool executi\n[3-4 mid3] FIRST :: The decisive first error is in step 3: it used Wayback wildcard/timeline URLs like `.../20210322000000*/.../menu` as if "
+    },
+    "106-00e6e023a028": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-8 mid4] SECOND :: The first decisive error is in step 5: it asserts the landmark is the Eiffel Tower without reliable evidence from the tr\n[5-8 mid6] FIRST :: The first causal error is in step 5: they identified the landmark as the Eiffel Tower without solid verification, and st\n[5-6 mid5] FIRST :: The first decisive error is in step 5: they identified the landmark as the Eiffel Tower without actually validating from"
+    },
+    "104-9f0fb174fad0": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in the FIRST half.\n\nReason: by step 4 they had already made the key wrong assumption/approac\n[0-4 mid2] SECOND :: The first decisive mistake is in the **SECOND half**.\n\nReason: steps 0\u20132 only involve setup and a recoverable indentatio\n[3-4 mid3] SECOND :: The first decisive error is in step 4.\n\nStep 3 only prints the worksheet values and correctly identifies that the visibl"
+    },
+    "105-7a7794e34798": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive first error is in the first half.\n\nReason: by step 2, the agent already invented a specific diagnosis (`Fil\n[0-3 mid1] SECOND :: The first decisive mistake is in **step 2**.\n\nReason: steps 0\u20131 are confused/noisy, but they haven\u2019t yet committed to th\n[2-3 mid2] FIRST :: The first decisive mistake is in step 2: it hallucinated a `File not found` / `data.txt` / `file_io_example.py` issue wi"
+    },
+    "107-de407cd051d7": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is in the first half.\n\nBy step 2, they already had the wrong numerical result: `17000`. That came f\n[0-3 mid1] FIRST :: The decisive mistake is in **steps 0\u20131**.\n\nReason: step 1 introduces the wrong Moon minimum perigee value, stating **356\n[0-1 mid0] SECOND :: The first decisive error is in step 1. They used an incorrect \u201cminimum perigee\u201d value of **356,500 km** from Wikipedia; "
+    },
+    "111-bb45c75cb2de": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive first error is in the FIRST half.\n\nWhy: steps 0\u20133 already go off track at step 2 by switching to a generic \n[0-3 mid1] SECOND :: The first decisive mistake is in **steps 2\u20133**.\n\nStep 1 was a timeout while trying direct access; that\u2019s a failed attemp\n[2-3 mid2] FIRST :: The decisive first mistake is in **step 2**.\n\nReason: step 2 changes strategy to a generic web search for **\"DDC 633 202"
+    },
+    "110-e240abd96f2e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive first error is in the first half.\n\nStep 3 jumps to an answer about **Dastardly Mash** and a background head\n[0-4 mid2] SECOND :: The first decisive error is in step 3, where the agent identifies **Dastardly Mash** as the \u201coldest flavor\u2019s headstone.\u201d\n[3-4 mid3] FIRST :: The decisive first error is in step 3.\n\nReason: step 3 makes the substantive claim that the relevant oldest flavor is **"
+    },
+    "109-33e9e888adb4": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-8 mid4] FIRST :: The first decisive mistake is in the **FIRST half**.\n\nReason: by step 4, the agent chose a specific tool-based path (`im\n[0-4 mid2] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy: by step 2, the agents had already failed to actually inspect th\n[0-2 mid1] FIRST :: The first decisive error is in **step 0\u20131**.\n\nReason: by step 1, the terminal explicitly says there was **no code to exe\n[0-1 mid0] SECOND :: The first decisive error is in **step 1**.\n\nStep 0 is just the initial receipt of the task/plan. The actual failure-caus"
+    },
+    "108-13c9a4c03793": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive mistake is in the **first half**.\n\nReason: at **step 1**, the agent ignores the manager\u2019s instruction\n[0-4 mid2] FIRST :: The first decisive mistake is in the **first half**.\n\nReason: by step 1, the agent chose to inspect and rely on an alrea\n[0-2 mid1] FIRST :: The first decisive mistake was in step 1: they chose to explore an already downloaded placeholder file instead of first \n[0-1 mid0] SECOND :: The first decisive error is in **step 1**.\n\nReason: step 0 gives a reasonable plan: first confirm the exact dataset name"
+    },
+    "115-03d92b3118e2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake is in the **first half**.\n\nBy step 2, the team had already locked in an incorrect mathematical mode\n[0-2 mid1] FIRST :: The first decisive error is in **step 1**.\n\nStep 1 incorrectly assumes the relation must be \\(c=b+6\\) after sorting \\(a \n[0-1 mid0] SECOND :: The first decisive error is in **step 1**.\n\nStep 0 is just task setup/instructions. In step 1, the agent makes the unjus"
+    },
+    "112-7d8dcb80a290": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-8 mid4] FIRST :: The first decisive error is in step 1: it includes Fiona Apple\u2019s *When the Pawn...* even though the task is for albums r\n[0-4 mid2] FIRST :: The decisive mistake is in the first half.\n\nBy step 1, the agent already made the key substantive error: it included **F\n[0-2 mid1] FIRST :: The decisive first error is in step 1, which is in the first half.\n\nReason: step 1 incorrectly includes Fiona Apple\u2019s *W\n[0-1 mid0] SECOND :: The first decisive error is in step 1: it included Fiona Apple\u2019s *When the Pawn...* even though the task is \u201cbefore 1999"
+    },
+    "113-ccbf973529c4": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first causal error is in the **first half**.\n\nWhy: by step 4, the agents had already gone off track by assu\n[0-4 mid2] FIRST :: The first decisive error is in the **FIRST half**.\n\nWhy: by step 2, the agents had already made the key mistake of assum\n[0-2 mid1] FIRST :: The first decisive error is in step 0/1 territory.\n\nStep 1\u2019s indentation error is just a superficial execution mistake. \n[0-1 mid0] SECOND :: The first decisive error is in step 1: the execution failed immediately with an `IndentationError`, which blocked the pl"
+    },
+    "114-af259c3de825": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the **FIRST half**.\n\nReason: by **step 2**, the agent already committed to a specific answer \n[0-4 mid2] FIRST :: The first decisive error is in **steps 0\u20132**.\n\nBy step 2, the team had already committed to a likely wrong factual answe\n[0-2 mid1] FIRST :: The first decisive error is in **step 1**.\n\nStep 0 is just setup/instructions. In step 1, the Validation_Expert refers t\n[0-1 mid0] SECOND :: The first decisive error is in **step 1**.\n\nStep 0 is just task setup/planning. In step 1, the validator refers to **\u201cPl"
+    },
+    "117-b056cbb2e661": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive first error is in the **FIRST half**.\n\nReason: by step 3 they hit `KeyError: 'Platform'`, showing the agent\n[0-4 mid2] FIRST :: The decisive first error is in the **FIRST half**.\n\nWhy: step 2 makes an unjustified assumption about the spreadsheet st\n[0-2 mid1] SECOND :: The first decisive mistake is in step 2, where the agent guessed the schema (`Platform`, `Year`) without first successfu"
+    },
+    "119-6ec2674e0d3a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: The first causal error is in step 2: the MovieProp_Expert identifies the concealing object as a white parachute, which i\n[0-2 mid1] SECOND :: The first decisive error is in step 2.\n\nSteps 0\u20131 are just setup and delegation. In step 2, the MovieProp_Expert makes t"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake happens in the **first half**.\n\nWhy: by steps 1\u20134, the agents already derail the run by treating th\n[0-4 mid2] FIRST :: The decisive mistake is in the **FIRST half**.\n\nWhy: by step 1, the agent already went off track by proposing a shell sc\n[0-2 mid1] FIRST :: The decisive mistake is in the **FIRST half**.\n\nReason: by **step 1**, the agent already goes off track. Instead of actu\n[0-1 mid0] SECOND :: The first decisive error is in step 1, not step 0.\n\nStep 0 mainly restates the task and indicates there is a manager pla"
+    },
+    "120-3ea26fdedd38": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the first half.\n\nReason: by step 4, the agents were already stuck in a non-productive pattern\n[0-4 mid2] FIRST :: The first decisive mistake is in the **FIRST half**.\n\nWhy: by **step 2**, the Ornithology_Expert tried to use `perform_w\n[0-2 mid1] SECOND :: The first decisive error is in step 2. Step 1 is just a tool complaint because no executable code was properly passed ye"
+    },
+    "118-d69039766c83": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive first error is in the **SECOND half**.\n\nReason: steps 0\u20134 only reveal missing input/code and ask for it. Th\n[5-9 mid7] FIRST :: The decisive mistake is in the **FIRST half**.\n\nWhy:\n- **Step 5** is the first causal error: the agent **invented a hypo\n[5-7 mid6] FIRST :: The decisive first error is in the **FIRST half (steps 5\u20136)**.\n\nWhy:\n- At **step 5**, the agent invents a hypothetical c\n[5-6 mid5] FIRST :: The decisive first error is in step 5.\n\nAt step 5, the agent wrongly **invented a hypothetical code example** instead of"
+    },
+    "121-62bf36bb4ce7": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first decisive error is in the **FIRST half**.\n\nReason: by step 4 they had already incorrectly identified the paper\u2019\n[0-4 mid2] FIRST :: The first decisive error is in **steps 0\u20132**.\n\nReason: by step 1 they had already made a faulty assumption about the pap\n[0-2 mid1] FIRST :: The decisive first error is in step 1, where the agent chose to call `perform_web_search(...)` without ensuring that fun\n[0-1 mid0] SECOND :: The first decisive error is in **step 1**, not step 0.\n\nStep 1 introduces the faulty path by:\n- asserting likely-wrong a"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first clearly decisive error is in the first half.\n\nWhy: by step 4, the scrape returned `[]`, meaning the agent had \n[0-4 mid2] SECOND :: The first decisive error is in **steps 3\u20134**.\n\nWhy:\n- Steps 1\u20132 only show an initial coding mistake: calling an undefine\n[3-4 mid3] FIRST :: The decisive mistake is in step 3, not step 4.\n\nReason: step 3 chose an incorrect retrieval method/assumption by trying "
+    },
+    "123-24f21eb1a9ce": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive error is in the second half.\n\nReason: steps 0\u20135 are failed scraping attempts, but those do not yet co\n[5-9 mid7] FIRST :: The first decisive error is in **steps 5\u20137**.\n\nReason: step 7 asserts that the only dinosaur-related FA promoted in Nove\n[5-7 mid6] SECOND :: The decisive first error is in step 7, where the agent claims the only dinosaur Featured Article promoted in November 20"
+    },
+    "124-d60e28a0fa62": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is in the **FIRST half**.\n\nReason: the actual error appears by **step 1**, where the agent jumps to\n[0-3 mid1] FIRST :: The first decisive error is in **step 1**.\n\nStep 0 is just task setup. In step 1, the agent chooses a **simulation-first\n[0-1 mid0] SECOND :: The first decisive error is in step 1, where the agent chose an unjustified simulation approach and apparently encoded t"
+    },
+    "125-a445e2da8734": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive first error is in **step 1**, where the agent starts using **assumed/example ticket prices** instead of act\n[0-3 mid1] FIRST :: The first decisive error is in step 1: it used unverified, explicitly \u201cassumed\u201d ticket prices and proceeded with the cal\n[0-1 mid0] SECOND :: The first decisive error is in step 1: it uses explicitly assumed/example ticket prices instead of gathering and verifyi"
+    }
+  }
+}

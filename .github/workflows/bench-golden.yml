@@ -1,0 +1,47 @@
+name: bench golden
+
+# Weekly check that every registered auditable.bench task reproduces its CatchBench golden
+# board on Linux x86-64. Runs outside PR CI because it downloads public corpora through
+# agentpile and Hugging Face Hub (cached between runs).
+on:
+  schedule:
+    - cron: "23 7 * * 1"
+  workflow_dispatch:
+
+jobs:
+  bench-golden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip
+      - name: Install torch, the pyg-lib backend, and the bench and graph-ad extras
+        env:
+          TORCH_VERSION: "2.12.1"
+        run: |
+          python -m pip install "torch==${TORCH_VERSION}" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install pyg_lib -f "https://data.pyg.org/whl/torch-${TORCH_VERSION}+cpu.html"
+          python -m pip install -e ".[bench,graph-ad]"
+      - name: Refuse to run without the sampling backend
+        run: |
+          python -c "import torch, torch_geometric, pyg_lib, pygod; print('torch', torch.__version__, 'pyg', torch_geometric.__version__, 'pyg_lib', pyg_lib.__version__, 'pygod', pygod.__version__)"
+          python -c "import torch_geometric.typing as t; assert t.WITH_PYG_LIB, 'pyg-lib did not register'; print('pyg-lib backend registered')"
+      - name: Cache agentpile and Hugging Face corpora
+        uses: actions/cache@v6
+        with:
+          path: |
+            ~/.cache/agentpile
+            ~/.cache/huggingface
+          key: bench-corpora-${{ runner.os }}-${{ hashFiles('pyproject.toml', 'src/auditable/bench/tasks/*.py', 'src/auditable/bench/corpora/*.py') }}
+          restore-keys: |
+            bench-corpora-${{ runner.os }}-
+      - name: Run golden checks for every registered task
+        env:
+          PYTHONHASHSEED: "0"
+        run: |
+          TASKS=$(python -c "from auditable.bench import list_tasks; print(' '.join(t.task_id for t in list_tasks()))")
+          echo "Checking tasks: $TASKS"
+          python -m auditable.bench $TASKS --golden --exact

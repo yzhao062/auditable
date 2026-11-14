@@ -1,5 +1,35 @@
 # auditable Examples
 
+## Leaderboards: Rerun the Board and Add Your Method
+
+`auditable.bench` scores auditing methods on frozen populations with frozen protocols, ported from [CatchBench](https://github.com/yzhao062/catchbench), the paper and benchmark whose board these leaderboards reproduce. One call reruns a board on your machine, and a method you write gets a rank on the same population and protocol as every other row. The data come through [agentpile](https://github.com/yzhao062/agentpile), which reads public agent-trace datasets into one record.
+
+```
+pip install "auditable[bench]"
+python examples/example_leaderboard.py
+python examples/example_add_your_method.py
+```
+
+`example_leaderboard.py` prints the `detect/swegym` board: did the run fail, on 376 SWE-Gym OpenHands runs (188 failed), scored by ROC-AUC. It then restricts the board to three tabular rows (`run.lr_flat`, `run.lr_flatdep`, `run.pyod_ecod`) with `methods=[...]` and prints the full board as a Markdown table. The first call loads the runs through agentpile, and the full 17-row board takes about 70 seconds on a laptop CPU. A row whose pip extra is missing is listed as skipped with the extra named, and a row that raises is listed as an error, while the rest of the board is still scored. The graph rows (PyGOD, GUARDIAN-Lite, G-Safeguard-Lite) need `auditable[graph-ad]` plus the PyG sampling backend described in the Install section of the main README.
+
+`example_add_your_method.py` defines one new run detector in about 20 lines: a logistic regression on the number of steps and the longest dependency span, written as a `BaseRunDetector` subclass with a full `MethodCard`. The script passes the class to `leaderboard(..., extra=[StepsAndSpan])` next to the size baseline `run.lr_flat`, `run.lr_flatdep`, `run.pyod_ecod`, and the random control, then prints the board and the rank of the new row. Copy the class, change `features` and the estimator, and the board scores your idea under the same cross-validation as every supervised row.
+
+The same boards run from a shell:
+
+```
+python -m auditable.bench                                   # list the tasks
+python -m auditable.bench detect/swegym --methods run.lr_flat run.pyod_ecod
+python -m auditable.bench detect/swegym --golden            # exit 1 if a row differs from the CatchBench board
+```
+
+`--golden` compares each row with the CatchBench board and prints a known platform difference without failing: on macOS `run.pyod_lof` scores 0.582 where the Linux board prints 0.584. Pass another task id to score another task, and name only methods of the task's family (the live tasks take `run` and `online` methods), because a method of another family is listed as skipped.
+
+Read a board with its baselines in view. The top row of `detect/swegym` is PyGOD's GAAN detector, a literature baseline, and `run.lr_flat` is the size baseline that belongs beside every dependency method. A linear size baseline cannot separate dependency shape from a nonlinear function of size, and GRADE retired the reading that the dependency layers predict failure beyond run size on 2026-09-08. A rank is one measurement on one population and protocol.
+
+`leaderboard.ipynb` runs the same two steps in a notebook, with the board, the golden check, and a template detector, and it opens in Colab.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yzhao062/auditable/blob/main/examples/leaderboard.ipynb)
+
 ## The Method Library
 
 `example_methods.py` runs one method from each family of `auditable.methods` (a

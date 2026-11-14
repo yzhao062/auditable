@@ -1,0 +1,896 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "binary_search",
+    "model": "gemma-3-12b",
+    "n_runs": 126,
+    "prompt_sha": "292b9b0a0d4c",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "003-cfa39baedf59": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-7 mid3] SECOND :: The error is in the calculation of savings, where the annual passes are incorrectly determined to be more expensive than\n[4-7 mid5] SECOND :: The error is in the SECOND half (steps 6 to 7). The Verification_Expert incorrectly calculated the savings as negative, \n[6-7 mid6] SECOND :: VERDICT: SECOND"
+    },
+    "000-7b14128ce504": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The error likely occurred in steps 0-2. Step 3 onwards seems to be correctly verifying and concluding based on the code \n[0-2 mid1] FIRST :: The decisive mistake likely occurred in step 0 or 1. Step 0 sets the stage and outlines the plan, while step 1 executes \n[0-1 mid0] FIRST :: The decisive mistake likely occurred in step 0, where the Excel_Expert was setting the stage and interpreting the task. "
+    },
+    "001-5697e89b281b": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error occurred in step 6, where the code execution failed due to a syntax error (leading zeros in decimal integer li\n[5-9 mid7] FIRST :: The error occurred in step 6, where the code execution failed due to a syntax error. This error was then corrected in st\n[5-7 mid6] FIRST :: The error occurred in step 6 due to a syntax error in the Python code caused by the commas in the population numbers. Th\n[5-6 mid5] SECOND :: The error occurred in step 6, due to a syntax error in the Python code.\n\nVERDICT: SECOND"
+    },
+    "002-a04041638aa4": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error lies in step 2. The Movie_Expert included \"Spectre (2015)\" which is *just* over the 150-minute limit. This inc\n[0-4 mid2] SECOND :: The error lies in step 3. The StreamingService_Expert starts performing web searches, but the initial list from the Movi\n[3-4 mid3] FIRST :: The error likely occurred in step 3. The StreamingService_Expert started performing web searches, and the trace shows a "
+    },
+    "004-d57d322d4115": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error lies in step 1. The initial list of films provided by Filmography_Expert is incomplete. \"Camille Claudel\" (198\n[0-4 mid2] SECOND :: The error appears to be in step 3, where the StreamingAvailability_Expert incorrectly states that \"La Gifle\" is not avai\n[3-4 mid3] FIRST :: The error lies in step 3. The StreamingAvailability_Expert incorrectly stated that \"La Gifle\" was not available on Vudu."
+    },
+    "005-b82f729abea8": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error started in step 4 with the `TypeError` caused by `perform_web_search` returning `None`. This was the first poi\n[5-9 mid7] FIRST :: The error stems from the initial `perform_web_search` function returning `None` in step 4, which wasn't properly handled\n[5-7 mid6] FIRST :: The error originates from step 5, where the `perform_web_search` function returned `None`, causing a `TypeError`. This w\n[5-6 mid5] FIRST :: The error originated in step 5, with the `perform_web_search` function returning `None`. This caused a `TypeError` that "
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-7 mid3] FIRST :: The error stems from the lack of a Google Maps API key in step 1, which prevented the Python script from executing prope\n[0-3 mid1] SECOND :: The failure stems from the missing Google Maps API key, which prevented the initial script from running and forced a man\n[2-3 mid2] SECOND :: The decisive mistake occurred when the Fitness_Expert attempted to proceed without a Google Maps API key, resorting to m"
+    },
+    "006-b40c7e455b08": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error was first replicated in step 8, which falls within the second half (steps 5 to 9).\n\nVERDICT: SECOND\n[5-9 mid7] SECOND :: The error, a `ValueError` with the message \"unknown language unknown\", first appears in step 8.\n\nVERDICT: SECOND\n[8-9 mid8] FIRST :: The error occurred in step 8, where the `Computer_terminal` tool call resulted in an execution failure and the \"unknown "
+    },
+    "009-537a267c0756": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: The error occurred in step 3, where the `perform_web_search` function was not defined. This happened in the first half o\n[0-3 mid1] SECOND :: The error occurred in step 3, where the `perform_web_search` function was not defined. This happened because the Bioinfo\n[2-3 mid2] FIRST :: The error occurred in step 2 because the `perform_web_search` function was not defined initially. This prevented the web"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake appears to be in the SECOND half (steps 5 to 9). The repeated failures to execute the code for geog\n[5-9 mid7] SECOND :: The error originates in step 8, with a connection timeout during the geographic verification attempt. This prevents the \n[8-9 mid8] FIRST :: The error occurred in step 8, where a connection timeout prevented the code from executing. This directly halted the pro"
+    },
+    "008-00a173727b41": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The error lies in step 1. The Verification_Expert states the highest price is $5,200,000 based on Realtor.com, but then \n[0-2 mid1] FIRST :: The error lies in step 1. The Verification_Expert states the highest price is $5,200,000 based on Realtor.com, but then \n[0-1 mid0] SECOND :: The error lies in step 1. The Verification_Expert presents conflicting data (Zillow: $5,000,000, Redfin: $4,800,000, Tru"
+    },
+    "010-12509faada72": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error appears to be in step 5, where the Computer_terminal fails to execute the Python code, leading to a `TypeError\n[5-9 mid7] FIRST :: The error occurred in step 5, when the Computer_terminal failed to iterate through the search results. This prevented th\n[5-7 mid6] FIRST :: The error occurred in step 5, where the Computer_terminal failed to iterate through the search results, likely due to a \n[5-6 mid5] FIRST :: The error occurred in step 5, where the Computer_terminal failed to iterate through the search results due to a `TypeErr"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error occurred in step 2, when the script attempted to read the `seattle_weather.csv` file and failed because it was\n[0-4 mid2] SECOND :: The failure occurred in step 2, where the `seattle_weather.csv` file was not found. This falls within steps 3-4.\n\nVERDIC\n[3-4 mid3] SECOND :: VERDICT: SECOND"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-8 mid4] SECOND :: The failure occurred in step 4, where the `perform_web_search` function failed. This falls within the second half of the\n[5-8 mid6] FIRST :: The error lies in steps 5-6. The initial web search failed (step 4), and the subsequent manual verification (steps 5-6) \n[5-6 mid5] SECOND :: VERDICT: SECOND"
+    },
+    "017-3f81e1d1cad3": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: The `FileNotFoundError` in step 2 indicates the initial problem. This occurred within the first half of the steps (0-3).\n[0-3 mid1] SECOND :: The error occurred in step 2, when the computer terminal attempted to read the CSV file and received a `FileNotFoundErro\n[2-3 mid2] FIRST :: The error occurred in step 2, specifically due to a `FileNotFoundError`. This falls within the first half of the steps ("
+    },
+    "016-2f776a306c77": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: The failure occurred in step 4, where the scraping attempt failed due to an `AttributeError`. This falls within the firs\n[0-4 mid2] SECOND :: The error occurred in step 4, when the computer terminal attempted to scrape TripAdvisor and failed due to an `Attribute\n[3-4 mid3] SECOND :: The error occurred in step 4, within the second half of the steps (steps 4 to 4).\n\nVERDICT: SECOND"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error originates in step 5, where the API call fails repeatedly with a KeyError ('Snowfall') and 404 errors. This is\n[5-9 mid7] FIRST :: The error originates in step 5, with the `KeyError: 'Snowfall'` indicating a problem with the API data structure. The su\n[5-7 mid6] FIRST :: The error originates in step 5, with the `KeyError: 'Snowfall'` indicating a problem with the API data structure. This c\n[5-6 mid5] FIRST :: The error originates in step 5, with the `KeyError: 'Snowfall'` indicating a problem with the API data structure.\n\nVERDI"
+    },
+    "018-874e62353ead": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The error likely occurred in step 3, where the ArithmeticProgressions_Expert prematurely terminated the process. The Ver\n[0-3 mid1] SECOND :: The error likely occurred in step 3, where the ArithmeticProgressions_Expert validated the calculations. The Verificatio\n[2-3 mid2] SECOND :: The decisive mistake appears to be in step 3, where the ArithmeticProgressions_Expert validates the calculations and con"
+    },
+    "012-d731749a39ca": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error appears to stem from the difficulty in reliably extracting the discography information from the Wikipedia page\n[5-9 mid7] FIRST :: The error originates in step 7, where the code attempts to find a specific element that doesn't exist. The correction at\n[5-7 mid6] SECOND :: The error occurred in step 7, which falls within the second half (steps 7 to 7).\n\nVERDICT: SECOND"
+    },
+    "020-85a096b8759f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: The error originates from the initial setup and analysis in steps 0-3, specifically the attempt to simulate the error an\n[0-3 mid1] FIRST :: The error \"unknown language json\" appears in step 0 and is then analyzed in step 1. The subsequent steps (2 and 3) build\n[0-1 mid0] FIRST :: The error originated in step 0 with the \"unknown language json\" message and continued into step 1 where the debugging ex"
+    },
+    "022-ae51d1d52d64": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-7 mid3] FIRST :: The error occurred in step 3, where the code execution failed due to an invalid API key. This falls within the first hal\n[0-3 mid1] SECOND :: The error occurred in step 3, which falls within the second half (steps 2 to 3).\n\nVERDICT: SECOND\n[2-3 mid2] SECOND :: VERDICT: SECOND"
+    },
+    "019-2c7247a57061": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error originates from the inability to access the CSV file, which occurs in steps 2 and 4. These steps fall within t\n[5-9 mid7] FIRST :: The error originates from the repeated inability to access the CSV file, starting in step 2 and continuing through steps\n[5-7 mid6] FIRST :: The error consistently stems from the inability to locate the CSV file, starting in step 2 and persisting through step 4\n[5-6 mid5] FIRST :: The error originates from the repeated failure to access the CSV file, starting in step 2 and continuing through step 4."
+    },
+    "021-9d62146b7652": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The initial error occurred in step 2 when the `pandas.read_csv` function failed because the file didn't exist. This happ\n[0-4 mid2] SECOND :: The failure occurred in steps 3 and 4. The initial attempt to read the CSV file failed (step 2), and the subsequent atte\n[3-4 mid3] SECOND :: The decisive mistake occurred in step 4, where the `ValueError: day is out of range for month` error arose due to the in"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-4 mid2] SECOND :: The error lies in step 3 where the agent incorrectly states there are 12 stops. Step 1 lists 20 stops, and step 2 identi\n[3-4 mid3] FIRST :: The error lies in step 3. The agent incorrectly states there are 12 stops. Reviewing the list in step 2, there are actua"
+    },
+    "025-85a096b8759f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: The error originates from the initial setup and analysis in steps 0-3, specifically the attempt to simulate the error an\n[0-3 mid1] FIRST :: The error \"unknown language json\" appears in step 0 and is then analyzed in step 1. The subsequent steps (2 and 3) build\n[0-1 mid0] FIRST :: The error originated in step 0 with the \"unknown language json\" message and continued into step 1 where the debugging ex"
+    },
+    "024-aa646cf62171": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error originates from step 2, where the code fails due to a missing `googlemaps` module. This is within the first ha\n[0-4 mid2] FIRST :: The error originates from step 2, where the code fails due to a missing `googlemaps` module. This falls within the first\n[0-2 mid1] FIRST :: The error originates in step 2 with the `ModuleNotFoundError`. This occurred within the first half of the steps (0 to 1)\n[0-1 mid0] FIRST :: The error originates from step 2, where the code execution failed due to a missing `googlemaps` module. This occurred af"
+    },
+    "026-945822c59fe9": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error occurred in step 4, where the `perform_web_search` function was not defined, causing the code execution to fai\n[0-4 mid2] SECOND :: The error occurred in steps 3 and 4, specifically with the `NameError: name 'perform_web_search' is not defined`. This i\n[3-4 mid3] FIRST :: The error occurred in step 4 when the `perform_web_search` function was not defined. This happened during the execution "
+    },
+    "027-6479bd8a2bba": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error originates in step 4 with the `403 Forbidden` error from the geopy library. This falls within the first half o\n[0-4 mid2] SECOND :: The error originates in step 3 and 4, specifically with the geocoding attempt using the `geopy` library and then the `go\n[3-4 mid3] FIRST :: The error originates in step 4 with the `403 Forbidden` error from the first geocoding attempt. This is the first decisi"
+    },
+    "030-0319cbd03980": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-7 mid3] FIRST :: The error originates from the failed web searches in steps 1 and 4. These failures occurred within the first half of the\n[0-3 mid1] FIRST :: The error originates from the failed execution of the `perform_web_search` function in step 1. This prevented the agent \n[0-1 mid0] SECOND :: The error originates from the failed execution of the `perform_web_search` function in step 1. This prevented the agent "
+    },
+    "029-606d391c364b": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The initial selection of martial arts academies in steps 2 and 3 was flawed, as the first two options were significantly\n[0-4 mid2] SECOND :: The initial mistake lies in step 3, where the NYC_Local_Expert incorrectly states that Five Points Academy and New York \n[3-4 mid3] FIRST :: The initial list of martial arts academies in step 3 included two that were significantly further than a five-minute wal"
+    },
+    "028-3a559ca1aea1": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error occurred in step 9 due to a `NameError: name 'perform_web_search' is not defined`. This indicates a problem wi\n[5-9 mid7] SECOND :: The error occurred in step 9 because the `perform_web_search` function was not defined. This indicates a problem with th\n[8-9 mid8] SECOND :: The error occurred in step 9 because the `perform_web_search` function was not defined. This indicates a problem with th"
+    },
+    "034-04dc240da7b8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error occurred in step 2, when the API call failed due to a lack of subscription. This happened within the first hal\n[0-4 mid2] FIRST :: The error occurred in step 2, when the Computer_terminal failed to retrieve the captions due to an API subscription issu\n[0-2 mid1] SECOND :: The error occurred in step 2, where the Computer_terminal tool call failed due to an API subscription issue. This falls "
+    },
+    "031-da9aec084a98": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error occurred in step 8, which falls within steps 5 to 9.\n\nVERDICT: SECOND\n[5-9 mid7] SECOND :: The error occurred in step 8, during the execution of the `image_qa` function, and was related to an undefined `Image` m\n[8-9 mid8] FIRST :: The error occurred in step 8, during the execution of the `image_qa` function call. The traceback indicates an issue wit"
+    },
+    "033-620b58b7aa60": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error occurred in step 5, which falls within the second half (steps 5 to 9).\n\nVERDICT: SECOND\n[5-9 mid7] FIRST :: The error occurred in step 5, where a `NameError` indicated that the `dictionary` variable was not defined. This was res\n[5-7 mid6] FIRST :: The error occurred in step 5, where a `NameError` arose because the `dictionary` variable was not defined in the scope w\n[5-6 mid5] FIRST :: The error occurred in step 5, specifically due to the `NameError: name 'dictionary' is not defined`. This indicates a pr"
+    },
+    "032-af0933cfcd09": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The initial searches in steps 0-4 were broad and didn't directly address the core question of a book recommendation. The\n[0-4 mid2] FIRST :: The initial searches in steps 0-2 didn't directly find the book with the recommendation. Step 3 introduced a more refine\n[0-2 mid1] FIRST :: The initial search query in step 3 was too narrow, focusing solely on \"book James Beard Award winners recommend Frontier\n[0-1 mid0] SECOND :: The initial plan in step 0 is sound, but the execution immediately falters in step 1. The Culinary_Awards_Expert jumps t"
+    },
+    "035-a3d5b34baf48": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error started in step 5, where the initial scraping attempt failed. The subsequent steps were attempts to fix this i\n[5-9 mid7] SECOND :: The error lies in steps 8 to 9. The Statistics_Expert repeatedly attempts to scrape the data with increasingly complex c\n[8-9 mid8] SECOND :: The error lies in step 9. The code execution resulted in \"Extracted population data: 56,583[7](210th)\", which is clearly"
+    },
+    "036-88562a8be980": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurred in the SECOND half (steps 5 to 9). The initial web search (step 5) failed, and the subsequ\n[5-9 mid7] FIRST :: The error occurred in step 5, where the `perform_web_search` function returned `NoneType`, causing a `TypeError`. This p\n[5-7 mid6] FIRST :: The error occurred in step 5, where the `Computer_terminal` tool call failed with a `TypeError: 'NoneType' object is not\n[5-6 mid5] FIRST :: The error occurred in step 5, where the `Computer_terminal` tool call failed with a `TypeError: 'NoneType' object is not"
+    },
+    "037-14508845755c": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The agents are stuck in a loop requesting the code, but it's never provided. The core issue \u2013 the lack of code \u2013 prevent\n[0-4 mid2] FIRST :: The agents are stuck in a loop requesting the code, but it's never provided. The initial problem (lack of code) is evide\n[0-2 mid1] FIRST :: The agents are stuck in a loop requesting the code, but it's never provided. The initial problem is the lack of code to \n[0-1 mid0] SECOND :: The decisive mistake is the repeated failure to obtain and analyze the code that caused the error. This problem started "
+    },
+    "038-3c2adf8c14b1": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The error lies in step 3, where the computer terminal incorrectly reports Japan (JPN) as having only 1 athlete. This dir\n[0-3 mid1] SECOND :: The error occurred in step 3, where the computer terminal produced incorrect data (CHN and JPN both having only 1 athlet\n[2-3 mid2] SECOND :: The error lies in step 3, where the computer terminal provides incorrect data (CHN with only 1 athlete). This directly l"
+    },
+    "040-a181eb120cb2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST\n[0-2 mid1] FIRST :: VERDICT: FIRST\n[0-1 mid0] SECOND :: VERDICT: SECOND"
+    },
+    "041-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The error occurred in step 0, where the agent attempted to use a function `seek_experts_help` that didn't exist. This is\n[0-2 mid1] FIRST :: The error occurred in step 0, where the agent attempted to use a function `seek_experts_help` that was not found. This h\n[0-1 mid0] FIRST :: The error occurred in step 0, where the agent attempted to use a function `seek_experts_help` that was not found. This p"
+    },
+    "039-2b969539d7db": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error occurred in step 6, where the code execution failed due to an invalid authorization (likely related to the API\n[5-9 mid7] FIRST :: The error occurred in step 6, where the code execution failed due to a ValueError indicating an invalid API token. This \n[5-7 mid6] FIRST :: The error occurred in step 6, where the Python code execution failed with a ValueError indicating an invalid API token. \n[5-6 mid5] SECOND :: The error occurred in step 6, as indicated by the traceback and the `ValueError` related to the API response.\n\nVERDICT: "
+    },
+    "043-d53734deeead": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The initial steps (0-4) involved the agent struggling to get code to execute and then creating a sample code. The error \n[0-4 mid2] FIRST :: The initial error stemmed from the lack of code provided in step 0, which prevented the Computer_terminal from executing\n[0-2 mid1] SECOND :: The initial error stemmed from the lack of code provided in step 0, which was then pointed out in step 2. Therefore, the"
+    },
+    "042-833c47739be2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error originates in step 4, where the `perform_web_search` function is not defined. This occurs within the first hal\n[0-4 mid2] FIRST :: The error originates in step 3 with the `NameError: name 'perform_web_search' is not defined`. This is the first failure\n[0-2 mid1] FIRST :: The error originates in step 4, where the `perform_web_search` function is not defined. This happens after the Art_Histo\n[0-1 mid0] SECOND :: The error originates in step 1, where the Art_Historian_Expert requests an image or link and the Computer_terminal fails"
+    },
+    "045-c43d472268d8": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-8 mid4] SECOND :: The error likely occurred in steps 5-8. The initial assumption of 2022 being the \"today\" year was not rigorously verifie\n[5-8 mid6] SECOND :: VERDICT: SECOND\n[7-8 mid7] SECOND :: VERDICT: SECOND"
+    },
+    "044-e214187ad13a": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error started in step 1 with the initial arxiv_search failing. This continued through steps 2, 3, 4, 5, 6, 7, 8, and\n[0-4 mid2] SECOND :: The initial search failing (step 2) and the subsequent attempts to correct it (steps 3 and 4) clearly indicate the probl\n[3-4 mid3] FIRST :: The error started in step 3 with the initial failed search and the subsequent plan refinement. The issues continued and "
+    },
+    "046-2e76694a8fe5": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error occurred in step 1, where the `perform_web_search` call failed (exitcode 1). This happened within the first ha\n[0-4 mid2] FIRST :: The error occurred in step 1, where the `perform_web_search` call failed (exitcode: 1). This happened in the FIRST half \n[0-2 mid1] FIRST :: The error occurred in step 1, where the `perform_web_search` function call resulted in a `TypeError` because `search_res\n[0-1 mid0] SECOND :: The error occurred in step 1, where the `perform_web_search` function call resulted in a `TypeError` because `search_res"
+    },
+    "047-5d32c1eba366": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error appears to be in step 9, where the Computer_terminal attempts to open an image and fails with a `PIL.Unidentif\n[5-9 mid7] SECOND :: The error appears to be in step 9, where the Computer_terminal attempts to open an image and fails with a `PIL.Unidentif\n[8-9 mid8] SECOND :: The error occurred in step 9 because the code failed to identify the image file, resulting in a `PIL.UnidentifiedImageEr"
+    },
+    "050-6784fd6fd246": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The error appears to be in how the Culinary_Expert interpreted the transcription in step 3. While the transcription itse\n[0-3 mid1] FIRST :: The error lies in step 1. The AudioProcessing_Expert incorrectly instructs the Computer_terminal to act as a group chat \n[0-1 mid0] SECOND :: The error appears to be in step 1, where the Computer_terminal incorrectly instructs the group chat manager. The AudioPr"
+    },
+    "048-e5f2767e1b04": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error originates in steps 5-9. The initial date provided by the WebServing_Expert (October 2, 2019) is incorrect, an\n[5-9 mid7] FIRST :: The error originates in step 5 with the `KeyError`, and persists through step 7. The subsequent steps (8 and 9) attempt \n[5-7 mid6] FIRST :: The error originates in step 5 with the `KeyError` and is not resolved until step 7. Therefore, the decisive mistake is \n[5-6 mid5] FIRST :: The error originates in step 5, with the `KeyError` indicating a problem parsing the revision data. The subsequent steps"
+    },
+    "052-25639162f57c": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The initial error occurred in step 2, where the `perform_web_search` function was not defined. This happened before step\n[0-4 mid2] SECOND :: The error occurred in step 2, where the `perform_web_search` function was called without being imported. This happened i\n[3-4 mid3] FIRST :: The error occurred in step 3. The initial attempt to perform a web search failed because the `perform_web_search` functi"
+    },
+    "054-c81ed3b0a45a": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-7 mid3] FIRST :: The error lies in step 3, where the computer terminal shows no output. This suggests a problem with the code execution o\n[0-3 mid1] SECOND :: The error lies in step 2. The `Locomotive_Expert` incorrectly assumes that all listed configurations are steam locomotiv\n[2-3 mid2] SECOND :: The error lies in step 3, where the code output is empty. This indicates a problem with the code execution, preventing t"
+    },
+    "053-908be3172c8e": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The failure appears to stem from the inability to download and process the PDF, which began in step 5. The initial plan \n[5-9 mid7] FIRST :: The failure occurred because the PDF wasn't found (step 5). The subsequent steps (6-9) were attempts to work around this\n[5-7 mid6] FIRST :: The failure occurred in step 5 when the `extract_pdf_text` function failed because the PDF file was not found. The subse\n[5-6 mid5] FIRST :: The failure occurred in step 5 because the `extract_pdf_text` function failed due to a `FileNotFoundError`. This indicat"
+    },
+    "049-324f53bff996": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-7 mid3] FIRST :: The failure occurred at step 3, when the Computer_terminal timed out during the installation of Tesseract OCR. This happ\n[0-3 mid1] FIRST :: The failure occurred in step 3 due to a timeout during the installation of Tesseract OCR. This indicates a problem with \n[0-1 mid0] SECOND :: The decisive mistake occurred in step 1 when the Computer_terminal responded with \"There is no code from the last 1 mess"
+    },
+    "051-8f84910e124b": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error occurred in step 2, where the `perform_web_search` function call failed due to a `TypeError`. This happened wi\n[0-4 mid2] FIRST :: The error occurred in step 2, where the `perform_web_search` function call failed with a `TypeError`. This prevented the\n[0-2 mid1] SECOND :: The error occurred in step 2, where the `perform_web_search` function call failed with a `TypeError`. This happened duri"
+    },
+    "056-0e66261209b3": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The error occurred in step 3, where the code execution failed. This falls within the first half of the steps (0 to 4).\n\n\n[0-4 mid2] SECOND :: The error occurred in step 3, where the code execution failed. This falls within the second half of the steps (3 to 4).\n\n[3-4 mid3] FIRST :: The failure occurred in step 3, where the code execution failed.\n\nVERDICT: FIRST"
+    },
+    "057-3196a02a724f": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-5 mid2] SECOND :: The failure occurred at step 3 with the `Computer_terminal` tool call failing. This falls within steps 3 to 5.\n\nVERDICT:\n[3-5 mid4] FIRST :: The failure occurred due to the Computer_terminal failing in step 3, and the Verification_Expert attempting to recover i\n[3-4 mid3] FIRST :: The failure occurred in step 3, where the Computer_terminal failed to execute. This falls within the first half of the s"
+    },
+    "058-f0ccb40243d8": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-5 mid2] SECOND :: The error likely occurred in steps 3-5. Step 3 states \"The first name of the character played by Bartosz Opania in 'Magd\n[3-5 mid4] FIRST :: The error likely occurred in step 3 or 4. Both steps 3 and 4 fall within the first half (steps 3 to 4).\n\nVERDICT: FIRST\n[3-4 mid3] SECOND :: The error likely occurred in step 4, as the Verification_Expert's statement, while seemingly confident, is incorrect. Th"
+    },
+    "060-6df45b66a14f": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-7 mid3] FIRST :: The trace shows a smooth and successful execution of the plan. There are no obvious errors in the first half (steps 0-3)\n[0-3 mid1] SECOND :: The error appears to be in how the Validation_Expert interpreted the instructions and started validating before the Data\n[2-3 mid2] SECOND :: The error lies in step 3, where the Validation_Expert starts to re-extract and verify the data instead of simply validat"
+    },
+    "061-d5e74f5edef1": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST\n[0-4 mid2] SECOND :: VERDICT: SECOND\n[3-4 mid3] SECOND :: VERDICT: SECOND"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST\n[0-4 mid2] FIRST :: The decisive mistake likely occurred in the FIRST half (steps 0 to 2). While the plan seemed sound, the reliance on the \n[0-2 mid1] FIRST :: The decisive mistake likely occurred in the FIRST half (steps 0 to 1). The initial steps involved setting up the task an\n[0-1 mid0] SECOND :: VERDICT: SECOND"
+    },
+    "055-238f0c23d791": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The agent initially followed a reasonable plan (steps 0-4), identifying leap days and suggesting checking the Wikipedia \n[5-9 mid7] SECOND :: The agent is repeatedly revisiting the same pages (Dragon and Help:Page history) without making progress towards the goa\n[8-9 mid8] SECOND :: The decisive mistake appears to be in step 9. The agent is now presenting irrelevant search results (Wikipedia:Best of B"
+    },
+    "062-1d3b288462be": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake likely occurred in the first half (steps 0 to 2). While the Verification Expert initially confirmed\n[0-2 mid1] SECOND :: The decisive mistake occurred within steps 0 to 2. The question asks whether it was in the first half (0-1) or the secon"
+    },
+    "065-a16ae072deff": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error appears to stem from the initial web search failing in step 2. This failure cascaded through the subsequent st\n[0-4 mid2] FIRST :: The initial web search in step 1 failed (exit code 1). This failure prevented the agents from accessing the YouTube page\n[0-2 mid1] SECOND :: The error occurred in step 2. The `perform_web_search` function failed, resulting in a `TypeError`. This failure prevent"
+    },
+    "066-4835ec93a6d1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The error likely occurred in steps 0-2. Step 0 sets the stage, Step 1 outlines the plan, and Step 2 executes a calculati\n[0-2 mid1] FIRST :: The error likely lies in step 1, where the PublicationData_Expert assumes a false positive rate of 0.05 and then calcula\n[0-1 mid0] SECOND :: The error likely lies in step 1. The PublicationData_Expert makes an assumption of 1000 articles to demonstrate the calc"
+    },
+    "063-945c18bc1c72": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The error appears to be in how the difference was calculated and presented. Step 3 states the difference is 70.0 thousan\n[0-2 mid1] FIRST :: The error appears to be in how the numbers were interpreted and calculated. Step 1 calculates the difference as 70.0, wh\n[0-1 mid0] SECOND :: The decisive mistake likely occurred in step 1. The Verification_Expert laid out the plan and began executing it, retrie"
+    },
+    "064-67329dda61f8": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: The trace shows a successful run. The agents correctly identified the train with the most passengers and then retrieved \n[0-4 mid2] SECOND :: The error lies in step 3. The DataAnalysis_Expert's Python script in step 3 incorrectly prints the entire row of the dat\n[3-4 mid3] SECOND :: The error lies in step 4. The `Computer_terminal` output in step 4 shows `train_id 5 passengers 300 Name: 4, dtype: int6"
+    },
+    "067-d7caaed0d413": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The error lies in step 1, where the Behavioral_Expert sets up the logic incorrectly. The statement \"At least one of us i\n[0-3 mid1] FIRST :: The error lies in step 1, where the Behavioral_Expert sets up the logic incorrectly. The statement \"At least one of us i\n[0-1 mid0] SECOND :: The decisive mistake appears to be in step 1, where the Behavioral_Expert sets up the logic puzzle. The initial framing "
+    },
+    "069-5486f0bb8912": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error occurred in step 4, when the OCR script failed due to the absence of the 'tesseract' executable. This falls wi\n[0-4 mid2] SECOND :: The failure occurred in step 4 due to the `FileNotFoundError: [Errno 2] No such file or directory: 'tesseract'`. This ha\n[3-4 mid3] SECOND :: The error occurred in step 4, where the `pytesseract` command failed due to the absence of the 'tesseract' executable. T"
+    },
+    "070-0528f540243a": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error lies in step 3, where the OCR function failed. This failure cascaded through the subsequent steps, preventing \n[0-4 mid2] SECOND :: The error occurred in steps 3 and 4. The initial attempt at OCR failed, and the subsequent correction required a differe\n[3-4 mid3] FIRST :: The error occurred in step 3, where the initial OCR attempt failed. This failure necessitated a change in approach (usin"
+    },
+    "071-03b230b92593": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: The error appears to be in step 1, where the Gaming_Awards_Expert incorrectly identifies the game as \"God of War\" and li\n[0-4 mid2] SECOND :: VERDICT: SECOND\n[3-4 mid3] SECOND :: VERDICT: SECOND"
+    },
+    "073-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The error occurred in step 0, where the agent attempted to use a function `seek_experts_help` that didn't exist. This is\n[0-2 mid1] FIRST :: The error occurred in step 0, where the agent attempted to use a function `seek_experts_help` that was not found. This h\n[0-1 mid0] FIRST :: The error occurred in step 0, where the agent attempted to use a function `seek_experts_help` that was not found. This p"
+    },
+    "072-c6399b46fd3c": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error occurred in step 4, when the initial attempt to extract the data using the incorrect column names resulted in \n[0-4 mid2] SECOND :: The error occurred in step 3. The initial code attempted to read the Excel file assuming column names like 'vendor_name'\n[3-4 mid3] FIRST :: The error occurred in step 4. The traceback indicates a KeyError because the specified column names ('vendor_name', 'mon"
+    },
+    "074-27ef8756352a": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error appears to be in the repeated miscalculation of the check digit. The initial plan and steps were sound (steps \n[5-9 mid7] SECOND :: The error is in the second half (steps 8 to 9). The agent consistently fails to recognize the correct check digit despit\n[8-9 mid8] SECOND :: The error is in the SECOND half (steps 9 to 9). The Python Programmer Expert is still producing the incorrect output 'X'"
+    },
+    "075-dc792a0fa32f": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-4 mid2] SECOND :: The error likely occurred in step 3. The Verification Expert prematurely concluded that the result of 0 was correct with\n[3-4 mid3] FIRST :: The decisive mistake likely occurred in step 3, where the Verification_Expert prematurely concluded that no articles wit"
+    },
+    "068-54f5f481feb1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The trace shows the expert correctly identifying the values of the symbols and starting to explain the positional value \n[0-2 mid1] FIRST :: The trace shows an error in the interpretation of the symbols and their positional values. Specifically, step 1 incorrec\n[0-1 mid0] SECOND :: The error lies in step 1, where the symbol values are assigned. Specifically, the symbol '\u01a2' (represented as DISH) is in"
+    },
+    "076-769191cea270": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake likely occurred in the FIRST half (steps 0 to 4). The initial plan was sound, but the agents seemed\n[0-4 mid2] FIRST :: The decisive mistake likely occurred in the FIRST half (steps 0 to 2). The initial plan was sound, but the execution in \n[0-2 mid1] FIRST :: The decisive mistake likely occurred in steps 0-1. The initial plan formulation and the subsequent search strategy seem \n[0-1 mid0] SECOND :: The decisive mistake likely occurred in the SECOND half (steps 1 to 1). The initial plan in step 0 was sound, but the ex"
+    },
+    "077-a1dc061cb971": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The failure occurred at step 5 when the agent encountered a CAPTCHA and was unable to access the paper. This happened wi\n[5-9 mid7] FIRST :: The error occurred in step 9 when the ResearchFunding_Expert admitted it couldn't complete the task after previously sta\n[5-7 mid6] FIRST :: The decisive mistake occurred when the agent was unable to bypass the CAPTCHA, preventing access to the paper. This happ\n[5-6 mid5] SECOND :: The decisive mistake occurred when the agent was unable to access the paper due to a CAPTCHA, which happened in step 6.\n"
+    },
+    "078-e16678e8c43e": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error lies in the initial assumption and lack of proper URL retrieval. Steps 0-4 focus on attempting to get the Wiki\n[0-4 mid2] SECOND :: The decisive mistake lies in the assumption of the recycling rate without verifying it against the Wikipedia link as ini\n[3-4 mid3] SECOND :: The decisive mistake lies in the assumption of the recycling rate without verifying it against the Wikipedia link. This "
+    },
+    "079-72b0c0014ede": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-4 mid2] FIRST :: The trace shows a smooth progression through the steps, with verification and confirmation at each stage. The final deci\n[0-2 mid1] SECOND :: The decisive mistake likely occurred in step 2, where the Verification_Expert started to question the accuracy of the ex"
+    },
+    "080-252fc8554126": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake likely occurred in steps 0-2. The agents seemed to be following a plan, but the actual answer \"Base\n[0-2 mid1] FIRST :: The decisive mistake likely occurred in step 0 or 1. The trace shows a clear progression of steps, and the final answer \n[0-1 mid0] SECOND :: VERDICT: SECOND"
+    },
+    "083-b73a239fdad1": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error appears to be in step 3, where the initial scraping attempt failed and the DataAnalysis_Expert had to signific\n[5-9 mid7] FIRST :: The error lies in step 5, where the Verification_Expert initially flagged the 192 count as incorrect and attempted to re\n[5-7 mid6] FIRST :: The error lies in step 5, where the Verification_Expert initially deemed 192 winners to be incorrect and attempted to re\n[5-6 mid5] FIRST :: The error lies in step 5, where the Verification_Expert deemed the initial count of 192 to be incorrect and attempted to"
+    },
+    "082-933179cfbd8d": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-7 mid3] FIRST :: The error lies in the initial assumption and search strategy. Steps 0-3 focus on using arXiv, which is clearly not the c\n[0-3 mid1] FIRST :: The initial plan in step 0 is sound, but step 1 immediately jumps to a conclusion (\"clich\u00e9d\") without actually performin\n[0-1 mid0] SECOND :: The decisive mistake likely occurred in the SECOND half (steps 1 to 1). The initial plan was followed, but the Literary_"
+    },
+    "081-6b8e879881c0": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The initial attempts to use Selenium with both Chrome and Firefox consistently failed, indicating a problem with the env\n[0-4 mid2] FIRST :: The initial problem lies in the WebDriver initialization failing repeatedly. This started in step 1 and persisted throug\n[0-2 mid1] FIRST :: The initial WebDriver initialization failures in steps 0 and 1 indicate a fundamental problem with the environment setup\n[0-1 mid0] FIRST :: The initial problem lies in the WebDriver initialization failing repeatedly. This started in step 1 and continued throug"
+    },
+    "084-8cad8cae382d": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error originates in step 6, where the Python script attempting to fetch the C++ code fails due to an `AttributeError\n[5-9 mid7] FIRST :: The error originates in step 6, where the initial attempt to fetch the C++ code fails due to an `AttributeError`. This i\n[5-7 mid6] FIRST :: The error occurred in step 6, where the initial attempt to fetch the C++ code failed due to an `AttributeError`. This wa\n[5-6 mid5] SECOND :: The error occurred in step 6. The traceback indicates an `AttributeError: 'NoneType' object has no attribute 'get_text'`"
+    },
+    "086-e5db53c29991": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error likely occurred in step 5, where the MusicTheory_Expert identified the notes. The subsequent steps (6-9) built\n[5-9 mid7] SECOND :: VERDICT: SECOND\n[8-9 mid8] SECOND :: VERDICT: SECOND"
+    },
+    "085-dc5e30ffc725": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The error occurred in step 3, where the Literature_Expert identified \"mis-transmission\" as the incorrect word. This fall\n[0-3 mid1] SECOND :: The error occurred in step 3, where the Literature_Expert identified \"mis-transmission\" as the incorrect word. This is w\n[2-3 mid2] SECOND :: The error occurred in step 3, as that's where the Literature_Expert identified the discrepancy.\n\nVERDICT: SECOND"
+    },
+    "088-3a55b5705c39": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: The error occurred in step 2, where the `perform_web_search` function returned `None`, causing a `TypeError`. This happe\n[0-2 mid1] SECOND :: The error occurred in step 2, where the `perform_web_search` function returned `None`, leading to a `TypeError`. This ha"
+    },
+    "090-e273f2fabe96": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error occurred in step 3, when the API call failed. This falls within the second half of the steps (5 to 9).\n\nVERDIC\n[5-9 mid7] SECOND :: VERDICT: SECOND\n[8-9 mid8] SECOND :: VERDICT: SECOND"
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake lies in the second half (steps 5 to 9). The initial web searches (steps 1-4) were unproductive, but\n[5-9 mid7] SECOND :: The decisive mistake lies in steps 8 and 9. The agents are now attempting to guess the author based on incomplete inform\n[8-9 mid8] SECOND :: The decisive mistake lies in step 9. The expert jumps to a conclusion (Thomas Morris) without confirming if his book is "
+    },
+    "089-93088535fb95": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-5 mid2] SECOND :: The error lies in step 3, where the historian states Amir-Abbas Hoveyda was Prime Minister in April 1977. Hoveyda was ac\n[3-5 mid4] FIRST :: The error lies in step 3. The historian incorrectly states that Amir-Abbas Hoveyda was Prime Minister in April 1977. He \n[3-4 mid3] SECOND :: The error lies in step 4. The Verification Expert incorrectly states that Hoveyda was Prime Minister *until* August 1977"
+    },
+    "092-a5a8d627e455": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error originates in step 2, where the `youtube_download` function is not defined. This occurs within the first half \n[0-4 mid2] FIRST :: The initial error occurred in step 2, where the `youtube_download` function was not defined. This happened during the fi\n[0-2 mid1] FIRST :: The error originates in step 2, where the `youtube_download` function is not defined. This is within the first half of t\n[0-1 mid0] FIRST :: The error originates in step 1, where the agent attempts to use `youtube_download` without it being defined. This is the"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error appears to stem from the inability to locate or access the paper and subsequently the PDF file. This issue beg\n[0-4 mid2] SECOND :: The error originates in step 3, where the agent attempts a refined search query but fails to find the paper. This is wit\n[3-4 mid3] SECOND :: The error originates in step 4, where the agent realizes it cannot directly access the paper and proposes a hypothetical"
+    },
+    "091-23de28edf643": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-6 mid3] SECOND :: The error lies in step 3, where the Verification_Expert incorrectly states the farthest cities are Honolulu, Hawaii and \n[4-6 mid5] FIRST :: The error lies in step 4 or 5, as the Verification_Expert in step 3 correctly identified the cities as Honolulu, Hawaii \n[4-5 mid4] FIRST :: The error lies in step 4, where the WebServing_Expert states the answer is \"Honolulu, Quincy\". However, the Verification"
+    },
+    "094-7e3d81abcddf": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The error appears to stem from the initial misunderstanding of the problem in step 0, leading to an incorrect approach. \n[0-2 mid1] FIRST :: The error originates in step 0, where the agent receives the task and plan. Step 1 confirms the error message \"Error: un\n[0-1 mid0] FIRST :: The failure occurred in step 0, as indicated by the \"execution failed\" exit code. The subsequent step 1 shows the error "
+    },
+    "095-91ab842a22b2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error lies in step 1, where the DataExtraction_Expert initially attempts to use `scrape_wikipedia_tables` with a hea\n[0-4 mid2] SECOND :: The error lies in step 3, where the DataExtraction_Expert changes strategy from attempting to scrape tables to parsing t\n[3-4 mid3] FIRST :: The error lies in step 3. The initial attempt to extract image data using `scrape_wikipedia_tables` failed, leading to a"
+    },
+    "096-89be76878d79": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error occurred in step 5, where the `requests` library was not imported, causing a `NameError`. This falls within th\n[5-9 mid7] FIRST :: The error occurred in step 5 when the `requests` library was not imported, causing a `NameError`. This was corrected in \n[5-7 mid6] FIRST :: The error occurred in step 5 when the `requests` library was not imported, causing a `NameError`. This is within the fir\n[5-6 mid5] FIRST :: The error occurred in step 5. The `NameError: name 'requests' is not defined` indicates a missing import statement, whic"
+    },
+    "097-aa341e34fc51": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The error appears to be in the initial identification of the setting. While the subsequent steps validate it, the initia\n[0-3 mid1] FIRST :: The error likely occurred in step 1. The VideoAnalysis_Expert incorrectly stated they were the Doctor Who Script expert,\n[0-1 mid0] SECOND :: The decisive mistake likely occurred in step 1. The DoctorWhoScript_Expert, while intending to follow the plan, immediat"
+    },
+    "098-43bbd8019fea": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error lies in step 5, where the `perform_web_search` function returned `None`, causing a `TypeError`. This prevented\n[5-9 mid7] SECOND :: The error lies in step 8. The Verification Expert incorrectly concluded that there was no writer quoted when the Merriam\n[8-9 mid8] FIRST :: The error lies in step 8, where the Verification Expert incorrectly concludes that the task is complete because no write"
+    },
+    "099-59e337ae1fbb": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The error likely lies in the data provided in step 2. The Data_Collection_Expert didn't actually collect the data from S\n[0-3 mid1] FIRST :: The error lies in the data provided by the Data_Collection_Expert. The DataAnalysis_Expert then proceeds to calculate ba\n[0-1 mid0] SECOND :: The error likely lies in step 1. The Data_Collection_Expert's plan to \"Check ScienceDirect for the required data\" and \"E"
+    },
+    "101-7011a3ca2fe8": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error originates in step 7, where the `identify_bird_species.py` script fails because TensorFlow is not installed. T\n[5-9 mid7] FIRST :: The error originates from the missing `tensorflow` module, which was detected in step 7. The subsequent steps (8 and 9) \n[5-7 mid6] SECOND :: The error occurs in step 7 because the `identify_bird_species.py` script cannot find the `tensorflow` module. This indic"
+    },
+    "100-364b09fd59b8": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error originates in step 6, where the Python script fails to extract the jersey number due to an `AttributeError`. T\n[5-9 mid7] FIRST :: The error originates in step 6, where the Python script fails to extract the jersey number due to an `AttributeError`. T\n[5-7 mid6] FIRST :: The error originates in step 6, where the initial Python script fails due to an `AttributeError`. The subsequent attempt\n[5-6 mid5] SECOND :: The error occurred in step 6. The Python script failed to execute correctly, resulting in an `AttributeError`. This fail"
+    },
+    "103-5593276388b1": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error occurred in step 4, where the script failed to retrieve the menu from the Wayback Machine. This was the first \n[0-4 mid2] SECOND :: The failure occurred in step 4, where the script failed to connect to the Wayback Machine. This falls within the second \n[3-4 mid3] SECOND :: The failure occurred in step 4, where the script failed to retrieve the menu.\n\nVERDICT: SECOND"
+    },
+    "102-a6862e302014": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The failure appears to stem from the repeated inability of the Computer_terminal to execute the code correctly, leading \n[0-4 mid2] SECOND :: The failure stems from the repeated inability of the Computer_terminal to execute the code correctly, leading to a lack \n[3-4 mid3] SECOND :: The failure occurs because the `Computer_terminal` consistently fails to execute the code provided by the `Neurology_Exp"
+    },
+    "107-de407cd051d7": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-6 mid3] SECOND :: The error likely occurred in step 3, where the Computer_terminal provided the output \"17000\". This value was then carrie\n[4-6 mid5] SECOND :: The error likely lies in step 5, where the CelestialPhysics_Expert confirms the result. While the calculations appear co"
+    },
+    "106-00e6e023a028": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: The error likely lies in step 4, where the Fashion_Vogue_Expert attempts to use `image_qa` without a valid image path. T\n[0-4 mid2] SECOND :: The error lies in step 4, where the Fashion_Vogue_Expert attempts to use `image_qa` without providing a valid `image_pat\n[3-4 mid3] SECOND :: The error lies in step 4, where the Fashion_Vogue_Expert attempts to use `image_qa` without providing a valid `image_pat"
+    },
+    "105-7a7794e34798": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-7 mid3] FIRST :: The initial error was a \"File not found\" error, which stemmed from the absence of `data.txt`. Steps 0-3 focused on ident\n[0-3 mid1] FIRST :: The initial failure occurred in step 0, with the general task failing immediately. The subsequent steps attempted to dia\n[0-1 mid0] SECOND :: The decisive mistake occurred in step 1, as indicated by the initial failed execution and the subsequent analysis pointi"
+    },
+    "104-9f0fb174fad0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error occurred in step 1, with the `IndentationError`. This happened within the first half of the steps (0 to 4).\n\nV\n[0-4 mid2] FIRST :: The error occurred in step 1, with the `IndentationError`. This falls within the first half of the steps (0 to 2).\n\nVERD\n[0-2 mid1] FIRST :: The error occurred in step 1, with the `IndentationError`. This falls within the first half of the steps (0 to 1).\n\nVERD\n[0-1 mid0] SECOND :: The error occurred in step 1, with the `IndentationError`. This falls within the second half of the steps (steps 1 to 1)"
+    },
+    "109-33e9e888adb4": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: The error occurred in step 5 when the `image_qa` function failed to execute. This falls within the first half of the ste\n[0-4 mid2] SECOND :: The error occurred in step 4 when the `image_qa` function failed to execute. This falls within the second half (steps 3 \n[3-4 mid3] SECOND :: The error occurred in step 4 when the `image_qa` function failed to execute.\n\nVERDICT: SECOND"
+    },
+    "108-13c9a4c03793": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error started in step 2 with a parsing error due to an incorrect file format. This occurred within the first half of\n[0-4 mid2] FIRST :: The error originated in step 2, where the attempt to read the CSV file resulted in a traceback. This occurred within the\n[0-2 mid1] SECOND :: The failure occurred in step 2, where the attempt to explore the CSV file resulted in a traceback due to a parsing error"
+    },
+    "111-bb45c75cb2de": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The failure occurred in step 1 due to a `Connection timed out` error during the initial web scraping attempt. This falls\n[0-3 mid1] FIRST :: The failure occurred in step 1 due to a `Connection timed out` error during the initial attempt to scrape the BASE websi\n[0-1 mid0] SECOND :: The failure occurred in step 1 due to a `TimeoutError` during the `Computer_terminal` tool call. This indicates a proble"
+    },
+    "112-7d8dcb80a290": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST\n[0-4 mid2] SECOND :: VERDICT: SECOND\n[3-4 mid3] SECOND :: VERDICT: SECOND"
+    },
+    "110-e240abd96f2e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The error occurred in step 3, where the WebServing_Expert incorrectly attributed the rhyme to Dastardly Mash when it act\n[0-4 mid2] SECOND :: The error occurred in step 3, where the WebServing_Expert incorrectly identified the headstone and rhyme. This falls wit\n[3-4 mid3] FIRST :: The error occurred in step 3, where the WebServing_Expert incorrectly identified the headstone and rhyme.\n\nVERDICT: FIRS"
+    },
+    "115-03d92b3118e2": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-4 mid2] FIRST :: The error lies in step 2 where the VerificationExpert incorrectly states that (12, 6, 18) is a possible distribution. Th\n[0-2 mid1] SECOND :: The error lies in step 2, where the VerificationExpert incorrectly states that the distribution (12, 6, 18) is a possibl"
+    },
+    "113-ccbf973529c4": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error started in step 1 and persisted through step 9. The initial error (indentation) was in step 1, and the subsequ\n[0-4 mid2] FIRST :: The error started in step 1 with an `IndentationError`. This occurred within steps 0-2.\n\nVERDICT: FIRST\n[0-2 mid1] FIRST :: The error started in step 1 with an `IndentationError`. This occurred before the DataValidation_Expert intervened in ste\n[0-1 mid0] FIRST :: The error started in step 1 with an `IndentationError`. This occurred within the first half of the steps (0 to 0).\n\nVERD"
+    },
+    "114-af259c3de825": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error occurred in step 4 when the Python script failed to find the table on Baseball Reference. This falls within st\n[5-9 mid7] FIRST :: The error originates from the DataAnalysis_Expert's script failing to locate the table (step 4), and the subsequent atte\n[5-7 mid6] FIRST :: The error originates in steps 5 and 6, where the Python script fails to locate the table on Baseball Reference.\n\nVERDICT\n[5-6 mid5] FIRST :: The error occurred in step 5, as the script failed to find the table and the DataAnalysis_Expert attempted to debug it.\n"
+    },
+    "117-b056cbb2e661": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error started in step 1 with an IndentationError, and continued with KeyError and IndexError. These errors occurred \n[0-4 mid2] SECOND :: The error originated in step 3, within the second half (steps 3 to 4).\n\nVERDICT: SECOND\n[3-4 mid3] FIRST :: The error in step 3 is due to the missing 'Platform' column, which was not anticipated in the initial code. This is a st"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The agents are stuck in a loop of repeatedly asking to find the dissertation and footnote 397. The initial plan (steps 0\n[0-4 mid2] SECOND :: The initial plan in steps 0 and 1 seems reasonable - locate the dissertation and then proceed. However, the execution in\n[3-4 mid3] FIRST :: The failure stems from the inability to locate the dissertation and footnote 397. Steps 3 and 4 both involve reiterating"
+    },
+    "118-d69039766c83": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The initial steps (0-4) were focused on requesting and waiting for the code, and then proposing a hypothetical example d\n[0-4 mid2] FIRST :: The initial steps (0-2) focused on requesting the code and outlining a debugging plan. The error appears to stem from th\n[0-2 mid1] FIRST :: The initial problem was the lack of code provided for debugging. Steps 0 and 1 focused on this issue, with step 1 explic\n[0-1 mid0] SECOND :: The decisive mistake appears to be in step 1. The Computer_terminal tool call incorrectly states there's no code to exec"
+    },
+    "121-62bf36bb4ce7": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error occurred in step 2, where the agent attempted to use a function `perform_web_search` that was not defined. Thi\n[0-4 mid2] SECOND :: The error occurred in step 2, when the agent attempted to use `perform_web_search` without it being defined. This was th\n[3-4 mid3] FIRST :: The decisive mistake occurred in step 3, where the agent attempted to use an undefined function (`perform_web_search`). "
+    },
+    "119-6ec2674e0d3a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The error likely occurred in the first half (steps 0-2). While the plan seems reasonable, step 1's request to both Movie\n[0-2 mid1] FIRST :: The error likely occurred in step 1. The agent's plan involves gathering input from multiple experts, but the phrasing o\n[0-1 mid0] SECOND :: The decisive mistake likely occurred in step 1. The agent immediately calls upon other experts without first attempting "
+    },
+    "120-3ea26fdedd38": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error lies in the repeated reliance on web searches instead of directly analyzing the video content. Steps 0-4 estab\n[0-4 mid2] FIRST :: The error appears to stem from the repeated and unnecessary use of the `Computer_terminal` agent to simply state that it\n[0-2 mid1] FIRST :: The error appears to stem from the repeated and unnecessary use of the `Computer_terminal` agent to simply state that it\n[0-1 mid0] SECOND :: The decisive mistake appears to be in step 1, where the Computer_terminal inappropriately interrupted the flow of the co"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The initial scraping attempts in steps 3 and 5 failed to retrieve the necessary data, forcing a shift to manual investig\n[0-4 mid2] SECOND :: The initial scraping attempts in steps 3 and 4 failed to retrieve any data, leading to a shift in strategy. This failure\n[3-4 mid3] FIRST :: The initial scraping attempts in steps 3 and 4 both failed to retrieve data, indicating a problem with the scraping proc"
+    },
+    "125-a445e2da8734": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The error likely lies in the assumed ticket prices in step 1. While the calculations themselves are correct *given* thos\n[0-3 mid1] FIRST :: The error likely lies in step 1, where the AnalyticalReasoning_Expert *assumed* ticket prices without verifying them. Th\n[0-1 mid0] SECOND :: The error lies in step 1, where the AnalyticalReasoning_Expert makes assumptions about ticket prices without explicitly "
+    },
+    "124-d60e28a0fa62": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The error likely lies in the initial simulation setup or the logic within the simulation itself. Steps 0-3 involve the i\n[0-3 mid1] FIRST :: The error likely lies in the initial simulation setup or assumptions made in step 1. While step 3 involves verification,\n[0-1 mid0] SECOND :: The decisive mistake likely occurred in step 1, where the Probability_Expert outlined the simulation strategy. The subse"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The initial error occurred in step 1 with the `NameError: name 'scrape_wikipedia_tables' is not defined`. This indicates\n[0-4 mid2] FIRST :: The initial error occurred in step 1 with the `NameError: name 'scrape_wikipedia_tables' is not defined`. This was corre\n[0-2 mid1] FIRST :: The initial error occurred in step 0 with the first attempt to scrape the Wikipedia table. The `NameError` in step 2 cle\n[0-1 mid0] FIRST :: The initial error occurred in step 1. The code attempted to call `scrape_wikipedia_tables` without importing it, leading"
+    }
+  }
+}

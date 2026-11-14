@@ -1,0 +1,896 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "binary_search",
+    "model": "claude-opus-4.8",
+    "n_runs": 126,
+    "prompt_sha": "292b9b0a0d4c",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "002-a04041638aa4": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error happens at step 2, where the Movie_Expert provides an incomplete and somewhat arbitrary list of Danie\n[0-4 mid2] FIRST :: The decisive error is in step 2, where the Movie_Expert provided an incomplete list of Daniel Craig movies. The list omi\n[0-2 mid1] SECOND :: The decisive error is in step 2, where the Movie_Expert provided an incomplete/inaccurate list of Daniel Craig movies. T"
+    },
+    "003-cfa39baedf59": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive error is the pricing information gathered in steps 2 and 3. These prices appear to be fabricated/incorrect \n[0-3 mid1] SECOND :: The decisive error is the pricing data. The agent fabricated prices ($20 adult daily, $18 child, $90/$75 annual) without\n[2-3 mid2] FIRST :: The pricing data is fabricated in both steps 2 and 3, but I need to find the FIRST decisive error. Step 2 introduces dai"
+    },
+    "001-5697e89b281b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The task requires finding the largest and smallest county seats *by land area* of the county seat in Washington state. T\n[0-4 mid2] FIRST :: The task requires finding the largest and smallest county seats by land area in Washington state. The manager's plan (st\n[0-2 mid1] FIRST :: The task asks for the population difference between the largest and smallest county seats **by land area** in Washington\n[0-1 mid0] FIRST :: The task asks for the largest and smallest county seats by land area, but step 0 (the manager's plan) already assumes th"
+    },
+    "000-7b14128ce504": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: Looking at this trace, the critical issue is in how the street numbers were extracted and counted.\n\nThe key question: ho\n[0-2 mid1] FIRST :: Looking at this trace:\n\n- Step 0: Task setup, correct understanding.\n- Step 1: The terminal output shows columns AND a r\n[0-1 mid0] SECOND :: Looking at this trace, I need to find the decisive first error.\n\nThe task requires counting clients receiving the sunset"
+    },
+    "004-d57d322d4115": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error is in step 1, where the Filmography_Expert compiled an incomplete list of Isabelle Adjani films. The \n[0-4 mid2] FIRST :: The decisive error is in step 1, where the Filmography_Expert compiled an incomplete list of Isabelle Adjani films relyi\n[0-2 mid1] FIRST :: The decisive error is in step 1, where the Filmography_Expert compiled an incomplete list of Isabelle Adjani's films bas\n[0-1 mid0] SECOND :: The decisive error is in step 1, where the Filmography_Expert compiled an incomplete list of Isabelle Adjani's filmograp"
+    },
+    "006-b40c7e455b08": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The core failure of this run is that the agents never obtained the original code, and instead kept building generic debu\n[0-4 mid2] FIRST :: The decisive error is the failure to recognize that no actual code was provided and to request it immediately. At step 2\n[0-2 mid1] SECOND :: The decisive error happens at step 2, where the PythonDebugging_Expert decides to fabricate a \"general debug template\" a"
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive error is the gym identification step. In step 3, the agent fabricated a list of gyms \"within 200 meters\" us\n[0-3 mid1] SECOND :: The decisive error is in step 3. After the script produced no usable output (no API key), the agent pivoted to \"manually\n[2-3 mid2] SECOND :: Step 2 is just the terminal reporting the script executed with no output (due to missing API key) \u2014 that's a legitimate "
+    },
+    "005-b82f729abea8": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive issue is the methodology for checking operating hours, which was flawed from the start. Let me trace it.\n\nS\n[0-4 mid2] SECOND :: Looking at this trace, I need to identify the first decisive error in steps 0-4.\n\nStep 0: Manager sets up a reasonable p\n[3-4 mid3] SECOND :: Looking at this trace, I need to identify the decisive first error within steps 3-4.\n\nStep 3 (DataVerification_Expert): "
+    },
+    "008-00a173727b41": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive error occurs in step 1, where the Verification_Expert presents fabricated/unverified data figures (Zillow $\n[0-2 mid1] FIRST :: The decisive error occurs in the data collection/verification phase. Step 1 presents fabricated/unverified data from the\n[0-1 mid0] SECOND :: The task accepted the manager's premise ($5,200,000) but step 0 simply restates the task framing. Step 1 is where actual"
+    },
+    "009-537a267c0756": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-7 mid3] SECOND :: The task asks for \"the link to the files that were most relevant in May 2020.\" The key issue is determining what files a\n[4-7 mid5] SECOND :: The task asks for the link to files \"most relevant in May 2020.\" In step 4-5, the web search was correctly executed and \n[6-7 mid6] FIRST :: The task asks for the link to the files most relevant in May 2020. Step 6 is where the verification expert interprets th"
+    },
+    "010-12509faada72": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The key issue is identifying which board member did NOT hold a C-suite position when they JOINED Apple's board. The crit\n[0-4 mid2] FIRST :: The key error is the framing of the problem around the wrong question. The task asks who did NOT hold C-suite positions \n[0-2 mid1] SECOND :: The key issue: the task asks who did NOT hold a C-suite position *when they joined the board*. The decisive error is in "
+    },
+    "012-d731749a39ca": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The task is to count studio albums between 2000-2009. The discography on the Mercedes Sosa page exists but the studio al\n[0-4 mid2] SECOND :: Looking at the trace:\n\n- Step 0: Manager plan - reasonable.\n- Step 1: DataAnalysis_Expert proposes using `get_wikipedia_\n[3-4 mid3] SECOND :: Looking at this trace:\n\nStep 3 is the search result output, which correctly returned the Wikipedia page for Mercedes Sos"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error occurs at step 2. The distance calculation treats \"Lincoln Park\" as a single point (likely geocoded t\n[0-4 mid2] FIRST :: The decisive error is in step 2, where the computer terminal computed absurd distances (46.79 blocks, 45.31 blocks, etc.\n[0-2 mid1] FIRST :: The decisive error is the foundational framing. The original task asks which supermarkets are within 2 blocks of Lincoln\n[0-1 mid0] FIRST :: The decisive error stems from accepting a flawed premise. Let me examine both steps.\n\nStep 0 (Geography_Expert): Accepts"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The critical question is where the source list of \"hikes recommended by at least three different people with kids\" came \n[0-4 mid2] SECOND :: The key issue: the task requires finding hikes recommended by \"at least three different people with kids\" \u2014 this implies\n[3-4 mid3] FIRST :: Looking at the trace:\n\nStep 3: The DataCollection_Expert introduces a list of 8 specific hikes (Mammoth Terraces, Pelica"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The result of 0 rainy days across all 28 days in Seattle's first week of September is clearly anomalous\u2014Seattle does get\n[5-9 mid7] FIRST :: The decisive error occurred at step 5. The script fetched data using Meteostat's Daily for Seattle, but the result showe\n[5-7 mid6] FIRST :: The key error here is in step 6 \u2014 the result showing 0 rainy days across all 28 days. Seattle in early September averagi\n[5-6 mid5] SECOND :: The key issue is the result: 0 rainy days across all 28 days in Seattle's first week of September. This is implausible\u2014S"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive error happens when the team pivots to using mock/simulated data instead of finding a real data source. Let \n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half. At step 6, the Statistics_Expert chose to generate random mock data instead o\n[5-7 mid6] FIRST :: The decisive mistake occurs at step 6, where the Statistics_Expert decides to abandon the search for real data and inste\n[5-6 mid5] SECOND :: Step 5 is just the execution result showing the API approach failed (404 errors, missing column). This is an outcome, no"
+    },
+    "016-2f776a306c77": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: Looking at this trace:\n\n- Steps 0-1: Reasonable planning to identify trails, analyze reviews, verify ratings.\n- Step 2-3\n[0-4 mid2] SECOND :: Looking at this trace:\n\n- Steps 0-2 establish the plan and perform a reasonable web search returning useful TripAdvisor \n[3-4 mid3] SECOND :: Looking at this trace:\n\nStep 3 (Verification_Expert): Compiles a reasonable list of useful URLs from search results. Thi"
+    },
+    "017-3f81e1d1cad3": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The task requires finding the actual smallest house sold in Prince Edward Island according to real Zillow data. The deci\n[0-3 mid1] SECOND :: The task requires finding actual Zillow data for real houses sold in Prince Edward Island. The decisive question is when\n[2-3 mid2] SECOND :: Step 2 is just a FileNotFoundError from the terminal \u2014 that's an environment/tool result, not a decision error in itself"
+    },
+    "018-874e62353ead": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive error occurs at step 1, where the Verification_Expert explicitly states it cannot access external websites \n[0-3 mid1] FIRST :: The key failure is that the costs were never actually verified. In step 1, the Verification_Expert explicitly states it \n[0-1 mid0] SECOND :: The decisive error occurs when the Verification_Expert (step 1) decides to use the provided costs without actually verif"
+    },
+    "019-2c7247a57061": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive failure point is when the agents pivoted to fabricating data rather than locating the real dataset.\n\nIn ste\n[5-9 mid7] FIRST :: The decisive error is at step 7, where DataAnalysis_Expert decides to fabricate a simulated dataset rather than attempti\n[5-7 mid6] SECOND :: The decisive mistake is in step 7, where DataAnalysis_Expert decided to fabricate a simulated dataset rather than contin"
+    },
+    "021-9d62146b7652": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error is the decision to fabricate mock data instead of obtaining real historical weather data. This occurr\n[0-4 mid2] SECOND :: The decisive error is the decision to use mock/random data instead of real historical weather data. This occurs at step \n[3-4 mid3] FIRST :: The decisive mistake is the decision to create mock/random data instead of obtaining real historical weather data. This "
+    },
+    "022-ae51d1d52d64": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive error occurs at step 4, where the agent abandons real data collection and fabricates a \"mock dataset\" with \n[4-7 mid5] FIRST :: Step 4 is where the decisive error occurs. Faced with the missing API key, the VerificationExpert chose to fabricate moc\n[4-5 mid4] FIRST :: The decisive mistake is in step 4, where the VerificationExpert decided to fabricate mock/predefined data (\"Point Pleasa"
+    },
+    "020-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The error \"unknown language json\" almost certainly comes from a markdown/syntax highlighting context where a code block \n[0-3 mid1] FIRST :: The error \"unknown language json\" is actually a clue about a markdown/syntax highlighting issue \u2014 likely a code block wa\n[0-1 mid0] SECOND :: The key issue is how the error \"unknown language json\" was interpreted.\n\nStep 0 simply restates the task and plan\u2014it doe"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive error is the incorrect ordering/list of stops in step 1. The Verification_Expert placed Windsor Gardens bet\n[0-2 mid1] FIRST :: The decisive error is the incorrect stop list in step 1. The actual Franklin-Foxboro line order places Windsor Gardens d\n[0-1 mid0] SECOND :: The decisive error is in step 1, where the Verification Expert lists the stops incorrectly. The actual order places Wind"
+    },
+    "024-aa646cf62171": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The key task constraint is \"within 1 block of Washington Square Park.\" Let me trace where this went wrong.\n\nSteps 0-4 ar\n[5-9 mid7] SECOND :: The decisive error concerns the \"within 1 block\" constraint. In step 8, the Vegan_Food_Expert lists restaurants at dista\n[8-9 mid8] FIRST :: Looking at this trace, the key constraint is \"within 1 block\" of Washington Square Park.\n\nIn step 8, the Vegan_Food_Expe"
+    },
+    "025-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive error occurs early. The \"unknown language json\" error almost certainly came from a markdown code block bein\n[0-3 mid1] FIRST :: The error \"unknown language json\" is actually a code-block syntax highlighting issue \u2014 it comes from a markdown code fen\n[0-1 mid0] SECOND :: The error \"unknown language json\" almost certainly comes from a markdown/code-block context where \"json\" was used as a c"
+    },
+    "027-6479bd8a2bba": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error is the data foundation: in step 3, the Paintball_Expert simply listed karting tracks and paintball pl\n[0-4 mid2] SECOND :: The decisive error here is the foundation of the analysis: the list of karting tracks and paintball places with their ad\n[3-4 mid3] FIRST :: The decisive error is in step 3, where the Paintball_Expert fabricated the lists of karting tracks and paintball places "
+    },
+    "026-945822c59fe9": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The task requires finding the closest bar that is wheelchair accessible. The plan correctly included verifying wheelchai\n[5-9 mid7] FIRST :: The task required verifying wheelchair accessibility, but the trace never actually verified it. Looking at the decisive \n[5-7 mid6] SECOND :: Looking at the trace:\n\n- Steps 5-6: Successfully imported the function and got search results, including Grace and Prope"
+    },
+    "028-3a559ca1aea1": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: Looking at this trace, I need to find the first decisive error.\n\nSteps 0-4: The task setup, IPO year search, and the res\n[5-9 mid7] SECOND :: Looking at the trace:\n\n- Steps 5-6: Search returns useful leadership team pages (careers.fubo.tv, ir.fubo.tv) with actua\n[8-9 mid8] FIRST :: Looking at this trace:\n\nStep 8: The Research_Expert decides to gather joining years but instead of actually visiting the"
+    },
+    "029-606d391c364b": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive issue lies in the distance assessment. At step 3, Anderson's Martial Arts Academy at 25 Park Pl is stated t\n[0-4 mid2] SECOND :: The decisive issue: 0.5 miles is NOT a five-minute walk (it's about 10 minutes), yet step 3 labels Anderson's as \"Possib\n[3-4 mid3] FIRST :: The decisive error is in step 3. Anderson's Martial Arts Academy is at 25 Park Pl, which is about 0.5 miles from NYSE\u2014NO"
+    },
+    "030-0319cbd03980": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive error is in step 5, where the agent fabricated/asserted the C-suite lists without actually retrieving verif\n[4-7 mid5] FIRST :: The decisive error is in step 5, where the agent manually fabricated the C-suite lists. The \"current C-suite\" list and e\n[4-5 mid4] SECOND :: Looking at this trace, I need to identify the decisive first error within steps 4-5.\n\nStep 4 is just a code execution fa"
+    },
+    "034-04dc240da7b8": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error is in step 4, where the Narration_Expert fabricated a video (\"Dinosaurs in VR - Narrated by Andy Serk\n[0-4 mid2] SECOND :: The decisive error happens in the SECOND half. Steps 0-2 set up a reasonable plan and the API failure was a tool issue, \n[3-4 mid3] SECOND :: Looking at this trace, I need to identify the first decisive error in steps 3-4.\n\nStep 3: The Video_Analyst_Expert recog"
+    },
+    "031-da9aec084a98": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The key insight here is identifying the correct artwork. The search result in step 2 directly reveals the answer: \"Twelv\n[5-9 mid7] FIRST :: The decisive error here is conceptual. The task asks about a single artwork (\"Twelve animals of the Chinese zodiac\" - wh\n[5-7 mid6] FIRST :: The decisive error is the choice of which source/object to analyze. The correct answer comes from the artwork at the fir\n[5-6 mid5] FIRST :: Looking at this trace, the key decision point is at step 5.\n\nAt step 5, the ArtHistory_Expert reviewed the first source "
+    },
+    "033-620b58b7aa60": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: Looking at this trace, I need to find the decisive first error.\n\nSteps 0-2: Setup and dictionary loading - all correct.\n\n[0-4 mid2] SECOND :: Looking at the trace, the key is to identify where the board representation or algorithm first goes wrong.\n\nStep 3 intro\n[3-4 mid3] SECOND :: Looking at the trace, I need to identify the decisive error in steps 3-4.\n\nStep 3: The Boggle_Board_Expert represents th"
+    },
+    "032-af0933cfcd09": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: Looking at this trace, I need to find the decisive first error.\n\nThe task asks for a book in which two James Beard Award\n[5-9 mid7] FIRST :: The correct answer is \"Tacos: Recipes and Provocations\" by Alex Stupak and Jordana Rothman \u2014 but actually, the well-know\n[5-7 mid6] SECOND :: Looking at this trace, I need to identify where the decisive error occurred.\n\nThe task asks for a book where two James B"
+    },
+    "036-88562a8be980": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive error appears in the second half. The web search successfully returned results (step 5), and the poem text \n[5-9 mid7] SECOND :: The decisive error is where a wrong stanza number is asserted. Steps 5-7 involve retrieving and quoting the poem text, w\n[8-9 mid8] FIRST :: Step 8 introduces the substantive claim that Stanza 3 contains indented lines, with fabricated line content. Step 9 simp"
+    },
+    "035-a3d5b34baf48": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The task requires the population data from Wikipedia *as of January 1, 2021*. The decisive issue is whether the agents a\n[0-4 mid2] SECOND :: The decisive issue is whether the longest-lived vertebrate is named after Greenland. The Greenland shark is the longest-\n[3-4 mid3] SECOND :: The key issue: the task requires the Wikipedia page **as of January 1, 2021**. Step 3 correctly identifies the need to u"
+    },
+    "038-3c2adf8c14b1": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive error is in step 3, where the Computer_terminal produced fabricated/hardcoded data (USA 200, CAN 150, CHN 1\n[0-3 mid1] SECOND :: The decisive error happens when fabricated/fictional data was used instead of real 1928 Olympics data. Step 2 sets up th\n[2-3 mid2] SECOND :: The decisive error is in step 3, where the Computer_terminal produced fabricated/fictional data instead of actual 1928 S"
+    },
+    "037-14508845755c": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The error message (\"unknown language plaintext\") and the actual context were available from step 0. The decisive mistake\n[0-4 mid2] FIRST :: The decisive error happens at step 1, where the agent asks for code instead of recognizing that the task already contain\n[0-2 mid1] FIRST :: The error message \"unknown language plaintext\" was already present in the task. The decisive opportunity was at step 1, \n[0-1 mid0] SECOND :: The error message in step 0 says \"unknown language plaintext\" \u2014 this is the actual clue. The code execution failed becau"
+    },
+    "040-a181eb120cb2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The key question is identifying the correct lyrics and the correct second chorus location.\n\nLet me trace through the act\n[0-2 mid1] FIRST :: The decisive error concerns identifying which song is the \"fifth single.\"\n\nIn step 1, the MusicHistorian lists the singl\n[0-1 mid0] SECOND :: The decisive error is in step 1, where the MusicHistorian identifies \"Thriller\" as the fifth single. The actual single o"
+    },
+    "039-2b969539d7db": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The task is simply to count edits to a Wikipedia page until June 2023. The correct approach is to use the Wikipedia revi\n[0-4 mid2] FIRST :: The decisive mistake is the choice of approach. The plan (step 0) committed to using the Wikimedia API with an authentic\n[0-2 mid1] FIRST :: The decisive mistake lies in the overall approach planned at step 0: the plan assumed an API token was needed and center\n[0-1 mid0] FIRST :: The task is to count edits to a Wikipedia page. The correct approach would be to use the Wikipedia revision history API "
+    },
+    "041-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The task explicitly stated the script was \"currently returning an error\" and needed debugging. The decisive issue is at \n[0-2 mid1] FIRST :: The decisive error appears in step 0, where the agent encountered \"Error: Function seek_experts_help not found\" but proc\n[0-1 mid0] FIRST :: The task included an error \"Function seek_experts_help not found\" at step 0. The expert was supposed to debug the actual"
+    },
+    "043-d53734deeead": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake happened in step 4. The actual task was to debug existing code that failed with \"unknown language u\n[0-4 mid2] SECOND :: The decisive error: the agent should have recognized that the actual problematic code was never provided and requested/l\n[3-4 mid3] SECOND :: At step 3, the Computer_terminal correctly notes there's still no code\u2014the right move would be to obtain the actual fail"
+    },
+    "042-833c47739be2": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: Looking at this trace, the steps progressively attempt to identify the portrait. Through step 9, all the agents are stil\n[5-9 mid7] SECOND :: Looking at the trace:\n\n- Steps 5-7: Various attempts at web search that failed due to technical issues (undefined functi\n[8-9 mid8] SECOND :: Looking at the trace:\n\nStep 8 is just the Computer_terminal reporting that the step 7 code executed successfully but ret"
+    },
+    "044-e214187ad13a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error happened when the search for the June 2022 AI regulation paper failed to return relevant results, and\n[0-4 mid2] FIRST :: The decisive issue is the search query strategy. In step 1, the Physics_Expert used an overly generic query (\"AI regulat\n[0-2 mid1] FIRST :: The decisive error is the search query itself. In step 1, the Physics_Expert chose an overly generic query (\"AI regulati\n[0-1 mid0] SECOND :: Looking at this trace:\n\n**Step 0** is the task assignment/setup by the manager to the expert. It correctly describes the"
+    },
+    "045-c43d472268d8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The question asks how long it took for the percentage to change by 13% from 37%. The data shows: 1995 = 37%, 2017 = 24%,\n[0-4 mid2] SECOND :: The question asks how long it took for the percentage to change by 13% from 37%. The data: 1995 = 37%, 2017 = 24%, 2022 \n[3-4 mid3] FIRST :: The question asks how long it took for the percentage to change from 37% to 24% (a 13% change). The data: 1995 = 37%, an"
+    },
+    "049-324f53bff996": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive mistake is in step 4, where the Verification_Expert abandoned the actual OCR extraction task and instead fa\n[4-7 mid5] FIRST :: The decisive mistake is in step 4, where the agent fabricated/simulated the red and green numbers instead of actually ex\n[4-5 mid4] FIRST :: Step 4 is where the agent decided to fabricate/assume the red and green numbers instead of actually extracting them from"
+    },
+    "047-5d32c1eba366": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive error is identifying what \"the first citation reference link\" actually points to. The first citation [1] is\n[5-9 mid7] FIRST :: The decisive error is identifying the wrong citation target. The first citation [1] is named \"thb\" \u2014 it points to a \"thb\n[5-7 mid6] SECOND :: The decisive error is the misidentification of the first citation reference link. The first citation [1] is \"cite_note-t"
+    },
+    "046-2e76694a8fe5": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error must be examined. The task requires identifying the track shown at the two-minute mark of a specific \n[0-4 mid2] FIRST :: The decisive issue is whether \"Sweet Sweet Canyon\" is even the correct track. Step 1 assumes the track without verifying\n[0-2 mid1] FIRST :: The decisive question is whether the track identification (\"Sweet Sweet Canyon\") was correct. The task requires identify\n[0-1 mid0] SECOND :: Step 1 assumes the track is \"Sweet Sweet Canyon\" without ever verifying it from the GameGrumps video's two-minute mark. "
+    },
+    "048-e5f2767e1b04": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error: At step 3, the WebServing_Expert asserts the date is October 2, 2019 without any shown verification \n[0-4 mid2] SECOND :: Looking at this trace, I need to identify where the decisive error first occurred.\n\nSteps 0-2: The agent receives the ta\n[3-4 mid3] FIRST :: The decisive error is in step 3, where the WebServing_Expert claims the date is October 2, 2019 without any verification"
+    },
+    "050-6784fd6fd246": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive error stems from the transcription at step 2. The TranscriptionVerification_Expert produced a transcription\n[0-3 mid1] SECOND :: The decisive output that determines the answer is the transcription at step 2. The real recipe likely contained addition\n[2-3 mid2] FIRST :: The transcription in step 2 appears to be fabricated or incorrect\u2014the agent claims to have transcribed the audio but lik"
+    },
+    "053-908be3172c8e": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error occurred at step 4. The agent assumed a PDF file named 'responsibility_of_intellectuals.pdf' already \n[0-4 mid2] SECOND :: The decisive step is the first one whose error caused the failure. Let me trace through.\n\nSteps 0-2: The task is set up,\n[3-4 mid3] SECOND :: At step 3, the agent correctly identifies the JSTOR link and lays out reasonable next steps. The error is that it punts "
+    },
+    "052-25639162f57c": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The key resource was identified at step 4 (the USGS Species Profile page). The correct approach would be to actually vis\n[5-9 mid7] SECOND :: The key resource was identified in step 5: the USGS Species Profile FactSheet (speciesID=221). This page contains a tabl\n[8-9 mid8] FIRST :: The key issue is at step 8. The expert had already accessed the correct USGS Species Profile page (speciesID=221) in ste"
+    },
+    "051-8f84910e124b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The key issue here: the task asks about the version of OpenCV where Mask-RCNN support was added, and identifies it as 4.\n[0-4 mid2] FIRST :: The key issue: the task asks about the OpenCV version where Mask-RCNN support was added. The manager's plan (step 0) fix\n[0-2 mid1] FIRST :: The decisive error is the premise itself. The task fixed on OpenCV 4.1.2 as \"the version where support was added for Mas\n[0-1 mid0] FIRST :: The decisive issue is which version of OpenCV added Mask-RCNN support. The general task asks about \"the version of OpenC"
+    },
+    "054-c81ed3b0a45a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-7 mid3] FIRST :: The key error here is treating each unique configuration as a single locomotive. The task asks for the total wheels on t\n[0-3 mid1] FIRST :: The key error: the calculation multiplies the sum of digits by 2, but Whyte notation numbers already represent wheel cou\n[0-1 mid0] SECOND :: Looking at the trace, I need to identify the decisive error.\n\nThe final answer of 112 wheels assumes each configuration "
+    },
+    "058-f0ccb40243d8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-5 mid2] SECOND :: The decisive fact to verify is who played Ray in the Polish version. The Polish version of \"Everybody Loves Raymond\" is \n[3-5 mid4] FIRST :: The decisive error must be checked. In step 2, the actor was identified as Bartosz Opania. In step 3, the character is i\n[3-4 mid3] FIRST :: The key factual claim is in step 3: Bartosz Opania played \"Piotr Korzecki\" in Magda M. The actual character was Wojciech"
+    },
+    "056-0e66261209b3": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive step is the extraction of fractions from the image (step 2). The OCR output in step 1 only clearly shows fr\n[0-4 mid2] FIRST :: The decisive error is in step 2, where the ProblemSolving_Expert extracted the fractions. The task asked for fractions t\n[0-2 mid1] SECOND :: The task asks to extract fractions from the image and solve the sample problems. The key issue is whether the extraction"
+    },
+    "055-238f0c23d791": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The key task was to access the edit history of the Dragon Wikipedia page on leap days before 2008. \n\nIn steps 0-4, the a\n[0-4 mid2] FIRST :: The task requires examining the Wikipedia \"Dragon\" page edit history on leap days before 2008 (Feb 29 of 2004, 2000, etc\n[0-2 mid1] SECOND :: The decisive error is the navigation strategy. At step 2, the agent navigated to the live Dragon Wikipedia article inste"
+    },
+    "057-3196a02a724f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: Let me analyze the puzzle logic.\n\nThe key facts:\n- Blue cubes all found\n- Orange center + 4 adjacent (up/down/left/right\n[0-2 mid1] FIRST :: Looking at this trace, I need to find the first decisive error in steps 0-2.\n\nStep 0 is just the task setup/framing - no\n[0-1 mid0] SECOND :: Looking at this, step 0 is just the task setup/instructions. Step 1 is where the actual analysis begins.\n\nIn step 1, the"
+    },
+    "060-6df45b66a14f": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive error is in step 2, where HawaiiRealEstate_Expert fabricated sales data ($850,000 and $950,000) without act\n[0-3 mid1] SECOND :: The decisive error is in step 2, where HawaiiRealEstate_Expert fabricated the sales data ($850,000 and $950,000) without\n[2-3 mid2] FIRST :: The decisive error is in step 2, where the HawaiiRealEstate_Expert fabricated sales data ($850,000 and $950,000) without"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error occurred early. In step 1, the GIS_DataAnalysis_Expert identified the species as *Amphiprion ocellari\n[0-4 mid2] FIRST :: The error originates in step 1, where the GIS_DataAnalysis_Expert assumes the species is Amphiprion ocellaris and assert\n[0-2 mid1] FIRST :: The decisive error occurs at step 1, where the GIS_DataAnalysis_Expert assumes the answer is in zip codes 33040 and 3303\n[0-1 mid0] SECOND :: The decisive error involves the species identification and the resulting data. Step 0 sets up the task correctly. Step 1"
+    },
+    "063-945c18bc1c72": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive error is in step 1, where the Verification_Expert simply asserted census data (685,000 men and 755,000 wome\n[0-2 mid1] FIRST :: The decisive error is in step 1, where the Verification_Expert fabricated the census data (685,000 men and 755,000 women\n[0-1 mid0] SECOND :: Step 0 sets up the task correctly. Step 1 introduces fabricated census numbers (685,000 men and 755,000 women) without r"
+    },
+    "062-1d3b288462be": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The key insight is the verb \"Maktay\" translates as \"is pleasing to,\" meaning the grammatical subject and object are swap\n[0-2 mid1] FIRST :: The decisive error is in step 1. The verb \"is pleasing to\" means the grammatical subject is \"apples\" (what is pleasing) \n[0-1 mid0] SECOND :: The key issue: the verb \"is pleasing to\" means the subject and object roles are swapped. \"I like apples\" = \"apples are p"
+    },
+    "064-67329dda61f8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-8 mid4] FIRST :: The task requires finding the actual Tri-Rail train schedule data (this is a real-world question with a verifiable answe\n[0-4 mid2] FIRST :: The agents relied on local CSV files (`passenger_data_may_27_2019.csv`, `train_schedule.csv`) that were never sourced fr\n[0-2 mid1] SECOND :: The key issue here: the task requires real-world data about Tri-Rail trains on May 27, 2019. The agents fabricated/used "
+    },
+    "065-a16ae072deff": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The agents never actually retrieved and viewed the website's banner image. The decisive failure is in the second half: a\n[5-9 mid7] SECOND :: The agents never actually accessed and visually inspected the website. Steps 5-7 navigate and set up the task plausibly,\n[8-9 mid8] SECOND :: The decisive question is which step actually committed the error that caused the failure.\n\nAt step 8, the agent states a"
+    },
+    "061-d5e74f5edef1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-8 mid4] FIRST :: Let me check the convergence criterion against the actual question.\n\nThe question asks for the smallest $n$ where $x_n =\n[0-4 mid2] FIRST :: Let me analyze the convergence criterion.\n\nThe question asks for the smallest $n$ where $x_n = x_{n+1}$ after rounding t\n[0-2 mid1] FIRST :: The key issue concerns the convergence criterion. The question asks for the smallest n where x_n = x_{n+1} after roundin\n[0-1 mid0] SECOND :: Looking at this problem, the key question is what defines convergence \"to four decimal places.\"\n\nThe question asks for t"
+    },
+    "066-4835ec93a6d1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive error occurs in step 1. The expert makes two key mistakes: (1) using the p-value threshold 0.05 as the fals\n[0-2 mid1] FIRST :: The decisive error is the conceptual misunderstanding in step 1. The problem asks for the probability that a result clai\n[0-1 mid0] SECOND :: The decisive error is the conceptual mistake about how to compute the proportion of incorrect papers. The p-value of 0.0"
+    },
+    "068-54f5f481feb1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive error is the misidentification of the cuneiform symbol values in step 1. The symbols \ud809\udc1c, \ud809\udc10, \ud809\udc1a are assigned i\n[0-2 mid1] FIRST :: The decisive error is in step 1, where the symbol values are misidentified (\ud809\udc1c is wrongly called \"DISH\" = 10, and the pos\n[0-1 mid0] SECOND :: The decisive error is in step 1, where the symbol values are misidentified (\ud809\udc1c is not 10, \ud809\udc10 is not 1, etc.). Step 0 is ju"
+    },
+    "067-d7caaed0d413": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: Let me analyze the logic.\n\nThe statement \"At least one of us is a human\" must be evaluated.\n\nIf a vampire says it (lying\n[0-3 mid1] FIRST :: The key logical error is in the analysis of the statement \"At least one of us is a human.\"\n\nLet me verify: If a vampire \n[0-1 mid0] SECOND :: The key error analysis:\n\nStep 0 sets up the task but the truncation hides the actual full problem statement. The decisiv"
+    },
+    "069-5486f0bb8912": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in step 5, where MathAnalysis_Expert proposes abandoning the actual image data and instead inven\n[5-9 mid7] FIRST :: The decisive error is the decision to abandon attempts to read the actual image and instead fabricate assumptions about \n[5-7 mid6] FIRST :: The decisive mistake is the decision to fabricate the polygon's properties rather than find another way to read the imag\n[5-6 mid5] FIRST :: Step 5 introduces the suggestion to assume a hexagon, but it's framed as a question asking for confirmation or alternati"
+    },
+    "070-0528f540243a": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The key issue: the document had a \"Gift Assignments\" section that should contain who was assigned to give to whom. The p\n[5-9 mid7] SECOND :: The key issue: the document had a \"Gift Assignments\" section that was never properly extracted. At step 5, the extractio\n[8-9 mid8] FIRST :: The key issue: the question asks who did NOT give a gift, which requires the gift assignments (who was assigned to give "
+    },
+    "071-03b230b92593": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive error is the game identification. The 2019 British Academy Games Award (Best Game) was won by *God of War* \n[0-4 mid2] FIRST :: The decisive error is the wrong game identification in step 1. The 2019 British Academy Games Award for Best Game went t\n[0-2 mid1] FIRST :: The decisive error is the wrong game identification. The 2019 British Academy Games Award (Best Game) was won by \"God of\n[0-1 mid0] SECOND :: The decisive error is identifying the wrong game. The 2019 British Academy Games Award for Best Game went to \"God of War"
+    },
+    "073-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: Looking at this trace, the task was to debug a script that was returning an error. The decisive issue is in step 0/1: th\n[0-2 mid1] FIRST :: The decisive error appears in step 0, where the agent encountered \"Error: Function seek_experts_help not found\" but neve\n[0-1 mid0] FIRST :: The decisive error is at step 0, where the agent encountered \"Error: Function seek_experts_help not found\" but proceeded"
+    },
+    "074-27ef8756352a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error is the Tropicos ID itself. At step 2, the agent uses \"8200000\" as the Tropicos ID for Helotiales with\n[0-4 mid2] FIRST :: The decisive error is the Tropicos ID itself. The actual Tropicos ID for Helotiales is 100370, not \"8200000\". This wrong\n[0-2 mid1] SECOND :: The decisive error is the wrong Tropicos ID. The actual Tropicos ID for Helotiales is 100370 (or similar), not \"8200000\""
+    },
+    "072-c6399b46fd3c": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: Looking at the trace, the critical insight is in step 8's output: the data contains multiple zones (\"Zone 1\", \"Zone 2\", \n[5-9 mid7] SECOND :: Looking at the trace, the key issue is in the data structure. The Excel file has multiple \"Zone\" sections (Zone 1, Zone \n[8-9 mid8] SECOND :: Looking at this trace, I need to identify where the decisive error occurs.\n\nStep 8 shows the data extracted correctly wi"
+    },
+    "075-dc792a0fa32f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive error is in step 1, where the approach is fundamentally flawed. The plan calls for using `arxiv_search` wit\n[0-2 mid1] FIRST :: The task requires counting arXiv articles in the hep-lat category from January 2020 with ps versions. The correct approa\n[0-1 mid0] SECOND :: The task requires counting arxiv articles with ps versions. Step 0 sets up the task correctly (interpreting the manager'"
+    },
+    "076-769191cea270": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive error occurs at step 5, where the analyst claims to have located the trial and reports NCT03480528 with an \n[5-9 mid7] FIRST :: The decisive error occurs at step 5, where the Clinical_Trial_Data_Analysis_Expert claims to have located the trial and \n[5-7 mid6] FIRST :: The decisive error is in step 5, where the analyst claims to have located the trial and reports an enrollment count of 1\n[5-6 mid5] FIRST :: The decisive error is in step 5, where the analyst claims to have located the trial and reports an enrollment count of 1"
+    },
+    "079-72b0c0014ede": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-4 mid2] FIRST :: The task asks about applicants missing a single qualification. This requires reading the job qualifications AND the appl\n[0-2 mid1] SECOND :: Looking at this trace:\n\n- Step 0: The agent sets up the task correctly with a reasonable plan.\n- Step 1: The extraction "
+    },
+    "078-e16678e8c43e": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error occurs in step 4, where the RecyclingRate_Expert abandons the actual task requirement (verifying the \n[0-4 mid2] SECOND :: The decisive error is failing to actually obtain and use the Wikipedia data. Let me trace where this first goes wrong.\n\n\n[3-4 mid3] SECOND :: The decisive error is where the agent abandons the requirement to actually consult Wikipedia and instead substitutes a g"
+    },
+    "080-252fc8554126": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-5 mid2] SECOND :: The key issue: nobody actually retrieved the changelog. Steps 0-2 set up a plan but didn't fetch real data. However, the\n[3-5 mid4] FIRST :: The decisive error occurs at step 3, where the agent asserts \"BaseBagging\" as the answer without ever actually retrievin\n[3-4 mid3] FIRST :: Step 3 is where the answer \"BaseBagging\" was asserted without actually verifying the changelog. The actual answer should"
+    },
+    "077-a1dc061cb971": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The agents correctly found the article and the correct paper (steps 0-4). The paper title and DOI link are correct. The \n[5-9 mid7] FIRST :: The decisive failure here is the inability to obtain the paper's content after hitting the CAPTCHA. Let me trace the key\n[5-7 mid6] FIRST :: The decisive error is when the agent hit the CAPTCHA and failed to pursue an alternative route to the paper (e.g., arXiv\n[5-6 mid5] SECOND :: At step 5, the agent hit a CAPTCHA, which is an environmental obstacle, not an agent error. The decisive mistake is in s"
+    },
+    "082-933179cfbd8d": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive error happens at step 1, where the agent simply asserts that the answer is \"clich\u00e9d\" based on supposed \"pre\n[0-3 mid1] FIRST :: The decisive error happens at step 1, where the Literary_Analysis_Expert simply asserts the answer \"clich\u00e9d\" as already \n[0-1 mid0] SECOND :: Step 1 is where the agent asserts the answer \"clich\u00e9d\" was already identified, without any actual verification from the "
+    },
+    "081-6b8e879881c0": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive error is in step 6. OpenReview is a dynamic JavaScript-rendered site that loads paper data via API calls; a\n[5-9 mid7] FIRST :: The decisive error is in step 6. The requests/BeautifulSoup approach won't work on OpenReview because the content is dyn\n[5-7 mid6] FIRST :: The decisive mistake is the pivot to requests/BeautifulSoup at step 6. OpenReview loads content dynamically via JavaScri\n[5-6 mid5] SECOND :: Step 5 is just an error output from the Firefox attempt. Step 6 is the decisive pivot to requests+BeautifulSoup, which c"
+    },
+    "083-b73a239fdad1": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The key error: Survivor through season 44 should have 43 unique winners (44 seasons, with one repeat winner - Sandra won\n[5-9 mid7] FIRST :: The correct number of unique Survivor winners up to season 44 is 43 (some winners won twice, so unique winners is slight\n[5-7 mid6] FIRST :: The correct answer: Survivor had 44 seasons through season 44, with some winners having won twice (Sandra), so 43 unique\n[5-6 mid5] FIRST :: The correct answer for Survivor unique winners through season 44 is 43 (44 seasons but with repeat winners, so fewer tha"
+    },
+    "085-dc5e30ffc725": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive error happens at step 3, where the Literature_Expert claims to have read the article and asserts the origin\n[0-3 mid1] SECOND :: The decisive step is where the actual article content was retrieved and the comparison was made. The error here is that \n[2-3 mid2] SECOND :: The decisive error is where the actual article content is reported. In step 2, the agent only claims to retrieve and pla"
+    },
+    "084-8cad8cae382d": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error is in step 4. The URL was reconstructed by guessing rather than properly deriving from the concatenat\n[0-4 mid2] FIRST :: The key question is whether the URL was correctly constructed.\n\nThe concatenated string from step 3 is:\n`_algghiC++jkltp\n[0-2 mid1] SECOND :: The task explicitly states the Python script is contained in the attached image, and instructs to \"Run the Python code a"
+    },
+    "086-e5db53c29991": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive error occurs at step 5, where the MusicTheory_Expert fabricates (\"hypothetical\") note data instead of actua\n[5-9 mid7] FIRST :: The decisive error occurs at step 5, where the MusicTheory_Expert fabricated hypothetical notes instead of actually read\n[5-7 mid6] FIRST :: The decisive error is in step 5, where the MusicTheory_Expert fabricated hypothetical notes instead of actually reading \n[5-6 mid5] FIRST :: The decisive error is in step 5, where the MusicTheory_Expert fabricated hypothetical notes rather than actually reading"
+    },
+    "088-3a55b5705c39": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-5 mid2] SECOND :: The decisive mistake occurs in the second half. In steps 0-2, the agents correctly identified the task and successfully \n[3-5 mid4] SECOND :: Looking at this trace:\n\n- Step 3: Found the blog post and asked someone to view the content (couldn't view directly).\n- "
+    },
+    "089-93088535fb95": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: Looking at the trace, the key error involves identifying the first place mentioned by name in the Book of Esther.\n\nIn Es\n[0-2 mid1] FIRST :: The decisive error is in step 1: the first place mentioned by name in Esther 1:1 (NIV) is \"India\" (\"from India to Cush\")\n[0-1 mid0] SECOND :: Looking at the trace, the key question is what the first place mentioned by name in Esther 1 (NIV) is.\n\nEsther 1:1 menti"
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive issue is the failure to actually identify the photograph. Let me trace the critical decision point.\n\nSteps \n[5-9 mid7] FIRST :: The decisive error occurred when the team abandoned actually identifying the photograph and pivoted to speculation.\n\nIn \n[5-7 mid6] SECOND :: The decisive mistake is the first step whose error caused the failure. Let me trace the reasoning.\n\nAt steps 5-6, the ag"
+    },
+    "091-23de28edf643": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The task asks for cities \"farthest apart from the westernmost to the easternmost going east\" \u2014 this is about longitude (\n[0-3 mid1] FIRST :: The task asks for the cities \"farthest apart from the westernmost to the easternmost going east\" \u2014 this is about longitu\n[0-1 mid0] SECOND :: The question asks for cities farthest apart \"from the westernmost to the easternmost going east\" - this phrasing suggest"
+    },
+    "090-e273f2fabe96": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error is the identification of what \"#9\" refers to and the video itself. In step 1, the VideoContentAnalysi\n[0-4 mid2] FIRST :: The decisive error is in the identification of what \"#9\" refers to. The task asks about \"#9\" in \"The Secret Life of Plan\n[0-2 mid1] FIRST :: The decisive error is in step 1, where VideoContentAnalysis_Expert identified the first National Geographic short as \"Th\n[0-1 mid0] SECOND :: Step 0 is just the task setup/restatement by the manager, which is correct. Step 1 is where VideoContentAnalysis_Expert "
+    },
+    "092-a5a8d627e455": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The video was successfully downloaded at step 4. The key decision point comes after this.\n\nAt step 5, the agent had the \n[5-9 mid7] FIRST :: Looking at this trace, I need to find the first decisive error in steps 5-9.\n\n**Steps 5-7 analysis:**\n- Step 5: Tried to\n[5-7 mid6] SECOND :: Looking at the trace:\n\n- Step 5: Tried to use `get_youtube_caption` API \u2014 reasonable attempt to get captions.\n- Step 6: "
+    },
+    "095-91ab842a22b2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The task asks for images in the \"latest 2022\" Lego Wikipedia article. The decisive error is in step 3-4: the code fetche\n[0-4 mid2] SECOND :: The task asks specifically about the \"latest 2022 Lego\" Wikipedia article \u2014 meaning a specific historical revision from \n[3-4 mid3] FIRST :: The key issue is the task asks for the \"latest 2022\" version of the article, but step 3 fetches the current/live Wikiped"
+    },
+    "094-7e3d81abcddf": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive error occurs at step 0. The agent was given a task with extremely vague information\u2014just \"exitcode: 1, unkn\n[0-2 mid1] FIRST :: The decisive error is in step 0. The original task gave only a cryptic error (\"unknown language unknown\") with no actual\n[0-1 mid0] FIRST :: The original task was to debug code that fails with exit code 1 and outputs \"unknown language unknown\". In step 0, the e"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs at step 4, where the agent gives up on locating the actual paper and decides to proceed with\n[0-4 mid2] SECOND :: The decisive error is the failed search approach. Let me trace through:\n\n- Step 0: Task setup, no error.\n- Step 1: Decid\n[3-4 mid3] SECOND :: Looking at the trace:\n\n**Step 3:** The agent observed the search failed and proposed a reasonable next step\u2014refining the"
+    },
+    "097-aa341e34fc51": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive error occurs at step 1, where the VideoAnalysis_Expert fabricates the setting \"INT. CASTLE BEDROOM\" without\n[0-3 mid1] FIRST :: The decisive error is in step 1, where the script \"expert\" fabricated the setting \"INT. CASTLE BEDROOM\" without actually\n[0-1 mid0] SECOND :: The decisive error is at step 1, where the agent fabricated the setting \"INT. CASTLE BEDROOM\" without actually consultin"
+    },
+    "096-89be76878d79": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The task asks for the oldest closed numpy.polynomial issue with the Regression label. The critical error is in step 8, w\n[5-9 mid7] SECOND :: The decisive issue lies in step 8. The code in step 8 fetches closed issues sorted by GitHub's default (created descendi\n[8-9 mid8] FIRST :: Looking at this trace:\n\nStep 8 fetches closed issues with the \"06 - Regression\" label using `per_page: 100` but without "
+    },
+    "098-43bbd8019fea": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The key error: the search result at step 5 returned a URL with \"candidate-2022-06-27\", which is actually a candidate/pre\n[5-9 mid7] SECOND :: The key error to identify: the search at step 5 returned a result with \"candidate-2022-06-27\" in the URL, which is a can\n[8-9 mid8] FIRST :: Step 8 is where the Verification Expert claims no writer is quoted, without actually retrieving the page content. The Wo"
+    },
+    "099-59e337ae1fbb": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive error is in the data collection. At step 1, the Data_Collection_Expert claimed to gather the data but never\n[0-3 mid1] FIRST :: The decisive error is the data itself. The Data_Collection_Expert never actually retrieved real data from ScienceDirect\u2014\n[0-1 mid0] SECOND :: Step 0 sets up the task (the manager's plan). Step 1 is where the Data Collection Expert was supposed to actually gather"
+    },
+    "100-364b09fd59b8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error is in the FIRST half. At step 3, the SportsHistorian_Expert asserts/assumes Tamai's number is 19 (\"Af\n[0-4 mid2] FIRST :: The decisive error is the assumption that Tamai's number is 19 (and thus the before/after numbers are 18 and 20). Taish\u014d\n[0-2 mid1] FIRST :: The decisive error is in step 1, where the Validation_Expert assumes the jersey numbers to check are 18 and 20 (implying\n[0-1 mid0] SECOND :: The decisive error appears in step 1, where the Validation_Expert assumes Tamai's number is such that the adjacent pitch"
+    },
+    "103-5593276388b1": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive error occurs at step 6, where the agent fabricated menu contents after the script failed to retrieve real d\n[5-9 mid7] FIRST :: The decisive error is in step 6, where the agent claims to have \"manually retrieved\" the menus but actually fabricated p\n[5-7 mid6] FIRST :: The decisive error is at step 6, where the WaybackMachine_Expert fabricated menu data. After the script failed (step 4/5\n[5-6 mid5] SECOND :: The script failed to retrieve actual menu data (step 4 showed only navigation icons, not menu content). \n\nIn step 5, the"
+    },
+    "102-a6862e302014": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive error is in the SECOND half. Through step 6, the agents successfully found the correct book (A Dark Trace a\n[5-9 mid7] FIRST :: The decisive error is at step 7. The agent used `curl -O` on the book's landing page URL (https://muse.jhu.edu/book/2437\n[5-7 mid6] SECOND :: Looking at the trace:\n\n- Steps 5-6: The web search was finally executed correctly and returned valid results, including "
+    },
+    "101-7011a3ca2fe8": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The task is to find the highest number of bird species on camera simultaneously. The decisive error is the overall appro\n[5-9 mid7] FIRST :: The decisive mistake is in step 6, where the ResultVerification_Expert chose an approach (training/using a generic image\n[5-7 mid6] FIRST :: The decisive mistake is the choice of approach. At step 6, the ResultVerification_Expert decided to use a pre-trained bi\n[5-6 mid5] SECOND :: Looking at this trace:\n\nStep 5: Successfully extracted 3014 frames from the video. This is a legitimate result.\n\nStep 6:"
+    },
+    "106-00e6e023a028": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-8 mid4] SECOND :: The decisive error is the landmark identification. At step 5, DataVerification_Expert claims the August 2021 Vogue cover\n[5-8 mid6] FIRST :: The decisive error is the landmark identification at step 5. The DataVerification_Expert claimed the cover features Simo\n[5-6 mid5] FIRST :: The decisive error is the landmark identification in step 5. The August 2021 Vogue cover featured Simone Biles, but the "
+    },
+    "104-9f0fb174fad0": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive error is the approach to reading color information. The task requires reading cell *fill colors*, which are\n[0-4 mid2] FIRST :: The decisive error is reading the Excel file with pandas, which only extracts cell *values* (START, END, NaN) and discar\n[0-2 mid1] SECOND :: The key issue: the entire approach reads cell values as text (e.g., checking `!= 'blue'`) rather than reading actual cel"
+    },
+    "105-7a7794e34798": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: The original output was \"Nowak 2160 unknown language unknown\" \u2014 the real problem is the \"unknown language unknown\" part,\n[0-3 mid1] SECOND :: The key issue is identifying when the run went off track. Let me trace through.\n\nThe original task output was \"Nowak 216\n[2-3 mid2] FIRST :: The original error output was \"Nowak 2160 unknown language unknown\" \u2014 the actual problem was about an \"unknown language\""
+    },
+    "107-de407cd051d7": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The key error is the perigee value. The Wikipedia page for the Moon lists the minimum perigee as 356,400 km (or similar)\n[0-3 mid1] FIRST :: The key inputs are set in step 1: the perigee distance (356,500 km) and Kipchoge's marathon time (1:59:40).\n\nThe minimum\n[0-1 mid0] SECOND :: The decisive error happens in step 1, where the CelestialPhysics_Expert uses Kipchoge's time as 1:59:40. This is the INE"
+    },
+    "109-33e9e888adb4": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-8 mid4] SECOND :: The task required analyzing the chess image. The decisive issue is that the agents never actually obtained the position.\n[5-8 mid6] SECOND :: The error in step 5 was just a tool failure (environment/dependency issue), which is recoverable. Step 6 correctly ident\n[7-8 mid7] FIRST :: The decisive error is in step 7. Here, the Chess_Expert had the opportunity to actually analyze the position but instead"
+    },
+    "108-13c9a4c03793": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive issue is the use of an incorrect/placeholder URL that downloaded an HTML page instead of the actual dataset\n[0-4 mid2] FIRST :: The decisive error happened when the placeholder dataset was downloaded/accepted without verifying it was actually the c\n[0-2 mid1] FIRST :: The decisive error is the use of a placeholder dataset that was actually an HTML file. Step 0 sets up the general task. \n[0-1 mid0] SECOND :: Looking at this trace:\n\nStep 0 is the StatisticalAnalysis_Expert receiving the task and plan. The plan itself mentions c"
+    },
+    "110-e240abd96f2e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The key question is identifying the oldest flavor in the graveyard. The oldest flavor (by start year) would be Dastardly\n[0-4 mid2] SECOND :: The key task is to identify the OLDEST flavor's headstone. The oldest flavor in the graveyard is Dastardly Mash (1979-19\n[3-4 mid3] FIRST :: Looking at this trace, I need to identify the decisive error.\n\nThe task requires finding the OLDEST flavor's headstone, "
+    },
+    "111-bb45c75cb2de": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: Looking at this trace, I need to find the first decisive error.\n\nStep 0: Sets up the task reasonably, following the mana\n[0-3 mid1] SECOND :: Looking at this trace:\n\n- Step 0: The agent receives a reasonable task and plan. No error here.\n- Step 1: A connection t\n[2-3 mid2] FIRST :: Looking at this trace, I need to identify the decisive first error between steps 2 and 3.\n\nStep 2 (NaturalLanguageProces"
+    },
+    "112-7d8dcb80a290": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive error is the Christgau grades claimed in step 1. The actual Christgau reviews: Tidal received a \"dud\" or no\n[0-4 mid2] FIRST :: The decisive error is in step 1, where the Music_Critic_Expert compiled the album list and grades. The grades assigned w\n[0-2 mid1] FIRST :: The decisive error is in step 1, where the Music_Critic_Expert assigned grades without verification. The key error is cl\n[0-1 mid0] SECOND :: Step 0 just sets up the task. Step 1 is where the actual album list and grades are determined. The critical error is in "
+    },
+    "114-af259c3de825": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The key factual claim\u2014that Reggie Jackson had the most walks for the 1977 Yankees with 86 walks\u2014is wrong. In 1977, Roy W\n[0-4 mid2] FIRST :: The decisive error is the factual claim about who had the most walks. In 1977, the Yankee with the most walks was actual\n[0-2 mid1] SECOND :: The key factual claim that drives the failure appears in step 2: identifying Reggie Jackson as the player with the most "
+    },
+    "115-03d92b3118e2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The error is in the constraint interpretation and enumeration. The relation derivation in step 1 has issues: it assumes \n[0-2 mid1] FIRST :: The decisive error is in step 1. The constraint \"one box contains 6 more coins than another\" was applied to the two larg\n[0-1 mid0] SECOND :: The key error is in step 1, where GameTheory_Expert incorrectly interpreted the constraints. The constraint \"one box mus"
+    },
+    "113-ccbf973529c4": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive issue is that there is no actual data source. The plan in step 0 assumed they could \"download the actual hi\n[0-4 mid2] FIRST :: The decisive issue is that no data was ever actually downloaded from Google Finance. The plan in step 0 explicitly assum\n[0-2 mid1] FIRST :: The decisive issue is the absence of the actual data. Step 0 lays out a plan that assumes the CSV exists and can be load\n[0-1 mid0] FIRST :: The decisive error is the foundational approach. Step 0 sets up a plan that assumes Apple stock data can be \"downloaded "
+    },
+    "119-6ec2674e0d3a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive error is the factual claim about the parachute color. In the actual ending of Goldfinger, the parachute is \n[0-2 mid1] SECOND :: The decisive error: The actual answer in Goldfinger's ending is an orange and white parachute. Step 1 correctly identifi"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake happens in step 1. The Art_Expert generated a script that merely constructs and prints search URLs \n[0-4 mid2] FIRST :: The decisive error is in step 1, where the Art_Expert wrote a script that merely *constructs and prints* search URLs rat\n[0-2 mid1] FIRST :: The decisive error occurred in step 1, where the Art_Expert chose to merely generate search URLs via a shell script rath\n[0-1 mid0] SECOND :: Step 0 is the task setup/manager instructions. Step 1 is where the Art_Expert chooses an approach: generating search URL"
+    },
+    "118-d69039766c83": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive error happens when the agent stops waiting for the actual code and instead fabricates a hypothetical scenar\n[5-9 mid7] FIRST :: The decisive error happens at step 5. Instead of insisting on obtaining the actual failing code, the PythonDebugging_Exp\n[5-7 mid6] FIRST :: The decisive mistake is at step 5. The agent fabricated an entirely hypothetical code example instead of waiting for or \n[5-6 mid5] FIRST :: The decisive mistake occurs at step 5, where the PythonDebugging_Expert decides to fabricate a hypothetical code example"
+    },
+    "121-62bf36bb4ce7": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive error appears at step 5. The authors are actually Pietro Murano and Iram N. Khan. The fabricated \"earliest \n[5-9 mid7] FIRST :: The decisive error occurs at step 5, where the agent fabricates Pietro Murano's earliest publication as \"Can a good play\n[5-7 mid6] FIRST :: The decisive error occurs at step 5, where the agent fabricates/incorrectly identifies Pietro Murano's earliest publicat\n[5-6 mid5] FIRST :: Step 5 introduces the decisive error: it fabricates Pietro Murano's earliest publication as \"Can a good player be a good"
+    },
+    "117-b056cbb2e661": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: Looking at the trace, the key issue is understanding the spreadsheet structure.\n\nAt step 5, the output reveals the struc\n[5-9 mid7] FIRST :: The decisive issue stems from misunderstanding the spreadsheet structure. At step 5, the output shows the data is organi\n[5-7 mid6] FIRST :: Looking at this trace, I need to find the decisive error in steps 5-7.\n\nStep 5 shows the actual structure: the spreadshe\n[5-6 mid5] SECOND :: Looking at this trace:\n\nStep 5 shows the output of `df.head()` revealing the structure: the spreadsheet has a title row "
+    },
+    "120-3ea26fdedd38": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The agents found the correct video URL in step 5. The decisive error is in the second half: at step 6, having identified\n[5-9 mid7] FIRST :: The decisive issue is that the agents never actually retrieved or verified the video's content. At step 6, after finding\n[5-7 mid6] FIRST :: The decisive error is when the agents had the correct video URL but failed to actually extract/access the video content.\n[5-6 mid5] SECOND :: Step 5 is the search result, which correctly identifies the video. Step 6 is where the agent had the correct video URL b"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: Looking at this trace, I need to find the first decisive error.\n\nStep 0-3: Setting up the task and fixing import issues \n[5-9 mid7] FIRST :: Looking at this trace:\n\n- Step 5: Reasonably pivots to inspect page text content after empty scrape result.\n- Step 6: Su\n[5-7 mid6] SECOND :: Looking at this trace:\n\n- Step 5: Switches to retrieving page text to inspect content manually \u2014 a reasonable diagnostic"
+    },
+    "125-a445e2da8734": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive error occurred at step 1, where the AnalyticalReasoning_Expert fabricated ticket prices (\"this is just an e\n[0-3 mid1] FIRST :: The decisive error is using assumed/fabricated ticket prices instead of looking up the actual Philadelphia Museum of Art\n[0-1 mid0] SECOND :: Step 0 sets up the task correctly with a plan to gather actual pricing information. Step 1 is where the failure originat"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive error occurs in step 7, where the agent claims \"Brachiosaurus\" was the dinosaur article promoted in Novembe\n[5-9 mid7] FIRST :: The decisive error is at step 7, where the historian claims \"Brachiosaurus\" was the only dinosaur FA promoted in Novembe\n[5-7 mid6] SECOND :: The decisive error is the claim in step 7 that \"Brachiosaurus\" was the dinosaur article promoted in November 2016. This "
+    },
+    "124-d60e28a0fa62": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive error is the simulation implementation in step 1. The game mechanics described (winding ramp, pistons movin\n[0-3 mid1] FIRST :: The decisive error is the simulation design in step 1. The Probability_Expert built a model based on assumptions (balls \n[0-1 mid0] SECOND :: The decisive error is in step 1, where the Probability_Expert implemented a simulation based on a misreading of the game"
+    }
+  }
+}

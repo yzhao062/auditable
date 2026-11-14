@@ -1,0 +1,100 @@
+{
+ "task": "detect/swegym",
+ "source": {
+  "catchbench": "0.1.3",
+  "file": "tests/golden/board.txt",
+  "sha256": "8db3d8fe0e8fe95669b6d5a5d27f36d4fd6e16b7f612fec6f927c998f69a4745"
+ },
+ "section": "[POST] post_detection :: swegym",
+ "rows": {
+  "run.random": {
+   "roc_auc": 0.483,
+   "board_label": "random"
+  },
+  "run.lr_flat": {
+   "roc_auc": 0.663,
+   "board_label": "size (flat)"
+  },
+  "run.pyod_ecod": {
+   "roc_auc": 0.765,
+   "board_label": "pyod-flatten (ECOD)"
+  },
+  "run.pygod_dominant": {
+   "roc_auc": 0.547,
+   "tol": 0.005,
+   "board_label": "pygod (graph AD)"
+  },
+  "run.guardian_lite": {
+   "roc_auc": 0.767,
+   "tol": 0.005,
+   "board_label": "guardian (recon-AE)"
+  },
+  "run.lr_flatdep": {
+   "roc_auc": 0.804,
+   "board_label": "auditable (size+deps)"
+  },
+  "run.lr_full": {
+   "roc_auc": 0.819,
+   "board_label": "full"
+  },
+  "run.gsafeguard_lite": {
+   "roc_auc": 0.828,
+   "tol": 0.005,
+   "board_label": "g-safeguard (sup GNN)"
+  },
+  "run.pyod_iforest": {
+   "roc_auc": 0.571,
+   "board_label": "pyod-iforest"
+  },
+  "run.pyod_knn": {
+   "roc_auc": 0.446,
+   "note": "macOS arm64 may differ by up to 0.002; the golden board is Linux x86-64",
+   "board_label": "pyod-knn"
+  },
+  "run.pyod_lof": {
+   "roc_auc": 0.584,
+   "note": "macOS arm64 prints 0.582 on SWE-Gym; the golden board is Linux x86-64",
+   "accept": {
+    "roc_auc": [
+     0.582
+    ]
+   },
+   "board_label": "pyod-lof"
+  },
+  "run.pyod_copod": {
+   "roc_auc": 0.625,
+   "board_label": "pyod-copod"
+  },
+  "run.pyod_hbos": {
+   "roc_auc": 0.319,
+   "board_label": "pyod-hbos"
+  },
+  "run.pygod_conad": {
+   "roc_auc": 0.75,
+   "tol": 0.005,
+   "board_label": "pygod-conad"
+  },
+  "run.pygod_anomalydae": {
+   "roc_auc": 0.592,
+   "tol": 0.005,
+   "note": "torch row; macOS arm64 may differ by up to 0.04",
+   "board_label": "pygod-anomalydae"
+  },
+  "run.pygod_gaan": {
+   "roc_auc": 0.85,
+   "tol": 0.005,
+   "board_label": "pygod-gaan"
+  },
+  "run.lr_spline_flat": {
+   "roc_auc": 0.832,
+   "tol": 0.001,
+   "board_label": "size (spline)",
+   "source": {
+    "catchbench": "0.1.3",
+    "file": "tools/detection_audit_results.json",
+    "sha256": "f4dc22af644e958f899b3ba451ea59707721c80dd92dbb5d62260f4a361c97c4"
+   },
+   "note": "a CatchBench size-audit arm, not a board row; the audit ran on Windows"
+  }
+ }
+}

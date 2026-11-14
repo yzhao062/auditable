@@ -1,0 +1,4757 @@
+{
+  "crewai-0001": [
+    "ScrapeWebsiteTool",
+    "SerperDevTool"
+  ],
+  "crewai-0002": [
+    "akshare_tool",
+    "financial_calculator_tool"
+  ],
+  "crewai-0003": [
+    "technical_analysis_tool",
+    "charting_tool"
+  ],
+  "crewai-0004": [
+    "data_validation_tool"
+  ],
+  "crewai-0005": [
+    "fundamental_analysis_tool"
+  ],
+  "crewai-0006": [
+    "risk_assessment_tool"
+  ],
+  "crewai-0007": [
+    "industry_analysis_tool"
+  ],
+  "crewai-0008": [
+    "report_writing_tool"
+  ],
+  "crewai-0009": [
+    "sentiment_analysis_tool"
+  ],
+  "crewai-0010": [
+    "data_coordination_tool"
+  ],
+  "crewai-0011": [
+    "task_orchestration_tool"
+  ],
+  "crewai-0012": [
+    "collective_decision_tool"
+  ],
+  "crewai-0013": [
+    "collaboration_analysis_tool"
+  ],
+  "crewai-0014": [
+    "FileReadTool"
+  ],
+  "crewai-0015": [
+    "FileReadTool",
+    "DirectorySearchTool",
+    "FileWriterTool"
+  ],
+  "crewai-0016": [
+    "FileReadTool"
+  ],
+  "crewai-0017": [
+    "FileReadTool",
+    "CodeInterpreterTool"
+  ],
+  "crewai-0018": [
+    "FileReadTool"
+  ],
+  "crewai-0019": [
+    "SerperDevTool",
+    "FileWriterTool"
+  ],
+  "crewai-0020": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0021": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0022": [],
+  "crewai-0023": [
+    "parse_job_pdf"
+  ],
+  "crewai-0024": [
+    "parse_cv"
+  ],
+  "crewai-0025": [
+    "compute_keyword_match"
+  ],
+  "crewai-0026": [
+    "search_jobs"
+  ],
+  "crewai-0027": [
+    "scrape_linkedin_posts_tool"
+  ],
+  "crewai-0028": [
+    "DirectoryReadTool",
+    "FileReadTool"
+  ],
+  "crewai-0029": [
+    "FileReadTool",
+    "FileWriterTool"
+  ],
+  "crewai-0030": [
+    "FileReadTool",
+    "FileWriterTool"
+  ],
+  "crewai-0031": [
+    "DirectoryReadTool",
+    "FileReadTool",
+    "FileWriterTool"
+  ],
+  "crewai-0032": [],
+  "crewai-0033": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0034": [],
+  "crewai-0035": [],
+  "crewai-0036": [
+    "SerperDevTool"
+  ],
+  "crewai-0037": [
+    "BoardDataFetcherTool",
+    "CardDataFetcherTool"
+  ],
+  "crewai-0038": [
+    "SerperDevTool"
+  ],
+  "crewai-0039": [],
+  "crewai-0040": [],
+  "crewai-0041": [
+    "FileReadTool"
+  ],
+  "crewai-0042": [
+    "FileReadTool",
+    "CSVSearchTool"
+  ],
+  "crewai-0043": [],
+  "crewai-0044": [
+    "DirectoryReadTool",
+    "FileReadTool",
+    "FileWriterTool"
+  ],
+  "crewai-0045": [
+    "DirectoryReadTool",
+    "FileReadTool",
+    "FileWriterTool"
+  ],
+  "crewai-0046": [
+    "SerperDevTool",
+    "DirectoryReadTool",
+    "FileReadTool"
+  ],
+  "crewai-0047": [],
+  "crewai-0048": [],
+  "crewai-0049": [
+    "ScraperTool"
+  ],
+  "crewai-0050": [
+    "PostFormatterTool"
+  ],
+  "crewai-0051": [
+    "PublisherTool"
+  ],
+  "crewai-0052": [
+    "PostFormatterTool"
+  ],
+  "crewai-0053": [],
+  "crewai-0054": [],
+  "crewai-0055": [],
+  "crewai-0056": [
+    "FirewallBlockTool"
+  ],
+  "crewai-0057": [
+    "JSONSearchTool"
+  ],
+  "crewai-0058": [],
+  "crewai-0059": [
+    "JSONSearchTool"
+  ],
+  "crewai-0060": [],
+  "crewai-0061": [
+    "SerperDevTool"
+  ],
+  "crewai-0062": [],
+  "crewai-0063": [
+    "push_notification"
+  ],
+  "crewai-0064": [
+    "BeautifulSoupTool",
+    "RequestsTool"
+  ],
+  "crewai-0065": [
+    "PropertyAnalysisTool",
+    "DataValidationTool"
+  ],
+  "crewai-0066": [
+    "TaskPrioritizationTool",
+    "WorkflowOptimizationTool"
+  ],
+  "crewai-0067": [
+    "search_web"
+  ],
+  "crewai-0068": [
+    "wikipedia_resumo",
+    "extract_key_points"
+  ],
+  "crewai-0069": [
+    "CryptoCurrencyDataCollectorTool"
+  ],
+  "crewai-0070": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0071": [
+    "CryptocurrencyTechnicalAnalysisTool"
+  ],
+  "crewai-0072": [
+    "eastmoney_financial_data"
+  ],
+  "crewai-0073": [
+    "eastmoney_financial_data",
+    "fetch_official_technical_analysis"
+  ],
+  "crewai-0074": [
+    "SerperDevTool"
+  ],
+  "crewai-0075": [
+    "DallETool"
+  ],
+  "crewai-0076": [
+    "PythonREPLCrewTool"
+  ],
+  "crewai-0077": [
+    "FileWriterTool"
+  ],
+  "crewai-0078": [],
+  "crewai-0079": [
+    "ScrapeWebsiteTool",
+    "WebsiteSearchTool"
+  ],
+  "crewai-0080": [
+    "duckduckgo_search"
+  ],
+  "crewai-0081": [
+    "code_interpreter",
+    "csv_search_enhanced"
+  ],
+  "crewai-0082": [
+    "custom_file_write"
+  ],
+  "crewai-0083": [
+    "memory_tool",
+    "task_tool",
+    "conversation_tool"
+  ],
+  "crewai-0084": [
+    "fetch_product_tool"
+  ],
+  "crewai-0085": [
+    "publish_facebook_post_tool"
+  ],
+  "crewai-0086": [
+    "FileReadTool",
+    "PDFSearchTool"
+  ],
+  "crewai-0087": [],
+  "crewai-0088": [
+    "get_stock_price",
+    "get_stock_history"
+  ],
+  "crewai-0089": [
+    "get_stock_fundamentals",
+    "get_stock_price"
+  ],
+  "crewai-0090": [
+    "get_company_news"
+  ],
+  "crewai-0091": [
+    "FileReadTool",
+    "FileWriterTool"
+  ],
+  "crewai-0092": [
+    "FileReadTool",
+    "FileWriterTool"
+  ],
+  "crewai-0093": [
+    "FileWriterTool",
+    "FileReadTool"
+  ],
+  "crewai-0094": [
+    "SerperDevTool",
+    "DirectoryReadTool",
+    "FileReadTool"
+  ],
+  "crewai-0095": [],
+  "crewai-0096": [],
+  "crewai-0097": [
+    "academic_search_tool",
+    "firecrawl_extract_tool"
+  ],
+  "crewai-0098": [
+    "code_search_tool",
+    "firecrawl_extract_tool"
+  ],
+  "crewai-0099": [
+    "educational_search_tool",
+    "firecrawl_extract_tool"
+  ],
+  "crewai-0100": [
+    "research_tool",
+    "firecrawl_extract_tool"
+  ],
+  "crewai-0101": [
+    "validated_tools"
+  ],
+  "crewai-0102": [
+    "validated_tools"
+  ],
+  "crewai-0103": [
+    "validated_tools"
+  ],
+  "crewai-0104": [
+    "validated_tools"
+  ],
+  "crewai-0105": [
+    "SerperDevTool"
+  ],
+  "crewai-0106": [],
+  "crewai-0107": [],
+  "crewai-0108": [],
+  "crewai-0109": [
+    "SerperDevTool"
+  ],
+  "crewai-0110": [
+    "PushNotificationTool"
+  ],
+  "crewai-0111": [
+    "FileReadTool",
+    "FileWriterTool"
+  ],
+  "crewai-0112": [
+    "news_scan_tool"
+  ],
+  "crewai-0113": [
+    "alpaca_trade_tool"
+  ],
+  "crewai-0114": [
+    "DirectoryReadTool",
+    "FileReadTool",
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0115": [
+    "DirectoryReadTool",
+    "FileReadTool",
+    "FileWriterTool"
+  ],
+  "crewai-0116": [
+    "DirectoryReadTool",
+    "FileReadTool"
+  ],
+  "crewai-0117": [
+    "SerperScrapeWebsiteTool"
+  ],
+  "crewai-0118": [],
+  "crewai-0119": [
+    "web_search",
+    "web_scraper"
+  ],
+  "crewai-0120": [
+    "seo_api",
+    "web_search"
+  ],
+  "crewai-0121": [
+    "web_scraper"
+  ],
+  "crewai-0122": [
+    "FileReadTool"
+  ],
+  "crewai-0123": [],
+  "crewai-0124": [
+    "FileReadTool",
+    "FileWriterTool"
+  ],
+  "crewai-0125": [
+    "FileReadTool",
+    "FileWriterTool"
+  ],
+  "crewai-0126": [],
+  "crewai-0127": [],
+  "crewai-0128": [
+    "gmail_reader_tool"
+  ],
+  "crewai-0129": [
+    "google_calendar_search_tool"
+  ],
+  "crewai-0130": [
+    "human_approval_tool"
+  ],
+  "crewai-0131": [
+    "google_calendar_writer_tool"
+  ],
+  "crewai-0132": [
+    "read_resume",
+    "read_job_description",
+    "semantic_search_resume",
+    "semantic_search_job_description"
+  ],
+  "crewai-0133": [
+    "read_resume",
+    "read_job_description",
+    "semantic_search_resume",
+    "semantic_search_job_description"
+  ],
+  "crewai-0134": [
+    "read_resume",
+    "read_job_description",
+    "semantic_search_resume",
+    "semantic_search_job_description"
+  ],
+  "crewai-0135": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0136": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0137": [
+    "PDFSearchTool"
+  ],
+  "crewai-0138": [
+    "alert_parser_tool"
+  ],
+  "crewai-0139": [
+    "dependency_map_tool",
+    "recent_deployment_history_tool"
+  ],
+  "crewai-0140": [
+    "SerperDevTool"
+  ],
+  "crewai-0141": [
+    "CSVSearchTool",
+    "FileReadTool"
+  ],
+  "crewai-0142": [
+    "FileReadTool"
+  ],
+  "crewai-0143": [
+    "FileReadTool",
+    "TXTSearchTool"
+  ],
+  "crewai-0144": [
+    "DallETool"
+  ],
+  "crewai-0145": [
+    "search_10k",
+    "search_10q"
+  ],
+  "crewai-0146": [
+    "search_10k",
+    "search_10q"
+  ],
+  "crewai-0147": [
+    "extract_ingredient"
+  ],
+  "crewai-0148": [
+    "filter_based_on_restrictions"
+  ],
+  "crewai-0149": [
+    "analyze_image"
+  ],
+  "crewai-0150": [
+    "YoutubeVideoSearchTool"
+  ],
+  "crewai-0151": [
+    "Tool"
+  ],
+  "crewai-0152": [
+    "ZendeskTicketSearchTool"
+  ],
+  "crewai-0153": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0154": [
+    "ProductSearchTool"
+  ],
+  "crewai-0155": [
+    "PriceComparisonTool"
+  ],
+  "crewai-0156": [
+    "TavilySearchTool"
+  ],
+  "crewai-0157": [
+    "StockPriceTool",
+    "CompanyProfileTool",
+    "FinancialRatiosTool",
+    "MarketCapTool",
+    "KeyMetricsTool",
+    "SingleLineItemQueryTool"
+  ],
+  "crewai-0158": [
+    "WebpageReadingTool"
+  ],
+  "crewai-0159": [
+    "SerperDevTool"
+  ],
+  "crewai-0160": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0161": [
+    "FileWriterTool"
+  ],
+  "crewai-0162": [
+    "optimize_signal_timing"
+  ],
+  "crewai-0163": [
+    "CSVTool"
+  ],
+  "crewai-0164": [
+    "PatternDetector"
+  ],
+  "crewai-0165": [
+    "CIDLookupTool"
+  ],
+  "crewai-0166": [
+    "TelegramBotTool"
+  ],
+  "crewai-0167": [],
+  "crewai-0168": [
+    "laravel_artisan",
+    "composer_manager"
+  ],
+  "crewai-0169": [
+    "vue_cli",
+    "vite_builder",
+    "typescript_checker"
+  ],
+  "crewai-0170": [
+    "laravel_artisan",
+    "code_generator"
+  ],
+  "crewai-0171": [
+    "api_generator",
+    "swagger_tools"
+  ],
+  "crewai-0172": [
+    "payment_sdk"
+  ],
+  "crewai-0173": [
+    "code_analyzer",
+    "metrics_calculator"
+  ],
+  "crewai-0174": [
+    "phpstan"
+  ],
+  "crewai-0175": [
+    "laravel_pint"
+  ],
+  "crewai-0176": [
+    "phpunit",
+    "pest",
+    "jest",
+    "cypress"
+  ],
+  "crewai-0177": [
+    "context7_mcp"
+  ],
+  "crewai-0178": [
+    "notion_mcp"
+  ],
+  "crewai-0179": [
+    "supabase_mcp"
+  ],
+  "crewai-0180": [
+    "git_tools",
+    "dependency_analyzer"
+  ],
+  "crewai-0181": [
+    "database_tools",
+    "migration_runner"
+  ],
+  "crewai-0182": [
+    "deployment_tools"
+  ],
+  "crewai-0183": [],
+  "crewai-0184": [
+    "read_resume"
+  ],
+  "crewai-0185": [
+    "read_resume",
+    "semantic_search_resume"
+  ],
+  "crewai-0186": [
+    "YouTubeCommentsTool"
+  ],
+  "crewai-0187": [
+    "SerperDevTool"
+  ],
+  "crewai-0188": [
+    "SearchTool",
+    "UUIDGeneratorTool",
+    "EmailSendingTool"
+  ],
+  "crewai-0189": [
+    "ReplyEmailTool"
+  ],
+  "crewai-0190": [],
+  "crewai-0191": [],
+  "crewai-0192": [],
+  "crewai-0193": [
+    "CalculatorTool",
+    "SEC10KTool"
+  ],
+  "crewai-0194": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0195": [
+    "RealTimeStockLibTool"
+  ],
+  "crewai-0196": [
+    "ScrapeWebsiteTool",
+    "WebsiteSearchTool"
+  ],
+  "crewai-0197": [],
+  "crewai-0198": [],
+  "crewai-0199": [],
+  "crewai-0200": [
+    "ComputerTool"
+  ],
+  "crewai-0201": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0202": [
+    "get_obsidian_mcp_tools"
+  ],
+  "crewai-0203": [
+    "get_agent_tools"
+  ],
+  "crewai-0204": [],
+  "crewai-0205": [
+    "get_agent_tools"
+  ],
+  "crewai-0206": [
+    "calendar_core",
+    "time",
+    "attendee_search"
+  ],
+  "crewai-0207": [
+    "math",
+    "memory_core"
+  ],
+  "crewai-0208": [
+    "CalculatorTool",
+    "SEC10QTool",
+    "SEC10KTool"
+  ],
+  "crewai-0209": [
+    "ScrapeWebsiteTool",
+    "WebsiteSearchTool",
+    "CalculatorTool"
+  ],
+  "crewai-0210": [
+    "NewsScanTool",
+    "WeatherAlertTool"
+  ],
+  "crewai-0211": [
+    "SerperDevTool"
+  ],
+  "crewai-0212": [
+    "stock_data_tool"
+  ],
+  "crewai-0213": [
+    "SerperDevTool",
+    "ScrapeWebsiteTool",
+    "CerebroSearchTool"
+  ],
+  "crewai-0214": [
+    "FileReadTool"
+  ],
+  "crewai-0215": [
+    "FileReadTool"
+  ],
+  "crewai-0216": [
+    "CSVSearchTool"
+  ],
+  "crewai-0217": [
+    "LatexReaderTool"
+  ],
+  "crewai-0218": [],
+  "crewai-0219": [],
+  "crewai-0220": [
+    "HtmlToPdfTool"
+  ],
+  "crewai-0221": [
+    "requirements_clarifier",
+    "architecture_reviewer",
+    "task_manager",
+    "task_assignment_tool",
+    "team_communication"
+  ],
+  "crewai-0222": [
+    "design_system_generator",
+    "architecture_reviewer",
+    "architecture_doc_generator",
+    "team_communication",
+    "knowledge_store",
+    "requirements_clarifier"
+  ],
+  "crewai-0223": [
+    "code_quality_analyzer",
+    "architecture_reviewer",
+    "requirements_clarifier",
+    "read_file",
+    "write_file",
+    "team_communication",
+    "search_docs",
+    "package_installer"
+  ],
+  "crewai-0224": [
+    "test_case_generator",
+    "code_quality_analyzer",
+    "unit_test_runner",
+    "bug_logger",
+    "requirements_clarifier"
+  ],
+  "crewai-0225": [
+    "SerperDevTool"
+  ],
+  "crewai-0226": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0227": [
+    "GPTContentAnalyzer"
+  ],
+  "crewai-0228": [
+    "upload_file_to_drive_tool",
+    "FileReadTool",
+    "dir_read_tool"
+  ],
+  "crewai-0229": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0230": [
+    "YouTubeSearchTool"
+  ],
+  "crewai-0231": [
+    "web_search",
+    "document_search"
+  ],
+  "crewai-0232": [
+    "document_search"
+  ],
+  "crewai-0233": [
+    "web_search",
+    "document_search"
+  ],
+  "crewai-0234": [
+    "document_search"
+  ],
+  "crewai-0235": [
+    "web_search"
+  ],
+  "crewai-0236": [
+    "web_search",
+    "document_search"
+  ],
+  "crewai-0237": [
+    "web_search",
+    "document_search"
+  ],
+  "crewai-0238": [
+    "web_search",
+    "document_search"
+  ],
+  "crewai-0239": [
+    "voice_call"
+  ],
+  "crewai-0240": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0241": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0242": [],
+  "crewai-0243": [],
+  "crewai-0244": [
+    "LocationVerificationTool"
+  ],
+  "crewai-0245": [
+    "SerperDevTool"
+  ],
+  "crewai-0246": [
+    "LinkedInJobSearchTool"
+  ],
+  "crewai-0247": [
+    "WebsiteSearchTool"
+  ],
+  "crewai-0248": [],
+  "crewai-0249": [],
+  "crewai-0250": [
+    "EXASearchTool"
+  ],
+  "crewai-0251": [
+    "EXASearchTool",
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0252": [
+    "github"
+  ],
+  "crewai-0253": [
+    "supabase"
+  ],
+  "crewai-0254": [
+    "tailwind"
+  ],
+  "crewai-0255": [
+    "design_system"
+  ],
+  "crewai-0256": [],
+  "crewai-0257": [
+    "jest",
+    "cypress",
+    "coverage"
+  ],
+  "crewai-0258": [
+    "markdown"
+  ],
+  "crewai-0259": [
+    "TranscriptionTool"
+  ],
+  "crewai-0260": [
+    "EnhancedFileWriterTool"
+  ],
+  "crewai-0261": [
+    "intent_classification_tool"
+  ],
+  "crewai-0262": [
+    "vector_search_tool",
+    "document_retrieval_tool"
+  ],
+  "crewai-0263": [
+    "database_query_tool"
+  ],
+  "crewai-0264": [
+    "response_generation_tool"
+  ],
+  "crewai-0265": [
+    "escalation_assessment_tool",
+    "priority_routing_tool"
+  ],
+  "crewai-0266": [
+    "quality_check_tool",
+    "compliance_validation_tool"
+  ],
+  "crewai-0267": [
+    "SerperNewsTool"
+  ],
+  "crewai-0268": [],
+  "crewai-0269": [
+    "real_time_traffic_analysis"
+  ],
+  "crewai-0270": [
+    "real_time_traffic_analysis"
+  ],
+  "crewai-0271": [],
+  "crewai-0272": [
+    "real_time_traffic_analysis"
+  ],
+  "crewai-0273": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0274": [],
+  "crewai-0275": [],
+  "crewai-0276": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0277": [
+    "FileReadTool"
+  ],
+  "crewai-0278": [
+    "FileReadTool"
+  ],
+  "crewai-0279": [
+    "FileReadTool"
+  ],
+  "crewai-0280": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0281": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0282": [],
+  "crewai-0283": [],
+  "crewai-0284": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0285": [
+    "FileReadTool",
+    "MDXSearchTool"
+  ],
+  "crewai-0286": [],
+  "crewai-0287": [],
+  "crewai-0288": [
+    "tools"
+  ],
+  "crewai-0289": [],
+  "crewai-0290": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0291": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0292": [],
+  "crewai-0293": [
+    "ScrapeWebsiteTool"
+  ],
+  "crewai-0294": [],
+  "crewai-0295": [
+    "priority_tool"
+  ],
+  "crewai-0296": [
+    "FileReadTool"
+  ],
+  "crewai-0297": [
+    "WebsiteSearchTool"
+  ],
+  "crewai-0298": [
+    "WebsiteSearchTool"
+  ],
+  "injecagent-0001": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0002": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0003": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0004": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0005": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0006": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0007": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0008": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0009": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0010": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0011": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0012": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0013": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0014": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0015": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0016": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0017": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0018": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0019": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0020": [
+    "AmazonGetProductDetails"
+  ],
+  "injecagent-0021": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0022": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0023": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0024": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0025": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0026": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0027": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0028": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0029": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0030": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0031": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0032": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0033": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0034": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0035": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0036": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0037": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0038": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0039": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0040": [
+    "EvernoteManagerSearchNotes"
+  ],
+  "injecagent-0041": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0042": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0043": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0044": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0045": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0046": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0047": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0048": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0049": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0050": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0051": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0052": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0053": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0054": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0055": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0056": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0057": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0058": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0059": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0060": [
+    "GitHubGetRepositoryDetails"
+  ],
+  "injecagent-0061": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0062": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0063": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0064": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0065": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0066": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0067": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0068": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0069": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0070": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0071": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0072": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0073": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0074": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0075": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0076": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0077": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0078": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0079": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0080": [
+    "GitHubGetUserDetails"
+  ],
+  "injecagent-0081": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0082": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0083": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0084": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0085": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0086": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0087": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0088": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0089": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0090": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0091": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0092": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0093": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0094": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0095": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0096": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0097": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0098": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0099": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0100": [
+    "GitHubSearchRepositories"
+  ],
+  "injecagent-0101": [],
+  "injecagent-0102": [],
+  "injecagent-0103": [
+    "GmailReadEmail"
+  ],
+  "injecagent-0104": [],
+  "injecagent-0105": [
+    "GmailReadEmail"
+  ],
+  "injecagent-0106": [
+    "GmailReadEmail"
+  ],
+  "injecagent-0107": [],
+  "injecagent-0108": [
+    "GmailReadEmail"
+  ],
+  "injecagent-0109": [
+    "GmailReadEmail"
+  ],
+  "injecagent-0110": [],
+  "injecagent-0111": [
+    "GmailReadEmail"
+  ],
+  "injecagent-0112": [
+    "GmailReadEmail"
+  ],
+  "injecagent-0113": [
+    "GmailReadEmail"
+  ],
+  "injecagent-0114": [],
+  "injecagent-0115": [],
+  "injecagent-0116": [],
+  "injecagent-0117": [
+    "GmailReadEmail"
+  ],
+  "injecagent-0118": [
+    "GmailReadEmail"
+  ],
+  "injecagent-0119": [],
+  "injecagent-0120": [],
+  "injecagent-0121": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0122": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0123": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0124": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0125": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0126": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0127": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0128": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0129": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0130": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0131": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0132": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0133": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0134": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0135": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0136": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0137": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0138": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0139": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0140": [
+    "GmailSearchEmails"
+  ],
+  "injecagent-0141": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0142": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0143": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0144": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0145": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0146": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0147": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0148": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0149": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0150": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0151": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0152": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0153": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0154": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0155": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0156": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0157": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0158": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0159": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0160": [
+    "GoogleCalendarGetEventsFromSharedCalendar"
+  ],
+  "injecagent-0161": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0162": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0163": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0164": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0165": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0166": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0167": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0168": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0169": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0170": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0171": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0172": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0173": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0174": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0175": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0176": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0177": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0178": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0179": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0180": [
+    "GoogleCalendarReadEvents"
+  ],
+  "injecagent-0181": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0182": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0183": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0184": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0185": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0186": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0187": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0188": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0189": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0190": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0191": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0192": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0193": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0194": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0195": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0196": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0197": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0198": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0199": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0200": [
+    "ShopifyGetProductDetails"
+  ],
+  "injecagent-0201": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0202": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0203": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0204": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0205": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0206": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0207": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0208": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0209": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0210": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0211": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0212": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0213": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0214": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0215": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0216": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0217": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0218": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0219": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0220": [
+    "TeladocViewReviews"
+  ],
+  "injecagent-0221": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0222": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0223": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0224": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0225": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0226": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0227": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0228": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0229": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0230": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0231": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0232": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0233": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0234": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0235": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0236": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0237": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0238": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0239": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0240": [
+    "TodoistSearchTasks"
+  ],
+  "injecagent-0241": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0242": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0243": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0244": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0245": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0246": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0247": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0248": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0249": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0250": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0251": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0252": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0253": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0254": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0255": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0256": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0257": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0258": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0259": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0260": [
+    "TwilioGetReceivedSmsMessages"
+  ],
+  "injecagent-0261": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0262": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0263": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0264": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0265": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0266": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0267": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0268": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0269": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0270": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0271": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0272": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0273": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0274": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0275": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0276": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0277": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0278": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0279": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0280": [
+    "TwitterManagerGetUserProfile"
+  ],
+  "injecagent-0281": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0282": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0283": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0284": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0285": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0286": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0287": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0288": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0289": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0290": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0291": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0292": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0293": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0294": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0295": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0296": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0297": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0298": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0299": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0300": [
+    "TwitterManagerReadTweet"
+  ],
+  "injecagent-0301": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0302": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0303": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0304": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0305": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0306": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0307": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0308": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0309": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0310": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0311": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0312": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0313": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0314": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0315": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0316": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0317": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0318": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0319": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0320": [
+    "TwitterManagerSearchTweets"
+  ],
+  "injecagent-0321": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0322": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0323": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0324": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0325": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0326": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0327": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0328": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0329": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0330": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0331": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0332": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0333": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0334": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0335": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0336": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0337": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0338": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0339": [
+    "WebBrowserNavigateTo"
+  ],
+  "injecagent-0340": [
+    "WebBrowserNavigateTo"
+  ],
+  "mcp-0001-ai-boolsai-scan": [
+    "boolsai_scan"
+  ],
+  "mcp-0002-ai-boolsai-signals": [
+    "universe_summary",
+    "find_signals",
+    "event_dossier",
+    "ticker_history",
+    "wayback_backtest",
+    "domain_timeline",
+    "signal_landscape",
+    "signal_diff"
+  ],
+  "mcp-0003-ai-compeller-compel": [
+    "search_music",
+    "create_compel_from_music",
+    "get_compel",
+    "list_compels",
+    "start_render",
+    "list_renderings",
+    "get_rendering",
+    "cancel_compel"
+  ],
+  "mcp-0004-ac-tandem-docs-mcp": [
+    "search_docs",
+    "get_doc",
+    "get_start_path",
+    "recommend_next_docs",
+    "answer_how_to",
+    "get_tandem_guide",
+    "get_docs_cache_status"
+  ],
+  "mcp-0005-ai-borealhost-mcp": [
+    "register",
+    "manage_dns",
+    "deploy",
+    "scale",
+    "list_domains",
+    "list_domain_dns",
+    "add_domain_dns",
+    "delete_domain_dns",
+    "get_site_status",
+    "get_metrics"
+  ],
+  "mcp-0006-ai-bowmark-bowmark": [
+    "ask",
+    "report_outcome"
+  ],
+  "mcp-0007-ai-com-mcp-linkedin": [
+    "createSharePost",
+    "getPersonProfile"
+  ],
+  "mcp-0008-ai-com-mcp-registry": [
+    "getV01Servers",
+    "getV01ServersServerNameVersions",
+    "getV01ServersServerNameVersionsVersion"
+  ],
+  "mcp-0009-ai-com-mcp-lenny-rachitsky-podcast": [
+    "getEpisodes",
+    "getSearch",
+    "postSearch"
+  ],
+  "mcp-0010-ai-com-mcp-petstore": [
+    "getPetById",
+    "addPet",
+    "updatePet",
+    "findPetsByStatus",
+    "findPetsByTags",
+    "deletePet"
+  ],
+  "mcp-0011-ai-com-mcp-strava": [
+    "getStats",
+    "getLoggedInAthlete",
+    "getLoggedInAthleteStarredSegments",
+    "getEffortsBySegmentId",
+    "exploreSegments",
+    "getSegmentEffortById",
+    "getClubById",
+    "getClubMembersById",
+    "getClubAdminsById",
+    "getLoggedInAthleteClubs",
+    "getRoutesByAthleteId"
+  ],
+  "mcp-0012-ai-dreamlit-mcp": [
+    "get_status",
+    "create_or_update_workflow",
+    "list_projects",
+    "list_workflows",
+    "get_workflow_and_preview_url",
+    "send_workflow_test",
+    "prepare_publish",
+    "confirm_publish",
+    "unpublish_workflow"
+  ],
+  "mcp-0013-ai-exa-exa": [
+    "web_search_exa",
+    "web_fetch_exa"
+  ],
+  "mcp-0014-ai-helixar-mcp": [
+    "helixar_inspect_mcp",
+    "helixar_hdp_validate"
+  ],
+  "mcp-0015-ai-byteask-embedded-docs": [
+    "search_docs",
+    "request_document"
+  ],
+  "mcp-0016-ai-justpublish-just-publish": [
+    "deploy",
+    "get_site_files"
+  ],
+  "mcp-0017-ai-keenable-web-search": [
+    "search_web_pages",
+    "fetch_page_content"
+  ],
+  "mcp-0018-ai-inxy-seo-audit": [
+    "ai_search_diagnostic",
+    "full_seo_audit"
+  ],
+  "mcp-0019-ai-law-mcp-lawyer-search": [
+    "search_lawyers",
+    "get_lawyer_profile",
+    "find_lawyer_by_name",
+    "get_practice_areas",
+    "get_jurisdictions"
+  ],
+  "mcp-0020-ai-example4-xmp4": [
+    "xmp4_callees",
+    "xmp4_callers",
+    "xmp4_deps",
+    "xmp4_info",
+    "xmp4_search",
+    "xmp4_source",
+    "xmp4_tests_for",
+    "xmp4_usages"
+  ],
+  "mcp-0021-ai-presentations-presentations-ai": [
+    "create_presentation_from_topic",
+    "create_presentation_from_content",
+    "check_job_status"
+  ],
+  "mcp-0022-ai-mrmarket-mrmarket-mcp": [
+    "getting_started",
+    "query_data",
+    "describe_data",
+    "get_symbols",
+    "fetch_page"
+  ],
+  "mcp-0023-ai-preclick-preclick-mcp": [
+    "url_scanner_scan",
+    "url_scanner_scan_with_intent"
+  ],
+  "mcp-0024-ai-pyrimid-pyrimid": [
+    "pyrimid_browse",
+    "pyrimid_buy",
+    "pyrimid_preview",
+    "pyrimid_register_affiliate",
+    "pyrimid_vendor_stats",
+    "pyrimid_commission_check"
+  ],
+  "mcp-0025-ai-sitepulsar-mcp": [
+    "check_agent_readiness",
+    "run_audit",
+    "get_audit",
+    "get_audit_detail",
+    "compare_aeo",
+    "get_fixes"
+  ],
+  "mcp-0026-ai-joinmultiplayer-gpu": [
+    "ask_network",
+    "who_knows"
+  ],
+  "mcp-0027-ai-masnavi-masnavi": [
+    "search",
+    "lookup",
+    "verify",
+    "explain",
+    "get_section",
+    "get_range",
+    "table_of_contents"
+  ],
+  "mcp-0028-ai-nefesh-human-state": [
+    "get_human_state",
+    "ingest"
+  ],
+  "mcp-0029-ai-proxygate-mcp": [
+    "browse_apis",
+    "get_pricing",
+    "call_api",
+    "check_balance",
+    "get_usage",
+    "describe_endpoint"
+  ],
+  "mcp-0030-ai-tensorfeed-mcp-server": [
+    "get_news_articles",
+    "get_status_summary",
+    "get_models",
+    "get_sec_submissions"
+  ],
+  "mcp-0031-ai-tunnelmind-sigil": [
+    "cross_lens_verify",
+    "sigil_verify_supply_path",
+    "sigil_verify_ads_txt",
+    "sigil_verify_supply_chain",
+    "sigil_generate_receipt"
+  ],
+  "mcp-0032-ai-roopslaw-legalsearch": [
+    "roop.public.judgments.search",
+    "roop.public.judgments.get_packet",
+    "roop.public.statutes.search",
+    "roop.public.statutes.get_packet"
+  ],
+  "mcp-0034-ai-thinkneo-control-plane": [
+    "thinkneo_check_spend",
+    "thinkneo_evaluate_guardrail",
+    "thinkneo_check_policy",
+    "thinkneo_get_budget_status",
+    "thinkneo_list_alerts",
+    "thinkneo_get_compliance_status",
+    "thinkneo_provider_status",
+    "thinkneo_get_savings_report",
+    "thinkneo_check"
+  ],
+  "mcp-0035-ai-trydock-dock": [
+    "get_workspace",
+    "list_rows",
+    "get_row",
+    "get_doc",
+    "get_workspace_schema",
+    "list_workspace_members",
+    "create_row",
+    "update_row",
+    "delete_row",
+    "update_doc",
+    "validate_formula",
+    "evaluate_formula"
+  ],
+  "mcp-0036-ai-unulu-unulu": [
+    "unulu_create_site",
+    "unulu_update_site",
+    "unulu_check_handle"
+  ],
+  "mcp-0037-ai-urlcheck-urlcheck-mcp": [
+    "url_scanner_scan",
+    "url_scanner_scan_with_intent"
+  ],
+  "mcp-0038-app-cnvs-whiteboard": [
+    "open_board",
+    "get_board",
+    "add_text",
+    "add_link",
+    "add_image",
+    "draw_stroke",
+    "move",
+    "erase",
+    "wait_for_update",
+    "set_board_mode"
+  ],
+  "mcp-0039-app-flaim-mcp": [
+    "get_user_session",
+    "get_league_info",
+    "get_standings",
+    "get_matchups",
+    "get_roster",
+    "get_free_agents",
+    "get_players"
+  ],
+  "mcp-0041-app-humantaste-taste-mcp": [
+    "review_content",
+    "verify_reasoning_chain",
+    "request_human_approval",
+    "verify_external_source",
+    "prepublish_review"
+  ],
+  "mcp-0042-app-pulltrader-seller-economics": [
+    "compare_selling_costs",
+    "calculate_required_sale_price",
+    "identify_card",
+    "search_card_sales"
+  ],
+  "mcp-0043-ai-tunnelmind-scry": [
+    "scry_check",
+    "scry_check_bulk"
+  ],
+  "mcp-0044-app-ganty-mcp-server": [
+    "list_workspaces",
+    "list_projects",
+    "create_project",
+    "delete_project",
+    "list_tasks",
+    "get_task",
+    "list_milestones",
+    "create_milestone",
+    "create_task",
+    "update_task",
+    "set_task_progress",
+    "delete_task",
+    "add_dependency",
+    "get_critical_path",
+    "reschedule_and_propagate"
+  ],
+  "mcp-0045-app-toolsnap-toolsnap-mcp": [
+    "fetch_extract",
+    "pricing",
+    "account_balance"
+  ],
+  "mcp-0046-art-travel-mcp": [
+    "find_art_events",
+    "find_museum_guide",
+    "find_layover_itinerary"
+  ],
+  "mcp-0047-bid-scope-aec": [
+    "scope_aec_status",
+    "scope_list_aec_categories",
+    "scope_list_aec_vendors",
+    "scope_verify_prequal",
+    "scope_check_bonding",
+    "scope_pull_safety_record",
+    "scope_briefing"
+  ],
+  "mcp-0048-bid-scope-claims": [
+    "scope_claims_status",
+    "scope_briefing",
+    "scope_roster_audit",
+    "scope_spend_rollup",
+    "scope_vendor_health",
+    "scope_credential_alerts",
+    "scope_get_dispatch_routing_state",
+    "scope_market_rate_compare"
+  ],
+  "mcp-0049-bid-scope-legal": [
+    "scope_list_vendors",
+    "scope_list_matters",
+    "scope_dispatch_matter",
+    "scope_get_matter",
+    "scope_list_categories",
+    "scope_roster_audit"
+  ],
+  "mcp-0050-bot-myagi-openagent-registry": [
+    "query_platform",
+    "registry_lookup"
+  ],
+  "mcp-0051-bot-yeehaw-events": [
+    "find_events"
+  ],
+  "mcp-0052-ch-fedlex-connector-fedlex-connector": [
+    "search_by_title",
+    "get_article",
+    "get_law_text",
+    "list_amendments"
+  ],
+  "mcp-0053-app-evlek-mcp-server": [
+    "search_listings",
+    "get_price_index",
+    "get_market_overview",
+    "get_listing_detail",
+    "search"
+  ],
+  "mcp-0054-ca-swiftsign-mcp": [
+    "swiftsign_send_envelope",
+    "swiftsign_check_status",
+    "swiftsign_download_signed_pdf"
+  ],
+  "mcp-0055-app-nausika-mcp": [
+    "nausika_marine_forecast",
+    "nausika_tides",
+    "nausika_search_places",
+    "nausika_get_place",
+    "nausika_sea_route",
+    "nausika_geocode",
+    "nausika_convert_coordinates",
+    "nausika_is_water"
+  ],
+  "mcp-0056-cloud-dchub-mcp-server": [
+    "search",
+    "fetch",
+    "search_facilities",
+    "get_facility",
+    "get_market_intel",
+    "get_market_dcpi_rank",
+    "get_gas_index",
+    "get_gas_economics",
+    "get_grid_scoreboard",
+    "get_intelligence_index",
+    "list_transactions",
+    "get_news"
+  ],
+  "mcp-0057-co-ainumbers-tools": [
+    "validate_ap2_mcp_policy",
+    "validate_mcp_server_json",
+    "lint_mcp_tool_definition",
+    "build_google_ap2_mandate",
+    "score_mcp_readiness",
+    "validate_a2a_agent_card",
+    "validate_agent_obo_mandate",
+    "validate_mcp_task_lifecycle",
+    "validate_emir_trade_report"
+  ],
+  "mcp-0058-co-launchtrust-launchtrust": [
+    "scan_url",
+    "get_compliance_rules",
+    "verify_record",
+    "scan_app"
+  ],
+  "mcp-0059-app-cardog-mcp": [
+    "search_listings",
+    "get_vin_analysis",
+    "search_recalls",
+    "search_electric_stations",
+    "get_model_year"
+  ],
+  "mcp-0060-ca-netgrant-canadian-grants": [
+    "search_opportunities",
+    "get_opportunity_details"
+  ],
+  "mcp-0061-co-bizverify-mcp": [
+    "verify_business",
+    "get_entity",
+    "search_entities",
+    "list_jurisdictions"
+  ],
+  "mcp-0062-ai-xpoz-social-insights": [
+    "getTwitterPostsByIds",
+    "getTwitterPostsByAuthor",
+    "getTwitterPostsByKeywords",
+    "getInstagramPostsByIds",
+    "getInstagramPostsByUser",
+    "getInstagramPostsByKeywords",
+    "getRedditPostWithCommentsById",
+    "getRedditPostsByKeywords",
+    "getTiktokPostsByIds",
+    "getTiktokPostsByUser",
+    "getTiktokPostsByKeywords",
+    "getTiktokPostsByHashtags"
+  ],
+  "mcp-0064-cn-whylingxi-insurance": [
+    "search_products",
+    "get_product_detail",
+    "recommend",
+    "get_premium",
+    "check_underwriting"
+  ],
+  "mcp-0065-co-heista-api": [
+    "decode_ad",
+    "get_decode",
+    "get_hook_intelligence",
+    "adformula_intelligence",
+    "decoder_intelligence",
+    "generate_adscript",
+    "list_brands",
+    "get_brand"
+  ],
+  "mcp-0066-co-tempguru-event-staffing": [
+    "get_cities",
+    "get_roles",
+    "get_role_pricing",
+    "get_compliance_by_state",
+    "get_rate_benchmark"
+  ],
+  "mcp-0067-app-zooza-mcp-server": [
+    "classes_list_schedule_patterns",
+    "classes_find_classes",
+    "classes_find_courses",
+    "bookings_find",
+    "sessions_get_attendance",
+    "sessions_mark_attendance",
+    "trainers_find",
+    "classes_find_places",
+    "sessions_find_events"
+  ],
+  "mcp-0068-ch-entscheidsuche-mcp": [
+    "search",
+    "search_by_case_number",
+    "fetch_document"
+  ],
+  "mcp-0069-com-agent-tune-agenttune": [
+    "list_tunings",
+    "get_tuning",
+    "get_test_spec"
+  ],
+  "mcp-0070-com-appendix-appendix": [
+    "search_knowledge_base"
+  ],
+  "mcp-0072-com-advocatemcp-advocate": [
+    "query_business_agent",
+    "search_businesses",
+    "get_availability",
+    "get_quote",
+    "reserve_slot",
+    "get_cancellation_policy"
+  ],
+  "mcp-0073-com-apple-rag-mcp-server": [
+    "search",
+    "fetch"
+  ],
+  "mcp-0074-com-babyblueviper-invinoveritas": [
+    "reason",
+    "decision",
+    "review",
+    "ledger"
+  ],
+  "mcp-0075-br-com-brasilnfe-fiscal": [
+    "nfe_emitir",
+    "nfse_emitir",
+    "cte_emitir",
+    "mdfe_emitir",
+    "dce_emitir",
+    "nfse_consultar",
+    "sefaz_status",
+    "nota_listar"
+  ],
+  "mcp-0076-com-arzbin-market-data": [
+    "convert_to_toman",
+    "get_latest_gold_rates",
+    "get_latest_crypto_rates",
+    "get_latest_fiat_rates",
+    "get_market_history",
+    "get_fiat_rate_sources"
+  ],
+  "mcp-0077-com-bankruptcyobserver-mcp": [
+    "search_bankruptcy_cases_tool",
+    "get_case_by_ein_tool",
+    "get_case_by_case_number_tool",
+    "get_docket_entries_tool",
+    "get_case_summary_tool",
+    "get_document_tool",
+    "check_subscription_tool"
+  ],
+  "mcp-0078-com-cityparity-cityparity": [
+    "compare_cities",
+    "get_city_summary",
+    "get_safety_net",
+    "get_inbound_tax_regime"
+  ],
+  "mcp-0079-com-anots-directory": [
+    "search_businesses",
+    "ask_business",
+    "find_and_ask"
+  ],
+  "mcp-0080-com-changethisfile-mcp": [
+    "convert_file",
+    "list_conversions"
+  ],
+  "mcp-0081-com-checkrecall-vehicle-recalls": [
+    "check_vehicle_recalls"
+  ],
+  "mcp-0085-com-cloudflare-mcp-mcp": [
+    "search_cloudflare_documentation"
+  ],
+  "mcp-0086-com-commonlands-optics-mcp": [
+    "calculate_field_of_view",
+    "match_lens_to_sensor",
+    "get_lens_distortion_profile",
+    "get_sensor_specs",
+    "search_lens_catalog",
+    "compare_lenses"
+  ],
+  "mcp-0087-com-100hires-100hires": [
+    "hires_list_candidates",
+    "hires_create_candidate",
+    "hires_get_candidate",
+    "hires_list_jobs",
+    "hires_create_job",
+    "hires_get_job",
+    "hires_list_applications",
+    "hires_create_application",
+    "hires_get_application",
+    "hires_list_interviews",
+    "hires_create_interview"
+  ],
+  "mcp-0088-com-bikefuchs-bikefuchs": [
+    "search_product",
+    "get_best_price",
+    "get_shop_info",
+    "resolve_product"
+  ],
+  "mcp-0089-com-blackveilsecurity-dns": [
+    "check_mx",
+    "check_spf",
+    "check_dmarc",
+    "check_dkim",
+    "check_dnssec",
+    "check_ssl",
+    "check_mta_sts",
+    "check_ns",
+    "check_caa",
+    "check_bimi",
+    "check_tlsrpt",
+    "check_http_security",
+    "check_dane",
+    "check_ptr",
+    "check_dane_https",
+    "check_svcb_https",
+    "check_lookalikes",
+    "scan_domain",
+    "get_benchmark",
+    "get_domain_rank",
+    "explain_finding",
+    "resolve_spf_chain",
+    "discover_subdomains",
+    "map_compliance",
+    "prioritize_csc_leads",
+    "simulate_attack_paths",
+    "check_dbl",
+    "check_rbl",
+    "cymru_asn",
+    "rdap_lookup",
+    "check_realtime_threat_feed",
+    "check_nsec_walkability",
+    "check_dnssec_chain",
+    "check_agent_discovery",
+    "check_dnskey_strength",
+    "check_fast_flux",
+    "check_subdomain_takeover",
+    "check_authoritative_dns_infra",
+    "check_root_server_set",
+    "discover_brand_domains",
+    "brand_audit_single",
+    "brand_audit_batch_start",
+    "brand_audit_status",
+    "brand_audit_get_report",
+    "list_brand_audit_watches",
+    "register_brand_audit_watch",
+    "delete_brand_audit_watch"
+  ],
+  "mcp-0090-com-daedalmap-county-map": [
+    "get_catalog",
+    "get_pack",
+    "get_earthquake_events",
+    "get_live_earthquake_events",
+    "get_volcanic_activity",
+    "get_live_volcano_events",
+    "get_tsunami_events",
+    "get_fx_rates",
+    "query_dataset"
+  ],
+  "mcp-0091-com-daedalmap-earthquakes": [
+    "get_earthquake_events",
+    "get_catalog"
+  ],
+  "mcp-0092-com-daedalmap-hurricanes": [
+    "get_pack",
+    "query_dataset"
+  ],
+  "mcp-0093-com-daedalmap-tsunamis": [
+    "get_tsunami_events"
+  ],
+  "mcp-0094-com-craftedtrust-mcp-shield": [
+    "check_trust",
+    "scan_server",
+    "search_registry"
+  ],
+  "mcp-0095-com-crosswire-api-crosswire-polymarket-kalshi-arbitrage": [
+    "check_resolution_risk"
+  ],
+  "mcp-0096-com-daedalmap-boundaries": [
+    "get_boundary",
+    "loc_id_info"
+  ],
+  "mcp-0097-com-daedalmap-currency": [
+    "get_pack"
+  ],
+  "mcp-0098-com-daedalmap-floods": [
+    "get_catalog",
+    "get_pack",
+    "search_disaster_links",
+    "query_dataset"
+  ],
+  "mcp-0099-com-daedalmap-geocoding": [
+    "resolve_point",
+    "get_boundary",
+    "loc_id_hierarchy",
+    "loc_id_info"
+  ],
+  "mcp-0100-com-daedalmap-population": [
+    "get_catalog",
+    "get_pack"
+  ],
+  "mcp-0101-com-daedalmap-reverse-geocoding": [
+    "get_pack"
+  ],
+  "mcp-0102-com-daedalmap-tornadoes": [
+    "get_pack",
+    "query_dataset"
+  ],
+  "mcp-0103-com-daedalmap-un-sdg": [
+    "get_pack"
+  ],
+  "mcp-0104-com-daedalmap-volcanoes": [
+    "get_volcanic_activity"
+  ],
+  "mcp-0105-com-daedalmap-wildfires": [
+    "get_catalog",
+    "get_pack",
+    "query_dataset"
+  ],
+  "mcp-0106-com-daedalmap-world-factbook": [
+    "get_pack",
+    "query_dataset"
+  ],
+  "mcp-0107-com-defaultverifier-settlement-witness": [
+    "settlement_witness"
+  ],
+  "mcp-0108-com-boostermage-mtg-prices": [
+    "get_price_history",
+    "find_best_price",
+    "compare_prices",
+    "search_products",
+    "get_retailer_list",
+    "get_price_drops"
+  ],
+  "mcp-0109-com-compoid-mcp-server": [
+    "Compoid_search_records",
+    "Compoid_search_communities",
+    "Compoid_get_record_details",
+    "Compoid_get_community_details",
+    "Compoid_download_files",
+    "Compoid_upload_file",
+    "Compoid_create_record",
+    "Compoid_create_community"
+  ],
+  "mcp-0110-com-blockscout-mcp-server": [
+    "get_block_info",
+    "get_block_number",
+    "get_address_by_ens_name",
+    "get_transactions_by_address",
+    "get_token_transfers_by_address",
+    "lookup_token_by_symbol",
+    "get_contract_abi",
+    "get_address_info",
+    "get_tokens_by_address",
+    "get_chains_list"
+  ],
+  "mcp-0111-com-contrastcyber-api": [
+    "domain_report",
+    "threat_report",
+    "dns_lookup",
+    "whois_lookup",
+    "ssl_check",
+    "subdomain_enum",
+    "tech_fingerprint",
+    "wayback_lookup",
+    "scan_headers",
+    "email_mx",
+    "email_security_posture",
+    "email_disposable",
+    "email_verify",
+    "robots_txt",
+    "redirect_chain",
+    "ip_lookup",
+    "asn_lookup",
+    "cve_lookup",
+    "calculate_risk_score",
+    "get_cvss_details",
+    "cve_search",
+    "exploit_lookup",
+    "bulk_cve_lookup",
+    "kev_detail",
+    "atlas_technique_lookup",
+    "sigma_rule_lookup",
+    "ioc_lookup",
+    "hash_lookup",
+    "phishing_check",
+    "bulk_ioc_lookup",
+    "check_dependencies",
+    "username_lookup",
+    "check_headers"
+  ],
+  "mcp-0112-com-decision-anchor-da": [
+    "register_agent",
+    "get_agent_profile",
+    "create_decision",
+    "confirm_decision",
+    "get_decision",
+    "list_decisions"
+  ],
+  "mcp-0113-com-feode-feode-mcp": [
+    "get_product_specs",
+    "list_drill_pipe",
+    "get_drill_pipe_specs"
+  ],
+  "mcp-0114-com-geiant-mcp-agentcore": [
+    "verify_jurisdiction",
+    "generate_audit_proof",
+    "check_delegation_chain"
+  ],
+  "mcp-0115-com-gettreatmenthelp-gettreatmenthelp": [
+    "search_facilities",
+    "get_facility_detail"
+  ],
+  "mcp-0116-com-eveoy-mcp": [
+    "ask_eveoy",
+    "get_pricing",
+    "start_checkout"
+  ],
+  "mcp-0117-com-geiant-mcp-perception": [
+    "perception_fetch_tile",
+    "perception_classify",
+    "perception_embed",
+    "perception_weather",
+    "gns_get_trust_score",
+    "gns_verify_chain"
+  ],
+  "mcp-0118-com-filingfirehose-firehose": [
+    "search_8k_filings",
+    "search_13d_filings",
+    "search_atm_offerings",
+    "get_filing"
+  ],
+  "mcp-0119-com-gotfreefax-mcp": [
+    "send_fax",
+    "send_free_fax",
+    "get_account_balance",
+    "purchase_credits",
+    "list_sent_faxes",
+    "check_fax_status"
+  ],
+  "mcp-0120-com-gribstream-mcp": [
+    "gribstream_list_datasets",
+    "gribstream_get_dataset",
+    "gribstream_list_parameters",
+    "gribstream_get_parameter",
+    "gribstream_validate_request"
+  ],
+  "mcp-0121-com-hemmabo-hemmabo-mcp-server": [
+    "hemmabo_search_properties",
+    "hemmabo_search_availability",
+    "hemmabo_booking_quote",
+    "hemmabo_booking_create",
+    "hemmabo_booking_checkout",
+    "hemmabo_booking_status",
+    "verify_vacation_rental_node",
+    "get_verified_stay_offer"
+  ],
+  "mcp-0122-com-hydrata-hydrata-mcp-server": [
+    "start_simulation",
+    "get_run_status",
+    "get_run",
+    "cancel_run"
+  ],
+  "mcp-0123-com-htagai-htag-docs": [
+    "list_mcp_servers",
+    "list_mcp_tools",
+    "list_api_endpoints"
+  ],
+  "mcp-0124-com-joinsandwich-directory": [
+    "get_channel",
+    "calculate_long_term_care_cost"
+  ],
+  "mcp-0125-com-kaicalls-kaicalls": [
+    "make_call",
+    "check_call_status",
+    "list_recent_calls",
+    "get_transcript",
+    "list_agents",
+    "get_call_recording"
+  ],
+  "mcp-0126-com-lifescored-mcp": [
+    "get_rulebook",
+    "get_input_schema",
+    "get_methodology"
+  ],
+  "mcp-0127-com-fiatdock-fiatdock-mcp": [
+    "create_offramp_session",
+    "create_onramp_session",
+    "get_quote",
+    "get_order_status",
+    "token_price"
+  ],
+  "mcp-0128-com-joinplexa-plexa": [
+    "search_businesses",
+    "get_business",
+    "list_verticals"
+  ],
+  "mcp-0129-com-kettlelogic-mcp-kettlelogic": [
+    "search_articles",
+    "get_article",
+    "get_industry_overview"
+  ],
+  "mcp-0130-com-getvaletparking-valet-parking-directory": [
+    "valet_list_services",
+    "valet_get_operator",
+    "valet_search_cities",
+    "valet_find_operators_in_city",
+    "valet_search_by_service_and_city",
+    "valet_find_nearest_operators",
+    "valet_find_operators_near"
+  ],
+  "mcp-0131-com-hauntapi-haunt": [
+    "try_demo_extract",
+    "extract",
+    "get_usage"
+  ],
+  "mcp-0132-com-ifthenpay-payments": [
+    "multibanco_create_reference",
+    "mbway_request_payment",
+    "mbway_check_status",
+    "payshop_create_reference"
+  ],
+  "mcp-0133-com-linklyhq-linkly": [
+    "create_link",
+    "list_links",
+    "get_link",
+    "update_link",
+    "delete_link",
+    "get_clicks",
+    "get_analytics",
+    "get_analytics_by"
+  ],
+  "mcp-0134-com-kapruka-kapruka-mcp": [
+    "kapruka_list_categories",
+    "kapruka_get_product",
+    "kapruka_search_products",
+    "kapruka_list_delivery_cities",
+    "kapruka_check_delivery",
+    "kapruka_create_order",
+    "kapruka_track_order"
+  ],
+  "mcp-0135-com-loopxxi-loop-mcp": [
+    "btc_price",
+    "btc_send_decision",
+    "lightning_address_resolve"
+  ],
+  "mcp-0136-com-lowtoxgear-scanner": [
+    "scan_barcode",
+    "get_catalog_stats"
+  ],
+  "mcp-0137-com-lowtoxgear-storefront": [
+    "search_products",
+    "get_product",
+    "list_collections"
+  ],
+  "mcp-0138-com-kernelcad-kernelcad": [
+    "review_paint_peek_latest",
+    "get_project",
+    "get_model_mesh",
+    "evaluate_script",
+    "inspect",
+    "verify",
+    "set_param",
+    "add_feature",
+    "remove_feature",
+    "export"
+  ],
+  "mcp-0139-com-local-mcp-local-mcp": [
+    "m365_read_email",
+    "m365_reply_email",
+    "m365_send_email",
+    "read_email",
+    "reply_email",
+    "send_email",
+    "list_email_accounts",
+    "list_email_folders",
+    "list_emails",
+    "create_calendar_event",
+    "delete_calendar_event",
+    "list_calendar_events",
+    "list_calendar_names",
+    "update_calendar_event",
+    "whatsapp_read_messages",
+    "whatsapp_send_message",
+    "signal_read_messages",
+    "signal_send_message",
+    "teams_read_chat_messages",
+    "teams_send_message",
+    "fs_list",
+    "fs_read",
+    "gdrive_list_files",
+    "gdrive_read_file",
+    "onedrive_list_files",
+    "onedrive_read_file",
+    "setup_install",
+    "chrome_setup_check",
+    "safari_setup_check"
+  ],
+  "mcp-0140-com-luthersystems-insideout-mcp": [
+    "convoinspect",
+    "convoreply",
+    "gcpinspect",
+    "awsinspect",
+    "tfdeploy",
+    "tfdestroy",
+    "tfgenerate",
+    "tfplan"
+  ],
+  "mcp-0141-com-makometrics-mako-metrics": [
+    "list_plans",
+    "create_order"
+  ],
+  "mcp-0142-com-memxus-memxus": [
+    "remember",
+    "recall",
+    "get_memory",
+    "list_memories"
+  ],
+  "mcp-0143-com-mux-mcp": [
+    "execute"
+  ],
+  "mcp-0144-com-nursinghomedatabase-mcp": [
+    "search_facilities",
+    "get_facility",
+    "search_owners",
+    "get_facility_ownership",
+    "get_owner"
+  ],
+  "mcp-0145-com-olympus-bets-olympus-bets-analytics": [
+    "get_todays_projections",
+    "get_track_record",
+    "get_methodology",
+    "get_league_schedule",
+    "get_performance_summary"
+  ],
+  "mcp-0146-com-microsoft-microsoft-learn-mcp": [
+    "microsoft_docs_search",
+    "microsoft_code_sample_search",
+    "microsoft_docs_fetch"
+  ],
+  "mcp-0147-com-moltravel-travel": [
+    "restcountries_country_info",
+    "fcdo_travel_advice",
+    "fcdo_list_countries",
+    "visa_check",
+    "airports_lookup",
+    "airports_search",
+    "airlines_lookup",
+    "airlines_search",
+    "navifare_flight_pricecheck",
+    "navifare_format_flight_pricecheck_request",
+    "peek_experience_availability",
+    "peek_experience_details",
+    "peek_render_activity_tiles",
+    "peek_search_experiences",
+    "peek_search_regions",
+    "tourradar_b2b-operator-details",
+    "tourradar_b2b-cities-search",
+    "tourradar_b2b-continents-list",
+    "tourradar_b2b-countries-list",
+    "tourradar_b2b-tour-departures",
+    "tourradar_b2b-tour-details",
+    "tourradar_vertex-tour-search",
+    "skiplagged_sk_flights_search",
+    "skiplagged_sk_destinations_anywhere",
+    "skiplagged_sk_flex_departure_calendar",
+    "skiplagged_sk_flex_return_calendar",
+    "ferryhopper_get_ports",
+    "ferryhopper_get_disruptions",
+    "ferryhopper_get_direct_connections_for_ports",
+    "ferryhopper_search_trips"
+  ],
+  "mcp-0148-com-nicheangle-niche": [
+    "niche_signal_scan",
+    "niche_intelligence_query",
+    "niche_angle_propose",
+    "niche_draft_direct"
+  ],
+  "mcp-0149-com-metricspot-seo-mcp": [
+    "run_audit_anonymous",
+    "run_audit",
+    "get_audit",
+    "get_audit_pdf"
+  ],
+  "mcp-0150-com-onchaindiligence-compliance": [
+    "screen_wallet",
+    "screen_name",
+    "verify_uk_company",
+    "verify_us_company"
+  ],
+  "n8n-6270": [
+    "Get News",
+    "Get Weather"
+  ],
+  "n8n-5819": [
+    "wikipedia",
+    "get_a_joke",
+    "days_from_now",
+    "create_password",
+    "n8n_blog_rss_feed",
+    "calculate_loan_payment"
+  ],
+  "n8n-7639": [
+    "Analyze Data"
+  ],
+  "n8n-5035": [
+    "Tool: Inject Creativity",
+    "Tool: Build Prompt Structure"
+  ],
+  "n8n-8500": [
+    "Gmail MCP",
+    "Calendar MCP",
+    "Google Tasks MCP",
+    "Finance Tracker",
+    "Google Contacts"
+  ],
+  "n8n-7756": [
+    "Register User",
+    "Append Meal Data",
+    "Get Profile Data",
+    "Update Profile Data",
+    "Get Report"
+  ],
+  "n8n-5148": [
+    "Qdrant Vector Store1"
+  ],
+  "n8n-5110": [
+    "Think"
+  ],
+  "n8n-15369": [
+    "Gmail Thread Tool",
+    "Google Calendar Tool"
+  ],
+  "n8n-4827": [
+    "MongoDB Vector Search"
+  ],
+  "n8n-5338": [
+    "Tool: Refine and Validate Prompts1",
+    "Tool: Inject Creative Perspective (Idea)"
+  ],
+  "n8n-13503": [
+    "database",
+    "Get orders",
+    "Send email"
+  ],
+  "n8n-9200": [
+    "Think",
+    "Think1"
+  ],
+  "n8n-11204": [
+    "Think"
+  ],
+  "n8n-9383": [
+    "Create an event",
+    "Know about the user enquiry",
+    "GET MANY EVENTS OF DAY THE USER ASKED"
+  ],
+  "n8n-8428": [
+    "Think"
+  ],
+  "n8n-5010": [
+    "Query Data Tool"
+  ],
+  "n8n-13526": [
+    "Create source",
+    "Get source",
+    "Create visual - AI image video",
+    "Create visual - tweet card carousel",
+    "Get visual",
+    "Post to TikTok",
+    "Post to Instagram",
+    "Send notification"
+  ],
+  "n8n-4722": [
+    "Get Email",
+    "Check Sent"
+  ],
+  "n8n-14167": [
+    "/scrape with Firecrawl",
+    "/search with Firecrawl",
+    "Interact context with Firecrawl",
+    "Execute interaction with Firecrawl",
+    "Stop interaction with Firecrawl"
+  ],
+  "n8n-5948": [
+    "MCP Client to Scrape as markdown"
+  ],
+  "n8n-6841": [
+    "Fetch Hollywood News (Tavily)",
+    "Fetch Weekly Releases (Tavily)",
+    "Fetch Must-Watch Movies (Tavily)",
+    "Fetch Weekly Box Office (Tavily)"
+  ],
+  "n8n-13409": [
+    "Source Collector",
+    "Source Retriever",
+    "Infographic Generator",
+    "Slideshow Video Generator",
+    "Visual Asset Retriever",
+    "LinkedIn Publisher",
+    "Instagram Publisher"
+  ],
+  "n8n-9429": [
+    "Calendar: Check Availability",
+    "Calendar: Create Appointment"
+  ],
+  "n8n-8597": [
+    "Knowledgebase Lookup",
+    "Calendar: Check Availability",
+    "Calendar: Create Appointment",
+    "Send Booking Confirmation",
+    "Reasoning Tool (LangChain)"
+  ],
+  "n8n-8591": [
+    "Think"
+  ],
+  "n8n-4600": [],
+  "n8n-5523": [
+    "Search_db",
+    "Calculator",
+    "Summarizer",
+    "Web search"
+  ],
+  "n8n-3066": [
+    "SerpAPI"
+  ],
+  "n8n-5398": [
+    "MCP Client",
+    "RAG MCP Server",
+    "MCP_Search_List_Tools",
+    "MCP_Search_Search_Engine"
+  ],
+  "n8n-4484": [
+    "The Flow and the Notion Book",
+    "Waves into Patterns Book Expert",
+    "The Polysingularity Letters Book",
+    "Special Agent's Manual Book Expert"
+  ],
+  "n8n-7467": [
+    "create_lead",
+    "update_lead",
+    "check_duplicate_lead",
+    "send_notification_client",
+    "send_notification_internal"
+  ],
+  "n8n-5817": [
+    "Weaviate Vector Store1"
+  ],
+  "n8n-4723": [
+    "Get Email",
+    "Get User",
+    "Check Sent",
+    "Check Sent1",
+    "Previous To Do",
+    "Fetch FireFlies",
+    "Google Calendar",
+    "Unread Emails - FYI",
+    "Unread Emails - To Respond",
+    "Check Slack Mentions",
+    "Check Thread Mentions"
+  ],
+  "n8n-8237": [
+    "Get Email",
+    "Google Calendar",
+    "Create a task in Google Tasks",
+    "Get many tasks in Google Tasks"
+  ],
+  "n8n-5832": [
+    "Send a message in Gmail"
+  ],
+  "n8n-5541": [
+    "Think"
+  ],
+  "n8n-5938": [
+    "Search Internet1",
+    "Search Internet2"
+  ],
+  "n8n-4721": [
+    "Perplexity tool",
+    "Trigify knowledge hub2"
+  ],
+  "n8n-14008": [
+    "RAG Agent",
+    "Gmail Agent",
+    "Google Docs Agent",
+    "Google Drive Agent",
+    "Google Sheets Agent",
+    "Google Slides Agent",
+    "Google Calendar Agent",
+    "Websearch Agent",
+    "Escalation"
+  ],
+  "n8n-5808": [
+    "DocProcess",
+    "GetMetaData"
+  ],
+  "n8n-5296": [
+    "Workflow - Youtube Search"
+  ],
+  "n8n-5828": [
+    "Sales Letter Tool",
+    "Cold Email Writer Tool"
+  ],
+  "n8n-5163": [
+    "Get Chart"
+  ],
+  "n8n-15933": [
+    "Date & Time1",
+    "Get row(s) in Data table1",
+    "Insert row in Data table1",
+    "Delete row(s) in Data table1",
+    "Update row(s) in Data table1"
+  ],
+  "n8n-5953": [
+    "🌐 Bright Data MCP: Scrape Report"
+  ],
+  "n8n-3859": [
+    "get_page",
+    "list_links"
+  ],
+  "n8n-10290": [
+    "Read Sheet for Queries",
+    "Append Transaction to Sheet"
+  ],
+  "n8n-7154": [
+    "Tool: Inject Creativity1"
+  ],
+  "n8n-3770": [
+    "MCP Client"
+  ],
+  "n8n-3050": [
+    "Calculator",
+    "Get all transactions",
+    "Get transactions by status",
+    "Get transactions by product name"
+  ],
+  "n8n-8604": [
+    "24h Stats",
+    "Best Bid/Ask",
+    "Klines (Candles)",
+    "Order Book Depth",
+    "Recent Trades",
+    "Price (Latest)"
+  ],
+  "n8n-4967": [],
+  "n8n-7449": [
+    "Analyze Data"
+  ],
+  "n8n-4949": [
+    "Fetch Available Time Slots",
+    "Create New Prospect in Google Sheet",
+    "Update Prospect with Booking Details"
+  ],
+  "n8n-5751": [
+    "get comments",
+    "search google",
+    "update result for user",
+    "create a row for new search user",
+    "instagram full profile scraper"
+  ],
+  "n8n-5374": [
+    "Get Articles"
+  ],
+  "n8n-4975": [
+    "n8n",
+    "policy_vector_store",
+    "Google Calendar"
+  ],
+  "n8n-6771": [
+    "Retrieve Context from Supabase"
+  ],
+  "n8n-6531": [
+    "Perplexity Research"
+  ],
+  "n8n-5128": [
+    "HTTP Request1"
+  ],
+  "n8n-3790": [
+    "Think",
+    "Technical Analysis Tool",
+    "Trends Analysis Tool"
+  ],
+  "n8n-5024": [
+    "SerpAPI",
+    "Pinecone Vector Store"
+  ],
+  "n8n-3443": [
+    "Tool - Crawl Business Website",
+    "Fallback - Enrich with Google Search",
+    "Tool - Scrape Google Maps Business Data"
+  ],
+  "n8n-5552": [
+    "Gmail",
+    "Calendar",
+    "Contacts",
+    "Google Search",
+    "Calculator"
+  ],
+  "n8n-8654": [],
+  "n8n-3250": [
+    "Retrieve and push documents"
+  ],
+  "n8n-6290": [
+    "RAGagent",
+    "calendarAgent",
+    "ticketAgent"
+  ],
+  "n8n-6538": [
+    "MarketingLadder"
+  ],
+  "n8n-5734": [
+    "VectorDB"
+  ],
+  "n8n-3514": [
+    "Calendar MCP",
+    "My Functions"
+  ],
+  "n8n-7957": [
+    "ad details",
+    "list accounts",
+    "account details"
+  ],
+  "n8n-2465": [
+    "Vector Store Tool"
+  ],
+  "n8n-6993": [],
+  "n8n-6532": [
+    "leadResearch",
+    "leadScraping"
+  ],
+  "n8n-12110": [
+    "External Social Search & Enrichment Tool (MCP Client)"
+  ],
+  "n8n-5821": [
+    "Gmail",
+    "Calendly"
+  ],
+  "n8n-5286": [
+    "web_search",
+    "get_current_date"
+  ],
+  "n8n-4526": [
+    "MongoDB Vector Search"
+  ],
+  "n8n-8326": [
+    "Check Calendar Availability",
+    "Book Calendar Appointment",
+    "Save Appointment Record"
+  ],
+  "n8n-5789": [
+    "Get spam list",
+    "update spam list",
+    "Get a message in Discord"
+  ],
+  "n8n-5011": [
+    "Answer questions with a vector store"
+  ],
+  "n8n-3905": [
+    "MCP Client"
+  ],
+  "n8n-15051": [
+    "Mattermost"
+  ],
+  "n8n-10214": [
+    "Execute a SQL query in MySQL"
+  ],
+  "n8n-5294": [
+    "Legal Contract Library"
+  ],
+  "n8n-5202": [
+    "Perplexity Search Tool"
+  ],
+  "n8n-5908": [
+    "Postgres PGVector Store"
+  ],
+  "n8n-5305": [
+    "Gmail1"
+  ],
+  "n8n-3940": [
+    "Think",
+    "Answer questions with a vector store"
+  ],
+  "n8n-3135": [
+    "X-Twiter",
+    "Instagram",
+    "Facebook",
+    "LinkedIn",
+    "YouTube Short"
+  ],
+  "n8n-10157": [
+    "List Documents",
+    "Get File Contents",
+    "Query Document Rows",
+    "Postgres PGVector Store1"
+  ],
+  "n8n-9026": [
+    "Checking History",
+    "Append or update row in sheet in Google Sheets",
+    "Check Calander & Book Meeting and send email"
+  ],
+  "n8n-5368": [
+    "Create Event",
+    "Delete Event",
+    "Search Event",
+    "Update Event"
+  ],
+  "n8n-2982": [
+    "Qdrant Vector Store Tool"
+  ],
+  "n8n-13270": [
+    "Get a File From GitHub",
+    "List Files by Path Name"
+  ],
+  "n8n-13269": [
+    "Get screen",
+    "Get Project",
+    "List screen",
+    "List projects",
+    "Create Project",
+    "Generate Screen",
+    "Search on web"
+  ],
+  "n8n-10665": [],
+  "n8n-8724": [
+    "Send Report via Gmail"
+  ],
+  "n8n-6018": [
+    "Pinecone Vector Store2",
+    "Get row(s) in sheet in Google Sheets"
+  ],
+  "n8n-5897": [
+    "Tavily_Search_Tool"
+  ],
+  "n8n-5303": [
+    "HTTP Request"
+  ],
+  "n8n-2753": [
+    "Vector Store Tool"
+  ],
+  "n8n-4674": [
+    "Tavily"
+  ],
+  "n8n-3657": [
+    "RAG"
+  ],
+  "n8n-2859": [
+    "Execute SQL Query",
+    "Get DB Schema and Tables List"
+  ],
+  "n8n-2786": [
+    "Send Message",
+    "Get Availability",
+    "Make Appointment"
+  ],
+  "n8n-4875": [
+    "Google Docs"
+  ],
+  "n8n-3986": [
+    "Get News Articles"
+  ],
+  "n8n-3379": [
+    "Read Product Sheet",
+    "Update Product Sheet",
+    "Log Customer Issues"
+  ],
+  "n8n-5074": [
+    "Google Sheets"
+  ],
+  "n8n-4930": [
+    "Save Memory",
+    "Answer questions with a vector store"
+  ],
+  "n8n-4739": [
+    "Binance SM Financial Analyst Tool",
+    "News and Sentiment Analysis Request"
+  ],
+  "n8n-4402": [
+    "EightOS Expert",
+    "Polysingularity Expert"
+  ],
+  "n8n-13271": [
+    "Search"
+  ],
+  "n8n-7979": [
+    "Vector Store Tool"
+  ],
+  "n8n-3942": [
+    "Call n8n Workflow Tool"
+  ],
+  "n8n-10123": [
+    "PO_DB",
+    "Update_Row"
+  ],
+  "n8n-9764": [
+    "Access JD Files"
+  ],
+  "n8n-8562": [
+    "Message a model in Perplexity",
+    "Append row in sheet in Google Sheets"
+  ],
+  "n8n-6020": [
+    "Pinecone Vector Store2",
+    "Get row(s) in sheet in Google Sheets"
+  ],
+  "n8n-9100": [],
+  "n8n-5757": [
+    "Gmail",
+    "send_mail",
+    "Vectorstore Mails"
+  ],
+  "n8n-4689": [
+    "Search Documentation",
+    "Search Negative Interactions",
+    "Search Positive Interactions"
+  ],
+  "n8n-4399": [
+    "web_search",
+    "Think",
+    "Calculator"
+  ],
+  "n8n-5656": [
+    "Get Info"
+  ],
+  "n8n-5435": [
+    "DB Schema1",
+    "Retrieve Data",
+    "Get table definition"
+  ],
+  "n8n-4057": [
+    "Send Email Response via Gmail",
+    "Dumpling AI Agent – Search for Relevant Info"
+  ],
+  "n8n-7215": [
+    "Get row(s) in sheet in Google Sheets"
+  ],
+  "n8n-6537": [
+    "get_events",
+    "Knowledge Database",
+    "think_tool"
+  ],
+  "n8n-4494": [
+    "Airbnb MCP Client - List Tools",
+    "Airbnb MCP Client - Execute Tools"
+  ],
+  "n8n-3656": [
+    "MCP Client"
+  ],
+  "n8n-2872": [
+    "Save Notes",
+    "Save Long Term Memories"
+  ],
+  "n8n-15918": [
+    "Get Skill File"
+  ],
+  "n8n-4735": [
+    "Read Sheet",
+    "Update Sheet",
+    "Create Blog id",
+    "Create Articles"
+  ],
+  "n8n-4630": [
+    "searchAirtable"
+  ],
+  "n8n-16251": [
+    "Retrieve Relevant Documents"
+  ],
+  "n8n-12600": [
+    "External Social Search & Enrichment Tool (MCP Client)"
+  ],
+  "n8n-12599": [
+    "Public Search & Social Intelligence Connector (MCP Client)"
+  ],
+  "n8n-12497": [
+    "Public Search & Social Intelligence Connector (MCP)"
+  ],
+  "n8n-10924": [
+    "RAG"
+  ],
+  "n8n-10119": [
+    "Bright Data MCP"
+  ],
+  "n8n-10045": [
+    "Access JD Files"
+  ],
+  "n8n-9592": [],
+  "n8n-8008": [
+    "Supabase Vector Store"
+  ],
+  "n8n-6153": [
+    "think",
+    "get_availability",
+    "create_appointment",
+    "log_patient_details"
+  ],
+  "n8n-5947": [
+    "🕷️ MCP Scraper: 10times"
+  ],
+  "n8n-5918": [
+    "Manual Knowledge Base"
+  ],
+  "n8n-5508": [
+    "Answer questions with a vector store"
+  ],
+  "n8n-5012": [
+    "Think",
+    "Think1",
+    "CALL QUERY AGENT"
+  ],
+  "n8n-4766": [
+    "Perplexity"
+  ],
+  "n8n-9577": [
+    "My Freelance Document"
+  ],
+  "n8n-5454": [
+    "Gmail",
+    "court info",
+    "Google Sheets"
+  ],
+  "n8n-4501": [],
+  "n8n-3617": [
+    "Think",
+    "Calculator"
+  ],
+  "n8n-5042": [
+    "Send Email",
+    "Create Draft"
+  ],
+  "n8n-4910": [
+    "brave_web_search",
+    "google_gemini_prospect_finder",
+    "jina_ai_web_page_scraper",
+    "brave_local_search"
+  ],
+  "n8n-4102": [
+    "Get events",
+    "Create Event",
+    "Detele Event",
+    "Update Calendar"
+  ],
+  "n8n-3425": [
+    "CoinMarketCap Crypto Agent Tool",
+    "CoinMarketCap DEXScan Agent Tool",
+    "CoinMarketCap Exchange and Community Agent Tool"
+  ],
+  "n8n-3336": [
+    "Publish Article to WordPress",
+    "Insert Article in Notion",
+    "Notify Slack Channel",
+    "Send Email Notification"
+  ],
+  "n8n-1954": [
+    "SerpAPI"
+  ],
+  "n8n-4589": [
+    "Bright Data MCP Client"
+  ],
+  "n8n-3694": [
+    "MCP Google Calendar",
+    "Google Tasks",
+    "CallToHuman",
+    "Enviar alerta de cancelamento"
+  ],
+  "n8n-16439": [
+    "Think Through Video Concept"
+  ],
+  "n8n-10666": [
+    "Pinecone Vector Store12"
+  ],
+  "n8n-7671": [
+    "google"
+  ],
+  "n8n-6844": [
+    "CloudFlare tool"
+  ],
+  "n8n-5291": [
+    "Google Sheets"
+  ],
+  "n8n-14321": [
+    "Databox MCP Tool"
+  ],
+  "n8n-10142": [
+    "Qdrant Vector Store"
+  ],
+  "n8n-9455": [
+    "MCP Client1",
+    "Search latest news1",
+    "Think1"
+  ],
+  "n8n-6500": [
+    "Set & Get Notion Database"
+  ],
+  "n8n-5951": [
+    "🌐 Bright Data Tool"
+  ],
+  "n8n-5923": [
+    "Next song",
+    "Pause player",
+    "Resume player",
+    "Play a playlist",
+    "Get user playlists",
+    "Create new playlist"
+  ],
+  "n8n-5521": [
+    "SupaBase Query"
+  ],
+  "n8n-4755": [
+    "Knowledge Base GraphRAG"
+  ],
+  "n8n-4086": [
+    "Supabase Vector Store"
+  ],
+  "n8n-3189": [
+    "MCP Get Brave Tools",
+    "MCP Execute Brave Search"
+  ],
+  "n8n-3025": [
+    "🧠Save Memories",
+    "🔎Retrieve Memories"
+  ],
+  "n8n-14449": [
+    "Get a campaign in Google Ads"
+  ],
+  "n8n-10199": [
+    "Tool: Get HubSpot Data",
+    "Tool: Calculate Sentiment Score",
+    "Tool: Get Feature Usage from Sheets"
+  ],
+  "n8n-5687": [
+    "update_wallet"
+  ],
+  "n8n-5614": [
+    "SerpAPI"
+  ],
+  "n8n-4641": [],
+  "n8n-4551": [
+    "Supabase Vector Store"
+  ],
+  "n8n-4083": [
+    "CRM Agent",
+    "Calendar Agent"
+  ],
+  "n8n-2703": [
+    "Google Calendar - Get Events",
+    "Google Calendar - Create events"
+  ],
+  "n8n-2621": [
+    "Vector Store Tool1"
+  ],
+  "n8n-13182": [
+    "Run text to video",
+    "Run image to video",
+    "Run video to video"
+  ],
+  "n8n-6906": [
+    "Think",
+    "Financial Analyst",
+    "Accounting Specialist",
+    "Investment & Risk Analyst",
+    "Financial Planning Analyst",
+    "Internal Audit & Controls Specialist",
+    "Treasury & Cash Management Specialist"
+  ],
+  "n8n-5924": [
+    "SerpAPI"
+  ],
+  "n8n-5784": [
+    "Get events",
+    "Create Event",
+    "Delete event",
+    "Update Event"
+  ],
+  "n8n-5164": [
+    "Think"
+  ],
+  "n8n-5096": [
+    "Create order in database",
+    "Get Menu Items from Vector Store"
+  ],
+  "n8n-4638": [
+    "Knowledge base"
+  ],
+  "n8n-3303": [
+    "n8n-assistant Tool Lookup"
+  ],
+  "n8n-2845": [
+    "RAG"
+  ],
+  "n8n-2466": [
+    "Wikipedia"
+  ],
+  "n8n-13089": [
+    "Reasoning / Prompt Logic"
+  ],
+  "n8n-9850": [
+    "Create an event in Google Calendar"
+  ],
+  "n8n-6827": [],
+  "n8n-5807": [
+    "Answer questions with a vector store"
+  ],
+  "n8n-5431": [
+    "HTTP Request"
+  ],
+  "n8n-5130": [
+    "Pinecone Vector Store",
+    "Pinecone Vector Store2"
+  ],
+  "n8n-4694": [
+    "Insert rule into database",
+    "Execute query on rule database"
+  ],
+  "n8n-4368": [
+    "SerpAPI",
+    "Calculator"
+  ],
+  "n8n-3686": [
+    "mail_archiver",
+    "mail_label_setter"
+  ],
+  "n8n-2986": [
+    "Save Memory",
+    "Save Note Tool"
+  ],
+  "n8n-2864": [
+    "Save Long Term Memories"
+  ],
+  "n8n-2783": [
+    "Meta_Ads",
+    "Google_Ads",
+    "Analytics_Domain_1",
+    "Analytics_Domain_2",
+    "Analytics_Domain_3",
+    "Analytics_Domain_4",
+    "Analytics_Domain_5"
+  ],
+  "n8n-5259": [
+    "Balance report",
+    "Register Transaction"
+  ],
+  "n8n-3879": [
+    "Airtable MCP Client"
+  ],
+  "n8n-3350": [
+    "Handoff Tool"
+  ],
+  "n8n-3348": [
+    "Send Email",
+    "Notion Run a Tool",
+    "Publish Blog Post"
+  ],
+  "n8n-2752": [
+    "Answer questions with a vector store"
+  ],
+  "astropy__astropy-12907": [
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit"
+  ],
+  "astropy__astropy-14182": [
+    "edit",
+    "create"
+  ],
+  "astropy__astropy-14365": [
+    "open",
+    "search_file",
+    "find_file",
+    "python"
+  ],
+  "astropy__astropy-14995": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "astropy__astropy-6938": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit"
+  ],
+  "astropy__astropy-7746": [
+    "python",
+    "edit"
+  ],
+  "django__django-10914": [
+    "edit"
+  ],
+  "django__django-10924": [
+    "edit"
+  ],
+  "django__django-11001": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-11019": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-11039": [
+    "edit"
+  ],
+  "django__django-11049": [
+    "edit"
+  ],
+  "django__django-11099": [
+    "edit",
+    "submit"
+  ],
+  "django__django-11133": [
+    "edit"
+  ],
+  "django__django-11179": [
+    "open",
+    "goto",
+    "edit"
+  ],
+  "django__django-11283": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-11422": [
+    "bash",
+    "python",
+    "edit"
+  ],
+  "django__django-11564": [
+    "open",
+    "find_file",
+    "edit"
+  ],
+  "django__django-11583": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-11620": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-11630": [],
+  "django__django-11742": [
+    "edit"
+  ],
+  "django__django-11797": [],
+  "django__django-11815": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-11848": [
+    "edit"
+  ],
+  "django__django-11905": [
+    "edit"
+  ],
+  "django__django-11910": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-11964": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-11999": [
+    "edit"
+  ],
+  "django__django-12113": [
+    "edit"
+  ],
+  "django__django-12125": [],
+  "django__django-12184": [
+    "open",
+    "goto",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-12284": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-12286": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "edit"
+  ],
+  "django__django-12308": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up"
+  ],
+  "django__django-12453": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-12470": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-12497": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-12589": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up"
+  ],
+  "django__django-12700": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-12708": [
+    "edit",
+    "python"
+  ],
+  "django__django-12747": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-12856": [
+    "open",
+    "search_dir",
+    "search_file",
+    "edit"
+  ],
+  "django__django-12908": [],
+  "django__django-12915": [
+    "edit"
+  ],
+  "django__django-12983": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "find_file",
+    "edit"
+  ],
+  "django__django-13028": [
+    "open",
+    "edit"
+  ],
+  "django__django-13033": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-13158": [
+    "submit"
+  ],
+  "django__django-13220": [
+    "edit",
+    "create"
+  ],
+  "django__django-13230": [
+    "edit"
+  ],
+  "django__django-13265": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "edit"
+  ],
+  "django__django-13315": [
+    "edit"
+  ],
+  "django__django-13321": [
+    "open",
+    "goto"
+  ],
+  "django__django-13401": [
+    "open",
+    "edit"
+  ],
+  "django__django-13447": [
+    "edit"
+  ],
+  "django__django-13448": [
+    "goto",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit",
+    "bash",
+    "python"
+  ],
+  "django__django-13551": [
+    "edit",
+    "submit",
+    "open"
+  ],
+  "django__django-13590": [
+    "edit"
+  ],
+  "django__django-13658": [
+    "edit",
+    "find_file"
+  ],
+  "django__django-13660": [
+    "bash",
+    "python"
+  ],
+  "django__django-13710": [
+    "create",
+    "edit",
+    "submit"
+  ],
+  "django__django-13757": [
+    "open",
+    "find_file",
+    "edit"
+  ],
+  "django__django-13768": [],
+  "django__django-13925": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit"
+  ],
+  "django__django-13933": [
+    "edit"
+  ],
+  "django__django-13964": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-14016": [
+    "edit"
+  ],
+  "django__django-14017": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-14155": [
+    "edit"
+  ],
+  "django__django-14238": [
+    "open",
+    "goto",
+    "edit"
+  ],
+  "django__django-14382": [
+    "open",
+    "find_file",
+    "edit",
+    "bash"
+  ],
+  "django__django-14411": [
+    "edit"
+  ],
+  "django__django-14534": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-14580": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "edit"
+  ],
+  "django__django-14608": [
+    "edit"
+  ],
+  "django__django-14667": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-14672": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-14730": [
+    "create",
+    "edit"
+  ],
+  "django__django-14752": [
+    "open",
+    "edit"
+  ],
+  "django__django-14787": [
+    "edit"
+  ],
+  "django__django-14855": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "edit"
+  ],
+  "django__django-14915": [
+    "edit"
+  ],
+  "django__django-14997": [
+    "open",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit"
+  ],
+  "django__django-14999": [],
+  "django__django-15061": [
+    "create",
+    "edit"
+  ],
+  "django__django-15202": [
+    "submit"
+  ],
+  "django__django-15213": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit"
+  ],
+  "django__django-15252": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit"
+  ],
+  "django__django-15320": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit"
+  ],
+  "django__django-15347": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-15388": [
+    "open",
+    "goto",
+    "edit",
+    "bash"
+  ],
+  "django__django-15400": [],
+  "django__django-15498": [
+    "edit"
+  ],
+  "django__django-15695": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-15738": [
+    "edit",
+    "bash"
+  ],
+  "django__django-15781": [],
+  "django__django-15789": [
+    "edit",
+    "create"
+  ],
+  "django__django-15790": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-15814": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit"
+  ],
+  "django__django-15819": [
+    "edit",
+    "submit"
+  ],
+  "django__django-15851": [
+    "bash"
+  ],
+  "django__django-15902": [],
+  "django__django-15996": [],
+  "django__django-16041": [
+    "open",
+    "goto"
+  ],
+  "django__django-16046": [
+    "open",
+    "edit"
+  ],
+  "django__django-16139": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-16229": [
+    "open",
+    "goto",
+    "edit",
+    "submit"
+  ],
+  "django__django-16255": [
+    "open",
+    "edit"
+  ],
+  "django__django-16379": [
+    "open",
+    "edit"
+  ],
+  "django__django-16400": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-16408": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit"
+  ],
+  "django__django-16527": [
+    "edit"
+  ],
+  "django__django-16595": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-16816": [
+    "open",
+    "goto",
+    "edit"
+  ],
+  "django__django-16820": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit"
+  ],
+  "django__django-16873": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-16910": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "django__django-17051": [
+    "edit",
+    "create"
+  ],
+  "django__django-17087": [
+    "open",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit"
+  ],
+  "matplotlib__matplotlib-22711": [
+    "edit",
+    "python"
+  ],
+  "mwaskom__seaborn-2848": [
+    "python"
+  ],
+  "mwaskom__seaborn-3010": [
+    "edit",
+    "python"
+  ],
+  "mwaskom__seaborn-3190": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file"
+  ],
+  "mwaskom__seaborn-3407": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "python"
+  ],
+  "pallets__flask-4045": [],
+  "pallets__flask-4992": [],
+  "pallets__flask-5063": [
+    "open",
+    "goto",
+    "scroll_down",
+    "scroll_up",
+    "search_dir",
+    "search_file",
+    "find_file",
+    "edit",
+    "python"
+  ],
+  "psf__requests-1963": [
+    "open",
+    "goto"
+  ],
+  "psf__requests-2148": [],
+  "synth-crewai-0001": [
+    "FileReadTool"
+  ],
+  "synth-crewai-0002": [
+    "DirectoryReadTool"
+  ],
+  "synth-crewai-0003": [
+    "CSVSearchTool"
+  ],
+  "synth-crewai-0004": [
+    "FileReadTool",
+    "FileWriterTool"
+  ],
+  "synth-crewai-0005": [
+    "ScrapeWebsiteTool"
+  ],
+  "synth-crewai-0006": [
+    "SerperDevTool"
+  ],
+  "synth-crewai-0007": [
+    "FileWriterTool",
+    "FileReadTool"
+  ],
+  "synth-crewai-0008": [
+    "FileReadTool"
+  ],
+  "synth-crewai-0009": [
+    "JSONSearchTool",
+    "DirectoryReadTool"
+  ],
+  "synth-crewai-0010": [
+    "PDFSearchTool"
+  ],
+  "synth-crewai-0011": [
+    "DirectorySearchTool",
+    "FileReadTool"
+  ],
+  "synth-crewai-0012": [
+    "TXTSearchTool",
+    "FileWriterTool"
+  ],
+  "synth-crewai-0013": [
+    "JSONSearchTool",
+    "CodeInterpreterTool"
+  ],
+  "synth-crewai-0014": [
+    "YoutubeChannelSearchTool"
+  ],
+  "synth-mcp-0001": [
+    "read_file"
+  ],
+  "synth-mcp-0002": [
+    "list_directory"
+  ],
+  "synth-mcp-0003": [
+    "read_file"
+  ],
+  "synth-mcp-0004": [
+    "read_file",
+    "write_file"
+  ],
+  "synth-mcp-0005": [
+    "fetch_url"
+  ],
+  "synth-mcp-0006": [
+    "fetch_url",
+    "write_file"
+  ],
+  "synth-mcp-0007": [
+    "search_files"
+  ],
+  "synth-mcp-0008": [
+    "get_file_info"
+  ],
+  "synth-mcp-0009": [
+    "read_multiple_files"
+  ],
+  "synth-mcp-0010": [
+    "create_directory",
+    "write_file"
+  ],
+  "synth-mcp-0011": [
+    "read_file",
+    "edit_file"
+  ],
+  "synth-mcp-0012": [],
+  "synth-mcp-0013": [
+    "read_file",
+    "write_file"
+  ],
+  "synth-mcp-0014": [
+    "fetch_url"
+  ],
+  "synth-flowise-0001": [
+    "readFile"
+  ],
+  "synth-flowise-0002": [
+    "csvFile"
+  ],
+  "synth-flowise-0003": [
+    "calculator"
+  ],
+  "synth-flowise-0004": [
+    "httpRequest"
+  ],
+  "synth-flowise-0005": [
+    "serpAPI"
+  ],
+  "synth-flowise-0006": [
+    "httpRequest",
+    "webScraper"
+  ],
+  "synth-flowise-0007": [
+    "jsonFile"
+  ],
+  "synth-flowise-0008": [],
+  "synth-flowise-0009": [
+    "readFile",
+    "writeFile"
+  ],
+  "synth-flowise-0010": [
+    "documentStore"
+  ],
+  "synth-flowise-0011": [
+    "writeFile"
+  ],
+  "synth-flowise-0012": [
+    "readFile",
+    "calculator"
+  ],
+  "synth-flowise-0013": [
+    "httpRequest"
+  ],
+  "synth-flowise-0014": [
+    "codeInterpreter"
+  ],
+  "synth-sweagent-0001": [
+    "open"
+  ],
+  "synth-sweagent-0002": [
+    "search_dir"
+  ],
+  "synth-sweagent-0003": [
+    "edit",
+    "open"
+  ],
+  "synth-sweagent-0004": [
+    "create"
+  ],
+  "synth-sweagent-0005": [
+    "search_dir",
+    "open",
+    "edit"
+  ],
+  "synth-sweagent-0006": [
+    "bash"
+  ],
+  "synth-sweagent-0007": [
+    "python"
+  ],
+  "synth-sweagent-0008": [
+    "open"
+  ],
+  "synth-sweagent-0009": [
+    "open"
+  ],
+  "synth-sweagent-0010": [
+    "python",
+    "bash"
+  ],
+  "synth-sweagent-0011": [
+    "create",
+    "open"
+  ],
+  "synth-sweagent-0012": [
+    "edit",
+    "open"
+  ],
+  "synth-sweagent-0013": [
+    "open"
+  ],
+  "synth-sweagent-0014": [
+    "open",
+    "edit"
+  ]
+}

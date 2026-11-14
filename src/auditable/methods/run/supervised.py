@@ -124,3 +124,49 @@ class LogisticFull(_LayerLogisticDetector):
     _layer = "full"
     card = _card("run.lr_full", "full", "Logistic regression on all raw layers (GRADE full)", "full",
                  "Size, agent execution topology, and raw dependency-layer counts.")
+
+
+_CATCHBENCH = Citation(key="CatchBench (2026)", title="CatchBench: When Can an Agent Failure Be Caught?",
+                       arxiv="2608.22808")
+
+# CatchBench 0.1.3 ``detection._SPLINE``, the setting its size audit froze before the run.
+_SPLINE = {"degree": 3, "n_knots": 5, "knots": "quantile", "extrapolation": "constant", "include_bias": False}
+
+
+@register
+class LogisticSplineFlat(_LayerLogisticDetector):
+    """The flexible size control: an additive cubic spline in each of the four GRADE ``flat``
+    counts, then the board's standardized, balanced logistic regression.
+
+    Ported from CatchBench (https://github.com/yzhao062/catchbench, MIT License) at release
+    0.1.3, ``detection._spline_estimator`` (the ``size (spline)`` arm of its detection and LIVE
+    size audits). The spline sits inside the pipeline, so under cross-validation its knots come
+    from the training folds only. It reads nothing but run size; a method that ranks below it on
+    a board does not show signal beyond a nonlinear function of size, which is the reading GRADE
+    retired on 2026-09-08 for the linear baseline ``run.lr_flat``.
+    """
+
+    _layer = "flat"
+    card = MethodCard(
+        method_id="run.lr_spline_flat",
+        name="Logistic regression on a cubic spline of run size (flexible size control)",
+        family="run",
+        fit_scope="inductive",
+        supervised=True,
+        output_kind="score",
+        fidelity="faithful",
+        requires=frozenset({"kind"}),
+        cite=(_CATCHBENCH, _GRADE),
+        extras=("tabular-ad",),
+        board_aliases=("size (spline)",),
+        benchmark_role="control",
+        summary="Cubic spline (five quantile knots) of step, tool-call, decision and agent counts, then "
+                "the board's logistic regression; a size-only reference that is not a CatchBench board row.",
+    )
+
+    def _pipeline(self):
+        from sklearn.pipeline import make_pipeline
+        from sklearn.preprocessing import SplineTransformer
+
+        base = super()._pipeline()  # StandardScaler then the board's logistic regression
+        return make_pipeline(SplineTransformer(**_SPLINE), *[step for _, step in base.steps])

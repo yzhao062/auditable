@@ -1,0 +1,896 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "binary_search",
+    "model": "gpt-5.5",
+    "n_runs": 126,
+    "prompt_sha": "292b9b0a0d4c",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "002-a04041638aa4": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in step 2, where the Movie_Expert provides only a partial/incomplete list of Daniel Craig mo\n[0-4 mid2] FIRST :: The decisive mistake occurred in the FIRST half: step 2 produced an incomplete and unreliable list of Daniel Craig movie\n[0-2 mid1] SECOND :: The decisive mistake is in step 2: the Movie_Expert provided only a partial and flawed list of Daniel Craig movies under"
+    },
+    "000-7b14128ce504": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurred in the first half. The run adopted the wrong business logic: it treated even-numbered addr\n[0-2 mid1] FIRST :: The decisive mistake was counting even-numbered street addresses as receiving the sunset awning. Since awnings are for t\n[0-1 mid0] FIRST :: The decisive error was interpreting \u201csunset awning\u201d as applying to even-numbered addresses. Since the awning is for the "
+    },
+    "003-cfa39baedf59": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake occurs in the FIRST half. The run goes wrong when it introduces unsupported/incorrect pricing infor\n[0-3 mid1] SECOND :: The decisive mistake is in the SECOND half. Step 2 introduces unsupported/incorrect daily ticket pricing and age rules, \n[2-3 mid2] FIRST :: The decisive mistake is in step 2: it introduces likely incorrect daily admission pricing, including treating the 2-year"
+    },
+    "001-5697e89b281b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the FIRST half. The run commits early to using Seattle and Colville as the relevant county se\n[0-4 mid2] FIRST :: The decisive mistake occurred in the FIRST half.\n\nThe run accepted the manager\u2019s narrowed framing that the relevant coun\n[0-2 mid1] FIRST :: The decisive mistake was in the first half: the run accepted the manager\u2019s narrowed task of using Seattle and Colville w\n[0-1 mid0] FIRST :: The decisive mistake is in step 0: the agent accepted the manager\u2019s narrowed task of using Seattle and Colville without "
+    },
+    "004-d57d322d4115": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half. Step 1 produced an incomplete/incorrect filtered film list, omitting qu\n[0-4 mid2] FIRST :: The decisive mistake occurs in the FIRST half. Step 1 incorrectly filters the filmography, omitting Isabelle Adjani feat\n[0-2 mid1] FIRST :: The decisive mistake occurs in step 1: the filmography/runtimes filtering was incomplete and incorrectly excluded valid \n[0-1 mid0] SECOND :: The decisive mistake is in step 1. Step 0 only states the task and plan, while step 1 begins the actual filtering but pr"
+    },
+    "008-00a173727b41": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurred in the first half: step 1 fabricated or accepted unsupported source-specific sale prices i\n[0-2 mid1] FIRST :: The decisive mistake occurred in the FIRST half. Step 1 accepted and summarized unsupported \u201ccollected data\u201d instead of \n[0-1 mid0] SECOND :: The decisive mistake was in step 1, where the Verification_Expert accepted and summarized unverified or fabricated sourc"
+    },
+    "006-b40c7e455b08": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in the SECOND half, specifically around step 7: the agent generated a synthetic \u201ccomprehensi\n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half, specifically step 7.\n\nStep 7 appears to introduce or provide a \u201ccomprehensive\n[5-7 mid6] SECOND :: The decisive mistake is in step 7.\n\nSteps 5\u20136 merely repeat the earlier generic debugging approach and run a harmless te"
+    },
+    "009-537a267c0756": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive mistake is in the SECOND half. The early web-search error in step 3 was recovered, but step 6 incorrectly a\n[4-7 mid5] SECOND :: The decisive mistake is in the SECOND half, specifically step 6. Step 4/5 successfully performs a search, but step 6 inc\n[6-7 mid6] FIRST :: The decisive mistake is in step 6: the Verification_Expert accepted irrelevant/incorrect search results, including sourc"
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake occurred in the FIRST half: step 3 introduced an unsupported/incorrect set of gyms \u201cfound\u201d near Tom\n[0-3 mid1] SECOND :: The decisive mistake is in the SECOND half, specifically step 3: it begins fabricating/manual-claiming identified gyms r\n[2-3 mid2] SECOND :: The decisive mistake is in step 3: the agent proceeds to \u201cmanually identify\u201d gyms and asserts findings without actually "
+    },
+    "005-b82f729abea8": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the **SECOND half**. The run starts going wrong when the agents use flawed verification logic\n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half, steps 5\u20137.\n\nStep 5 introduced a flawed verification method: searching only `\"\n[5-7 mid6] FIRST :: The decisive mistake is in steps 5\u20136. The process used an unreliable verification method: searching only the eatery name\n[5-6 mid5] FIRST :: The decisive mistake occurs in step 5: the agent adopts a flawed verification method, using ambiguous searches like \u201c{ea"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-8 mid4] SECOND :: The decisive mistake occurs in the SECOND half. Step 5 incorrectly treats a failed/incomplete web search as sufficient e\n[5-8 mid6] FIRST :: The decisive mistake is in the FIRST half, specifically step 5. It treats incomplete/failed search output as sufficient \n[5-6 mid5] FIRST :: The decisive mistake occurs in step 5: it treats incomplete/failed search output as sufficient evidence and begins makin"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half. The first failure-causing error was around step 2/3, where the run acce\n[0-4 mid2] FIRST :: VERDICT: FIRST\n[0-2 mid1] SECOND :: The decisive mistake is in step 2: the distance calculation incorrectly concluded that Whole Foods, Costco, and Menards "
+    },
+    "012-d731749a39ca": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake appears in the **FIRST half**: step 4 wrongly commits to scraping the main Mercedes Sosa article fo\n[0-4 mid2] SECOND :: The decisive mistake occurred in step 4: the agent assumed the main \u201cMercedes Sosa\u201d Wikipedia page would contain a scrap\n[3-4 mid3] SECOND :: Step 3 was just a successful search result output. The first substantive error was in Step 4, where the agent assumed th"
+    },
+    "010-12509faada72": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half: the run misinterpreted the criterion early, treating \u201chad ever held a C\n[0-4 mid2] SECOND :: The decisive mistake first appears in step 4, where the verifier incorrectly concludes that all listed members held C-su\n[3-4 mid3] SECOND :: The decisive mistake is in step 4. Step 3 only performs a search, while step 4 incorrectly concludes that all listed mem"
+    },
+    "017-3f81e1d1cad3": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST\n[0-3 mid1] SECOND :: The decisive mistake was in steps 2\u20133: after the dataset file was missing, the agent chose to create a synthetic dataset\n[2-3 mid2] SECOND :: The decisive mistake is in step 3: after the file was missing, the agent chose to generate a synthetic dataset and treat"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the second half: step 6, where the team switches to randomly generated mock data instead of o\n[5-9 mid7] FIRST :: The decisive mistake was in the FIRST half: steps 5\u20137. Specifically, step 6 proposed using mock/random data instead of o\n[5-7 mid6] FIRST :: The decisive mistake is in the FIRST half, specifically step 6: the agent chose to use randomly generated mock data inst\n[5-6 mid5] SECOND :: The decisive mistake is in step 6: after the API failure, the agent chose to create random mock data and use it to estim"
+    },
+    "016-2f776a306c77": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-8 mid4] SECOND :: VERDICT: SECOND\n[5-8 mid6] SECOND :: The decisive failure occurs in the SECOND half. Steps 5\u20136 produced unusable zero data, but that error was recognized in \n[7-8 mid7] SECOND :: VERDICT: SECOND"
+    },
+    "019-2c7247a57061": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the SECOND half: step 7 introduces simulated data and proceeds to derive an answer from it, w\n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half, specifically step 7, where the agent switches to simulated data and treats it\n[5-7 mid6] SECOND :: The decisive mistake is in step 7: the agent switched to simulated data and treated the resulting value as if it answere"
+    },
+    "021-9d62146b7652": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred when the agents chose to create and use mock/random weather data instead of obtaining real\n[0-4 mid2] SECOND :: The decisive mistake was in step 3, when the Verification_Expert chose to create mock/random weather data instead of obt\n[3-4 mid3] FIRST :: The decisive mistake is in step 3: the Verification_Expert chose to create mock/random weather data instead of obtaining"
+    },
+    "018-874e62353ead": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurred in the FIRST half. Step 1 failed to actually verify the 2024 daily ticket and season pass \n[0-3 mid1] FIRST :: The decisive mistake occurred in the FIRST half. Step 1 accepted or assumed ticket and season-pass costs without actuall\n[0-1 mid0] SECOND :: The decisive mistake occurs in step 1, where the Verification_Expert accepts/uses unverified \u201cprovided\u201d costs despite no"
+    },
+    "020-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurs in the FIRST half. The run went wrong when the agent misinterpreted the error `\"unknown lang\n[0-3 mid1] FIRST :: The decisive mistake occurred in the FIRST half.\n\nStep 1 misdiagnosed the error `\"unknown language json\"` as if `json` w\n[0-1 mid0] SECOND :: The decisive mistake is in step 1: the Debugging_Expert misinterprets \u201cunknown language json\u201d as an application language"
+    },
+    "022-ae51d1d52d64": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive mistake is in the SECOND half, specifically step 4.\n\nStep 3\u2019s API-key failure was an execution problem, but\n[4-7 mid5] FIRST :: The decisive mistake occurs in steps 4\u20135: step 4 replaces real verification with simulated/mock gym data and predefined \n[4-5 mid4] FIRST :: The decisive mistake is in step 4: the agent abandoned real verification and introduced a mock/predefined dataset with s"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake is in the FIRST half, specifically step 1. The agent listed an incorrect Franklin-Foxboro Line stop\n[0-2 mid1] FIRST :: The decisive mistake is in step 1, where the agent listed an inaccurate station order for the Franklin-Foxboro Line, mix\n[0-1 mid0] SECOND :: The decisive mistake occurs in step 1, where the Verification Expert lists an incorrect Franklin-Foxboro Line stop seque"
+    },
+    "025-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurred in the FIRST half: the run began solving the wrong problem by treating `\"json\"` as an appl\n[0-3 mid1] FIRST :: The decisive mistake occurred in the FIRST half. Step 1 misdiagnosed the error as an application \u201clanguage setting\u201d prob\n[0-1 mid0] SECOND :: The decisive mistake is in step 1: the agent misdiagnosed the issue as an application-level \u201clanguage setting\u201d problem a"
+    },
+    "024-aa646cf62171": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND\n[5-9 mid7] SECOND :: The decisive mistake is in the SECOND half: step 8 incorrectly treats restaurants 0.2\u20130.4 miles away as \u201cwithin 1 block\u201d\n[8-9 mid8] FIRST :: The decisive mistake is in step 8: it manually \u201cverifies\u201d restaurants as within 1 block even while listing distances lik"
+    },
+    "028-3a559ca1aea1": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the SECOND half, specifically step 8 leading to the failed execution in step 9: the agent att\n[5-9 mid7] SECOND :: The decisive mistake is in the SECOND half: step 8/9. The Research_Expert attempted to call `perform_web_search` without\n[8-9 mid8] FIRST :: The decisive mistake is in step 8: the agent wrote code calling `perform_web_search(...)` without importing or defining "
+    },
+    "027-6479bd8a2bba": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in step 3, where unverified and likely inaccurate lists of karting tracks and paintball pl\n[0-4 mid2] SECOND :: The decisive mistake is in the SECOND half: step 3 introduces unverified and likely hallucinated/incorrect venue lists a\n[3-4 mid3] FIRST :: The decisive mistake is in step 3: the agent introduced an unverified and likely inaccurate/incomplete set of karting tr"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the SECOND half, steps 5\u20139.\n\nSteps 0\u20134 were mostly planning and discovering that the expected\n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half. The run\u2019s wrong outcome was already established when the analysis in steps 5\u2013\n[5-7 mid6] FIRST :: The decisive mistake occurs in the FIRST half: steps 5\u20136. The analysis/code/data retrieval produced the erroneous 0 rain\n[5-6 mid5] FIRST :: The decisive mistake is in step 5: the agent chose and supplied an analysis approach/script that produced an incorrect r"
+    },
+    "026-945822c59fe9": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the SECOND half: step 9 falsely confirms wheelchair accessibility without evidence and select\n[5-9 mid7] SECOND :: The decisive mistake is in the SECOND half: step 9 asserts that O'Jung\u2019s Tavern Bar has wheelchair accessibility \u201cConfir\n[8-9 mid8] SECOND :: The decisive mistake is in **step 9**: it concludes that O'Jung's Tavern Bar is wheelchair accessible and \u201cConfirmed\u201d wi"
+    },
+    "029-606d391c364b": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half: step 4 incorrectly accepted Anderson\u2019s Martial Arts Academy as within a\n[0-4 mid2] SECOND :: VERDICT: SECOND\n[3-4 mid3] FIRST :: The first decisive mistake is in step 3: it treats Anderson\u2019s Martial Arts Academy at 25 Park Pl, about 0.5 miles from N"
+    },
+    "031-da9aec084a98": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurred in the SECOND half. Step 5 incorrectly concluded that the Met source lacked the specific i\n[5-9 mid7] FIRST :: The decisive mistake was in the FIRST half. Step 5 wrongly dismissed the Met object page as lacking usable visual inform\n[5-7 mid6] FIRST :: The decisive mistake is in the FIRST half, specifically step 5. The relevant Met object page (\u201cTwelve animals of the Chi\n[5-6 mid5] FIRST :: The decisive mistake is in step 5: the agent incorrectly concludes that the Met source lacks specific images/details and"
+    },
+    "030-0319cbd03980": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-7 mid3] SECOND :: VERDICT: SECOND\n[4-7 mid5] FIRST :: The decisive mistake occurred in the FIRST half, specifically step 5. After the search/tool failure in step 4, the agent\n[4-5 mid4] SECOND :: The decisive mistake is in step 5: after the failed search in step 4, the agent proceeded to \u201cmanually\u201d assert current a"
+    },
+    "033-620b58b7aa60": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in steps 0\u20134: the board letters were represented/used as uppercase while the `words_alpha` d\n[0-4 mid2] SECOND :: The decisive mistake is in the SECOND half, specifically step 4: the DFS builds uppercase paths from the board and check\n[3-4 mid3] SECOND :: The decisive mistake is in step 4. Step 3 merely represents the board as given, which is not inherently wrong. Step 4 im"
+    },
+    "034-04dc240da7b8": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the first half: step 4 fabricated or assumed a video title, timestamp, and narration de\n[0-4 mid2] SECOND :: The decisive mistake is in the **SECOND half**. Steps 0\u20132 contain planning and an API/tool failure, but the run could st\n[3-4 mid3] SECOND :: The decisive mistake is in step 4. Step 3 only proposes a reasonable manual search strategy after the caption API fails."
+    },
+    "035-a3d5b34baf48": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred when the agents abandoned the requirement to use Wikipedia **as of January 1, 2021** and i\n[0-4 mid2] SECOND :: The decisive mistake was in the SECOND half: step 4 switched to scraping the current Wikipedia page instead of the Wikip\n[3-4 mid3] SECOND :: The decisive mistake is in step 4: the agent switches from the required historical Wikipedia snapshot as of Jan. 1, 2021"
+    },
+    "038-3c2adf8c14b1": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurred when the agents used an invented/unsupported dataset and concluded CHN, before later agent\n[0-3 mid1] SECOND :: The decisive mistake occurred in the SECOND half: steps 2\u20133 introduced and used an unsupported/fabricated dataset instea\n[2-3 mid2] FIRST :: The decisive mistake occurred in step 2: the agent failed to actually collect authentic data for the 1928 Summer Olympic"
+    },
+    "037-14508845755c": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half. The agents failed early by not extracting or using the available task/c\n[0-4 mid2] FIRST :: The decisive mistake occurred in the FIRST half. The run failed early because the agents did not extract or act on the a\n[0-2 mid1] FIRST :: The decisive mistake is in the FIRST half. The agents failed to act on the available task context and instead asked for \n[0-1 mid0] SECOND :: The decisive mistake is in the SECOND half: step 1 asks the user to provide code instead of working from the task contex"
+    },
+    "039-2b969539d7db": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first decisive error is in the **SECOND half**: step 5 falsely assumes a valid Wikimedia API token has been obtained\n[5-9 mid7] FIRST :: The decisive mistake occurred in the FIRST half, steps 5\u20137.\n\nStep 5 incorrectly assumed a valid Wikimedia API token had \n[5-7 mid6] FIRST :: The decisive mistake was in steps 5\u20136: the agent incorrectly assumed a valid Wikimedia API token had been obtained and u\n[5-6 mid5] FIRST :: The decisive mistake is in step 5. It incorrectly assumes a valid Wikimedia API token has been obtained and provides cod"
+    },
+    "036-88562a8be980": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in the SECOND half, when the agents rely on a fabricated or unsupported reconstruction/analy\n[5-9 mid7] FIRST :: The decisive mistake occurs in the first half: step 7 is where the run first fabricates/assumes the poem text and indent\n[5-7 mid6] SECOND :: The decisive mistake occurred in step 7. Step 7 asserted a full poem text and identified Stanza 3 as containing indented"
+    },
+    "041-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake appears in the FIRST half. The run was already derailed at step 0 by the unresolved/misinterpreted \n[0-2 mid1] FIRST :: The first consequential error was in step 0, where the agent proceeded despite the actual general task indicating `Funct\n[0-1 mid0] FIRST :: VERDICT: FIRST"
+    },
+    "043-d53734deeead": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the FIRST half. The first clear error is step 4, where the agent invents a hypothetical langu\n[0-4 mid2] SECOND :: The decisive mistake is in the SECOND half, specifically step 4. Up to step 2, the agent correctly identifies that no co\n[3-4 mid3] SECOND :: The decisive mistake is in step 4: the PythonDebugging_Expert invents a hypothetical code snippet instead of recognizing"
+    },
+    "040-a181eb120cb2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurs in the first half: the run incorrectly accepts/\u201cconfirms\u201d that \u201cThriller\u201d was the fifth sing\n[0-2 mid1] FIRST :: The decisive mistake is in the FIRST half. The key error occurs at step 1, where the agents falsely confirm that \u201cThrill\n[0-1 mid0] SECOND :: The decisive mistake is in step 1, where the historian incorrectly confirms that \u201cThriller\u201d was the fifth single from th"
+    },
+    "044-e214187ad13a": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half. The run failed because the agents did not actually identify the relevan\n[0-4 mid2] SECOND :: The decisive mistake was in steps 3\u20134: specifically step 4, where the agent proceeded with a placeholder arXiv ID (`2206\n[3-4 mid3] SECOND :: The decisive mistake is in step 4: it used the placeholder arXiv ID `2206.XXXX` as if it were a real identifier, directl"
+    },
+    "045-c43d472268d8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake occurred in step 3, where the agent assumed the 24% figure corresponded to 2022. The search result \n[0-4 mid2] SECOND :: The decisive mistake is in the SECOND half.\n\nStep 2\u2019s search result already contained the key Girls Who Code timeline: 1\n[3-4 mid3] FIRST :: The decisive mistake is in step 3. The trace\u2019s search result indicates Girls Who Code\u2019s timeline as:\n\n- 1995: 37%\n- 2017"
+    },
+    "042-833c47739be2": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurred in the SECOND half: the agents continued with flawed retrieval methods, especially treatin\n[5-9 mid7] SECOND :: The decisive mistake is in the SECOND half. Steps 5\u20137 are flawed/recoverable search attempts, but step 9 makes the subst\n[8-9 mid8] SECOND :: The decisive mistake is in step 9: the agent assumes that `https://www.metmuseum.org/art/collection/search/{accession_nu"
+    },
+    "032-af0933cfcd09": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the FIRST half: the run incorrectly locked onto Frontier Restaurant very early, leading all s\n[0-4 mid2] FIRST :: The decisive mistake is in the FIRST half: the run first goes wrong at step 1 by framing the search too narrowly/incorre\n[0-2 mid1] FIRST :: The decisive mistake occurred in the FIRST half. Step 1 committed to investigating Frontier Restaurant as the restaurant\n[0-1 mid0] SECOND :: The first substantive error appears in step 1: it prematurely assumes the relevant restaurant is Frontier Restaurant wit"
+    },
+    "049-324f53bff996": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive mistake was in the SECOND half: step 4, where the agent fabricated assumed red and green numbers instead of\n[4-7 mid5] FIRST :: The decisive mistake occurred in step 4, where the agent invented/simulated red and green numbers instead of extracting \n[4-5 mid4] FIRST :: The decisive mistake is in step 4: the agent invented/simulated red and green numbers instead of extracting the actual n"
+    },
+    "048-e5f2767e1b04": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the SECOND half: the validation code searched revisions in reverse chronological order and tr\n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half, specifically around step 7: the code treats the first matching revision retur\n[5-7 mid6] FIRST :: The decisive mistake occurred in steps 5\u20136. Step 6 introduced flawed validation logic: it searched revisions in the API\u2019\n[5-6 mid5] SECOND :: The decisive mistake is in step 6. Step 5 is only a failed code execution due to a `KeyError`, which is recoverable. Ste"
+    },
+    "050-6784fd6fd246": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurs in the FIRST half: step 2 appears to provide an unverified transcription rather than actuall\n[0-3 mid1] SECOND :: The decisive mistake occurs in step 2: the agent asserts a transcription of the audio without evidence of actually proce\n[2-3 mid2] FIRST :: The decisive mistake is in step 2: it presents a transcription of the audio without evidence that the audio was actually"
+    },
+    "047-5d32c1eba366": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in the SECOND half. The first concrete error is around step 7/8, where the agents incorrectl\n[5-9 mid7] SECOND :: The decisive mistake is in the SECOND half. Step 8 incorrectly treats the citation superscript anchor (`#cite_note-thb-1\n[8-9 mid8] FIRST :: The decisive mistake occurred in step 8: the agent incorrectly treated the citation backlink `#cite_note-thb-1` as the f"
+    },
+    "052-25639162f57c": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurred in the SECOND half. The early undefined search function issue was corrected, but the run w\n[5-9 mid7] FIRST :: The decisive mistake occurs in the FIRST half. Steps 5\u20137 identify the correct USGS species profile but fail to actually \n[5-7 mid6] FIRST :: The decisive mistake is in the FIRST half, steps 5\u20136.\n\nStep 6 says the agent will visit and scrutinize the USGS URL, but\n[5-6 mid5] SECOND :: The decisive mistake is in step 6: the agent says it will visit and verify the USGS URL, but does not actually provide e"
+    },
+    "053-908be3172c8e": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in step 4, where the agent assumed a PDF file already existed locally (`responsibility_of_\n[0-4 mid2] SECOND :: The decisive mistake was in step 4: it assumed a PDF file existed locally (`responsibility_of_intellectuals.pdf`) withou\n[3-4 mid3] SECOND :: The decisive mistake is in step 4: it assumes a PDF file named `responsibility_of_intellectuals.pdf` already exists loca"
+    },
+    "051-8f84910e124b": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half. The run prematurely concluded no match after using an incomplete contri\n[0-4 mid2] SECOND :: The decisive mistake occurred in steps 3\u20134: they treated a truncated search snippet as the complete contributor list and\n[3-4 mid3] FIRST :: The decisive mistake occurs at step 3: it treats an incomplete snippet of OpenCV 4.1.2 contributors as the relevant cont"
+    },
+    "054-c81ed3b0a45a": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive mistake is in the second half. Step 4 incorrectly calculates Whyte notation by multiplying the summed wheel\n[4-7 mid5] FIRST :: The decisive mistake is in steps 4\u20135. In step 4, the calculation treats Whyte notation numbers as if they need to be dou\n[4-5 mid4] FIRST :: The decisive mistake is in step 4: the code incorrectly multiplies the Whyte notation sum by 2. In Whyte notation, value"
+    },
+    "055-238f0c23d791": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the first half. The run went off track early by failing to access the actual edit histo\n[0-4 mid2] SECOND :: The decisive mistake occurs in the SECOND half. Steps 0\u20132 are still broadly consistent with the task: the agent receives\n[3-4 mid3] SECOND :: The decisive mistake is in the **SECOND half**: step 4. Step 3 is mostly irrelevant summarization, but step 4 actively g"
+    },
+    "056-0e66261209b3": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake occurs in the FIRST half. Step 2 incorrectly transforms the extracted fractions by simplifying them\n[0-4 mid2] FIRST :: The decisive mistake occurred in steps 0\u20132, specifically step 2, where the agent incorrectly decided to simplify the ext\n[0-2 mid1] SECOND :: The decisive mistake is in the SECOND half: step 2 incorrectly changes extracted fractions into simplified forms, rather"
+    },
+    "046-2e76694a8fe5": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half: by step 1/3 they had already committed to \u201cSweet Sweet Canyon\u201d and acce\n[0-4 mid2] SECOND :: The decisive error occurs in steps 3\u20134: the agents prematurely infer and confirm the June 7, 2023 record from incomplete\n[3-4 mid3] FIRST :: The decisive mistake is in step 3. That step prematurely concluded that the March 9, 2023 record of 1:48.585 remained th"
+    },
+    "058-f0ccb40243d8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST\n[0-2 mid1] SECOND :: The decisive mistake is in step 2: it incorrectly identifies Bartosz Opania as the actor who played Ray/Roman in the Pol"
+    },
+    "060-6df45b66a14f": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake was in step 2, where the sales data was asserted without evidence and appears to have driven the in\n[0-3 mid1] SECOND :: The decisive mistake occurred in steps 2\u20133. Step 2 introduced unsupported/incorrect sale prices, which then drove the wr\n[2-3 mid2] FIRST :: The decisive mistake occurred in step 2, where the sales prices were asserted without demonstrated verification and beca"
+    },
+    "061-d5e74f5edef1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake occurred in the FIRST half.\n\nThey checked convergence using `abs(x_{n+1} - x_n) < 1e-4`, which give\n[0-4 mid2] FIRST :: VERDICT: FIRST\n[0-2 mid1] FIRST :: The decisive mistake was in steps 0\u20131, where the task was misinterpreted as \u201cconverges to four decimal places\u201d rather th\n[0-1 mid0] SECOND :: VERDICT: SECOND"
+    },
+    "063-945c18bc1c72": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurred in the FIRST half. Step 1 introduced unsupported gender split figures (\u201c685,000 men\u201d and \u201c\n[0-2 mid1] FIRST :: The decisive mistake occurred in steps 0\u20131: step 1 introduced unverified/likely incorrect census figures, which led dire\n[0-1 mid0] SECOND :: VERDICT: SECOND"
+    },
+    "062-1d3b288462be": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST\n[0-2 mid1] FIRST :: The decisive mistake occurred in step 1: it treated \u201cPa\u201d (\u201cI,\u201d nominative) as the subject and \u201cZapple\u201d (\u201capples,\u201d accusa\n[0-1 mid0] SECOND :: The decisive mistake occurs in step 1: it treats \u201cI\u201d as the nominative subject and \u201capples\u201d as the accusative direct obj"
+    },
+    "064-67329dda61f8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake was in the FIRST half, likely when identifying the \u201cmost passengers\u201d train using a simple row-wise \n[0-4 mid2] SECOND :: The decisive mistake is in the SECOND half, steps 3\u20134. The run\u2019s key substantive action there was identifying the \u201ctrain\n[3-4 mid3] FIRST :: The decisive mistake is in step 3, where the analysis approach/code identifies the max row directly rather than ensuring"
+    },
+    "065-a16ae072deff": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in the SECOND half. Steps 0\u20134 mainly identify the YouTube page and plan the next action. The\n[5-9 mid7] SECOND :: The decisive mistake is in the SECOND half. Steps 5\u20137 mostly identify or plan to access the likely website, while step 9\n[8-9 mid8] SECOND :: The decisive mistake is in step 9. Step 8 merely states an intention to inspect the website, while step 9 falsely claims"
+    },
+    "057-3196a02a724f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake is in the FIRST half. The agents\u2019 reasoning in steps 1\u20132 incorrectly tracks the found edge cubies a\n[0-2 mid1] FIRST :: The first decisive error occurs in step 1: the solver\u2019s piece accounting/elimination is already flawed before the verifi\n[0-1 mid0] SECOND :: VERDICT: SECOND"
+    },
+    "066-4835ec93a6d1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake occurs in the FIRST half. Step 1 incorrectly assumes there were 1000 Nature articles in 2020 instea\n[0-2 mid1] FIRST :: The decisive mistake occurred in step 1: the agent assumed there were 1000 Nature articles in 2020 instead of determinin\n[0-1 mid0] SECOND :: Step 1 is the first decisive mistake: it assumes an arbitrary 1000 Nature articles and uses a 5% false-positive rate ins"
+    },
+    "068-54f5f481feb1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurs in the first half. Step 1 begins the incorrect interpretation of the cuneiform symbols and t\n[0-2 mid1] FIRST :: The decisive mistake occurs in step 1, where the agent misidentifies the values of the cuneiform symbols and builds the \n[0-1 mid0] SECOND :: The first substantive error occurs in step 1, where the agent misidentifies the cuneiform symbols and their values, lead"
+    },
+    "067-d7caaed0d413": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurs in the FIRST half. Step 1 incorrectly reasons that having vampires would be inconsistent, bu\n[0-3 mid1] FIRST :: The decisive mistake occurs in the FIRST half, specifically step 1.\n\nStep 1 incorrectly concludes that if some residents\n[0-1 mid0] SECOND :: The decisive mistake is in step 1: it incorrectly concludes that having vampires would contradict the statement being fa"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half. By steps 1\u20134, the agents had already locked onto Amphiprion ocellaris a\n[0-4 mid2] SECOND :: The first decisive error appears in steps 3\u20134, where the agents start \u201cconfirming\u201d the zip codes without actually verify\n[3-4 mid3] FIRST :: The decisive mistake occurs in step 3: it prematurely anchors on the unverified zip codes \u201c33040\u201d and \u201c33037\u201d and frames"
+    },
+    "069-5486f0bb8912": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in the second half: at step 5, the agents choose to proceed by assuming the polygon is a reg\n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half, specifically step 5: the agent decides to proceed by making an unsupported as\n[5-7 mid6] FIRST :: The decisive mistake occurs in the FIRST half, steps 5\u20136. Step 5 introduces an unsupported assumption about the polygon,\n[5-6 mid5] FIRST :: The decisive mistake occurs in step 5: it introduces the unsupported assumption that the polygon is a regular hexagon wi"
+    },
+    "073-02730601827c": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST\n[0-2 mid1] SECOND :: VERDICT: SECOND"
+    },
+    "070-0528f540243a": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in the FIRST half.\n\nStep 4 extracted only paragraph text from the `.docx` using `document.pa\n[0-4 mid2] SECOND :: The decisive mistake is in the SECOND half, specifically step 4: they switched to `python-docx` but extracted only parag\n[3-4 mid3] SECOND :: The decisive mistake is in step 4. Step 3\u2019s OCR failure was recoverable and correctly identified as due to treating a `."
+    },
+    "075-dc792a0fa32f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake occurred before verification: the method used to determine \u201cps versions available\u201d was flawed, like\n[0-2 mid1] FIRST :: The decisive mistake occurred in steps 0\u20131. Step 1 adopted an incorrect method: it planned to use a limited `arxiv_searc\n[0-1 mid0] SECOND :: VERDICT: SECOND"
+    },
+    "072-c6399b46fd3c": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the SECOND half. Step 9 incorrectly assumes `dropna(subset=['Name'])` will remove rows like `\n[5-9 mid7] SECOND :: The decisive mistake is in the SECOND half. Step 9 incorrectly assumes dropping rows with missing `Name` will remove zon\n[8-9 mid8] SECOND :: The decisive mistake is in step 9. Step 8 correctly reveals that the sheet has section/zone rows such as \u201cZone 2\u201d embedd"
+    },
+    "077-a1dc061cb971": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurred in the SECOND half, specifically around step 6, when the agent stopped after encountering \n[5-9 mid7] FIRST :: The decisive mistake occurred in the FIRST half, steps 5\u20137.\n\nStep 5 merely reports the CAPTCHA, which is not itself an e\n[5-7 mid6] FIRST :: The decisive mistake occurred in steps 5\u20136: after encountering the CAPTCHA, the agent failed to pursue alternative acces\n[5-6 mid5] SECOND :: The decisive mistake is in step 6. Step 5 merely encountered a CAPTCHA when accessing IOPScience; that is not itself an "
+    },
+    "076-769191cea270": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurred in step 5, where the agent asserted an unverified trial identifier and enrollment count as\n[5-9 mid7] FIRST :: The decisive mistake occurs in the FIRST half. Step 5 is where the agent first asserts the trial details and enrollment \n[5-7 mid6] FIRST :: The decisive mistake occurred in the FIRST half. Step 5 introduced the unsupported/incorrect trial details and enrollmen\n[5-6 mid5] FIRST :: The decisive mistake is in step 5: it introduced the unverified/incorrect trial details and enrollment count, which step"
+    },
+    "079-72b0c0014ede": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake occurs in steps 0\u20132. Step 2 prematurely accepts/assumes the analysis result (\u201conly one applicant\u201d) \n[0-2 mid1] SECOND :: The first decisive error occurred at step 2, where the verifier accepted an unsupported conclusion (\u201conly one applicant\u201d"
+    },
+    "074-27ef8756352a": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST\n[0-4 mid2] SECOND :: The decisive mistake is in the SECOND half: step 4 incorrectly pads/reasons about the Tropicos ID as `082000000` instead\n[3-4 mid3] SECOND :: The decisive mistake is in step 4: it incorrectly pads `8200000` as `082000000` instead of the correct 9-digit padding `"
+    },
+    "078-e16678e8c43e": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in the FIRST half.\n\nStep 4 is the first clear failure-causing error: the agent proceeds with\n[0-4 mid2] SECOND :: The first decisive mistake is in steps 3\u20134: step 4 proceeds with an unsupported assumed recycling rate of $0.10 per bott\n[3-4 mid3] SECOND :: The decisive mistake occurs in step 4: the agent proceeds without the required Wikipedia verification and assumes a gene"
+    },
+    "080-252fc8554126": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-5 mid2] SECOND :: The decisive mistake occurs in the SECOND half. Step 3 fabricates/introduces the answer \u201cBaseBagging\u201d without actually r\n[3-5 mid4] FIRST :: The decisive mistake occurred in steps 3\u20134: step 3 introduced the unsupported/incorrect answer (\u201cBaseBagging\u201d), and step\n[3-4 mid3] FIRST :: The decisive mistake is in step 3: it introduces the unsupported/incorrect answer \u201cBaseBagging,\u201d and step 4 merely accep"
+    },
+    "071-03b230b92593": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake occurred in step 1, where the run identified **God of War** as the target. The task asks for the **\n[0-4 mid2] FIRST :: The decisive mistake is in the FIRST half. Step 1 incorrectly identifies the target game as **God of War** by treating \u201c\n[0-2 mid1] FIRST :: The decisive mistake occurred in step 1, where the agent selected/used the wrong release-date month context, leading the\n[0-1 mid0] SECOND :: The decisive mistake is in step 1: the agent interpreted the target as the game that won at the 2019 British Academy Gam"
+    },
+    "082-933179cfbd8d": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake occurred in the FIRST half: step 1 prematurely asserted the answer (\u201cclich\u00e9d\u201d) as already identifie\n[0-3 mid1] FIRST :: The decisive mistake was in step 1, where the agent prematurely asserted that the answer was \u201cclich\u00e9d\u201d without actually \n[0-1 mid0] SECOND :: The decisive mistake is in step 1: it prematurely asserts that the answer is \u201cclich\u00e9d\u201d without having actually located o"
+    },
+    "081-6b8e879881c0": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the SECOND half. The first critical error was step 6: switching to a naive `requests`/Beautif\n[5-9 mid7] FIRST :: The decisive mistake was in the FIRST half, specifically step 6. The agent switched to `requests` + BeautifulSoup for an\n[5-7 mid6] FIRST :: The decisive mistake is in the FIRST half, specifically step 6: pivoting to a simplistic `requests`/BeautifulSoup scrape\n[5-6 mid5] SECOND :: The decisive mistake is in step 6: pivoting to a static `requests`/BeautifulSoup scrape of an OpenReview page that likel"
+    },
+    "084-8cad8cae382d": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half: the agent assumed the Python script was simply `''.join(arr)` instead o\n[0-4 mid2] FIRST :: The decisive mistake is in the FIRST half.\n\nAt step 2, the agent incorrectly assumed the Python script was simply:\n\n```p\n[0-2 mid1] SECOND :: The decisive mistake is in step 2: the agent incorrectly assumed the Python script was simply `''.join(arr)` instead of "
+    },
+    "086-e5db53c29991": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in the SECOND half. Step 5 invents a \u201chypothetical\u201d note analysis instead of actually inspec\n[5-9 mid7] FIRST :: The decisive mistake is in steps 5\u20137. Step 5 invents a \u201chypothetical\u201d note analysis instead of actually extracting the n\n[5-7 mid6] FIRST :: The decisive mistake occurs in steps 5\u20136, specifically step 5: the MusicTheory_Expert invents a \u201chypothetical\u201d note anal\n[5-6 mid5] FIRST :: The decisive mistake is in step 5: the MusicTheory_Expert did not actually inspect or extract the notes from the image a"
+    },
+    "083-b73a239fdad1": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the SECOND half: step 5/6 produced an still-wrong Survivor winner count of 67, and step 7 acc\n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half. The Survivor count of 67 unique winners was already wrong; by the end of step\n[5-7 mid6] FIRST :: The decisive mistake is in steps 5\u20136: the revised scraping/extraction still produced an impossible Survivor \u201cunique winn\n[5-6 mid5] FIRST :: The decisive mistake is in step 5: the agent proposed and ran a still-flawed scraping approach that produced an impossib"
+    },
+    "088-3a55b5705c39": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-5 mid2] SECOND :: The decisive mistake occurs in the SECOND half: after finding the blog post, the agent failed to actually inspect the pa\n[3-5 mid4] FIRST :: The decisive mistake was in steps 3\u20134: the agent stopped actively investigating and instead asked the user to open the b\n[3-4 mid3] FIRST :: The decisive mistake occurs in step 3: the agent stops actively solving the task and tells the user to open the blog pos"
+    },
+    "089-93088535fb95": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurred at step 1: the biblical scholar incorrectly identified \u201cSusa\u201d as the first place mentioned\n[0-2 mid1] FIRST :: The decisive mistake is in step 1: the first place mentioned by name in Esther 1:1 NIV is \u201cIndia,\u201d not \u201cSusa.\u201d Therefore\n[0-1 mid0] SECOND :: VERDICT: SECOND"
+    },
+    "085-dc5e30ffc725": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurred in step 3, where the agent asserted the article\u2019s wording and identified the mismatch. Tha\n[0-3 mid1] SECOND :: The decisive mistake occurs in the SECOND half, because steps 2\u20133 contain the unsupported/incorrect claim about having r\n[2-3 mid2] SECOND :: The decisive mistake is in step 3, where the agent asserts the article\u2019s wording and identifies \u201cmis-transmission\u201d as th"
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in steps 5\u20139: step 5 prematurely abandons further accessible research and suggests contactin\n[5-9 mid7] FIRST :: The decisive mistake occurs in the FIRST half. Step 5 is where the run abandons practical investigation via the Whitney \n[5-7 mid6] SECOND :: The decisive mistake is in step 7. Steps 5\u20136 are inefficient because they defer to contacting the museum instead of expl"
+    },
+    "092-a5a8d627e455": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the SECOND half. The early failed `youtube_download` call in step 1 was recoverable, and the \n[5-9 mid7] FIRST :: The decisive mistake occurred in the FIRST half. Step 7 chose an ineffective approach for installing/extracting audio wi\n[5-7 mid6] SECOND :: The decisive mistake is in step 7. After the caption API failed, switching to manual transcription was reasonable, but t"
+    },
+    "090-e273f2fabe96": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the first half: step 1 introduced the unsupported/incorrect identification and answer p\n[0-4 mid2] FIRST :: The decisive mistake occurred when the agents accepted/introduced the likely incorrect identification of the \u201cfirst Nati\n[0-2 mid1] FIRST :: The decisive mistake occurred when the initial substantive claims were introduced without reliable verification\u2014specific\n[0-1 mid0] SECOND :: The decisive mistake occurs in step 1: the agent makes unsupported/incorrect identifications about the first National Ge"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the FIRST half. The run goes wrong when the agent prematurely abandons locating the actual pa\n[0-4 mid2] SECOND :: The decisive mistake is in the SECOND half. Steps 0\u20132 include an imperfect arXiv search, but that was still recoverable.\n[3-4 mid3] SECOND :: The decisive mistake is in step 4. Step 3 was still a reasonable recovery attempt: it recognized the arXiv search failed"
+    },
+    "095-91ab842a22b2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half. The run counted all `<img>` tags on the current Lego Wikipedia page, ra\n[0-4 mid2] SECOND :: The decisive mistake is in steps 3\u20134: the agent counted all `<img>` tags from the current Wikipedia page HTML, rather th\n[3-4 mid3] FIRST :: The decisive mistake is in step 3: the agent chose an invalid methodology\u2014counting all current-page `<img>` tags on `htt"
+    },
+    "096-89be76878d79": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in the FIRST half.\n\nThe run failed because it ignored the \u201cnumpy.polynomial\u201d constraint from\n[0-4 mid2] FIRST :: The decisive mistake occurred in the FIRST half: step 2 implemented the search for all closed issues with the Regression\n[0-2 mid1] SECOND :: The decisive mistake is in step 2, where the agent begins implementing an API approach that is flawed for the task.\n\nVER"
+    },
+    "094-7e3d81abcddf": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurs in the FIRST half. The agents accepted a fabricated/irrelevant \u201cunsupported language\u201d handli\n[0-2 mid1] FIRST :: The decisive mistake occurred in steps 0\u20131: the agent misinterpreted the failure as an application-level unsupported-lan\n[0-1 mid0] FIRST :: VERDICT: FIRST"
+    },
+    "099-59e337ae1fbb": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurs in the FIRST half: step 2 fabricates or assumes data instead of using actual ScienceDirect d\n[0-3 mid1] SECOND :: The decisive mistake occurs in step 2, where the DataAnalysis_Expert proceeds using fabricated/unsupported data that was\n[2-3 mid2] FIRST :: The decisive mistake is in step 2: the DataAnalysis_Expert proceeds using invented/unsupported data rather than verified"
+    },
+    "097-aa341e34fc51": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurs in the FIRST half. Step 1 provides an unsupported and likely incorrect setting (\u201cINT. CASTLE\n[0-3 mid1] FIRST :: The decisive mistake is in step 1, where the run asserts an answer (\u201cINT. CASTLE BEDROOM\u201d) without actually verifying it\n[0-1 mid0] SECOND :: The decisive mistake occurs in step 1, where the agent asserts the answer as **\"INT. CASTLE BEDROOM\"** without proper ve"
+    },
+    "098-43bbd8019fea": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND\n[5-9 mid7] SECOND :: The decisive mistake is in the SECOND half. Step 8 is the first clear causal error: the Verification Expert asserts that\n[8-9 mid8] FIRST :: The decisive mistake is in step 8: the Verification Expert incorrectly concluded that no writer was quoted on the Merria"
+    },
+    "091-23de28edf643": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurs in step 3, where the verifier changes the tool result from \u201cBraintree, Massachusetts\u201d to \u201cQu\n[0-3 mid1] SECOND :: The decisive mistake is in the SECOND half. Step 2\u2019s tool output says the farthest-apart cities are **Braintree, Massach\n[2-3 mid2] SECOND :: Step 2 produced the pair as **Braintree, Massachusetts** and **Honolulu, Hawaii**. Step 3 then incorrectly stated that t"
+    },
+    "102-a6862e302014": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the SECOND half (steps 5\u20139).\n\nThe early tool-call formatting errors in steps 1\u20134 were recover\n[5-9 mid7] SECOND :: The decisive mistake is in the SECOND half: step 9 incorrectly gives up, claiming there is no direct way to analyze the \n[8-9 mid8] SECOND :: The decisive mistake is in step 9: after successfully retrieving content, the agent incorrectly concluded it could not a"
+    },
+    "103-5593276388b1": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in the SECOND half. The run fails when the agent claims in step 6 to have \u201cmanually retrieve\n[5-9 mid7] FIRST :: The decisive mistake occurred in the FIRST half: step 6 introduced unsupported \u201cmanually retrieved\u201d menu lists without e\n[5-7 mid6] FIRST :: The decisive mistake occurs in steps 5\u20136. Step 6 invents or unsupportedly asserts the menu contents and concludes \u201cshrim\n[5-6 mid5] SECOND :: The decisive mistake occurs in step 6, where the agent fabricates or asserts specific menu items without evidence from t"
+    },
+    "101-7011a3ca2fe8": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in the SECOND half, when the run pivots to an impractical/unsupported automated bird-species\n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half. Step 6/7 shifts into an unsuitable automated TensorFlow-based bird-species re\n[5-7 mid6] FIRST :: The decisive mistake occurs in step 6: it commits to a TensorFlow-based bird species recognition approach without ensuri\n[5-6 mid5] SECOND :: The decisive mistake is in step 6: after successful frame extraction in step 5, the agent chose an impractical/unsupport"
+    },
+    "105-7a7794e34798": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake occurred in the FIRST half. The run went off track when it incorrectly diagnosed the failure as a m\n[0-3 mid1] SECOND :: VERDICT: SECOND\n[2-3 mid2] FIRST :: VERDICT: FIRST"
+    },
+    "104-9f0fb174fad0": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in the FIRST half. The first causal error is in step 4, where the agent builds the pathfindi\n[0-4 mid2] SECOND :: The decisive mistake is in steps 3\u20134. Step 4 implements pathfinding using only cell values from `pandas`, treating blue \n[3-4 mid3] SECOND :: The decisive mistake is in step 4. After loading only cell values in step 3, the agent should have recognized that Excel"
+    },
+    "106-00e6e023a028": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-8 mid4] SECOND :: The decisive mistake occurs in step 5, where the agent incorrectly identifies the August 2021 Vogue cover as featuring S\n[5-8 mid6] FIRST :: The decisive mistake occurs in step 5: the landmark identification is asserted without proper verification and is likely\n[5-6 mid5] FIRST :: The decisive mistake is in step 5: it incorrectly identifies the landmark/cover as featuring Simone Biles with the Eiffe"
+    },
+    "108-13c9a4c03793": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the SECOND half. The key failure occurs when step 8 proposes a `curl` command using the liter\n[5-9 mid7] SECOND :: The decisive mistake is in the SECOND half. Step 8 proceeds with a placeholder `\"<URL>\"` instead of finding or providing\n[8-9 mid8] FIRST :: The decisive mistake is in step 8: the agent proceeded with a placeholder `\"<URL>\"` instead of actually identifying the "
+    },
+    "109-33e9e888adb4": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-8 mid4] SECOND :: The decisive mistake is in the SECOND half. The run was still recoverable after the failed `image_qa` execution in step \n[5-8 mid6] SECOND :: The decisive mistake is in the **SECOND half**. Step 7 is where the agent fails to actually analyze the image or recover\n[7-8 mid7] FIRST :: The decisive mistake is in step 7: the agent failed to actually analyze the image or produce a valid chess move, instead"
+    },
+    "100-364b09fd59b8": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake appears in the SECOND half: the run starts failing concretely when the agents attempt faulty scrapi\n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half: the agents wrote and relied on brittle scraping/parsing logic in steps 5\u20137 in\n[5-7 mid6] FIRST :: The decisive mistake is in the FIRST half. Step 5 introduced the faulty verification approach/code, assuming the NPB pag\n[5-6 mid5] FIRST :: The decisive mistake is in step 5. The agent wrote and attempted to run a brittle scraping script that assumed the NPB p"
+    },
+    "111-bb45c75cb2de": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-6 mid3] SECOND :: The decisive mistake was in the SECOND half: the agents stopped after proposing manual inspection instead of actually co\n[4-6 mid5] SECOND :: The decisive mistake is in the SECOND half: step 6.\n\nSteps 4\u20135 were unproductive and vague, but they still proposed a pl"
+    },
+    "113-ccbf973529c4": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half. The run failed early because it attempted to read a local CSV file that\n[0-4 mid2] FIRST :: The decisive mistake occurred in the FIRST half. Step 0 failed to actually obtain/download the Google Finance historical\n[0-2 mid1] SECOND :: VERDICT: SECOND"
+    },
+    "107-de407cd051d7": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurs in the FIRST half. The earliest problematic step is step 1, where the run adopts questionabl\n[0-3 mid1] SECOND :: The first decisive mistake is in the SECOND half, specifically step 3, where the result is restated with a comma as \u201c17,\n[2-3 mid2] SECOND :: Step 2 produced the correct rounded numeric value as `17000` with no comma separator. The first problematic step is step"
+    },
+    "110-e240abd96f2e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake occurred in the FIRST half. Step 3 prematurely asserted the answer based on an unverified/incorrect\n[0-4 mid2] SECOND :: VERDICT: SECOND\n[3-4 mid3] FIRST :: The decisive mistake is in step 3: it asserts the answer without proper verification and appears to identify/read the ba"
+    },
+    "115-03d92b3118e2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake occurs in step 1, where the agent incorrectly assumes the \u201c6 more coins\u201d relationship must be betwe\n[0-2 mid1] FIRST :: The decisive first mistake occurs in step 1: it incorrectly assumes that, after sorting \\(a \\le b \\le c\\), the required \n[0-1 mid0] SECOND :: The decisive mistake is in step 1: it incorrectly assumes the 6-coin difference must be between the largest and middle b"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half. The run failed early when it merely generated generic search URLs inste\n[0-4 mid2] FIRST :: The decisive mistake occurs in the FIRST half. Step 1 fails to actually locate the dissertation or retrieve evidence; it\n[0-2 mid1] FIRST :: The decisive mistake occurs in step 1: the agent substitutes actual research with a shell script that merely prints sear\n[0-1 mid0] SECOND :: The first decisive error occurs in step 1: the agent fails to actually locate the dissertation or retrieve information, "
+    },
+    "112-7d8dcb80a290": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake was in the FIRST half. Step 1 introduced the core erroneous factual claims about the albums/Christg\n[0-4 mid2] FIRST :: The decisive mistake occurs in the first half. Step 1 already introduces erroneous/unsupported album-grade claims and in\n[0-2 mid1] FIRST :: The decisive mistake occurs in step 1, where the agent incorrectly states Christgau grades and treats the album set inac\n[0-1 mid0] SECOND :: The decisive mistake is in step 1: it incorrectly includes Fiona Apple\u2019s *When the Pawn...* despite the task asking for "
+    },
+    "118-d69039766c83": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs at step 5, when the agent invents an assumed code scenario instead of continuing to note tha\n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half, specifically step 5. At that point, instead of recognizing that no actual cod\n[5-7 mid6] FIRST :: The decisive mistake is in the FIRST half, steps 5\u20136.\n\nStep 5 invents a hypothetical code scenario despite no actual cod\n[5-6 mid5] FIRST :: The decisive mistake is in step 5: the agent fabricated an example code scenario instead of recognizing that no actual c"
+    },
+    "117-b056cbb2e661": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurred in the SECOND half.\n\nAfter step 5 showed the spreadsheet structure, the agents should have\n[5-9 mid7] FIRST :: The decisive mistake occurs in the FIRST half, specifically step 6. The agent misinterprets the spreadsheet structure: \u201c\n[5-7 mid6] FIRST :: The decisive mistake is in steps 5\u20136: after seeing the spreadsheet structure, step 6 incorrectly assumed that Blu-Ray en\n[5-6 mid5] SECOND :: The decisive mistake is in step 6: after correctly observing the spreadsheet structure, the agent assumed Blu-Ray would "
+    },
+    "119-6ec2674e0d3a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurs in step 2, where the MovieProp_Expert incorrectly asserts that the parachute was white. That\n[0-2 mid1] SECOND :: The decisive mistake is in step 2, where the MovieProp_Expert asserts that the parachute was white without reliable veri"
+    },
+    "120-3ea26fdedd38": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in the SECOND half: after finding the video link, the agents failed to actually extract/watc\n[5-9 mid7] SECOND :: VERDICT: SECOND\n[8-9 mid8] FIRST :: The decisive mistake is in step 8: the AnimalBehavior_Expert claims they will watch the video and provide observations, "
+    },
+    "114-af259c3de825": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the FIRST half: step 2 incorrectly identified Reggie Jackson as the Yankee with the mos\n[0-4 mid2] FIRST :: VERDICT: FIRST\n[0-2 mid1] SECOND :: The decisive mistake occurs at step 2, where the run asserts the unverified/incorrect Reggie Jackson stats that later ag"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the FIRST half. The earliest consequential error is that the agents began retrieving/scraping\n[0-4 mid2] FIRST :: The decisive mistake is in the FIRST half: step 1 begins retrieving the current Wikipedia page rather than specifically \n[0-2 mid1] FIRST :: The decisive mistake is in the FIRST half: step 1 attempted to use `scrape_wikipedia_tables` without importing or defini\n[0-1 mid0] SECOND :: The decisive mistake is in step 1: the agent attempted to call `scrape_wikipedia_tables` without importing or defining i"
+    },
+    "121-62bf36bb4ce7": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in the SECOND half: step 5 introduces the unsupported/incorrect claim about Pietro Murano\u2019s \n[5-9 mid7] FIRST :: The decisive mistake is in the FIRST half. Step 5 introduces the unsupported and apparently incorrect earliest-publicati\n[5-7 mid6] FIRST :: The decisive mistake is in steps 5\u20136: step 5 asserts an incorrect earliest publication for Pietro Murano and treats that\n[5-6 mid5] FIRST :: The decisive mistake occurs in step 5. That step asserts unsupported/incorrect findings about the authors and especially"
+    },
+    "125-a445e2da8734": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurred in the first half: step 1 used unverified assumed ticket and annual pass prices, which dro\n[0-3 mid1] FIRST :: The decisive mistake occurred in steps 0\u20131: step 1 used assumed ticket and annual pass prices instead of verifying the a\n[0-1 mid0] SECOND :: The decisive mistake occurs in step 1, where the agent uses assumed/example ticket and pass prices instead of obtaining "
+    },
+    "124-d60e28a0fa62": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurs in the FIRST half: the agents accepted an inadequately justified/possibly incorrect simulati\n[0-3 mid1] FIRST :: The decisive mistake occurred in the FIRST half. Step 1 introduced the flawed simulation/modeling approach, and the late\n[0-1 mid0] SECOND :: The first substantive error occurs in step 1: the Probability_Expert makes modeling assumptions and proceeds with a simu"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is in the SECOND half: step 7 incorrectly identifies the relevant dinosaur article as \u201cBrachiosauru\n[5-9 mid7] SECOND :: The decisive mistake is in the SECOND half. Step 7\u2019s identification of the article as \u201cBrachiosaurus\u201d appears to be the \n[8-9 mid8] SECOND :: VERDICT: SECOND"
+    }
+  }
+}

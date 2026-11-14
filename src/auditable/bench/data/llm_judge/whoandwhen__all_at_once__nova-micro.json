@@ -1,0 +1,1439 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "all_at_once",
+    "model": "nova-micro",
+    "n_runs": 126,
+    "prompt_sha": "12cff8a0af5b",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "001-5697e89b281b": {
+      "top": 5,
+      "ranking": [
+        5,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 2, 3, 4, 6, 7, 9"
+    },
+    "005-b82f729abea8": {
+      "top": 4,
+      "ranking": [
+        4,
+        7,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 7, 9,..."
+    },
+    "003-cfa39baedf59": {
+      "top": 5,
+      "ranking": [
+        5,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 3, 2, 1, 0"
+    },
+    "000-7b14128ce504": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 3, 2, 1, 0"
+    },
+    "004-d57d322d4115": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "002-a04041638aa4": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "009-537a267c0756": {
+      "top": 3,
+      "ranking": [
+        3,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 1, 0"
+    },
+    "010-12509faada72": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 3, 2, 1"
+    },
+    "006-b40c7e455b08": {
+      "top": 8,
+      "ranking": [
+        8,
+        5,
+        7,
+        2
+      ],
+      "raw": "MISTAKE_STEP: 8\nRANKING: 8, 5, 7, 2"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 1,
+      "ranking": [
+        1,
+        3,
+        6,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 3, 6, 8"
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 3,
+      "ranking": [
+        3,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 1, 0"
+    },
+    "008-00a173727b41": {
+      "top": 2,
+      "ranking": [
+        2,
+        0,
+        3,
+        4,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 0, 3, 4, 5"
+    },
+    "012-d731749a39ca": {
+      "top": 7,
+      "ranking": [
+        7,
+        6,
+        4,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 7\nRANKING: 7, 6, 4, 5"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 2,
+      "ranking": [
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 1, 0"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 4,
+      "ranking": [
+        4,
+        3,
+        2,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 3, 2, 1"
+    },
+    "017-3f81e1d1cad3": {
+      "top": 1,
+      "ranking": [
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 0"
+    },
+    "016-2f776a306c77": {
+      "top": 4,
+      "ranking": [
+        4,
+        6,
+        7,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 6, 7, 3"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 1,
+      "ranking": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 5, 4, 3, 2, 1, 0"
+    },
+    "018-874e62353ead": {
+      "top": 1,
+      "ranking": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 3, 4, 5, 6"
+    },
+    "020-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 0"
+    },
+    "019-2c7247a57061": {
+      "top": 2,
+      "ranking": [
+        2,
+        4,
+        5,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 4, 5, 9"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 0\nRANKING: 0, 1, 2, 3"
+    },
+    "025-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1,
+        0,
+        3,
+        4,
+        5,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 0, 3, 4, 5, 6"
+    },
+    "024-aa646cf62171": {
+      "top": 2,
+      "ranking": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 6, 7, 8, 9"
+    },
+    "026-945822c59fe9": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6"
+    },
+    "021-9d62146b7652": {
+      "top": 2,
+      "ranking": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 1, 4, 5, 6, 7, 8, 9"
+    },
+    "022-ae51d1d52d64": {
+      "top": 3,
+      "ranking": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 2, 1, 0"
+    },
+    "027-6479bd8a2bba": {
+      "top": 6,
+      "ranking": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 6\nRANKING: 6, 5, 4, 3"
+    },
+    "029-606d391c364b": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "032-af0933cfcd09": {
+      "top": 3,
+      "ranking": [
+        3,
+        5,
+        7,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 5, 7, 9"
+    },
+    "030-0319cbd03980": {
+      "top": 4,
+      "ranking": [
+        4,
+        2,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 2, 1"
+    },
+    "028-3a559ca1aea1": {
+      "top": 9,
+      "ranking": [
+        9,
+        5,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 5, 6"
+    },
+    "033-620b58b7aa60": {
+      "top": 5,
+      "ranking": [
+        5,
+        7,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 7, 4"
+    },
+    "034-04dc240da7b8": {
+      "top": 2,
+      "ranking": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 4, 6, 7, 8, 9"
+    },
+    "035-a3d5b34baf48": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "031-da9aec084a98": {
+      "top": 2,
+      "ranking": [
+        2,
+        7,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 7, 9"
+    },
+    "038-3c2adf8c14b1": {
+      "top": 6,
+      "ranking": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 6\nRANKING: 6, 5, 4, 3, 2, 1, 0"
+    },
+    "037-14508845755c": {
+      "top": 9,
+      "ranking": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 8, 7, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "036-88562a8be980": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "039-2b969539d7db": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 3, 2, 1"
+    },
+    "040-a181eb120cb2": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 3, 2, 1, 0"
+    },
+    "041-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 0\nRANKING: 0, 1, 2, 3, 4, 5"
+    },
+    "042-833c47739be2": {
+      "top": 4,
+      "ranking": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 5, 6, 7, 8, 9"
+    },
+    "046-2e76694a8fe5": {
+      "top": 1,
+      "ranking": [
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 0"
+    },
+    "043-d53734deeead": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "044-e214187ad13a": {
+      "top": 5,
+      "ranking": [
+        5,
+        2,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 2, 1"
+    },
+    "045-c43d472268d8": {
+      "top": 8,
+      "ranking": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 8\nRANKING: 8, 7, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "049-324f53bff996": {
+      "top": 3,
+      "ranking": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 4, 5, 6, 7"
+    },
+    "051-8f84910e124b": {
+      "top": 2,
+      "ranking": [
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 1, 0"
+    },
+    "050-6784fd6fd246": {
+      "top": 4,
+      "ranking": [
+        4,
+        5,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 5, 1, 0"
+    },
+    "047-5d32c1eba366": {
+      "top": 7,
+      "ranking": [
+        7,
+        8,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 7\nRANKING: 7, 8, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "052-25639162f57c": {
+      "top": 1,
+      "ranking": [
+        1,
+        7,
+        9,
+        6,
+        5,
+        3,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 7, 9, 6, 5, 3, 0"
+    },
+    "048-e5f2767e1b04": {
+      "top": 9,
+      "ranking": [
+        9,
+        5,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 5, 1"
+    },
+    "053-908be3172c8e": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 3, 2, 1"
+    },
+    "056-0e66261209b3": {
+      "top": 3,
+      "ranking": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 4, 5, 6, 7, 8"
+    },
+    "054-c81ed3b0a45a": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 0\nRANKING: 0, 1, 2, 3, 4, 5, 6, 7"
+    },
+    "058-f0ccb40243d8": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 3, 2, 1, 0"
+    },
+    "055-238f0c23d791": {
+      "top": 8,
+      "ranking": [
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 8\nRANKING: 8, 9, 1, 2, 3, 4, 5, 6, 7"
+    },
+    "057-3196a02a724f": {
+      "top": 3,
+      "ranking": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 2, 1, 0"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 2,
+      "ranking": [
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 1, 0"
+    },
+    "061-d5e74f5edef1": {
+      "top": 2,
+      "ranking": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 1, 3, 4, 5, 6, 7, 8"
+    },
+    "063-945c18bc1c72": {
+      "top": 1,
+      "ranking": [
+        1,
+        3,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 3, 5"
+    },
+    "062-1d3b288462be": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 3, 2, 1, 0"
+    },
+    "060-6df45b66a14f": {
+      "top": 2,
+      "ranking": [
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 1, 0"
+    },
+    "064-67329dda61f8": {
+      "top": 7,
+      "ranking": [
+        7,
+        6,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 7\nRANKING: 7, 6, 5"
+    },
+    "067-d7caaed0d413": {
+      "top": 4,
+      "ranking": [
+        4,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 6"
+    },
+    "068-54f5f481feb1": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 0\nRANKING: 0, 1, 3, 5"
+    },
+    "065-a16ae072deff": {
+      "top": 2,
+      "ranking": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 4, 5, 6, 7, 8, 9"
+    },
+    "069-5486f0bb8912": {
+      "top": 3,
+      "ranking": [
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 5, 6, 7, 8, 9"
+    },
+    "066-4835ec93a6d1": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 0\nRANKING: 0, 1, 3, 4"
+    },
+    "070-0528f540243a": {
+      "top": 1,
+      "ranking": [
+        1,
+        3,
+        5,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 3, 5, 6"
+    },
+    "072-c6399b46fd3c": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6"
+    },
+    "074-27ef8756352a": {
+      "top": 9,
+      "ranking": [
+        9,
+        7,
+        5,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 7, 5, 4"
+    },
+    "071-03b230b92593": {
+      "top": 1,
+      "ranking": [
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 0"
+    },
+    "076-769191cea270": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "075-dc792a0fa32f": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 0\nRANKING: 0, 1, 2, 3"
+    },
+    "073-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 0\nRANKING: 0, 1, 2, 3, 4"
+    },
+    "078-e16678e8c43e": {
+      "top": 7,
+      "ranking": [
+        7,
+        9,
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 7\nRANKING: 7, 9, 0, 1, 3, 4, 5, 6, 8"
+    },
+    "077-a1dc061cb971": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        9,
+        8,
+        7,
+        6,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 9, 8, 7, 6, 3, 2, 1, 0"
+    },
+    "079-72b0c0014ede": {
+      "top": 2,
+      "ranking": [
+        2,
+        3,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 3, 1"
+    },
+    "080-252fc8554126": {
+      "top": 5,
+      "ranking": [
+        5,
+        3,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 3, 1, 0"
+    },
+    "082-933179cfbd8d": {
+      "top": 2,
+      "ranking": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 3, 4, 5, 6, 7"
+    },
+    "083-b73a239fdad1": {
+      "top": 2,
+      "ranking": [
+        2,
+        3,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 3, 4"
+    },
+    "085-dc5e30ffc725": {
+      "top": 3,
+      "ranking": [
+        3,
+        5,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 5, 2, 1, 0"
+    },
+    "084-8cad8cae382d": {
+      "top": 6,
+      "ranking": [
+        6,
+        7,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 6\nRANKING: 6, 7, 8"
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 5,
+      "ranking": [
+        5,
+        9,
+        6,
+        7,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 9, 6, 7, 4, 3, 2, 1, 0"
+    },
+    "081-6b8e879881c0": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "089-93088535fb95": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 0\nRANKING: 0, 1, 2, 3, 4, 5"
+    },
+    "088-3a55b5705c39": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 3, 2, 1, 0"
+    },
+    "086-e5db53c29991": {
+      "top": 0,
+      "ranking": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 0\nRANKING: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9"
+    },
+    "090-e273f2fabe96": {
+      "top": 3,
+      "ranking": [
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 5, 6, 7, 8, 9"
+    },
+    "091-23de28edf643": {
+      "top": 5,
+      "ranking": [
+        6,
+        4,
+        3,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 6, 4, 3, 1"
+    },
+    "092-a5a8d627e455": {
+      "top": 1,
+      "ranking": [
+        1,
+        5,
+        8,
+        3
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 5, 8, 3"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 7,
+      "ranking": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 7\nRANKING: 7, 6, 5, 4"
+    },
+    "094-7e3d81abcddf": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 3, 2, 1, 0"
+    },
+    "095-91ab842a22b2": {
+      "top": 1,
+      "ranking": [
+        1,
+        3,
+        2,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 3, 2, 4"
+    },
+    "096-89be76878d79": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "099-59e337ae1fbb": {
+      "top": 6,
+      "ranking": [
+        6,
+        5,
+        4,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 6\nRANKING: 6, 5, 4, 2, 1, 0"
+    },
+    "097-aa341e34fc51": {
+      "top": 6,
+      "ranking": [
+        6,
+        5,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 6\nRANKING: 6, 5, 3, 2, 1, 0"
+    },
+    "098-43bbd8019fea": {
+      "top": 5,
+      "ranking": [
+        5,
+        2,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 2, 4"
+    },
+    "101-7011a3ca2fe8": {
+      "top": 7,
+      "ranking": [
+        7,
+        8,
+        2
+      ],
+      "raw": "MISTAKE_STEP: 7\nRANKING: 7, 8, 2"
+    },
+    "100-364b09fd59b8": {
+      "top": 8,
+      "ranking": [
+        8,
+        6,
+        5,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 8\nRANKING: 8, 6, 5, 4"
+    },
+    "105-7a7794e34798": {
+      "top": 7,
+      "ranking": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 7\nRANKING: 0, 1, 2, 3, 4, 5, 6"
+    },
+    "104-9f0fb174fad0": {
+      "top": 1,
+      "ranking": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 4, 6, 7, 8, 9"
+    },
+    "102-a6862e302014": {
+      "top": 7,
+      "ranking": [
+        7,
+        9,
+        8,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 7\nRANKING: 7, 9, 8, 6"
+    },
+    "106-00e6e023a028": {
+      "top": 4,
+      "ranking": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 5, 6, 7, 8"
+    },
+    "109-33e9e888adb4": {
+      "top": 5,
+      "ranking": [
+        5,
+        4,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 4, 6"
+    },
+    "107-de407cd051d7": {
+      "top": 6,
+      "ranking": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 6\nRANKING: 6, 5, 4, 3, 2, 1, 0"
+    },
+    "103-5593276388b1": {
+      "top": 4,
+      "ranking": [
+        4,
+        3,
+        2,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 3, 2, 1"
+    },
+    "108-13c9a4c03793": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6"
+    },
+    "110-e240abd96f2e": {
+      "top": 3,
+      "ranking": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 4, 5, 6, 7, 8"
+    },
+    "111-bb45c75cb2de": {
+      "top": 1,
+      "ranking": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 3, 4, 5"
+    },
+    "113-ccbf973529c4": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 2, 3, 4, 5, 6, 7, 9"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 9,
+      "ranking": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 9\nRANKING: 9, 8, 7, 6, 5, 4, 3, 2, 1, 0"
+    },
+    "112-7d8dcb80a290": {
+      "top": 5,
+      "ranking": [
+        5,
+        3,
+        1
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 5, 3, 1"
+    },
+    "114-af259c3de825": {
+      "top": 4,
+      "ranking": [
+        4,
+        6,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 6, 3, 2, 1, 0"
+    },
+    "115-03d92b3118e2": {
+      "top": 2,
+      "ranking": [
+        2,
+        0,
+        1,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 0, 1, 4"
+    },
+    "117-b056cbb2e661": {
+      "top": 1,
+      "ranking": [
+        1,
+        3,
+        7
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 3, 7"
+    },
+    "118-d69039766c83": {
+      "top": 1,
+      "ranking": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 2, 3, 4"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 2,
+      "ranking": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 4, 5, 6, 7, 8, 9"
+    },
+    "119-6ec2674e0d3a": {
+      "top": 4,
+      "ranking": [
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 4\nRANKING: 4, 3, 2, 1, 0"
+    },
+    "121-62bf36bb4ce7": {
+      "top": 2,
+      "ranking": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 2\nRANKING: 2, 1, 3, 4, 5, 6, 7, 8, 9"
+    },
+    "120-3ea26fdedd38": {
+      "top": 1,
+      "ranking": [
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 1\nRANKING: 1, 0"
+    },
+    "125-a445e2da8734": {
+      "top": 5,
+      "ranking": [
+        6,
+        5
+      ],
+      "raw": "MISTAKE_STEP: 5\nRANKING: 6, 5"
+    },
+    "124-d60e28a0fa62": {
+      "top": 6,
+      "ranking": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "raw": "MISTAKE_STEP: 6\nRANKING: 6, 5, 4, 3, 2, 1, 0"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 3,
+      "ranking": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "raw": "MISTAKE_STEP: 3\nRANKING: 3, 4, 5, 6, 7, 8, 9"
+    }
+  }
+}

@@ -9,20 +9,114 @@
 
 # auditable
 
-**A library of auditing methods for AI agents: configuration audits before a run, online monitors while it runs, and failure detection and fault localization after it, with one interface per family.**
+**A library of auditing methods for AI agents, with a leaderboard for each task: configuration audits before a run, online monitors while it runs, and failure detection and fault localization after it.**
 
 [![PyPI](https://img.shields.io/pypi/v/auditable.svg)](https://pypi.org/project/auditable/)
 [![Python](https://img.shields.io/pypi/pyversions/auditable.svg)](https://pypi.org/project/auditable/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://github.com/yzhao062/auditable/blob/main/LICENSE)
 [![CI](https://github.com/yzhao062/auditable/actions/workflows/ci.yml/badge.svg)](https://github.com/yzhao062/auditable/actions/workflows/ci.yml)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yzhao062/auditable/blob/main/examples/leaderboard.ipynb)
 
-[Quick Start](#quick-start) · [Real Agent Traces](#real-agent-traces) · [Methods](#methods) · [Install](#install) · [Reproducing CatchBench](#reproducing-catchbench) · [Adding a Method](#adding-a-method) · [Citation](#citation)
+[Leaderboard](#leaderboard) · [Put Your Method on the Board](#put-your-method-on-the-board) · [Tasks](#tasks) · [Quick Start](#quick-start) · [Real Agent Traces](#real-agent-traces) · [Methods](#methods) · [Install](#install) · [Adding a Method](#adding-a-method) · [Citation](#citation)
 
 </div>
 
+`auditable` is a library of auditing methods for AI agents with a leaderboard for each task: one command reruns the [CatchBench](https://github.com/yzhao062/catchbench) board on your machine, and a method you write gets a rank on the same population and protocol.
+
+## Leaderboard
+
+Did the run fail? The board below ranks 17 methods by ROC-AUC on 376 SWE-Gym OpenHands runs, 188 of which failed. One command reruns it on the population and protocol of the CatchBench board:
+
+```bash
+pip install "auditable[bench]"
+python -m auditable.bench detect/swegym
+```
+
+| Rank | Method | Algorithm | ROC-AUC |
+|---|---|---|---|
+| 1 | `run.pygod_gaan` | GAAN adversarial detector (PyGOD) | 0.850 |
+| 2 | `run.lr_spline_flat` | Logistic regression on a cubic spline of run size, a control | 0.832 |
+| 3 | `run.gsafeguard_lite` | G-Safeguard-Lite (supervised graph classifier) | 0.828 |
+| 4 | `run.lr_full` | Logistic regression on all raw layers (GRADE full) | 0.819 |
+| 5 | `run.lr_flatdep` | Logistic regression on size and dependency (GRADE flatdep) | 0.804 |
+| 6 | `run.guardian_lite` | GUARDIAN-Lite (attribute-reconstruction autoencoder) | 0.767 |
+| 7 | `run.pyod_ecod` | ECOD on run size | 0.765 |
+| 8 | `run.pygod_conad` | CONAD contrastive graph autoencoder (PyGOD) | 0.750 |
+| 9 | `run.lr_flat` | Logistic regression on run size (GRADE flat), the size baseline | 0.663 |
+| 10 | `run.pyod_copod` | COPOD on run size | 0.625 |
+| 11 | `run.pygod_anomalydae` | AnomalyDAE dual autoencoder (PyGOD) | 0.592 |
+| 12 | `run.pyod_lof` | Local outlier factor on run size | 0.584 |
+| 13 | `run.pyod_iforest` | Isolation Forest on run size | 0.571 |
+| 14 | `run.pygod_dominant` | DOMINANT graph autoencoder (PyGOD) | 0.547 |
+| 15 | `run.random` | Random run scores, a control | 0.483 |
+| 16 | `run.pyod_knn` | KNN distance on run size | 0.446 |
+| 17 | `run.pyod_hbos` | HBOS on run size | 0.319 |
+
+PyGOD's GAAN, a literature baseline, leads this board at 0.850. Second, at 0.832, is the flexible size control `run.lr_spline_flat`: a cubic spline of the same four run-size counts the linear size baseline `run.lr_flat` reads (0.663). Run size alone, fitted without a linear restriction, ranks above G-Safeguard-Lite and above both GRADE dependency regressions (0.819 and 0.804), so this board does not show that dependency structure predicts failure beyond size, the reading GRADE retired on 2026-09-08. Read a new row against both size controls; on tau-bench the order changes, and `run.lr_flatdep` (0.665) ranks above the spline control (0.631).
+
+The 16 CatchBench rows equal the CatchBench board, which was computed on Linux; the spline control is not a board row, and its reference value is the `size (spline)` arm of CatchBench's committed size audit. On macOS, `run.pyod_lof` prints 0.582 instead of 0.584, and `--golden` reports that as a platform value and not as a mismatch. The first run downloads the data through agentpile; later runs load SWE-Gym from the cache in about 3 seconds, and the full board takes about 70 seconds on a laptop CPU, of which PyGOD GAAN is the slowest row at about 37 seconds. The graph rows need `auditable[graph-ad]` and the PyG sampling backend ([Install](#install)); without them those rows are listed as skipped with the extra named, and the rest of the board is still scored.
+
+```bash
+python -m auditable.bench                                                    # list the tasks
+python -m auditable.bench detect/swegym --methods run.lr_flat run.pyod_ecod  # score chosen rows only
+python -m auditable.bench detect/swegym --golden                             # exit 1 if a row differs from the CatchBench board
+python -m auditable.bench detect/swegym --markdown                           # a Markdown table; --json prints JSON
+```
+
+## Put Your Method on the Board
+
+A method is a class with a `MethodCard`. Pass it as `extra=` and `leaderboard` scores it beside the default rows, under the protocol of its kind: a supervised detector gets the mean ROC-AUC over five seeds of stratified 5-fold cross-validation with a fresh estimator per fold, and an unsupervised one gets a single `fit_score` over the whole population. The snippet below adds a random forest on run size, a deliberately plain method:
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+
+from auditable.base import BaseRunDetector, MethodCard
+from auditable.bench import leaderboard
+from auditable.featurize import grade_layer_matrix
+
+
+class ForestOnSize(BaseRunDetector):
+    card = MethodCard(method_id="run.forest_flat", name="Random forest on run size", family="run",
+                      fit_scope="inductive", supervised=True, output_kind="score", fidelity="original")
+
+    def fit(self, runs, y=None):
+        self.model_ = RandomForestClassifier(200, random_state=0)
+        self.model_.fit(grade_layer_matrix(list(runs), "flat"), y)
+        self.decision_scores_ = self.decision_function(runs)
+        return self
+
+    def decision_function(self, runs):
+        return self.model_.predict_proba(grade_layer_matrix(list(runs), "flat"))[:, 1]
+
+
+board = leaderboard("detect/swegym", extra=[ForestOnSize])
+print(board.rank_of("run.forest_flat"), board["run.forest_flat"].scores)
+```
+
+The last line prints the rank of the new row among all rows and its scores. `print(board)` shows the full table, with the CatchBench value in brackets beside each row that has one, and `board.to_markdown()`, `board.to_dict()` and `board.compare_golden()` export it. `methods=[...]` scores only the rows you name, which is quick while you iterate (`leaderboard("detect/swegym", methods=["run.lr_flat", ForestOnSize])`), and `Entry(method, kwargs={...}, label="...", key="...")` adds a row for a variant with constructor arguments (give each variant its own key, because a row that keeps the method id is compared with that method's CatchBench value). A method that raises is listed as an error and the rest of the board is still scored. The [method contract](https://github.com/yzhao062/auditable/blob/main/docs/methods-contract.md) lists the conventions for the four families.
+
+## Tasks
+
+Six tasks ship with 0.4.0. Each fixes a population and a protocol, so every method on a board is scored on the same data in the same way. `detect` scores the run detectors, `localize` the step locators, `live` the online monitors (run detectors also take part, scored on prefixes of the run), and `pre` the configuration auditors.
+
+| Task | Question | Population | Metric |
+|---|---|---|---|
+| `detect/swegym` | Did the run fail? | SWE-Gym OpenHands trajectories, one scaffold: 376 runs, 188 failed | ROC-AUC |
+| `detect/tau` | Did the run fail? | tau-bench: 660 runs, 363 failed | ROC-AUC |
+| `localize/whoandwhen` | Which step was the decisive mistake? | Who&When: 126 failed multi-agent runs with a human mistake step | top-1, top-3, MRR (mean reciprocal rank) |
+| `live/swegym` | Can the failure be caught early? | SWE-Gym runs, read as prefixes of 25, 50, 75 and 100 percent of their steps | mean prefix ROC-AUC |
+| `live/tau` | Can the failure be caught early? | tau-bench runs, read as prefixes of 25, 50, 75 and 100 percent of their steps | mean prefix ROC-AUC |
+| `pre/over_privilege` | Is the agent configuration over-privileged before it runs? | 1,187 configurations from six sources | F1, precision, recall |
+
+Every task id works with the commands above: `python -m auditable.bench <task>` reruns the board, and `leaderboard("<task>", extra=[...])` places a method on it. The LLM judges on `localize/whoandwhen` and `pre/over_privilege` are replayed from committed caches, so those boards need no API call.
+
+The CatchBench board shows how the other tasks read. On Who&When localization, the best LLM judges (all-at-once) reach top-1 of about 0.42 to 0.45 against 0.119 for random, and the structural blast rule ties the position prior at 0.159 top-1. The tau-bench detection board is led by `run.lr_flatdep` and `run.lr_full`, tied at 0.665, against 0.619 for the size baseline. For over-privilege, the best rule scanner `config.owasp_asi_combined` reaches F1 0.654, flagging every configuration reaches 0.601, and an LLM judge reaches 0.695.
+
+## What Is in the Library
+
 `auditable` collects methods that audit LLM agents at three points: an agent configuration before it runs (PRE), a run while it streams (LIVE), and a finished run (POST). Methods are grouped into four families, and each family has one interface, in the way PyOD gives outlier detectors one interface. The library holds baselines from the literature (PyOD and PyGOD detectors, GUARDIAN, G-Safeguard, the Who&When LLM-judge protocols, OWASP-style configuration rules) beside the methods introduced with GRADE and CatchBench.
 
-[CatchBench](https://github.com/yzhao062/catchbench) is the benchmark for these methods: the tasks, corpora, evaluation protocols, and metrics live there. Every method here that appears on the CatchBench board reproduces its row sample by sample, and the full board reruns byte-identical with those rows computed by this library ([Reproducing CatchBench](#reproducing-catchbench)).
+[CatchBench](https://github.com/yzhao062/catchbench) is the paper and benchmark whose board the leaderboards reproduce: `auditable.bench` carries its populations and evaluation protocols, and every method here that appears on its board reproduces its row sample by sample ([Reproducing CatchBench](#reproducing-catchbench)). [agentpile](https://github.com/yzhao062/agentpile) is the converter that reads public agent-trace datasets into the one record the methods consume ([Real Agent Traces](#real-agent-traces)).
 
 ## Quick Start
 
@@ -147,6 +241,7 @@ Configuration rules and the step-by-step and binary-search LLM judges run on the
 | Supervised | `run.lr_flat` | Logistic regression on run size (GRADE flat) | [GRADE (Zhao, 2026)](https://arxiv.org/abs/2606.22741) |
 | Supervised | `run.lr_flatdep` | Logistic regression on size and dependency (GRADE flatdep) | [GRADE (Zhao, 2026)](https://arxiv.org/abs/2606.22741) |
 | Supervised | `run.lr_full` | Logistic regression on all raw layers (GRADE full) | [GRADE (Zhao, 2026)](https://arxiv.org/abs/2606.22741) |
+| Supervised | `run.lr_spline_flat` | Logistic regression on a cubic spline of run size (flexible size control) | [CatchBench (2026)](https://arxiv.org/abs/2608.22808) |
 | PyOD detector | `run.pyod_copod` | COPOD on run size | [COPOD (Li et al., 2020)](https://arxiv.org/abs/2009.09463) |
 | PyOD detector | `run.pyod_ecod` | ECOD on run size | [ECOD (Li et al., 2022)](https://arxiv.org/abs/2201.00382) |
 | PyOD detector | `run.pyod_hbos` | HBOS on run size | HBOS (Goldstein and Dengel, 2012) |
@@ -189,15 +284,16 @@ Configuration rules and the step-by-step and binary-search LLM judges run on the
 
 ```bash
 pip install auditable                  # core: the registry and the configuration rules, no third-party dependencies
+pip install "auditable[bench]"         # the leaderboards: PyOD, scikit-learn, NumPy, NetworkX, and agentpile with its Hugging Face loaders
 pip install "auditable[tabular-ad]"    # run, step, and online methods on trace features (NumPy, scikit-learn, PyOD, NetworkX)
 pip install "auditable[agentpile]"     # read public datasets, trace files and captured runs through agentpile
 ```
 
-The examples, tests and benchmark harnesses are in the repository, not the wheel; to run them, install from a clone with `pip install -e ".[dev,tabular-ad]"`.
+The examples, tests and benchmark harnesses are in the repository, not the wheel; to run them, install from a clone with `pip install -e ".[dev,tabular-ad,bench]"`.
 
 The LLM judges take any `prompt -> reply` function as their backend; `OpenAICompatibleBackend` reaches an OpenAI-compatible endpoint with the standard library alone.
 
-The graph methods (PyGOD detectors, GUARDIAN-Lite, G-Safeguard-Lite) need torch, PyTorch Geometric, PyGOD, and a sampling backend built for the installed torch, which pip cannot resolve from the extra. Install torch and the matching `pyg-lib` wheel first:
+The graph methods (PyGOD detectors, GUARDIAN-Lite, G-Safeguard-Lite), and so the graph rows of the leaderboards, need torch, PyTorch Geometric, PyGOD, and a sampling backend built for the installed torch, which pip cannot resolve from the extra. Install torch and the matching `pyg-lib` wheel first:
 
 ```bash
 pip install "torch==2.12.1" --index-url https://download.pytorch.org/whl/cpu
@@ -216,7 +312,7 @@ Methods read traces through `auditable.featurize.normalize_trace`, which accepts
 
 ## Reproducing CatchBench
 
-[`benchmarks/catchbench_parity`](https://github.com/yzhao062/auditable/tree/main/benchmarks/catchbench_parity) checks the library against CatchBench 0.1.2 and GRADE at commit `3839a57`, the versions the CatchBench board pins. It is a development harness and is not part of the wheel. Since CatchBench 0.1.3, the board itself computes its 79 migrated entries through this library (`catchbench.via_auditable`); the harness stays on 0.1.2, the last release whose board computes them with CatchBench's own code.
+`python -m auditable.bench <task> --golden` reruns a CatchBench board with the methods of this library and exits 1 if a row differs from the board ([Leaderboard](#leaderboard)). The parity harness [`benchmarks/catchbench_parity`](https://github.com/yzhao062/auditable/tree/main/benchmarks/catchbench_parity) remains for development and is not part of the wheel. It compares every migrated method with its CatchBench or GRADE original sample by sample, at CatchBench 0.1.2 and GRADE commit `3839a57`, the last versions whose board computes those entries with its own code.
 
 ```bash
 export GRADE_DIR=/path/to/grade   # checked out at 3839a57
@@ -227,11 +323,9 @@ python benchmarks/catchbench_parity/run_parity.py board --perturb --out perturbe
 python benchmarks/catchbench_parity/run_parity.py consumption board.txt perturbed.txt
 ```
 
-The checks compare every migrated method with its CatchBench or GRADE original on the real corpora, sample by sample and bit for bit: per-run scores, per-step scores, out-of-fold predictions, configuration findings, and the features underneath them. The board run replaces CatchBench's method factories with library adapters, so the main tables and every breakdown and robustness table are computed by the library, while the original scoring functions of migrated methods are replaced by functions that raise. Its output must match the board computed before migration byte for byte. The consumption run perturbs every library output and confirms that each migrated row changes and no other row does.
-
 ## Adding a Method
 
-Subclass the family base class in `auditable.base`, give it a `MethodCard`, and register it with `@register`. The [method contract](https://github.com/yzhao062/auditable/blob/main/docs/methods-contract.md) lists the conventions: input forms, label alignment for supervised step methods, output order, optional dependencies, the tests a method needs, and how to add a parity check when the method reproduces a CatchBench row.
+Subclass the family base class in `auditable.base`, give it a `MethodCard`, and register it with `@register`, which makes it reachable by id (`get_method`, `--methods`) and adds it to the default rows of the detect and pre boards. To try a method first, pass it to `leaderboard(task, extra=[...])` without registering ([Put Your Method on the Board](#put-your-method-on-the-board)). The [method contract](https://github.com/yzhao062/auditable/blob/main/docs/methods-contract.md) lists the conventions: input forms, label alignment for supervised step methods, output order, optional dependencies, the tests a method needs, and how to add a parity check when the method reproduces a CatchBench row.
 
 ## Records and Graph Analysis
 
@@ -245,8 +339,8 @@ Records are content-addressed and hash-chained, and that property is limited. A 
 
 ## Related Projects
 
-- [CatchBench](https://github.com/yzhao062/catchbench): the benchmark for these methods (arXiv:2608.22808).
-- [agentpile](https://github.com/yzhao062/agentpile): loads public agent-trace datasets, trace files and captured runs into one record, which `from_agentpile` reads.
+- [CatchBench](https://github.com/yzhao062/catchbench): the paper and benchmark whose board the leaderboards reproduce (arXiv:2608.22808).
+- [agentpile](https://github.com/yzhao062/agentpile): the converter that loads public agent-trace datasets, trace files and captured runs into one record, which `from_agentpile` reads.
 - [GRADE](https://arxiv.org/abs/2606.22741): the typed two-layer graph of agent execution and dependency that the structural features read.
 - [awesome-auditable-ai](https://github.com/yzhao062/awesome-auditable-ai): a reading list on AI agent reliability and auditing.
 

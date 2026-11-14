@@ -1,0 +1,80 @@
+{
+ "task": "live/swegym",
+ "source": {
+  "catchbench": "0.1.3",
+  "file": "tests/golden/board.txt",
+  "sha256": "8db3d8fe0e8fe95669b6d5a5d27f36d4fd6e16b7f612fec6f927c998f69a4745"
+ },
+ "section": "[LIVE] live_streaming :: swegym",
+ "rows": {
+  "run.random": {
+   "prefix_auc": 0.483,
+   "auc@25": 0.483,
+   "auc@50": 0.483,
+   "auc@75": 0.483,
+   "auc@100": 0.483,
+   "t2d": ">100%",
+   "board_label": "random"
+  },
+  "run.lr_flat": {
+   "prefix_auc": 0.657,
+   "auc@25": 0.629,
+   "auc@50": 0.663,
+   "auc@75": 0.673,
+   "auc@100": 0.663,
+   "t2d": ">100%",
+   "board_label": "size (flat)"
+  },
+  "run.lr_flatdep": {
+   "prefix_auc": 0.779,
+   "auc@25": 0.742,
+   "auc@50": 0.766,
+   "auc@75": 0.804,
+   "auc@100": 0.804,
+   "t2d": "25%",
+   "board_label": "auditable (size+deps)"
+  },
+  "run.lr_full": {
+   "prefix_auc": 0.818,
+   "auc@25": 0.813,
+   "auc@50": 0.816,
+   "auc@75": 0.826,
+   "auc@100": 0.819,
+   "t2d": "25%",
+   "board_label": "full"
+  },
+  "run.pyod_ecod": {
+   "prefix_auc": 0.763,
+   "auc@25": 0.756,
+   "auc@50": 0.762,
+   "auc@75": 0.767,
+   "auc@100": 0.765,
+   "t2d": "25%",
+   "board_label": "pyod (ECOD)"
+  },
+  "online.dep_span": {
+   "prefix_auc": 0.534,
+   "auc@25": 0.364,
+   "auc@50": 0.534,
+   "auc@75": 0.589,
+   "auc@100": 0.648,
+   "t2d": ">100%",
+   "board_label": "dep-span (online)"
+  },
+  "run.lr_spline_flat": {
+   "prefix_auc": 0.822,
+   "auc@25": 0.808,
+   "auc@50": 0.821,
+   "auc@75": 0.827,
+   "auc@100": 0.832,
+   "tol": 0.001,
+   "board_label": "size (spline)",
+   "source": {
+    "catchbench": "0.1.3",
+    "file": "tools/live_size_control_audit_results.json",
+    "sha256": "394c03cc1a917c1a60360a359ac971f13c7a8aa47e0cadcda93a6761f95c34f2"
+   },
+   "note": "a CatchBench size-audit arm, not a board row; the audit ran on Windows"
+  }
+ }
+}

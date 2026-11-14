@@ -77,6 +77,7 @@ nav:
   - Method Contract: methods-contract.md
   - Lifecycle: lifecycle.md
   - Quickstart: quickstart.md
+  - Leaderboards: leaderboard.md
   - PRE: pre-rules.md
   - LIVE: realtime-replay.md
   - POST: post-analysis.md

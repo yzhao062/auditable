@@ -1,0 +1,896 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "binary_search",
+    "model": "mistral-small",
+    "n_runs": 126,
+    "prompt_sha": "292b9b0a0d4c",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "001-5697e89b281b": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n\nThe error occurred in step 6 due to a syntax error in the code, which was then corrected in\n[5-9 mid7] FIRST :: VERDICT: FIRST (steps 5-7)\n\nThe error was in the syntax of the code in step 5, which was corrected in step 7. The error \n[5-7 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n[5-6 mid5] SECOND :: VERDICT: SECOND (steps 6-6)"
+    },
+    "002-a04041638aa4": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is not in the given trace. However, if we were to assume a mistake, it \n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n\nThe decisive mistake is not in the first half (steps 0-2) as all the agents are performing \n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)\n\nThe decisive mistake is not present in the provided trace. However, if we were to assume a m"
+    },
+    "000-7b14128ce504": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error, if any, is not evident in the provided trace. However, the decisive mistake, if i\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error, if any, is not in the first two steps. The first step correctly identifies the co\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nExplanation: The error, if any, is not in the provided trace. However, if we were to conside"
+    },
+    "003-cfa39baedf59": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe error is not in the trace provided. However, if we consider that the error is in the cal\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is not in the provided trace. However, if we consider that the error is in the tas\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is not in the provided trace. However, if we consider that the error could be in t"
+    },
+    "004-d57d322d4115": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error, if any, is not in the first half of the steps. The task is being executed correct\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error, if any, is not in the provided trace. However, if we were to consider a hypotheti\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error, if any, is not in the provided trace. However, if we were to consider a hypotheti\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe decisive mistake, if any, is not in the first step (step 0) as the instructions and pla"
+    },
+    "005-b82f729abea8": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 4 due to a TypeError in the code, but the root cause of the error\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n\nThe decisive mistake is in step 4, where the error occurred due to the `perform_web_search`\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "006-b40c7e455b08": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is not in the given steps as they are all part of the debugging process\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is not in the provided trace. However, the error starts from step 0 whe\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe decisive mistake is in step 2, where the PythonDebugging_Expert provides a debug templa"
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe decisive mistake is in the first half (steps 0-3) because the Python script to fetch dat\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error in the first half (steps 0-1) is that the Google Maps API key was not provided in \n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nExplanation: The error in the first step is that the Google Maps API key was not provided, w"
+    },
+    "009-537a267c0756": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe decisive mistake is in step 3, where the function 'perform_web_search' is not defined be\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n\nThe decisive mistake is in step 3, where the function 'perform_web_search' is not defined b\n[2-3 mid2] FIRST :: VERDICT: FIRST (steps 2-2)\n\nExplanation: The error occurred in step 3, but the mistake was made in step 2. In step 2, th"
+    },
+    "008-00a173727b41": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half of the steps. The DataAnalysis_Expert provided incorrect info\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is not in the provided trace. However, if we were to assume an error, it would be \n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0), although the error is not in the instructions but in the data provided, as the highest price"
+    },
+    "010-12509faada72": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the error is in the initial as\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is not in the decisive steps. However, the error in the trace is in step 5 where t\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is in the first step, where the Corporate_Governance_Expert did not provide enough\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe error occurred in the first web search, which did not return the expected results. The "
+    },
+    "011-4a73c38d0c2c": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4). The error is in step 4, where the cod\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2). The error is that the initial informa\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe decisive mistake is in step 2, where the Computer_terminal tool call incorrectly report"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 2, where the DataCollection_Expert was supposed to gather TripAdv\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in step 2, where the response from the web search or database query \n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe decisive mistake is in step 2, where the tool call to gather recommendations returns 'F"
+    },
+    "012-d731749a39ca": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error is in the first half of the steps. The issue is that the `scrape_wikipedia_tables`\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half (steps 0-2) because the correct Wikipedia page link was not p\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe error occurred in step 7, which is in the second half of the given range (steps 2-2). T"
+    },
+    "016-2f776a306c77": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the error is due to the absenc\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in step 2, where the script tries to read a CSV file named 'seattle_weather.csv\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe decisive mistake is in step 2, where the script tries to read a CSV file named 'seattle"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the CSV file 'chicago_weather_\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) because the CSV file 'chicago_weather_\n[0-2 mid1] FIRST :: The decisive mistake is in the FIRST half (steps 0 to 1). The code execution failed due to an indentation error in step \n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is in the first step itself, where the code provided for fetching data from a CSV "
+    },
+    "017-3f81e1d1cad3": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe error is in the first half of the steps (steps 0-3). The decisive mistake is the absence\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error occurred in the first half (steps 0-1) because the file 'sample_real_estate_data.c\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe error occurred in step 1 when the Verification_Expert decided to review the sample data"
+    },
+    "020-85a096b8759f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake was in the FIRST half (steps 0 to 3). The error was already present in the initial task description\n[0-3 mid1] FIRST :: The decisive mistake is in the FIRST half (steps 0 to 1). However, it's important to note that the error in step 0 is no\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error occurred in the first step itself, as the general task failed with an exit code 1 "
+    },
+    "019-2c7247a57061": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error is in the first half of the steps (steps 0-4). The issue is that the CSV file 'rea\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half (steps 0-2) because the incorrect file name is being used in \n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is in the file path provided for the CSV file, which is causing the pandas library\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe error is in step 1, where the code tries to read a CSV file named 'real_estate_transact"
+    },
+    "018-874e62353ead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nExplanation: The error is not in the trace provided. However, if we assume that the error oc\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is not in the provided trace. However, if we were to assume an error, it would be \n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is not in the provided trace. However, if we were to assume an error, it would be "
+    },
+    "022-ae51d1d52d64": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe decisive mistake is in the first half (steps 0-3) because the Google Maps API key is not\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n[2-3 mid2] SECOND :: VERDICT: SECOND (steps 3-3)"
+    },
+    "021-9d62146b7652": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error is in the first half of the steps. The file `houston_weather_june_2020_2023.csv` w\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half (steps 0-2) because the file `houston_weather_june_2020_2023.\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake is in the first half (steps 0-1). The error is that the CSV file 'houst\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe error in the first half (steps 0-0) would be related to the task understanding or instr"
+    },
+    "024-aa646cf62171": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the error is due to the lack o\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) as the error is due to the lack of the\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe decisive mistake is in step 2, where the execution failed due to the lack of the 'googl"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error, if any, is not in the provided trace. However, if we were to assume an error, it \n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error, if any, is not apparent in the provided trace. However, the decisive mistake, if \n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0), although the mistake is not in the instruction itself but in the interpretation of the instr"
+    },
+    "026-945822c59fe9": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 4 due to a function not being defined.\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n\nThe error occurred in step 4 due to the `perform_web_search` function not being defined.\n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)"
+    },
+    "025-85a096b8759f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake was in the FIRST half (steps 0 to 3). The error was already present in the initial task description\n[0-3 mid1] FIRST :: The decisive mistake is in the FIRST half (steps 0 to 1). However, it's important to note that the error in step 0 is no\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error occurred in the first step itself, as the general task failed with an exit code 1 "
+    },
+    "027-6479bd8a2bba": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error is in the first half of the steps. The decisive mistake is in step 0 where the tas\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n\nThe decisive mistake is in step 4, where the geocoding process fails with a 403 Forbidden e\n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)\n\nThe decisive mistake is in step 3, where the Paintball_Expert starts to geocode the addresse"
+    },
+    "028-3a559ca1aea1": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 9, but the function 'perform_web_search' was not defined before i\n[0-4 mid2] SECOND :: The error occurred in the SECOND half (steps 3-4), but the decisive mistake was actually in the code execution in step 9\n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)\n\nThe error occurred in step 9, which is a tool call to perform a web search. However, the fun"
+    },
+    "030-0319cbd03980": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe error is in the first half (steps 0-3) of the trace. The issue is with the `perform_web_\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is in the first step, specifically in the code execution. The `perform_web_search`\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe error occurred in step 1 when the `perform_web_search` function returned NoneType, whic"
+    },
+    "029-606d391c364b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error, if any, is not evident in the provided trace. However, the decisive mistake, if i\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error, if any, is not in the provided trace. However, if we were to consider a potential\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe first step (step 0) provided the task and a plan to solve it. The second step (step 1) s\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error, if any, is in the initial step where the task was not clearly defined. The task a"
+    },
+    "031-da9aec084a98": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error is in the first half of the steps. The decisive mistake is in step 2, where the we\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error occurred in step 2, where the web search results were not properly processed, lead\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe error occurred in step 2 when the Computer_terminal tried to execute the code for web s"
+    },
+    "033-620b58b7aa60": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n\nThe error occurred in step 5, where the variable 'dictionary' was not defined in the scope \n[5-9 mid7] FIRST :: VERDICT: FIRST (steps 5-7)\n\nThe error is in step 5, where the function `find_longest_word` is called with the variable `\n[5-7 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n[5-6 mid5] FIRST :: VERDICT: FIRST (steps 5-5)"
+    },
+    "032-af0933cfcd09": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4). The error lies in the initial approac\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2). The initial search query was too broa\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake is in the first step. The task description and the manager's plan are e\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)"
+    },
+    "034-04dc240da7b8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in step 2, where the API call to retrieve the captions fails due to \n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in step 2, where the API call to retrieve the captions fails due to a lack of s\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error occurred in step 2 due to an issue with the API subscription, but the decisive mis\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe error occurred in step 1 when the Narration_Expert provided a plan to retrieve captions"
+    },
+    "037-14508845755c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error is in the first half of the steps. The initial problem is that the code causing th\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) because the error is that the code was\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is in the first half (steps 0-1) because the initial task description and plan for\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is in the first step because the general task failed with an exit code of 1, which"
+    },
+    "036-88562a8be980": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in the first half of the steps, specifically in step 3. The Python_Expert\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake was in the first step where the Python_Expert asked for the text of the\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake was not made in the given steps. However, if we were to consider a pote\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error, if any, is not in the first half or the second half of the steps 0 to 1, as the i"
+    },
+    "038-3c2adf8c14b1": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe error is in the first half of the steps. The error is in step 0 where the DataAnalysis_E\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n\nThe error occurred in step 2, where the Verification_Expert provided a plan but did not act\n[2-3 mid2] FIRST :: VERDICT: FIRST (steps 2-2)\n\nThe error is in step 2, where the Verification_Expert proposes a plan but does not actually "
+    },
+    "035-a3d5b34baf48": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in the first half of the steps. The initial instructions were not clear e\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half (steps 0-2). The issue lies in the fact that the Computer_ter\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error occurred in the first half (steps 0-1) because the initial instructions were not c\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is in the initial task description, as it asks for the population of an island nam"
+    },
+    "041-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first step (step 0) where the function 'seek_experts_help' is\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is in the first step, where the function `seek_experts_help` is not found. This is\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is in the first step itself, as the function `seek_experts_help` is not found."
+    },
+    "042-833c47739be2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error is in step 4, where the function 'perform_web_search' is not defined, causing the \n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n\nThe decisive mistake is in step 4, where the function 'perform_web_search' is not defined, \n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)\n\nExplanation:\nThe error occurred in step 4 when the `perform_web_search` function was not def"
+    },
+    "040-a181eb120cb2": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake was not made in this run, but if we were to consider a hypothetical err\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake was not made in the given steps, as the task was successfully completed\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nExplanation: The error, if any, is not in the provided trace. However, if we consider the ta"
+    },
+    "039-2b969539d7db": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error is in the first half of the steps. The API token obtained is not valid, which is c\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half of the steps. The mistake is in step 2 where the agent is sup\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is in the first half (steps 0-1) because the instructions provided in step 0 do no\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe decisive mistake is in step 1, where the agent is supposed to obtain a valid Wikimedia "
+    },
+    "043-d53734deeead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the error is caused by the abs\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "044-e214187ad13a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) as the error is due to the incorrect o\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2). The error is due to the incorrect pap\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error occurred in the first half (steps 0-1) due to the incorrect search results or the \n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error occurred in the first step because the correct arXiv ID for the June 2022 AI regul"
+    },
+    "046-2e76694a8fe5": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurs in step 2, where the Bing Search API call fails with a TypeError: 'NoneType\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in step 2, where the execution of the web search failed with a TypeError: 'None\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe error occurred in step 2 when the Bing Search API call failed with a TypeError: 'NoneTy"
+    },
+    "045-c43d472268d8": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error is in the first half of the steps. The task is asking for the number of years it t\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half (steps 0-2) because the task description and the manager's pl\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is not in the given trace. However, if we were to consider a hypothetical error, i\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is not in the provided trace. The task description and plan for solving the task i"
+    },
+    "047-5d32c1eba366": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the agents are not following t\n[0-4 mid2] FIRST :: The decisive mistake is in the FIRST half (steps 0-2). The agent did not follow the instructions to find the latest chro\n[0-2 mid1] FIRST :: The decisive mistake is in the first step (step 0), where the instructions provided do not include finding the first cit\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe error occurs in step 1 where the WebServing_Expert fails to identify the first citation"
+    },
+    "049-324f53bff996": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe decisive mistake is in the first half (steps 0-3) because the image processing and numbe\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n\nThe decisive mistake is in step 3, where the installation process times out, preventing the\n[2-3 mid2] FIRST :: VERDICT: FIRST (steps 2-2)\n\nExplanation: The decisive mistake is in step 2, where the Statistics_Expert suggests using T"
+    },
+    "048-e5f2767e1b04": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n\nThe decisive mistake is in the second half of the steps. The error is due to a 'NameError' \n[5-9 mid7] FIRST :: VERDICT: FIRST (steps 5-7)\n\nThe decisive mistake is in the first half (steps 5-7) because the error in step 5 is due to \n[5-7 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n\nThe error is in the first half (steps 5-6) as the code execution failed in step 5 due to a K\n[5-6 mid5] FIRST :: VERDICT: FIRST (steps 5-5)\n\nThe error occurred in step 5 during the tool call, where the code execution failed due to a "
+    },
+    "051-8f84910e124b": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 2, which is in the first half of the steps (0-4). The error was a\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in step 2, where the code execution failed with a TypeError: 'NoneType' object \n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe error occurred in step 2 when the Computer_terminal tried to execute the code to perfor"
+    },
+    "050-6784fd6fd246": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nExplanation: The decisive mistake, if any, is not evident in the provided trace. However, th\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n\nExplanation:\nThe error, if any, in the first half (steps 0-1) is that the AudioProcessing_E\n[2-3 mid2] SECOND :: VERDICT: SECOND (steps 3-3)\n\nExplanation:\nThe error in the multi-agent run is not immediately apparent from the provided"
+    },
+    "052-25639162f57c": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error in step 2, where the function 'perform_web_search' is not defined, is not the decisive mistake that caused the\n[5-9 mid7] SECOND :: The decisive mistake is in the SECOND half (steps 8 to 9). The error is that the same search query was used again, which\n[8-9 mid8] FIRST :: The error in step 8 is that the search query used the same USGS article link as before, which did not contain the necess"
+    },
+    "053-908be3172c8e": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 5, which is in the second half of the steps provided (5-9). Howev\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error occurred in step 5, where the PDF file was not found. However, the mistake that le\n[0-2 mid1] FIRST :: The decisive mistake is in the first step (step 1), where the InformationExtraction_Expert decided to perform a web sear\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error occurred in the first step because the task was not clearly defined. The task desc"
+    },
+    "054-c81ed3b0a45a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe error, if any, is not evident in the provided trace. However, the decisive mistake, if i\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error, if any, is not apparent in the provided trace up to step 3. The instructions are \n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nExplanation: The error is in the first step because the task description and the manager's p"
+    },
+    "057-3196a02a724f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nExplanation: The error is not in the steps provided, but in the initial task description. Th"
+    },
+    "056-0e66261209b3": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) as the error in code formatting in ste\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error occurred in the first half of the steps. The issue was with the incorrect code blo\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is in the first step. The ImageProcessing_Expert did not provide the actual fracti\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is in the first step itself, as the task description and the manager's plan are no"
+    },
+    "058-f0ccb40243d8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error, if any, is not in the first half of the steps. The agents are correctly following\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe decisive mistake, if any, is not in the first half (steps 0-1) as the instructions and "
+    },
+    "055-238f0c23d791": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4). The agent is not following the plan p\n[0-4 mid2] FIRST :: The decisive mistake is in the FIRST half (steps 0-2). The agent did not follow the instructions to check the edit histo\n[0-2 mid1] FIRST :: The decisive mistake is in the FIRST half (steps 0-1). The agent did not follow the instructions to check the edit histo\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe decisive mistake is in the first step itself, as the agent did not follow the instructio"
+    },
+    "062-1d3b288462be": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0), however, there seems to be a mistake in the provided information as the accusative form of \""
+    },
+    "061-d5e74f5edef1": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 2, which is in the first half of the given steps (steps 0-4). The\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error, if any, is not evident in the provided trace. However, the decisive steps that le\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n\nThe decisive mistake is not present in the trace provided. However, if we were to assume th\n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)\n\nThe error, if any, is not evident from the provided trace. However, the decisive mistake, if"
+    },
+    "060-6df45b66a14f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe error, if any, is not evident in the provided trace. However, the decisive mistake, if i\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error, if any, is not in the first half (steps 0-1) as all instructions and data request\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nExplanation: The error is in the first step because the HawaiiRealEstate_Expert did not foll"
+    },
+    "066-4835ec93a6d1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake, if any, is not evident in the provided trace. However, the error, if i\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error, if any, is not in the provided trace. The instructions and calculations seem to b"
+    },
+    "063-945c18bc1c72": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half. The decisive mistake is that the Computer_terminal did not e\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is not in the provided trace. However, if we were to assume an error, it would be \n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nExplanation: The error is not in the provided trace. However, if we were to assume an error,"
+    },
+    "064-67329dda61f8": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error, if any, is not evident in the provided trace. However, the decisive mistake, if i\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n\nExplanation: The error occurs in step 3 when the DataAnalysis_Expert assumes that the passe\n[3-4 mid3] SECOND :: The error, if any, seems to be in the second half (steps 4-4). However, the provided trace does not show any errors. The"
+    },
+    "065-a16ae072deff": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The error in step 2, where the web search execution failed, is the decisive mistake that caused the failure. This error \n[5-9 mid7] FIRST :: The error in the trace appears to be a repetition of steps 5 and 8, where both the Web_Design_Expert and GraphicDesign_E\n[5-7 mid6] FIRST :: The error in step 2, where the web search failed, was not properly handled and propagated to the subsequent steps. The a\n[5-6 mid5] SECOND :: The error in step 5 is that the agent assumes it cannot directly navigate using the link provided, which is incorrect as"
+    },
+    "069-5486f0bb8912": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) of the trace. The error occurs in step\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n\nThe decisive mistake is in step 4, where the execution of the OCR script fails due to the T\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "068-54f5f481feb1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is not present in the given trace as the conversation ends with the cor\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake, if any, is not evident in the provided trace. However, the error, if i\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe trace shows that the agent is correctly following the instructions and there are no erro"
+    },
+    "067-d7caaed0d413": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nExplanation: The error in the trace is that the Behavioral_Expert and Validation_Expert are \n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n\nExplanation:\nThe error in the multi-agent run occurs in step 3, where the Computer_terminal\n[2-3 mid2] FIRST :: VERDICT: FIRST (steps 2-2)\n\nExplanation:\nThe error in the multi-agent run is in step 2, where the Validation_Expert inco"
+    },
+    "071-03b230b92593": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) as the initial output from the script \n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half (steps 0-2) because the initial script used to find the numbe\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe error occurred in step 2, where the Computer_terminal tool call returned an incorrect n"
+    },
+    "073-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first step (step 0) where the function 'seek_experts_help' is\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is in the first step, where the function `seek_experts_help` is not found. This is\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is in the first step itself, as the function `seek_experts_help` is not found."
+    },
+    "072-c6399b46fd3c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error is in the first half of the steps (steps 0-4). The issue is that the column names \n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half (steps 0-2) because the incorrect column names were used in t\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error occurred in the first half (steps 0-1) because the DataAnalysis_Expert did not pro\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error occurred in the first step because the DataAnalysis_Expert provided incorrect colu"
+    },
+    "070-0528f540243a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the initial attempt to extract\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half (steps 0-2) because the OCR function was called on a .docx fi\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake is in the first half (steps 0-1). The error is that the Optical Charact\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe decisive mistake is in the first step (step 0) where the DataExtraction_Expert did not s"
+    },
+    "074-27ef8756352a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4). The error is in the initial calculati\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half (steps 0-2). The issue is that the Computer_terminal in step \n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe error is in step 2 where the Computer_terminal tool call does not output the check digi"
+    },
+    "077-a1dc061cb971": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n\nThe decisive mistake is in the second half of the steps, specifically at step 5 where the W\n[5-9 mid7] FIRST :: VERDICT: FIRST (steps 5-7)\n[5-7 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n[5-6 mid5] FIRST :: VERDICT: FIRST (steps 5-5)"
+    },
+    "075-dc792a0fa32f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half (steps 0-2) because the output of the code execution in step \n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is not in the provided trace. However, if we assume that the error is in the code \n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nExplanation: The error, if any, is not evident in the provided trace. However, the task desc"
+    },
+    "080-252fc8554126": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-5 mid2] SECOND :: VERDICT: SECOND (steps 3-5)\n[3-5 mid4] FIRST :: VERDICT: FIRST (steps 3-4)\n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)"
+    },
+    "078-e16678e8c43e": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the agents are unable to proce\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2). The exact issue is that the Wikipedia\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe decisive mistake is in step 2, where the Computer_terminal is unable to execute any cod"
+    },
+    "076-769191cea270": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is not present in the given trace. However, if we were to assume a hypo\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is not in the first half (steps 0-2) as the Clinical_Trial_Data_Analysis_Expert is\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is not in the provided trace. However, if we were to assume an error, it would be \n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error, if any, is not in the provided steps. The task description and plan for solving t"
+    },
+    "079-72b0c0014ede": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is not immediately apparent from the provided trace, but the decisive mistake is l\n[0-2 mid1] FIRST :: The decisive mistake is not present in the provided trace. However, if we were to assume a hypothetical error, such as t\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is not in the provided trace. However, if we consider that the error could be in t"
+    },
+    "083-b73a239fdad1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the initial scraping of the Su\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error occurred in the initial scraping of the Survivor winners data, which returned zero\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error occurred in the first step as the script returned a count of zero for unique winne\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe error occurred in step 1, where the script to scrape the list of Survivor winners from "
+    },
+    "082-933179cfbd8d": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nExplanation: The decisive mistake is in step 2, where the Computer_terminal is searching for\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n\nThe decisive mistake is in step 2, where the Computer_terminal tool_call fails to find the \n[2-3 mid2] FIRST :: VERDICT: FIRST (steps 2-2)\n\nExplanation: The decisive mistake is in step 2, where the Computer_terminal tool_call is sea"
+    },
+    "081-6b8e879881c0": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) as the error is due to the incorrect i\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2). The initial error is due to the incor\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake is in the first step, as the error in initializing the WebDriver in ste\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe decisive mistake is in the first step (step 0), specifically in the initialization of th"
+    },
+    "084-8cad8cae382d": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4). The error is in the initial concatena\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half of the steps. The mistake is in step 0 where the instruction \n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe error occurred in step 2, where the Python script concatenated the array of strings inc"
+    },
+    "085-dc5e30ffc725": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe decisive mistake was made in step 3, where the Literature_Expert correctly identified th\n[0-3 mid1] SECOND :: The decisive mistake was made in the FIRST half (steps 0-1), but it was not an error. The error was in the citation itse\n[2-3 mid2] SECOND :: VERDICT: SECOND (steps 3-3)"
+    },
+    "086-e5db53c29991": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the OCR process did not produc\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) because the OCR (Optical Character Rec\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe decisive mistake is in step 2, where the OCR process did not produce any result, leadin"
+    },
+    "088-3a55b5705c39": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error occurred in step 2 when the Computer_terminal was unable to execute the web search\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe error occurred in step 2 when the Computer_terminal failed to execute the web search du"
+    },
+    "090-e273f2fabe96": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 3, which is in the first half of the steps (0-4). The error was d\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n\nThe error occurred in step 3 when the `get_youtube_caption` function encountered an error b\n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)"
+    },
+    "089-93088535fb95": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe trace does not indicate any errors or failures in the provided steps. However, if we wer\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake is not present in the given trace. However, if we were to hypotheticall\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe trace does not indicate a failure, but I assume that the failure is in the task descript"
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half of the steps (0-4). The error lies in the initial \n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) because the initial web search did not\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error is in the first half (steps 0-1) because the initial instructions provided to the \n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is in the initial instruction given to the agents. The instruction does not provid"
+    },
+    "091-23de28edf643": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe error, if any, is not evident in the provided trace. However, the decisive mistake, if i\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error, if any, is not evident in the provided trace. However, the decisive steps are 0 a\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error, if any, is not in the provided trace. The first step (step 0) correctly interpret"
+    },
+    "094-7e3d81abcddf": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nExplanation: The decisive mistake is in the first step (step 0) where the PythonDebugging_Ex\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "092-a5a8d627e455": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the error in step 2, where the\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) as the error occurs in step 2 where th\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake is in the first step (step 0) where the VideoContentAnalysis_Expert did\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe decisive mistake is in step 1, where the `youtube_download` function is not defined. Th"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the agent is unable to locate \n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) because the correct paper was not foun\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake is in the first step, where the agent is given the task to extract info\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is in the first step itself, as the task description and the general task are not "
+    },
+    "095-91ab842a22b2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error, if any, is not evident in the provided trace. However, the decisive mistake, if i\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n\nThe decisive mistake is in step 3, where the DataExtraction_Expert initially tried to extra\n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)\n\nExplanation: The error, if any, is in the first half (steps 3-3) because the decisive mistak"
+    },
+    "097-aa341e34fc51": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error, if any, is not evident in the provided trace. However, the decisive steps where a\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0), although the error is not apparent in the provided trace. The error might be in the task for"
+    },
+    "096-89be76878d79": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake was made in step 3, where the API_Expert incorrectly assumed that no is\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake was in the first half (steps 0-2). The error was in step 3 where it was\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe error in step 2 is that the label \"Regression\" was used instead of the correct label \"0"
+    },
+    "099-59e337ae1fbb": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-6 mid3] SECOND :: VERDICT: SECOND (steps 4-6)\n\nThe error is in step 6 where the Data_Collection_Expert decides to terminate the process pr\n[4-6 mid5] SECOND :: The error occurs in step 6 where the Data_Collection_Expert decides to terminate the process prematurely. This is not th"
+    },
+    "098-43bbd8019fea": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 4, where the code provided to the Computer_terminal for performin\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in step 2, where the Computer_terminal did not execute the code provided by the\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe error occurred in step 2 when the Computer_terminal was unable to execute the code prov"
+    },
+    "101-7011a3ca2fe8": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: VERDICT: SECOND (steps 5-9)\n\nExplanation: The decisive mistake is in step 7, where the execution failed due to the absen\n[5-9 mid7] FIRST :: VERDICT: FIRST (steps 5-7)\n[5-7 mid6] SECOND :: VERDICT: SECOND (steps 7-7)"
+    },
+    "100-364b09fd59b8": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error is in the first half of the steps. The issue is that the correct jersey number of \n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half of the steps (0-2). The issue is that the Computer_terminal i\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error occurred in the first step because the task was not clearly defined for the Comput\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is in the first step because the task was not clearly defined. The task descriptio"
+    },
+    "102-a6862e302014": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the issue lies in the incorrec\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) because the initial web search was per\n[0-2 mid1] FIRST :: The decisive mistake is in the FIRST half (steps 0-1). The error is in the initial web search query, which is causing th\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe decisive mistake is in step 1, where the Literature_Expert uses an incorrect query for "
+    },
+    "103-5593276388b1": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 4, where the execution of the code to retrieve the menu from the \n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)\n\nThe error occurred in step 4, which is a tool call to extract the menu from the Wayback Mach"
+    },
+    "104-9f0fb174fad0": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the error is in the initial co\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) because the code execution failed in s\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is in the initial instruction given to the Excel_Expert. The instruction does not "
+    },
+    "105-7a7794e34798": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe decisive mistake is in the first half (steps 0-3). The error is that the 'data.txt' file\n[0-3 mid1] SECOND :: VERDICT: SECOND (steps 2-3)\n[2-3 mid2] FIRST :: VERDICT: FIRST (steps 2-2)\n\nThe decisive mistake is in the first half (steps 2-2) as the error is identified and steps t"
+    },
+    "106-00e6e023a028": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-8 mid4] SECOND :: VERDICT: SECOND (steps 5-8)\n\nThe error in the first half (steps 0-4) is that the Fashion_Vogue_Expert did not download t\n[5-8 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n\nThe decisive mistake is not present in the given trace. However, if we were to consider a hy\n[5-6 mid5] FIRST :: VERDICT: FIRST (steps 5-5)\n\nThe decisive mistake is not present in the given trace. However, if we were to consider a hy"
+    },
+    "107-de407cd051d7": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe trace does not indicate any errors in the first half (steps 0-3), but the error is not a\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error, if any, is not evident in the provided trace. However, the decisive mistake, if i\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe trace provided does not indicate any errors in the first two steps. The task is correctl"
+    },
+    "108-13c9a4c03793": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 2, which is in the first half of the given steps (steps 0-4). The\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error occurred in step 2 when the `DataAnalysis_Expert` tried to explore the CSV file bu\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error occurred in the first half (steps 0-1) because the incorrect file was downloaded i\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe error occurred in step 1 when the DataAnalysis_Expert tried to explore the already down"
+    },
+    "110-e240abd96f2e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 4, where the Bing web search was not performed correctly due to a\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)"
+    },
+    "109-33e9e888adb4": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe error occurred in step 5, but the decisive mistake was made in step 4. The Chess_Expert \n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n\nExplanation:\nThe decisive mistake is in step 4, where the Chess_Expert tries to use the `im\n[3-4 mid3] SECOND :: VERDICT: SECOND (steps 4-4)"
+    },
+    "111-bb45c75cb2de": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe decisive mistake is in the first half (steps 0-3). The Library_Database_Expert's initial\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)"
+    },
+    "112-7d8dcb80a290": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-8 mid4] SECOND :: VERDICT: SECOND (steps 5-8)\n[5-8 mid6] FIRST :: VERDICT: FIRST (steps 5-6)\n\nThe decisive mistake is in step 5, where the function 'perform_web_search' is not defined, c\n[5-6 mid5] FIRST :: VERDICT: FIRST (steps 5-5)"
+    },
+    "114-af259c3de825": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) as the error occurs in step 4 when the\n[0-4 mid2] SECOND :: VERDICT: SECOND (steps 3-4)\n\nThe decisive mistake is in step 4, where the Python script failed to find the table with id\n[3-4 mid3] FIRST :: VERDICT: FIRST (steps 3-3)\n\nThe error occurred in step 3 when the DataAnalysis_Expert tried to scrape data from the Base"
+    },
+    "113-ccbf973529c4": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4). The error is that the CSV file 'apple\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2). The error is in step 1 where the Pyth\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake is in the first half (steps 0-1). The error is an indentation issue in \n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is in the first step itself, where the code provided has an indentation error. Thi"
+    },
+    "115-03d92b3118e2": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is not present in the given trace as the conversation seems to be progr\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error, if any, is not in the provided trace. However, if we were to consider a potential\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nExplanation: The failure in this multi-agent run is not due to a mistake, but rather because"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half of the steps (0-4). The agents are correctly follo\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error is in the first half of the steps. The issue is that the search for the dissertati\n[0-2 mid1] SECOND :: The decisive mistake is in the first step, where the Art_Expert provided a shell script to search for the dissertation, "
+    },
+    "118-d69039766c83": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half of the steps (0-4) because the error is that the c\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) because the code causing the error was\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake is in the first half (steps 0-1) because the code was not provided in t\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)"
+    },
+    "117-b056cbb2e661": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4). The error is in the initial assumptio\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2). The error is in the initial code prov\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake is in the first step (step 0), where the instructions provided to the D\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nThe error is in the initial instruction given to the Data_Analysis_Expert. The instruction a"
+    },
+    "120-3ea26fdedd38": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is not in the provided trace. However, if we were to assume a mistake, \n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) because the Computer_terminal is not e\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe decisive mistake is in step 2, where the Ornithology_Expert tries to perform a web sear"
+    },
+    "119-6ec2674e0d3a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe error, if any, is not in the steps provided. However, if we consider that the task was t\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nExplanation: The error in the first half (steps 0-1) is that the JamesBondFilms_Expert did n\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0)\n\nExplanation: The error in the first step (step 0) is that the JamesBondFilms_Expert did not "
+    },
+    "121-62bf36bb4ce7": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake was in step 2, where the function 'perform_web_search' was not defined,\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2). The error is in step 2, where the fun\n[0-2 mid1] SECOND :: VERDICT: SECOND (steps 2-2)\n\nThe error occurred in step 2 when the function 'perform_web_search' was not defined, causin"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake was in step 2, where the function 'scrape_wikipedia_tables' was not def\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) because the error occurs in step 2 whe\n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe decisive mistake is in step 2, where the function 'scrape_wikipedia_tables' is not defin\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)\n\nThe error occurred in step 1, where the function 'scrape_wikipedia_tables' was not defined "
+    },
+    "124-d60e28a0fa62": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe decisive mistake, if any, is not evident in the provided trace. However, the error, if i\n[0-3 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error, if any, is not evident in the provided trace. However, the decisive steps in this\n[0-1 mid0] SECOND :: VERDICT: SECOND (steps 1-1)"
+    },
+    "125-a445e2da8734": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: VERDICT: FIRST (steps 0-3)\n\nThe error, if any, is not apparent in the provided trace. However, the decisive mistake, if \n[0-3 mid1] FIRST :: The decisive mistake is not present in the provided trace as the calculations and verifications seem to be correct. Howe\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0), however, the step 0 instruction is complete and does not contain any errors. The error, if a"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: VERDICT: FIRST (steps 0-4)\n\nThe decisive mistake is in the first half (steps 0-4) because the scraping attempts in steps\n[0-4 mid2] FIRST :: VERDICT: FIRST (steps 0-2)\n\nThe decisive mistake is in the first half (steps 0-2) because the scraping of the Wikipedia \n[0-2 mid1] FIRST :: VERDICT: FIRST (steps 0-1)\n\nThe error occurred in the first half (steps 0-1) because the WikipediaHistory_Expert did not\n[0-1 mid0] FIRST :: VERDICT: FIRST (steps 0-0), although the mistake is more in the task description than the agent's action. The task descr"
+    }
+  }
+}

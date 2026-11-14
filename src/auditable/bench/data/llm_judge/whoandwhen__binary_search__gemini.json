@@ -1,0 +1,896 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "binary_search",
+    "model": "gemini",
+    "n_runs": 126,
+    "prompt_sha": "292b9b0a0d4c",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "003-cfa39baedf59": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake is the agent fabricating information instead of using a tool to find it.\n\nIn **Step 2**, the `Ticke\n[0-3 mid1] SECOND :: The decisive mistake is the agent presenting pricing information without actually looking it up using a tool. This first\n[2-3 mid2] FIRST :: The decisive mistake is the agent fabricating information instead of searching for it.\n\nIn step 1, the agent correctly s"
+    },
+    "002-a04041638aa4": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in the first half.\n\nThe plan laid out in **step 0** has a clear division of labor:\n1.  **Mov\n[0-4 mid2] FIRST :: The original plan laid out in step 0 was:\n1.  **Movie_Expert** identifies **all** movies featuring Daniel Craig.\n2.  **D\n[0-2 mid1] SECOND :: The decisive mistake is in step 2.\n\nThe plan in step 0 states:\n1.  The movie expert will identify **all** the movies fea"
+    },
+    "000-7b14128ce504": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-5 mid2] SECOND :: The decisive mistake is in Step 4.\n\nThe trace describes a failed run, which means the final answer of 4 is incorrect.\n\n*\n[3-5 mid4] FIRST :: The decisive mistake is in Step 4. The `DataVerification_Expert` claims to have verified the result, stating \"The result\n[3-4 mid3] SECOND :: The decisive mistake is in step 4.\n\nStep 3 is merely the execution of the code written in step 2. The computer successfu"
+    },
+    "001-5697e89b281b": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred when the agent accepted a flawed plan from the manager.\n\nThe \"General Task\" asks for the p\n[0-4 mid2] FIRST :: The decisive mistake is the agent's failure to solve the actual problem statement. The \"General Task\" asks for the popul\n[0-2 mid1] SECOND :: The decisive mistake is in step 2.\n\nIn step 0, the `Validation_Expert` is given a very specific, simplified task by the "
+    },
+    "005-b82f729abea8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in step 3. The `DataVerification_Expert` writes a piece of Python code to check the operatin\n[0-4 mid2] SECOND :: The decisive mistake is the writing of non-robust code in Step 3.\n\n*   **Steps 0-2:** The process is logical. The agent \n[3-4 mid3] FIRST :: The decisive mistake is in step 3. The agent wrote a Python script that assumes the `perform_web_search` function will a"
+    },
+    "004-d57d322d4115": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is the initial data gathering step. In step 1, the Filmography_Expert creates a list of \"some of th\n[0-4 mid2] FIRST :: The decisive mistake is in Step 1.\n\nThe `Filmography_Expert` created an incomplete list of Isabelle Adjani's films, stat\n[0-2 mid1] FIRST :: The decisive mistake happens in step 1.\n\nThe plan in step 0 is to \"Obtain a list of feature films starring Isabelle Adja\n[0-1 mid0] SECOND :: The decisive mistake is the very first action taken by an agent.\n\nIn step 0, the agent is simply presented with the task"
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake occurs in step 3.\n\nIn step 3, the agent switches from a failed automated approach to a manual one. \n[0-3 mid1] SECOND :: The decisive mistake is in Step 3.\n\nIn step 1, the agent correctly identifies a method (using a script) to solve the pro\n[2-3 mid2] SECOND :: The decisive mistake is in step 3.\n\nIn step 2, the `Computer_terminal` correctly executes the Python script. The script "
+    },
+    "006-b40c7e455b08": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is the agent's choice to invent a generic debugging script instead of first asking for the code tha\n[0-4 mid2] FIRST :: The decisive mistake is the agent's action in step 2.\n\nIn step 0, the agent is given a task to debug a failure with the \n[0-2 mid1] SECOND :: The decisive mistake occurs in the second half.\n\nIn step 0 and 1, the agent and tool correctly identify that no code has"
+    },
+    "008-00a173727b41": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurs in Step 1. The `Verification_Expert` is tasked with reviewing collected data, but no data ha\n[0-2 mid1] FIRST :: The decisive mistake is the agent's action in step 1.\n\nIn step 0, the agent is given a task to *verify* a price by revie\n[0-1 mid0] SECOND :: The decisive mistake occurs in Step 1.\n\nIn Step 0, the `DataAnalysis_Expert` is simply given its task and instructions. "
+    },
+    "009-537a267c0756": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive mistake is a logical error, not a technical one.\n\n*   In the **FIRST half**, the `NameError` in step 3 is a\n[4-7 mid5] SECOND :: The decisive mistake is the misinterpretation of the search results, which occurs in step 6.\n\nIn step 5, a web search is\n[6-7 mid6] FIRST :: The task is to find the link to dog genome files relevant in **May 2020**.\n\nIn step 5, the web search returns several re"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in step 4.\n\nIn step 3, the `Grocery_Expert` correctly identified that the initial list of st\n[0-4 mid2] SECOND :: The agents' actions in the first half (steps 0-2) are logical. They are given a task to verify a list of stores (Menards\n[3-4 mid3] FIRST :: The decisive mistake occurs in step 3.\n\nIn step 3, the `Grocery_Expert` correctly deduces that the initial list of super"
+    },
+    "010-12509faada72": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in the first half of the trace.\n\nIn **Step 2**, the `Corporate_Governance_Expert` agent pres\n[0-4 mid2] FIRST :: The decisive mistake occurs in the first half.\n\nIn step 0, the plan is to investigate a specific, pre-defined list of fi\n[0-2 mid1] FIRST :: The decisive mistake occurs in the first half. In step 0, the plan is to investigate a specific, pre-determined, and inc\n[0-1 mid0] FIRST :: The decisive mistake is accepting a flawed plan in Step 0. The plan prematurely narrows the investigation to a specific "
+    },
+    "012-d731749a39ca": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The trace shows a series of failed attempts to extract Mercedes Sosa's discography. Let's analyze the steps.\n\n*   **Step\n[0-4 mid2] SECOND :: The decisive mistake is in step 4.\n\nIn step 3, the agent successfully gets search results. The top result is the main Me\n[3-4 mid3] SECOND :: The decisive mistake happens in step 4.\n\nIn step 3, the computer terminal correctly returns two search results. The firs"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake occurs in step 3. The original task was to *discover* hikes that meet two criteria: 1) recommended \n[0-4 mid2] SECOND :: The decisive mistake is the agent's failure to first search for hikes recommended by people with kids. The original task\n[3-4 mid3] FIRST :: The decisive mistake is the code written in step 3. The agent writes a Python script to iterate through search results. "
+    },
+    "016-2f776a306c77": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake occurs in the first half of the trace.\n\nIn **step 3**, the agent decides to write a Python script t\n[0-4 mid2] SECOND :: The decisive mistake occurs in Step 3.\n\n*   **Step 0-2:** The agent correctly formulates a plan (Step 1) and executes an\n[3-4 mid3] FIRST :: The decisive mistake is in step 3. The agent wrote a Python scraper designed to extract information (like `reviewCount`)"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The run fails because the agents are unable to acquire actual historical weather data and resort to using unreliable moc\n[0-4 mid2] FIRST :: The decisive mistake is the agent's initial assumption that the required data was already present in a local file named \n[0-2 mid1] FIRST :: The decisive mistake is the agent's assumption in step 0 that a local CSV file named `chicago_weather_data.csv` already \n[0-1 mid0] FIRST :: The decisive mistake is the agent's decision in step 0. The agent was tasked with *collecting* historical weather data. "
+    },
+    "017-3f81e1d1cad3": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The task is to find the smallest house sold in Prince Edward Island based on real data from Zillow. The agents are given\n[0-3 mid1] FIRST :: The decisive mistake is the agent's assumption that the file `sample_real_estate_data.csv` exists without first verifyin\n[0-1 mid0] SECOND :: The user's prompt is \"Verify the correctness of the sample dataset and the function...\".\n\nIn step 0, the `DataAnalysis_E"
+    },
+    "018-874e62353ead": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurs in the first half of the trace.\n\nIn **[step 1]**, the `Verification_Expert` correctly identi\n[0-3 mid1] FIRST :: The decisive mistake occurs in the first half of the trace.\n\nIn **Step 1**, the `Verification_Expert` is tasked with fin\n[0-1 mid0] SECOND :: The decisive mistake is in step 1.\n\nThe task is to *verify* the costs for 2024. In step 0, the ProblemSolving_Expert cor"
+    },
+    "019-2c7247a57061": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is the agent's decision to use a specific filename (`real_estate_transactions.csv`) without first v\n[0-4 mid2] FIRST :: The decisive mistake was made in Step 1. The agent assumed the data was in a file named `real_estate_transactions.csv` w\n[0-2 mid1] FIRST :: The decisive mistake is the agent's assumption in step 1. The `DataManipulation_Expert` decides to write and execute cod\n[0-1 mid0] SECOND :: The decisive mistake is in step 1. The agent `DataManipulation_Expert` assumes the existence of a file named `real_estat"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: An analysis of the trace reveals the following:\n\n*   **Steps 0-4 (FIRST half):** The agents start by trying to read a lo\n[5-9 mid7] FIRST :: An analysis of the trace reveals the following:\n\n1.  **Step 5 (DataAnalysis_Expert):** The agent writes a script to fetc\n[5-7 mid6] FIRST :: The decisive mistake is the code generated in step 5, which, when executed in step 6, yields a highly improbable result \n[5-6 mid5] FIRST :: The user wants me to identify the decisive mistake between steps 5 and 6.\n\n1.  **Analyze Step 5 (DataAnalysis_Expert):**"
+    },
+    "020-85a096b8759f": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is the agent's decision to invent a hypothetical problem instead of investigating the actual one.\n\n\n[0-3 mid1] SECOND :: The task is to debug an error message: `unknown language json`.\n\n1.  **Step 0 (JSON_Expert):** The agent correctly recei\n[2-3 mid2] SECOND :: The initial plan in step 1 was to create a mockup script that *triggers* the error in order to analyze it. Step 2 simply"
+    },
+    "022-ae51d1d52d64": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-7 mid3] FIRST :: The original task is to find real gyms within 5 miles (by car) of the Mothman Museum.\n\n*   **Step 0:** The agent correct\n[0-3 mid1] SECOND :: The agent in step 2 correctly identifies that the previous step produced no output and that the original plan to use the\n[2-3 mid2] SECOND :: The agent in step 2 correctly identifies that a mapping API is needed to calculate driving distances, which is the corre"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake occurs in Step 1.\n\nIn Step 1, the `Verification_Expert` agent generates a list of stops for the Fra\n[0-2 mid1] FIRST :: The decisive mistake occurs in Step 1.\n\nThe agent, Verification_Expert, is tasked with listing the stops on the Franklin\n[0-1 mid0] SECOND :: The decisive mistake is in step 1.\n\nIn step 1, the agent generates an incorrect list of stops for the Franklin-Foxboro l"
+    },
+    "021-9d62146b7652": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is the first action that derails the process from achieving its goal of using *real* historical dat\n[0-4 mid2] FIRST :: The decisive mistake is in the first half of the trace.\n\nIn step 1, the `Statistics_Expert` correctly outlines the plan,\n[0-2 mid1] FIRST :: The decisive mistake is the agent's decision in step 1.\n\nIn step 1, the `Statistics_Expert` creates a plan and then imme\n[0-1 mid0] SECOND :: The decisive mistake occurs in step 1.\n\nIn step 0, the `WeatherData_Expert` is given a sound plan: first, collect the da"
+    },
+    "024-aa646cf62171": {
+      "top": 9,
+      "ranking": [
+        9
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is the first point where the agent's logic fails to correctly apply the constraints of the original\n[5-9 mid7] SECOND :: The decisive mistake is in the second half of the provided steps.\n\n*   **Steps 5-7 (First Half):** The agent attempts to\n[8-9 mid8] SECOND :: The task is to find restaurants *within 1 block* of Washington Square Park.\n\nIn step 8, the Vegan_Food_Expert correctly "
+    },
+    "025-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is the agent's failure to recognize that it lacks the necessary information (the original code) to \n[0-3 mid1] FIRST :: The decisive mistake occurs in Step 1.\n\nThe task is to debug a pre-existing error: `exitcode: 1 (execution failed) Code \n[0-1 mid0] SECOND :: The decisive mistake is in step 1. The agent is tasked with debugging a *real* error that has already occurred (\"exitcod"
+    },
+    "027-6479bd8a2bba": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in step 3. The agent attempts to use the `geopy` library with the `Nominatim` geocoder but f\n[0-4 mid2] SECOND :: The decisive mistake occurs in step 3. The `Paintball_Expert` agent writes a Python script using the `geopy` library. Th\n[3-4 mid3] FIRST :: The decisive mistake is the agent's choice of tool and implementation in Step 3. The agent decided to use the `geopy` li"
+    },
+    "026-945822c59fe9": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is that the agents never checked for wheelchair accessibility, which was a core requirement of the \n[5-9 mid7] FIRST :: The decisive mistake occurs in the FIRST half.\n\nIn step 7, the `Accessibility_Expert` confidently lists the addresses fo\n[5-7 mid6] SECOND :: The decisive mistake is in step 7.\n\nIn step 6, the agent successfully runs a web search to gather information. While it "
+    },
+    "028-3a559ca1aea1": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is the code generated in step 8.\n\nIn steps 2 and 5, the agent correctly included the line `from fun\n[5-9 mid7] SECOND :: The decisive mistake is in the second half of the sequence.\n\nIn step 7, the Validation_Expert correctly identifies the u\n[8-9 mid8] FIRST :: The decisive mistake is in step 8. The `Research_Expert` agent writes a Python script to perform a web search, but it fo"
+    },
+    "029-606d391c364b": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is a faulty assumption made early in the process.\n\nIn **step 3**, the agent identifies Anderson's M\n[0-4 mid2] FIRST :: The decisive mistake occurs in step 2.\n\nThe plan outlined in steps 0 and 1 is to first identify the location of the NYSE\n[0-2 mid1] SECOND :: The decisive mistake occurs in step 2.\n\n*   **Step 0 & 1:** These steps correctly set up the task and reiterate the plan"
+    },
+    "030-0319cbd03980": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake occurs in the first half of the trace.\n\nIn **Step 1**, the agent writes code to perform a web searc\n[0-3 mid1] FIRST :: The decisive mistake is the code written in step 1.\n\nIn step 1, the agent writes code to iterate over the results of `pe\n[0-1 mid0] SECOND :: The decisive mistake is in step 1. The agent writes a piece of Python code to perform a web search. The code includes a "
+    },
+    "031-da9aec084a98": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake happens in the second half.\n\nIn step 2, the `perform_web_search` tool call fails to assign the resu\n[5-9 mid7] FIRST :: The decisive mistake occurs in Step 7.\n\nIn Step 7, the `Verification_Expert` agent writes code to analyze images. Howeve\n[5-7 mid6] SECOND :: The decisive mistake is in step 7.\n\nIn steps 5 and 6, the agents are discussing the plan. The ArtHistory_Expert correctl"
+    },
+    "032-af0933cfcd09": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is a complete deviation from the provided plan. The plan clearly states the first steps are to:\n1. \n[0-4 mid2] FIRST :: The provided plan in step 0 correctly outlines the initial steps needed to solve the problem: \"1. Identify the TV show t\n[0-2 mid1] FIRST :: The decisive mistake happens in Step 1.\n\nThe plan in Step 0 correctly outlines the necessary steps:\n1. Identify the TV s\n[0-1 mid0] SECOND :: The decisive mistake is in step 1.\n\nIn step 0, the agent is given a logical plan:\n1. Identify Ali Khan's TV show from 20"
+    },
+    "033-620b58b7aa60": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The user wants me to identify the \"decisive mistake\" that caused the run to fail, and to locate it within the first or s\n[0-4 mid2] SECOND :: The trace shows the following sequence of events:\n\n1.  **Steps 0-2:** The `Dictionary_Expert` correctly writes and execu\n[3-4 mid3] SECOND :: The decisive mistake occurs in step 4.\n\nIn step 3, the agent correctly defines the Boggle board as a data structure. Thi"
+    },
+    "035-a3d5b34baf48": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in step 4.\n\nThe original task requires finding the population of Greenland \"According to Wik\n[0-4 mid2] SECOND :: The decisive mistake occurs in step 4.\n\nThe task explicitly requires finding the population according to Wikipedia *as o\n[3-4 mid3] SECOND :: The decisive mistake occurs in step 4.\n\nIn step 3, the `Verification_Expert` correctly identifies the need to use the Wa"
+    },
+    "034-04dc240da7b8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in step 4.\n\nIn step 3, the agent correctly identifies that the API call failed and proposes \n[0-4 mid2] FIRST :: The decisive mistake is the agent's attempt to use a tool for which it does not have the proper credentials.\n\n1.  **Step\n[0-2 mid1] FIRST :: The decisive mistake is the agent's decision in step 1 to attempt to retrieve captions before it has even identified the\n[0-1 mid0] SECOND :: The decisive mistake is the decision in step 1 to use a YouTube captioning tool without first verifying that the agent h"
+    },
+    "037-14508845755c": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The agents' task is to debug code, but they are not given the code in the initial prompt (Step 0).\n\n1.  **[Step 1] (Debu\n[0-4 mid2] FIRST :: The decisive mistake occurs in the first half.\n\nIn step 1, the `DebuggingTesting_Expert` correctly identifies that it ne\n[0-2 mid1] SECOND :: The decisive mistake is the action taken in step 2.\n\nIn step 1, the `DebuggingTesting_Expert` correctly identifies that "
+    },
+    "036-88562a8be980": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is a breakdown in collaborative problem-solving.\n\nIn step 2, the Literature_Expert correctly propos\n[0-4 mid2] FIRST :: The decisive mistake occurs in Step 1.\n\nIn Step 1, the Python_Expert correctly identifies that it needs the text of the \n[0-2 mid1] FIRST :: The decisive mistake is the agent's failure to act.\n\n*   **Step 0:** The Poetry_Expert correctly sets up the task and pl\n[0-1 mid0] SECOND :: The decisive mistake is in step 1. The `Python_Expert` is tasked with analyzing the poem. Instead of taking the initiati"
+    },
+    "038-3c2adf8c14b1": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is the introduction of fabricated data. A quick search reveals that China did not participate in th\n[0-3 mid1] SECOND :: The decisive mistake is the agent inventing data instead of finding it.\n\n*   **[Step 0]** The DataAnalysis_Expert correc\n[2-3 mid2] FIRST :: The decisive mistake is in Step 2.\n\nThe `Verification_Expert` was supposed to follow the plan, which began with \"Collect"
+    },
+    "039-2b969539d7db": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is that the agent never actually obtained an API token.\n\nIn **Step 3**, the agent correctly researc\n[0-4 mid2] SECOND :: The decisive mistake occurs in step 3.\n\n*   **Step 0-2:** The agent correctly identifies the first step of the plan is t\n[3-4 mid3] FIRST :: The decisive mistake occurs in step 3.\n\nIn step 3, the `WebServing_Expert` summarizes the instructions on how to obtain "
+    },
+    "040-a181eb120cb2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurs in step 1.\n\nThe `MusicHistorian_Expert` incorrectly identifies the fifth single from the alb\n[0-2 mid1] FIRST :: The decisive mistake occurs in step 1.\n\nThe task is to find a word from the *fifth* single of Michael Jackson's sixth st\n[0-1 mid0] SECOND :: The initial task from the manager in step 0 contains a factual error: \"Identify the last word before the second chorus o"
+    },
+    "041-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The task given in step 0 states, \"the script is currently returning an error.\" However, in step 1, the agent runs the sc\n[0-2 mid1] FIRST :: The task is to debug an existing, faulty Python script.\n\nIn step 0, the agent is given the plan: \"1. Review the provided\n[0-1 mid0] FIRST :: The task is to debug a Python script that is \"currently returning an error\".\n\n1.  **Step 0 (PythonDebugging_Expert, deci"
+    },
+    "043-d53734deeead": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The original task is to \"Analyze and resolve the issue causing the code execution to fail with exit code 1 and output 'u\n[0-4 mid2] SECOND :: The decisive mistake is in step 4.\n\nIn step 2, the agent correctly identifies that it's missing the code required to sol\n[3-4 mid3] SECOND :: The decisive mistake is the agent's response to the repeated error.\n\n*   **Step 3:** The `Computer_terminal` correctly r"
+    },
+    "042-833c47739be2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in the first half of the trace.\n\nIn step 3, the `Church_Historian_Expert` agent decides to p\n[0-4 mid2] FIRST :: The decisive mistake occurs in the first half.\n\nIn step 1, the Art_Historian_Expert correctly identifies the first actio\n[0-2 mid1] FIRST :: The decisive mistake is in the FIRST half (steps 0 to 1).\n\nIn step 1, the `Art_Historian_Expert` is supposed to execute \n[0-1 mid0] SECOND :: The decisive mistake is in step 1.\n\nIn step 0, the Art_Historian_Expert correctly receives and understands the task and "
+    },
+    "045-c43d472268d8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake occurs in step 3.\n\nIn step 2, the search results provide a crucial piece of information from Girls \n[0-4 mid2] SECOND :: The decisive mistake is in step 3.\n\nIn step 2, the search results provide the correct information. Specifically, Search \n[3-4 mid3] FIRST :: The decisive mistake is the misinterpretation of the search results from step 2.\n\nIn step 2, the search results clearly "
+    },
+    "044-e214187ad13a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in the FIRST half (steps 0 to 4).\n\nIn step 1, the agent correctly formulates a plan to search fo\n[0-4 mid2] FIRST :: The decisive mistake is the initial attempt to find the paper.\n\nIn **Step 1**, the agent formulates a plan to search for\n[0-2 mid1] FIRST :: The decisive mistake is the agent's failure to include the date \"June 2022\" in its search query in Step 1.\n\n*   **Step 0\n[0-1 mid0] SECOND :: The decisive mistake is in the plan formulated in step 1.\n\n*   **Step 0** correctly identifies the task and the required"
+    },
+    "047-5d32c1eba366": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The task is to navigate to Carl Nebel's Wikipedia page, find the first citation link, follow it, and find a date in an i\n[5-9 mid7] FIRST :: The task is to find a date in an image on a webpage, which is found by following the first citation link on Carl Nebel's\n[5-7 mid6] SECOND :: The decisive mistake is in step 7.\n\nIn steps 5 and 6, the agent is inefficiently scrolling up and down the Wikipedia pag"
+    },
+    "046-2e76694a8fe5": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is the failure to first identify which racetrack is being played in the specified YouTube video. Th\n[0-4 mid2] SECOND :: The decisive mistake is the agent's failure to recognize and address the code execution error.\n\n*   **[Step 0] & [Step 1\n[3-4 mid3] FIRST :: The decisive mistake occurs in Step 3.\n\nIn Step 2, the web search fails, but the tool still returns some search results."
+    },
+    "048-e5f2767e1b04": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in Step 3. The `WebServing_Expert` claims to have found the answer (\"October 2, 2019\") witho\n[0-4 mid2] SECOND :: The decisive mistake is in Step 3.\n\nIn steps 0, 1, and 2, the agent correctly identifies the task and navigates to the r\n[3-4 mid3] FIRST :: The decisive mistake is in step 3. The WebServing_Expert makes a factual claim (\"October 2, 2019\") without providing any"
+    },
+    "049-324f53bff996": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive mistake is the agent's reaction to the timeout failure. In step 3, the attempt to install the necessary too\n[4-7 mid5] FIRST :: The original task requires extracting numbers from a provided image. In steps 0-3, the agent correctly identifies this a\n[4-5 mid4] FIRST :: The decisive mistake is in step 4.\n\nThe agent correctly identified that the previous step (extracting numbers from the i"
+    },
+    "050-6784fd6fd246": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurs in the first half of the trace.\n\nIn step 2, the `TranscriptionVerification_Expert` agent pre\n[0-3 mid1] FIRST :: The decisive mistake is that the `AudioProcessing_Expert` in step 0 did not perform its primary function, which is to pr\n[0-1 mid0] FIRST :: The decisive mistake occurs in step 0.\n\nThe `AudioProcessing_Expert` is tasked with listening to an audio file. Its role"
+    },
+    "051-8f84910e124b": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The user wants me to identify which half of the first 10 steps contains the decisive mistake.\n\n1.  **Analyze the task:**\n[0-4 mid2] FIRST :: The decisive mistake is the agent's failure to identify the correct version of OpenCV to investigate.\n\nThe general task \n[0-2 mid1] FIRST :: The user wants me to identify the first decisive mistake in the provided agent trace, limiting the search to steps 0-2.\n\n[0-1 mid0] SECOND :: The decisive mistake is the agent's failure to first verify the correct version of OpenCV that added support for the Mas"
+    },
+    "053-908be3172c8e": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in step 4.\n\nThe agent, InformationExtraction_Expert, decides to use a PDF extraction tool. H\n[0-4 mid2] SECOND :: The decisive mistake occurs in step 4.\n\nIn step 2, the agent successfully finds the correct JSTOR link to the book. In s\n[3-4 mid3] SECOND :: The decisive mistake is in step 4.\n\nIn step 3, the `DOI_Expert` correctly identifies the link to the book on JSTOR. Whil"
+    },
+    "052-25639162f57c": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The initial mistake in steps 0-4 was a `NameError` in step 1, which was immediately corrected in step 3. By step 4, the \n[5-9 mid7] FIRST :: The decisive mistake is the failure to act on the information already gathered.\n\nIn step 4, a promising USGS link is fou\n[5-7 mid6] FIRST :: The decisive mistake is the agents' failure to actually access the URL they identified as promising.\n\nIn **Step 5**, the\n[5-6 mid5] FIRST :: The agents successfully found a promising link from the USGS in step 4.\n\nIn step 5, the `AlligatorBiology_Expert` correc"
+    },
+    "054-c81ed3b0a45a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake occurs when the agent decides to work with only the *unique* wheel configurations. The task is to f\n[0-3 mid1] FIRST :: The decisive mistake is the plan to extract only the *unique* wheel configurations from the data. The task is to find th\n[0-1 mid0] FIRST :: The task is to find the total number of wheels for all listed steam locomotives. This requires knowing the wheel configu"
+    },
+    "055-238f0c23d791": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is the agent's failure to act on the information it possesses.\n\n1.  The plan (Step 0) is to check t\n[0-4 mid2] FIRST :: The decisive mistake is the agent's first action. The plan in step 0 clearly outlines a methodical approach: \"1. Identif\n[0-2 mid1] SECOND :: The task is to find a joke removed from the \"Dragon\" Wikipedia page's edit history on a specific type of day (a leap day"
+    },
+    "057-3196a02a724f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurs in the first half. In step 1, the Cubing_Expert incorrectly states that a Rubik's cube has 8\n[0-2 mid1] FIRST :: The decisive mistake is the agent's fundamental misunderstanding of a Rubik's cube's structure.\n\nIn step 1, the `Cubing_\n[0-1 mid0] SECOND :: The decisive mistake is the agent's initial analysis of the cube's structure.\n\nIn **Step 1**, the agent incorrectly stat"
+    },
+    "058-f0ccb40243d8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurs in step 2.\n\nThe agent correctly identifies that the Polish version of 'Everybody Loves Raymo\n[0-2 mid1] SECOND :: The decisive mistake occurs in step 2. The agent incorrectly identifies Bartosz Opania as the actor who played the main "
+    },
+    "060-6df45b66a14f": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake occurs when an agent fabricates information instead of using a tool to find it.\n\n[step 0] The task \n[0-3 mid1] SECOND :: The decisive mistake is that the HawaiiRealEstate_Expert in step 2 invents sales data (\"hallucinates\") instead of using \n[2-3 mid2] FIRST :: The decisive mistake is the `HawaiiRealEstate_Expert` fabricating sales data instead of using its tools to search for th"
+    },
+    "056-0e66261209b3": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-8 mid4] FIRST :: The user wants me to identify which half of the first 8 steps contains the decisive mistake that caused the multi-agent \n[0-4 mid2] FIRST :: The trace fails at step 3, where the `Computer_terminal` tool reports an `exitcode: 1 (execution failed)` with the messa\n[0-2 mid1] FIRST :: The decisive mistake occurs in the first half.\n\nIn step 1, the `ImageProcessing_Expert` was supposed to analyze the prov\n[0-1 mid0] FIRST :: The user wants me to identify the first step that contains the decisive mistake leading to the run's failure.\n\n1.  **Ana"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The core problem in this trace is that no agent ever actually performs a search or uses a tool to gather the required in\n[0-4 mid2] FIRST :: The decisive mistake occurs when an agent fails to take a required action, leading the process astray.\n\n1.  **[Step 0]**\n[0-2 mid1] FIRST :: The decisive mistake is the agent's failure to actually perform an action to gather the required data.\n\n*   **[step 0]**\n[0-1 mid0] SECOND :: The decisive mistake is in Step 1. The agent, `GIS_DataAnalysis_Expert`, incorrectly identifies the species from \"Findin"
+    },
+    "063-945c18bc1c72": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurs in Step 1. The `Verification_Expert` is supposed to retrieve data, but instead, it hallucina\n[0-2 mid1] FIRST :: The decisive mistake is the agent in step 1 fabricating the data. Instead of using a tool to search for the 2011 Bulgari\n[0-1 mid0] SECOND :: The decisive mistake is the agent in step 1 hallucinating the data instead of using a tool to retrieve it. The plan from"
+    },
+    "062-1d3b288462be": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake happens in step 1. The prompt states the verb \"Maktay\" is better translated as \"is pleasing to\". Th\n[0-2 mid1] FIRST :: The decisive mistake occurs in step 1.\n\nThe task describes the Tizin verb \"Maktay\" as meaning \"is pleasing to\". This fli\n[0-1 mid0] SECOND :: The core of the problem lies in the specific meaning of the Tizin verb \"Maktay,\" which translates to \"is pleasing to.\" T"
+    },
+    "061-d5e74f5edef1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-8 mid4] FIRST :: The user wants to find the smallest integer `n` such that `round(x_n, 4) == round(x_{n+1}, 4)`.\n\nLet's examine the value\n[0-4 mid2] FIRST :: The user wants to identify the decisive mistake in the first 5 steps (0-4) that led to the overall failure of the run. A\n[0-2 mid1] FIRST :: The decisive mistake is in Step 1. The `NumericalAlgorithms_Expert` writes Python code that uses the variable `x` withou\n[0-1 mid0] SECOND :: The decisive mistake is in step 1. The agent `NumericalAlgorithms_Expert` writes Python code to solve the problem. Howev"
+    },
+    "064-67329dda61f8": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-8 mid4] SECOND :: The plan laid out in step 0 has two main parts: (1) Find the train with the most passengers, and (2) find that train's a\n[5-8 mid6] SECOND :: The task is to find the arrival time for the train with the most passengers.\n\n1.  **Steps 0-4:** The `DataAnalysis_Exper\n[7-8 mid7] FIRST :: The trace shows a seemingly successful run, but the prompt states it is a *failed* run. This implies the answer or the p"
+    },
+    "065-a16ae072deff": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is the agent's hallucination in Step 6.\n\nIn Step 2, the code execution to find the YouTube page fai\n[5-9 mid7] FIRST :: The decisive mistake occurs in step 6.\n\nIn step 5, the agent correctly lays out the plan: to manually inspect the YouTub\n[5-7 mid6] FIRST :: The decisive mistake is in step 6. In step 5, the agent correctly identifies its limitation (it cannot browse the web) a\n[5-6 mid5] SECOND :: The decisive mistake occurs in step 6.\n\nIn step 5, the agent correctly identifies the next logical action: to manually i"
+    },
+    "066-4835ec93a6d1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake is the agent's decision in Step 1 to invent a number of articles (\"we will assume there are 1000 ar\n[0-2 mid1] FIRST :: The decisive mistake is in the plan formulated in step 1.\n\nThe agent, `PublicationData_Expert`, makes two critical error\n[0-1 mid0] SECOND :: The decisive mistake is made in step 1.\n\nIn step 0, the agent correctly receives the task and the plan. No action is tak"
+    },
+    "067-d7caaed0d413": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is the agent in step 1 inventing a new logic puzzle instead of addressing the task from step 0.\n\nTh\n[0-3 mid1] FIRST :: This is a classic logic puzzle. Let's analyze the logic step-by-step to find the error.\n\n**The Puzzle:**\n1.  There are 5\n[0-1 mid0] FIRST :: The user wants me to identify the first mistake in the provided trace, limiting the search to steps 0 and 1.\n\n1.  **Anal"
+    },
+    "068-54f5f481feb1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: \n[0-2 mid1] FIRST :: \n[0-1 mid0] FIRST :: "
+    },
+    "070-0528f540243a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is the agent's choice of tool in step 2.\n\n1.  **Step 2:** The agent decides to use Optical Characte\n[0-4 mid2] FIRST :: The decisive mistake is in Step 2. The agent incorrectly decides to use Optical Character Recognition (OCR), a tool for \n[0-2 mid1] SECOND :: The decisive mistake occurs in step 2. The agent incorrectly decides to use Optical Character Recognition (OCR) on a `.d"
+    },
+    "069-5486f0bb8912": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The trace shows a complete failure to solve the intended problem. Let's analyze the steps to find the decisive mistake.\n\n[5-9 mid7] FIRST :: The decisive mistake occurs in step 5.\n\nAfter the OCR tool failed in step 4, the `MathAnalysis_Expert` in step 5 decides\n[5-7 mid6] FIRST :: The decisive mistake occurred when the agents abandoned trying to analyze the image and instead invented a completely ne\n[5-6 mid5] FIRST :: The decisive mistake occurs in step 5.\n\nAfter the OCR tool fails in step 4, the `MathAnalysis_Expert` in step 5 decides "
+    },
+    "072-c6399b46fd3c": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in Step 3.\n\nThe `DataAnalysis_Expert` writes code assuming the column names are `vendor_name\n[0-4 mid2] SECOND :: The decisive mistake occurs in step 3.\n\n*   **Step 0-2:** These steps involve setting up the task and the agents decidin\n[3-4 mid3] FIRST :: The decisive mistake is in the FIRST half (step 3).\n\nIn step 3, the `DataAnalysis_Expert` assumes the column names are `"
+    },
+    "071-03b230b92593": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake is the misinterpretation of the initial query.\n\nThe query asks for the \"**2019 game** that won the \n[0-4 mid2] FIRST :: The decisive mistake is the flawed code execution in step 2.\n\nIn step 1, the agent correctly identifies the game (\"God o\n[0-2 mid1] FIRST :: The decisive mistake is the misinterpretation of the initial query.\n\nThe prompt asks for \"the 2019 game that won the Bri\n[0-1 mid0] SECOND :: The task is to find information about the \"2019 game that won the British Academy Games Awards.\"\n\nIn step 1, the agent i"
+    },
+    "073-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-5 mid2] FIRST :: The task is to debug a Python script that is \"currently returning an error\". The plan laid out in step 0 is to 1. Review\n[0-2 mid1] FIRST :: The task was to debug a script that is \"currently returning an error\". The plan laid out in step 0 is to 1) Review, 2) C\n[0-1 mid0] FIRST :: The task is to debug a Python script that is supposedly returning an error. The plan is to:\n1.  Review the script to fin"
+    },
+    "075-dc792a0fa32f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake is the agent's method for checking for `ps` versions.\n\nIn step 3, the agent reveals its flawed logi\n[0-2 mid1] FIRST :: The decisive mistake is the flawed logic for identifying articles with PostScript (ps) versions.\n\nIn **step 1**, the age\n[0-1 mid0] SECOND :: The decisive mistake is in the plan for implementation formulated in step 1.\n\nStep 0 correctly outlines the high-level p"
+    },
+    "077-a1dc061cb971": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first half of the run (steps 0-4) is executed correctly. The agent successfully navigates to the Universe Today arti\n[5-9 mid7] FIRST :: The decisive mistake is in step 7. The agent `ResearchFunding_Expert` claims it will \"proceed with accessing the paper m\n[5-7 mid6] SECOND :: The decisive mistake is in step 7.\n\nIn steps 5 and 6, the `WebServing_Expert` correctly identifies that it has been bloc"
+    },
+    "076-769191cea270": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The user's query asks for the enrollment count *from Jan-May 2018*.\n\nIn **step 5**, the `Clinical_Trial_Data_Analysis_Ex\n[5-9 mid7] FIRST :: The decisive mistake occurs in the first half of the provided steps.\n\nIn step 5, the `Clinical_Trial_Data_Analysis_Exper\n[5-7 mid6] FIRST :: The task is to find the *actual* enrollment count.\n\n1.  **Step 5 (Clinical_Trial_Data_Analysis_Expert):** This agent fin\n[5-6 mid5] SECOND :: The decisive mistake is the failure to distinguish between the *total* enrollment for the entire study and the enrollmen"
+    },
+    "074-27ef8756352a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in Step 4.\n\nThe `VerificationExpert` attempts to manually verify the result. It states: \"We \n[0-4 mid2] FIRST :: The decisive mistake occurs in the first half of the trace.\n\nIn **Step 0**, the plan includes the instruction \"Retrieve \n[0-2 mid1] FIRST :: The decisive mistake is the failure to follow the first step of the plan: \"1. Retrieve the Tropicos ID for the Order Hel\n[0-1 mid0] FIRST :: The user wants me to identify the first mistake in the provided trace, limiting the search to steps 0 and 1.\n\n1.  **Anal"
+    },
+    "078-e16678e8c43e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is the agent's failure to find the required information on Wikipedia, instead choosing to invent a \n[0-4 mid2] FIRST :: The decisive mistake occurs in the first half.\n\nIn step 1, the `RecyclingRate_Expert` correctly identifies that it needs\n[0-2 mid1] FIRST :: The decisive mistake is in Step 1.\n\nThe task requires the agent to find the recycling rate \"according to Wikipedia\". The\n[0-1 mid0] SECOND :: The task requires the agent to find the recycling rate for water bottles on Wikipedia. The manager's plan is to \"Verify "
+    },
+    "079-72b0c0014ede": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake happens in step 2.\n\nThe plan in step 0 is to extract files, list them, extract text from the PDF, a\n[0-2 mid1] SECOND :: The decisive mistake occurs in Step 2.\n\nIn Step 0, the plan is correctly laid out: extract the ZIP, list the files, extr"
+    },
+    "080-252fc8554126": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-5 mid2] SECOND :: The decisive mistake occurs in step 3.\n\nIn steps 0 and 1, the agents correctly formulate and agree upon a plan to find t\n[3-5 mid4] FIRST :: The decisive mistake is in step 3. The agent claims to have followed the plan (\"We followed the steps... Reviewed the Sc\n[3-4 mid3] FIRST :: The decisive mistake is in step 3.\n\nThe `Python_ScikitLearn_StatisticalAnalysis_Expert` claims to have followed the plan"
+    },
+    "082-933179cfbd8d": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-7 mid3] FIRST :: The decisive mistake happens in Step 1.\n\nIn Step 1, the `Literary_Analysis_Expert` begins by stating, \"we have already i\n[0-3 mid1] FIRST :: The decisive mistake occurs in the first half.\n\nIn step 1, the Literary_Analysis_Expert makes a critical error by statin\n[0-1 mid0] SECOND :: The decisive mistake is in Step 1.\n\nIn Step 0, the agent correctly receives the task and the plan. There is no action or"
+    },
+    "083-b73a239fdad1": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in the second half.\n\nLet's break down the trace:\n*   Steps 0-4 involve the initial attempts \n[5-9 mid7] FIRST :: The decisive mistake is accepting the output of \"67\" unique winners for Survivor. The task specified up to the end of th\n[5-7 mid6] SECOND :: The decisive mistake is the acceptance of a still-incorrect number as fact.\n\nIn step 5, the agent correctly identifies t"
+    },
+    "084-8cad8cae382d": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is the agent's approach to generating the URL. The prompt specifies that a Python script in an imag\n[0-4 mid2] FIRST :: The user is presented with a task that has two key components for generating a URL:\n1.  A Python script located in an im\n[0-2 mid1] SECOND :: The decisive mistake occurs in Step 2.\n\nIn Step 0, the agent correctly identifies the task. Step 1 is a minor procedural"
+    },
+    "085-dc5e30ffc725": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is the agent's claim to have information that it never actually retrieved.\n\nIn step 1, the Research\n[0-3 mid1] SECOND :: The decisive mistake is the agent's failure to actually present the evidence it claims to have found.\n\n*   **Step 0 & 1:\n[2-3 mid2] FIRST :: The decisive mistake is the agent's claim in step 2 without providing any evidence.\n\nIn step 2, the Research_Expert clai"
+    },
+    "081-6b8e879881c0": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The overall run failed at step 9 with a `pandas.errors.EmptyDataError`. This means the agent tried to read an empty CSV \n[5-9 mid7] FIRST :: The decisive mistake occurs in the first half of the specified range.\n\n*   **Step 5:** The attempt to use Selenium with \n[5-7 mid6] FIRST :: The decisive mistake is the decision made in step 6.\n\n1.  **Step 5** is an execution failure of the plan from step 4. Wh\n[5-6 mid5] SECOND :: The error in steps 1, 3, and 5 is the same: the environment cannot initialize a Selenium WebDriver for either Chrome or "
+    },
+    "086-e5db53c29991": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The task requires the agents to analyze an image of sheet music.\n\n1.  **Steps 0-2**: The agents correctly identify that \n[5-9 mid7] FIRST :: The decisive mistake occurs in step 5.\n\nThe `MusicTheory_Expert` is tasked with manually inspecting the image to identif\n[5-7 mid6] FIRST :: The decisive mistake is in step 5.\n\nIn step 5, the `MusicTheory_Expert` fails to analyze the actual image. It explicitly\n[5-6 mid5] FIRST :: The decisive mistake is in step 5.\n\nThe `MusicTheory_Expert` is tasked with identifying the notes in the provided image."
+    },
+    "088-3a55b5705c39": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-5 mid2] SECOND :: The trace shows an initial code execution error in step 2, but the agent successfully recovers from it in step 3 by extr\n[3-5 mid4] FIRST :: The decisive mistake is the agent's inability to proceed after finding the correct URL.\n\nIn step 3, the `VideoContentAna\n[3-4 mid3] FIRST :: The decisive mistake is in step 3. In the previous step, the agent successfully found the URL for the blog post. In step"
+    },
+    "089-93088535fb95": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake occurs in Step 1.\n\nThe Biblical Scholar analyzes the text: \"This is what happened during the time o\n[0-2 mid1] FIRST :: The decisive mistake occurs in step 1.\n\nThe agent is asked to identify the *first* place mentioned by name in the Book o\n[0-1 mid0] SECOND :: The task is to identify the Prime Minister in April 1977 of the *first* place mentioned by name in the Book of Esther (N"
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in step 5.\n\nIn the first half (steps 0-4), the agents follow a logical, if unsuccessful, pat\n[5-9 mid7] FIRST :: The decisive mistake occurs when the agents abandon the most direct path to the solution and begin to hallucinate action\n[5-7 mid6] FIRST :: The decisive mistake is giving up on finding the information online and instead pivoting to the un-executable action of \n[5-6 mid5] FIRST :: The decisive mistake is in step 5.\n\nAfter the web searches failed in steps 1-4, the `MilitaryHistory_Expert` in step 5 c"
+    },
+    "090-e273f2fabe96": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in Step 1.\n\nThe `VideoContentAnalysis_Expert` agent fabricates information without any suppo\n[0-4 mid2] FIRST :: The decisive mistake is making up information without verification.\n\nIn **step 1**, the `VideoContentAnalysis_Expert` cl\n[0-2 mid1] FIRST :: The decisive mistake occurs in step 1. The `VideoContentAnalysis_Expert` agent fabricates information without performing\n[0-1 mid0] SECOND :: The decisive mistake is in step 1.\n\nStep 0 correctly lays out the task and the plan. It makes no assumptions and perform"
+    },
+    "091-23de28edf643": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake happens in Step 3.\n\nIn Step 2, the code execution correctly identifies the two cities as \"Braintree\n[0-3 mid1] SECOND :: The decisive mistake occurs in Step 3.\n\nIn Step 1, the agent sets up a Python script to calculate the distance. It corre\n[2-3 mid2] SECOND :: The decisive mistake is in step 3.\n\nStep 2 correctly executes the code and outputs the result: `Farthest apart cities: B"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in step 4. After failing to find the paper on arXiv in steps 1-3, the agent correctly conclu\n[0-4 mid2] SECOND :: The decisive mistake is the agent's decision to stop searching for the paper and invent a hypothetical scenario where th\n[3-4 mid3] SECOND :: The decisive mistake is in Step 4.\n\nIn Step 3, the agent correctly identifies the first search failed and attempts a rea"
+    },
+    "092-a5a8d627e455": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs when the agent abandons the most efficient path due to an unrecoverable error, forcing it on\n[5-9 mid7] FIRST :: The decisive mistake occurs in step 7.\n\nIn step 6, the agent encounters an external API error, which is not a mistake in\n[5-7 mid6] FIRST :: The decisive mistake is in Step 5.\n\nIn Step 4, the agent successfully downloads the video file `downloaded_video.mp4`. A\n[5-6 mid5] FIRST :: The decisive mistake is the agent's decision in step 5.\n\nIn step 4, the agent successfully downloaded the video file `do"
+    },
+    "094-7e3d81abcddf": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: The decisive mistake is when the agent misinterprets the task. The initial problem was that the code was failing with `e\n[0-2 mid1] SECOND :: The decisive mistake occurs in step 2.\n\nIn step 1, the agent runs a tool and gets the output `Error: unsupported languag"
+    },
+    "095-91ab842a22b2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is ignoring the \"2022\" constraint in the prompt. The task is to find the number of images in the \"l\n[0-4 mid2] FIRST :: The decisive mistake is ignoring the \"latest 2022\" constraint in the prompt. The agent should have first found a way to \n[0-2 mid1] FIRST :: The decisive mistake is the agent's choice of tool in step 1.\n\nThe task is to count all images in a Wikipedia article. I\n[0-1 mid0] SECOND :: The decisive mistake is ignoring the \"2022\" constraint from the prompt.\n\n*   **Step 0 (FIRST half):** The agent is corre"
+    },
+    "096-89be76878d79": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is in step 2. The agent writes code to search for issues with the label \"Regression\". This is a fau\n[0-4 mid2] FIRST :: The decisive mistake is in Step 2. The `API_Expert` writes code assuming the label is named \"Regression\".\n\n-   **Step 0:\n[0-2 mid1] SECOND :: The decisive mistake is the agent's assumption about the name of the GitHub label.\n\n*   **Step 0 & 1:** The agent receiv"
+    },
+    "097-aa341e34fc51": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake happens in Step 1.\n\nThe agent, identifying as the \"Doctor Who Script expert,\" is tasked with referr\n[0-3 mid1] FIRST :: The decisive mistake occurs in Step 1.\n\nIn Step 0, the plan is correctly laid out: the DoctorWhoScript_Expert needs to r\n[0-1 mid0] SECOND :: The decisive mistake is in step 1. The plan in step 0 correctly assigns the first task to the `DoctorWhoScript_Expert`. "
+    },
+    "098-43bbd8019fea": {
+      "top": 8,
+      "ranking": [
+        8
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs in step 5.\n\nThe tool call `perform_web_search` fails, indicated by `exitcode: 1 (execution f\n[5-9 mid7] SECOND :: The decisive mistake is in the second half of the specified steps.\n\n*   In the first half (steps 5-7), a code execution \n[8-9 mid8] FIRST :: The decisive mistake occurs in step 8.\n\nIn step 5, the web search returns a confusing result. The title says \"Jingoism\","
+    },
+    "100-364b09fd59b8": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0-9 mid4] SECOND :: The first four steps consist of the agents making plans but not executing any code. This is inefficient, but it is not a\n[5-9 mid7] FIRST :: The decisive mistake occurred in the FIRST half (steps 5-7).\n\nIn step 5, the `Validation_Expert` agent writes a Python s\n[5-7 mid6] FIRST :: The decisive mistake occurs in step 5. The agent writes a Python script to scrape a webpage without first inspecting the\n[5-6 mid5] FIRST :: The decisive mistake is the agent's assumption about the HTML structure of the webpage when writing the Python script. I"
+    },
+    "099-59e337ae1fbb": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake is the failure to actually collect the data from ScienceDirect.\n\n- In **Step 1**, the `Data_Collect\n[0-3 mid1] SECOND :: The decisive mistake is the agent hallucinating data.\n\n*   **[Step 0] & [Step 1]**: The `Data_Collection_Expert` correct\n[2-3 mid2] FIRST :: The decisive mistake is in step 2.\n\nIn step 1, the `Data_Collection_Expert` correctly identified that it needs to visit "
+    },
+    "101-7011a3ca2fe8": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The agent's first action in the trace (implied before step 1, as step 1 is the output) was to run the frame extraction s\n[5-9 mid7] FIRST :: The decisive mistake is in step 6. The `ResultVerification_Expert` decided to write and execute a Python script that dep\n[5-7 mid6] FIRST :: The decisive mistake is in step 6. The `ResultVerification_Expert` agent decided to write and execute a Python script th\n[5-6 mid5] SECOND :: The decisive mistake occurs in step 6.\n\nIn step 5, the frame extraction script runs successfully, producing the necessar"
+    },
+    "102-a6862e302014": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The trace shows a multi-step process to find a piece of information in a book. Let's analyze the two halves.\n\n**FIRST ha\n[5-9 mid7] FIRST :: The decisive mistake is the choice of tool and strategy in step 7.\n\nIn step 6, the agent successfully finds the correct \n[5-7 mid6] SECOND :: The mistake is in step 7.\n\nIn steps 5 and 6, the agent successfully recovers from previous errors and performs a web sea"
+    },
+    "103-5593276388b1": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurred in the first half of the trace.\n\nIn step 3, the agent generates Python code to scrape the \n[0-4 mid2] SECOND :: The decisive mistake occurs in the second half of the provided steps.\n\n*   **Steps 0-2:** The agent correctly identifies\n[3-4 mid3] FIRST :: The decisive mistake lies in the logic and code proposed in step 3. The agent formulated a plan to use Python to scrape "
+    },
+    "105-7a7794e34798": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-7 mid3] SECOND :: The decisive mistake is in the second half of the trace.\n\nLet's break down the steps:\n\n*   **Step 0-3 (FIRST half):** Th\n[4-7 mid5] SECOND :: The problem was successfully solved in step 5. The output shows that `data.txt` was created and the script `file_io_exam\n[6-7 mid6] FIRST :: The decisive mistake occurs in step 6. The `PythonDebugging_Expert` agent incorrectly declares the task as \"successfully"
+    },
+    "104-9f0fb174fad0": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is the incorrect implementation of the pathfinding logic, specifically how it checks for \"blue cell\n[0-4 mid2] FIRST :: The decisive mistake is the failure to load the color information from the Excel file. The task requires pathfinding bas\n[0-2 mid1] FIRST :: The decisive mistake is the `IndentationError` that occurred when the first piece of code was executed.\n\n- **Step 0:** T\n[0-1 mid0] FIRST :: The user wants me to identify the first decisive mistake in the provided trace, limiting the search to steps 0 and 1.\n\n1"
+    },
+    "106-00e6e023a028": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake occurs in step 4.\n\nIn step 3, the agent successfully finds a URL to the Vogue issue. In step 4, the\n[0-4 mid2] SECOND :: The decisive mistake occurs in step 4.\n\nIn step 3, the `Computer_terminal` successfully executes a web search and return\n[3-4 mid3] SECOND :: The decisive mistake is in step 4.\n\nIn step 3, the `Computer_terminal` successfully performs a web search and returns a "
+    },
+    "108-13c9a4c03793": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is the agent's decision in step 1. The plan is to \"Confirm the exact name of the dataset file and t\n[0-4 mid2] FIRST :: The decisive mistake is made in step 1. The plan correctly states to first \"Confirm the exact name of the dataset file a\n[0-2 mid1] FIRST :: The decisive mistake is made in Step 1.\n\nThe plan explicitly states that the first step is to \"Confirm the exact name of\n[0-1 mid0] SECOND :: The decisive mistake is in step 1.\n\nIn step 0, the agent correctly receives the task and the plan. No action is taken, a"
+    },
+    "109-33e9e888adb4": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-8 mid4] SECOND :: The pivotal moment in this trace is the failure of the tool call and the agents' reaction to it.\n\n1.  **Steps 0-4 (FIRST\n[5-8 mid6] SECOND :: The decisive mistake occurs in step 7.\n\nIn step 5, the `image_qa` tool fails due to an environment error, which is a tec\n[7-8 mid7] FIRST :: The decisive mistake is in step 7.\n\nIn step 6, the `ChessRules_Expert` correctly identified the problem (tool failure) a"
+    },
+    "110-e240abd96f2e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake happens in Step 3.\n\nThe original task is to find the headstone in the background of the photo of th\n[0-4 mid2] SECOND :: The task is to find the oldest flavor, then look at the photo of its headstone to identify another headstone in the back\n[3-4 mid3] FIRST :: The original task was to find the rhyme on a headstone in the background of the photo of the *oldest* flavor's headstone"
+    },
+    "107-de407cd051d7": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-6 mid3] FIRST :: The task is to calculate \"how many thousand hours\" it would take. The calculation should result in a number representing\n[0-3 mid1] SECOND :: The user's prompt is internally contradictory. It asks for two different things:\n1.  \"how many **thousand hours**\" (whic\n[2-3 mid2] SECOND :: The decisive mistake is in Step 3.\n\nIn Step 2, a tool simply outputs the number `17000` without any context, code, or ca"
+    },
+    "111-bb45c75cb2de": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-6 mid3] FIRST :: The initial plan in step 0 is sound. In step 1, the agent attempts to execute this plan but encounters a technical `Time\n[0-3 mid1] SECOND :: The decisive mistake is the change in strategy in Step 2.\n\nIn Step 1, the agent attempts to follow the correct plan by a\n[2-3 mid2] FIRST :: The decisive mistake was made in Step 2.\n\nAfter the initial web scraping failed in Step 1 due to a timeout, the agent in"
+    },
+    "113-ccbf973529c4": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake is the failure to follow the plan provided in step 0. The plan clearly states that the first step i\n[0-4 mid2] FIRST :: The decisive mistake is in Step 0.\n\nThe plan provided to the `FinancialData_Expert` in Step 0 was:\n1.  **Download** the \n[0-2 mid1] FIRST :: The decisive mistake occurs in the first half (steps 0-1).\n\nIn step 0, the `FinancialData_Expert` is given a clear plan:\n[0-1 mid0] FIRST :: The decisive mistake is the agent's failure to follow the plan provided to it.\n\nIn Step 0, the `FinancialData_Expert` is"
+    },
+    "112-7d8dcb80a290": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-8 mid4] FIRST :: The decisive mistake happens in Step 1.\n\nIn Step 1, the Music_Critic_Expert agent compiles a list of albums. The task sp\n[0-4 mid2] FIRST :: The user wants me to identify which half of the first five steps (0-4) contains the decisive mistake that led to the run\n[0-2 mid1] FIRST :: The task is to identify albums released by Fiona Apple and Paula Cole *before 1999* that didn't receive a letter grade f\n[0-1 mid0] SECOND :: The decisive mistake is the inclusion of Fiona Apple's album *When the Pawn...* in the initial list of albums to be chec"
+    },
+    "114-af259c3de825": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in Step 2.\n\nIn Step 2, the `Baseball_Historian_Expert` confidently states a set of \"facts\": \n[0-4 mid2] SECOND :: The run fails at step 4 because of a Python script error. This script was written in step 3.\n\nLet's analyze the steps:\n*\n[3-4 mid3] FIRST :: The decisive mistake is the Python script written in step 3. The script attempts to find a table with the ID `team_batti"
+    },
+    "115-03d92b3118e2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-4 mid2] FIRST :: The decisive mistake occurs in the first half.\n\nIn **Step 1**, the GameTheory_Expert makes several critical errors:\n1.  \n[0-2 mid1] FIRST :: The decisive mistake occurs in Step 1.\n\nThe `GameTheory_Expert` makes a critical, incorrect assumption. The problem stat\n[0-1 mid0] SECOND :: The decisive mistake occurs in Step 1.\n\nIn Step 1, the agent incorrectly interprets the constraints of the problem.\n\n1. "
+    },
+    "116-b7c0da3c62b9": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs in step 3.\n\nIn step 1, the agent generates a script to create search URLs.\nIn step 2, the sc\n[0-4 mid2] SECOND :: The plan starts in step 0.\nIn step 1, the agent decides to create a shell script to *generate* search URLs, not to actua\n[3-4 mid3] FIRST :: The decisive mistake occurs in step 3.\n\nIn step 2, the system successfully generated a list of search URLs. The correct "
+    },
+    "118-d69039766c83": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is when the agent, unable to get the code it needs, decides to invent a completely new, hypothetica\n[5-9 mid7] FIRST :: The decisive mistake occurs in the first half.\n\nIn step 5, the `PythonDebugging_Expert` agent is stuck because it hasn't\n[5-7 mid6] SECOND :: The decisive mistake is in step 7.\n\nIn step 5, the agent creates a hypothetical script to diagnose the problem. This scr"
+    },
+    "117-b056cbb2e661": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-9 mid4] FIRST :: The trace shows a series of errors, but the decisive mistake is the agent's initial approach to solving the problem.\n\n1.\n[0-4 mid2] FIRST :: The trace shows the following sequence of events:\n\n1.  **Step 0:** The agent receives a plan to first load and examine t\n[0-2 mid1] SECOND :: The mistake in the first half (steps 0-1) is a simple `IndentationError`. This is a syntax error that is immediately cau"
+    },
+    "119-6ec2674e0d3a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0-5 mid2] FIRST :: The agents incorrectly identify the parachute as being only white. In the film, the parachute used by Bond and Pussy Gal\n[0-2 mid1] SECOND :: The decisive mistake is the introduction of incorrect factual information.\n\n*   **Steps 0-1:** The `JamesBondFilms_Exper"
+    },
+    "120-3ea26fdedd38": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake is the first action that puts the agents on an unrecoverable path to failure. Let's analyze the two\n[5-9 mid7] FIRST :: The agents have successfully found the correct video in Step 5.\n\nIn Step 6, the `BirdSpeciesIdentification_Expert` corre\n[5-7 mid6] FIRST :: The decisive mistake is in step 6.\n\nIn step 5, the `Computer_terminal` successfully executed a web search and returned t\n[5-6 mid5] SECOND :: The decisive mistake is in step 6.\n\nIn step 5, the agent successfully executes a web search and finds the correct YouTub"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The first mistake was in Step 1, where the agent wrote code that called a function `scrape_wikipedia_tables` without imp\n[0-4 mid2] FIRST :: The first decisive mistake is in the first half.\n\nIn step 1, the agent attempts to call the function `scrape_wikipedia_t\n[0-2 mid1] FIRST :: The decisive mistake is in step 1. The agent `Data_Retrieval_Expert` decides to execute a Python script that calls a fun\n[0-1 mid0] SECOND :: The mistake is in Step 1. The agent `Data_Retrieval_Expert` writes Python code that calls a function `scrape_wikipedia_t"
+    },
+    "121-62bf36bb4ce7": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-9 mid4] FIRST :: The decisive mistake occurs when an agent decides to \"manually\" perform a search and then hallucinates the results of th\n[0-4 mid2] FIRST :: The decisive mistake occurs in the first half.\n\nIn step 1, the agent decides to use a function called `perform_web_searc\n[0-2 mid1] FIRST :: The decisive mistake is the agent's decision in step 1 to use a function, `perform_web_search`, that is not defined or i\n[0-1 mid0] SECOND :: The decisive mistake is in step 1. In this step, the agent attempts to call a function named `perform_web_search` which,"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0-9 mid4] SECOND :: The decisive mistake occurs when the agent attempts to manually find the information after the automated scraping fails.\n[5-9 mid7] FIRST :: The decisive mistake occurs in step 7. After the automated scraping failed twice (steps 3 and 5), the agents switched to\n[5-7 mid6] SECOND :: The decisive mistake is the agent's hallucination in step 7.\n\nIn steps 5 and 6, the agents correctly identify that the a"
+    },
+    "125-a445e2da8734": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurs in the first half of the trace.\n\nIn step 1, the `AnalyticalReasoning_Expert` is tasked with \n[0-3 mid1] FIRST :: The decisive mistake is that the agent did not gather the required information but instead invented it.\n\nIn step 1, the \n[0-1 mid0] SECOND :: The decisive mistake is in step 1.\n\nThe plan in step 0 correctly instructs the agent to \"Gather the necessary ticket pri"
+    },
+    "124-d60e28a0fa62": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0-6 mid3] FIRST :: The decisive mistake occurs in the first half of the trace.\n\nThe problem description provided in step 0 is truncated: \"A\n[0-3 mid1] FIRST :: The user has stated that the multi-agent run has failed and that the decisive mistake occurred in steps 0-3. A \"failed\" \n[0-1 mid0] SECOND :: The full problem description is not available in the trace, as it is truncated: \"At each stage of the game, one of the t"
+    }
+  }
+}

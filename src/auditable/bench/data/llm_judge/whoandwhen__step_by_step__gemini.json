@@ -1,0 +1,896 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "step_by_step",
+    "model": "gemini",
+    "n_runs": 126,
+    "prompt_sha": "e4e35c9bd9e3",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "001-5697e89b281b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The \"General Task\" asks for the population difference between the largest and smallest county seats *by land area*.\n\nThe"
+    },
+    "002-a04041638aa4": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial prompt given to the agent. No action has been taken yet, so no mistake could have occurred. The plan\n[0..1] VERDICT: 1"
+    },
+    "000-7b14128ce504": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The agent is tasked with counting clients with even-numbered street addresses.\n\n**Step 0: Plan**\nThe agent correctly ide"
+    },
+    "003-cfa39baedf59": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The agent is provided with a clear task and a correct, logical plan to solve it. No action has been taken yet. The setup\n[0..1] VERDICT: NO\n[0..2] The agent's task is to calculate savings based on real-world pricing for the Seattle Children's Museum.\n\nIn step 0, the "
+    },
+    "004-d57d322d4115": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The decisive mistake has already occurred.\n\nIn step 1, the agent's plan is to \"compile a list of feature films starring "
+    },
+    "005-b82f729abea8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial step where the agent receives the task, a plan from a manager, and context from a previous attempt. \n[0..1] VERDICT: 1"
+    },
+    "008-00a173727b41": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The decisive mistake is in the framing of the problem provided to the agent. The agent is given two conflicting tasks: a"
+    },
+    "006-b40c7e455b08": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The agent in step 0 is receiving its initial instructions. The instructions themselves are vague and likely impossible t\n[0..1] VERDICT: 0"
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the first step of the run. The agent, `Local_Knowledge_Expert`, has correctly received and processed the task de\n[0..1] The agent correctly identifies the first sub-task: finding gyms near Tompkins Square Park. It even finds the coordinates"
+    },
+    "009-537a267c0756": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The plan provided in step 0 clearly outlines a sequence of actions for different agents:\n1.  **Genomics_Expert:** Provid"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The provided information for the agent is fundamentally flawed and contradictory, setting it up for failure from the ver"
+    },
+    "010-12509faada72": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The task is to identify a member of Apple's Board of Directors who did not hold a C-suite position when they joined.\n\nTh"
+    },
+    "012-d731749a39ca": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The problem explicitly states that the \"latest 2022 version of english wikipedia\" must be used.\n\n[step 0] This is the in"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] There is no action taken in step 0; it is only the problem description and a plan provided to the agent. The agent has n\n[0..1] The user has provided a general task and a plan from a manager. The overall goal is to find Yellowstone hikes that meet "
+    },
+    "014-2c7dcbd8af03": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to identify the first decisive mistake in a multi-agent run, given the first two steps.\n\n**Step 0: Dat"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The agent-written python script failed to execute.\n\n[step 0] The `HistoricalWeatherData_Expert` receives its task and a "
+    },
+    "017-3f81e1d1cad3": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The user's goal is to find specific information on Zillow. The \"manager\" has provided a completely different task: to ve"
+    },
+    "018-874e62353ead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The prompt shown in Step 0 is the input for the first agent. It contains a critical flaw.\n\nThe agent's task is to \"Verif"
+    },
+    "019-2c7247a57061": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The agent's plan in step 1 is logical, but its execution is flawed. The very first action it proposes is `explore_csv('r"
+    },
+    "022-ae51d1d52d64": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The decisive mistake is present in the initial setup of the task.\n\nThe plan provided by the manager is contradictory and"
+    },
+    "021-9d62146b7652": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The `WeatherData_Expert` in step 0 was given a clear plan, the first step of which was to \"Collect historical weather da"
+    },
+    "020-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial step of the run, where the agent is given its task and instructions. The agent has not yet performed\n[0..1] The user wants me to identify the decisive mistake in the first two steps of a multi-agent run.\n\n**Step 0: JSON_Expert**"
+    },
+    "016-2f776a306c77": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] Both steps 0 and 1 correctly interpret the task and lay out a logical plan.\n\n*   **Step 0:** The `Hiking_Expert` correct\n[0..2] The task is to find popular, highly-rated waterfall trails in Yosemite that are explicitly confirmed to be \"fully wheelc\n[0..3] The user wants me to identify the first decisive mistake in the provided sequence of steps (0-3).\n\n**Analysis of Steps:*"
+    },
+    "024-aa646cf62171": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is the initial prompt given to the Food_Expert agent. It contains the overall goal, a detailed plan for a multi-a\n[0..1] The plan laid out in step 0 clearly states a sequence: 1. Local expert finds restaurants. 2. Food expert checks menus. 3"
+    },
+    "025-85a096b8759f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial step where the agent, `JSON_Expert`, receives its task and a suggested plan from a manager.\n\n1.  **T\n[0..1] The user has provided a task and a plan. The task is to debug an error where the output was \"unknown language json\".\n\nIn"
+    },
+    "027-6479bd8a2bba": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial setup step where the agent receives its task and a corrective plan from a manager. The agent has not\n[0..1] VERDICT: 1"
+    },
+    "028-3a559ca1aea1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The mistake is in the \"Output format\" section of the prompt given to the agent. It states: \"Provide a list of names of t"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No mistake has occurred in step 0. The agent is simply receiving its initial instructions and task. The instructions are\n[0..1] The user wants me to identify the first step that contains a decisive mistake, which is an error that causes the overall"
+    },
+    "029-606d391c364b": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "026-945822c59fe9": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] This is the first step, where the agent is receiving its instructions. The instructions are clear and provide a specific\n[0..1] The user wants me to identify if the decisive mistake occurred in steps 0 or 1.\n\n1.  **Analyze the Goal:** The \"General "
+    },
+    "030-0319cbd03980": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] The agent's plan in step 0 is logical and sound.\n\nIn step 1, the agent writes Python code to perform a web search. The c"
+    },
+    "031-da9aec084a98": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This step outlines the initial plan and task given to the agent. The agent is receiving its instructions, which include \n[0..1] VERDICT: NO\n[0..2] The agent in step 1 writes a Python script to perform a web search. The script includes the line `results = perform_web_"
+    },
+    "032-af0933cfcd09": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The plan in step 0 is logical and structured:\n1.  Identify the TV show.\n2.  Identify the staple/episode.\n3.  Identify th"
+    },
+    "035-a3d5b34baf48": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] This is the initial setup for the agent. The section \"Results from last response\" contains information that is fundament"
+    },
+    "036-88562a8be980": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The task is to find a specific stanza in a poem. The plan is to (1) review the poem, (2) identify the stanza, and (3) pr"
+    },
+    "034-04dc240da7b8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] This is the initial step where the agent, Video_Analyst_Expert, receives its instructions and the plan to solve the task\n[0..1] Based on the information provided in steps 0 and 1, there is no decisive mistake yet.\n\n*   **Step 0:** This step is the \n[0..2] The user wants me to identify the first step that constitutes a \"decisive mistake\" leading to the failure of the multi-a"
+    },
+    "037-14508845755c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The agent in step 0 is tasked with debugging a failed run. It is given a \"General Task\" which is the context of the fail"
+    },
+    "033-620b58b7aa60": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] VERDICT: NO\n[0..3] VERDICT: NO\n[0..4] The user wants me to identify the first decisive mistake in a series of steps for solving a Boggle puzzle.\n\n1.  **Step 0"
+    },
+    "038-3c2adf8c14b1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "040-a181eb120cb2": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The \"Task and suggestions from manager\" provides incorrect information. It states that \"Thriller\" is the fifth single fr"
+    },
+    "042-833c47739be2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial setup step, outlining the task and the plan for the agents. No action has been taken yet, so no mist\n[0..1] The agent's task is to find a portrait with a specific accession number at the Metropolitan Museum of Art. The plan corr"
+    },
+    "043-d53734deeead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Step 0 shows the agent's initial \"decision\" or internal monologue. It is correctly parsing the instructions it has been \n[0..1] The user wants me to identify if the decisive mistake that led to the multi-agent run's failure has occurred within the "
+    },
+    "044-e214187ad13a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to identify the first decisive mistake in a multi-agent run, given the first two steps.\n\n1.  **Analyze"
+    },
+    "039-2b969539d7db": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] This is the initial step where the agent is given the task and a plan. The agent has not taken any action yet. The plan \n[0..1] The agent is given a task and a specific plan to follow.\n[step 0] The agent correctly ingests the task and the provided \n[0..2] The user wants me to identify the first step that contains a \"decisive mistake\" leading to the failure of the multi-agen"
+    },
+    "041-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The user is presented with the initial state of the task, which includes the problem description, a plan, and the script\n[0..1] The user wants me to identify if the decisive mistake in a multi-agent run has occurred within the first two steps (0 an\n[0..2] The user wants me to identify the first decisive mistake in a multi-agent run, given the first three steps.\n\n1.  **Analy"
+    },
+    "046-2e76694a8fe5": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Based on the provided information, the agent is given two sets of instructions: a general task and a more specific task "
+    },
+    "047-5d32c1eba366": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] The user's task is to find a date in an image on a webpage linked from the first citation on Carl Nebel's Wikipedia page"
+    },
+    "048-e5f2767e1b04": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to find the date a picture was *first added* to a Wikipedia page. This requires looking at the page's "
+    },
+    "045-c43d472268d8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] An analysis of the steps provided:\n\n*   **Step 0:** The agent correctly receives and understands the task. The plan laid\n[0..3] The decisive mistake occurs in step 3.\n\nThe agent is presented with search results in step 2. Search Result 2 explicitly"
+    },
+    "049-324f53bff996": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] This is an audit of a multi-agent run. I need to identify the first step that contains a decisive error.\n\n**Step 0 Analy"
+    },
+    "050-6784fd6fd246": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] An evaluation of the steps provided:\n\n[step 0] The `AudioProcessing_Expert` is given the task. Its response is not a pla"
+    },
+    "051-8f84910e124b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] This is the initial planning step where the agent receives and processes its instructions. The agent has not yet taken a\n[0..1] The user wants me to identify the first step containing an error that will cause the overall task to fail.\n\n1.  **Analyz"
+    },
+    "052-25639162f57c": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: NO\n[0..2] The agent in step 1 decides to use a function `perform_web_search`. In step 2, the execution of this code fails with a `"
+    },
+    "054-c81ed3b0a45a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "053-908be3172c8e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The agent's first action is to use `perform_web_search` with the DOI as the query. While a more direct approach would be\n[0..2] The agent has correctly identified the task and the plan. The first action taken is to perform a web search using the DO\n[0..3] The agent's role is to solve the task autonomously. In step 3, after successfully finding the link to the book, the agen"
+    },
+    "055-238f0c23d791": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial step where the agent is given the task, a plan, and constraints. The agent has not yet taken any act\n[0..1] The agent is given a clear, multi-step plan. The very first step of that plan is \"Identify the leap days before 2008.\"\n\n"
+    },
+    "058-f0ccb40243d8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] This is the initial setup for the agent. It has been given a clear task and a correct, logical plan to solve it. There i\n[0..1] Step 0 is the initial setup, where the agent correctly understands the task and the provided plan. No actions are taken,\n[0..2] VERDICT: 2"
+    },
+    "057-3196a02a724f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the setup step where the agent, `Cubing_Expert`, receives the problem description. The agent has not yet perform\n[0..1] An audit of the agent's reasoning process reveals a critical error in Step 1.\n\n1.  **Correct Cube Structure:** A standar"
+    },
+    "060-6df45b66a14f": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] This is the first step, where the agent is receiving its instructions and the plan. No action has been taken yet, so no \n[0..1] VERDICT: NO\n[0..2] The task requires finding factual, real-world data. The agents are supposed to follow a plan that involves gathering, an"
+    },
+    "056-0e66261209b3": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to determine if the decisive mistake that caused a multi-agent run to fail has occurred within the fir\n[0..2] The user's request has two parts:\n1.  Provide all fractions that use `/` as the fraction line.\n2.  Provide the answers t"
+    },
+    "063-945c18bc1c72": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to identify the first decisive mistake in a multi-agent run, given the first two steps.\n\n1.  **Analyze"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] This is the initial step where the agent is given the task and a plan. The agent has not yet taken any action. The plan \n[0..1] Based on the information provided in steps 0 and 1, the reasoning and plan are sound.\n\n*   **Step 0:** The manager corre\n[0..2] The user wants me to identify the first \"decisive mistake\" in a multi-agent run within the first three steps (0, 1, and \n[0..3] The user wants me to identify the first decisive mistake in a sequence of steps from a multi-agent run.\n\n1.  **Step 0:**"
+    },
+    "062-1d3b288462be": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial step where the agent is given the task and all the necessary information. The agent has not yet perf\n[0..1] The user wants me to identify the first decisive mistake in the provided steps.\n\n**Step 0 Analysis:** This step provides"
+    },
+    "061-d5e74f5edef1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Based on the single step provided, the agent (NumericalMethods_Expert) has correctly received and understood the task. T\n[0..1] The user wants me to identify the first decisive mistake in a multi-agent run, given the first two steps.\n\n1.  **Analyze"
+    },
+    "066-4835ec93a6d1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The provided plan is fundamentally flawed and represents the decisive mistake.\n\n1.  **The Core Flaw:** The plan suggests"
+    },
+    "065-a16ae072deff": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] Step 0 is the initial prompt and plan. It correctly sets up the task, which is to find a website via a YouTube page, ide\n[0..2] The user is asking me to identify the first step that caused a multi-agent run to fail, given the first three steps.\n\n1."
+    },
+    "064-67329dda61f8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial setup step for the `DataAnalysis_Expert`. The agent is presented with the overall task and a detaile\n[0..1] An audit of the provided steps reveals the following:\n\n*   **Step 0:** The `DataAnalysis_Expert` agent correctly interna"
+    },
+    "070-0528f540243a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "067-d7caaed0d413": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial step where the agent receives its instructions and formulates a high-level plan. The plan is to \"Col\n[0..1] The user wants me to identify the first decisive mistake in a multi-agent run, given steps 0 and 1.\n\n1.  **Analyze Step "
+    },
+    "069-5486f0bb8912": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The user wants me to identify the first step that causes a multi-agent run to fail. I am only given step 0.\n\n**Step 0 An\n[0..1] An analysis of the provided steps:\n\n*   **[step 0] (Geometry_Expert, decision):** This step outlines the task for the `G"
+    },
+    "073-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The agent's decision is to \"Collect information from the general task, follow the suggestions from manager to solve the "
+    },
+    "071-03b230b92593": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The task is to find information about \"the 2019 game that won the British Academy Games Awards.\" This phrasing implies a"
+    },
+    "068-54f5f481feb1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] \n[0..1] The user wants me to identify the first decisive mistake in a multi-agent run, given the first two steps.\n\n1.  **Analyze"
+    },
+    "072-c6399b46fd3c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to identify the first decisive mistake in a sequence of two steps from a multi-agent run.\n\n1.  **Analy"
+    },
+    "074-27ef8756352a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The task is to compute an ISBN-10 check digit. The core of this calculation requires a 9-digit number to which a 10th ch"
+    },
+    "076-769191cea270": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial step where the agent is processing the task and the plan. It has not yet taken any action. The plan \n[0..1] VERDICT: 1"
+    },
+    "078-e16678e8c43e": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The user's prompt contains a critical contradiction that sets the agent up for failure.\n\n1.  **The General Task** asks t"
+    },
+    "079-72b0c0014ede": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to identify the first decisive mistake in a multi-agent run, given the first two steps.\n\n1.  **Analyze"
+    },
+    "080-252fc8554126": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to identify the first decisive mistake in a multi-agent run, given the first two steps.\n\n1.  **Analyze"
+    },
+    "075-dc792a0fa32f": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] Step 0 is the initial setup, where the agent receives the task and the plan. There is no action taken, so no error can o\n[0..2] An analysis of the steps reveals the following:\n\n1.  **Step 0:** The agent correctly parses the task and the suggested p"
+    },
+    "081-6b8e879881c0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user is attempting to initialize a Selenium WebDriver in Step 1. The code `driver = webdriver.Chrome('/path/to/chrom"
+    },
+    "077-a1dc061cb971": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The agent has been tasked with finding a specific paper linked in a Universe Today article from June 6, 2023, by Carolyn\n[0..2] The user wants me to audit the first three steps of a multi-agent run and determine if the decisive mistake has already \n[0..3] The agent's task is to find a specific paper linked in a Universe Today article and then extract a NASA award number fro\n[0..4] The task is to find a NASA award number from a specific scientific paper.\n\n1.  **Step 0:** The agent correctly understan"
+    },
+    "083-b73a239fdad1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to identify the first decisive mistake in a multi-agent run, given only the first two steps (0 and 1)."
+    },
+    "082-933179cfbd8d": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial setup step, where the agent is given its instructions and a plan. The plan is logical and correctly \n[0..1] The agent in step 1 begins by stating a conclusion as if it has already been established: \"Based on the previous discuss"
+    },
+    "084-8cad8cae382d": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] This first step is a planning phase. The agent, `PythonProgramming_Expert`, has correctly understood the multi-part task\n[0..1] An analysis of the provided steps reveals the following:\n\n1.  **Step 0 (PythonProgramming_Expert):** The agent correctly"
+    },
+    "086-e5db53c29991": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to identify if the decisive mistake has already occurred in the provided steps.\n\n1.  **Analyze Step 0 "
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial setup and prompt for the first agent. No action has been taken yet. The plan is logical and the task\n[0..1] The plan outlined in Step 0 clearly assigns the first task to the `Art_Historian`: \"The art historian will identify the "
+    },
+    "085-dc5e30ffc725": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] This is the initial setup step. The agent, Literature_Expert, has been given a clear task and a correct, step-by-step pl\n[0..1] The plan outlined in step 1 is a logical and correct approach to solving the task. The agent correctly identifies the ne\n[0..2] VERDICT: 2"
+    },
+    "089-93088535fb95": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The task itself is a \"trick question.\" It conflates the ancient geographical region of \"India\" (as mentioned in the Book"
+    },
+    "090-e273f2fabe96": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial step where the agent, MarineLifeData_Expert, receives its instructions. The agent has correctly pars\n[0..1] The agent in Step 1 makes a critical factual error. It claims, \"the first National Geographic short ever released on You"
+    },
+    "091-23de28edf643": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial step where the agent receives the task and a plan from the manager. The plan is logical and correctl\n[0..1] An audit of the steps reveals the following:\n\n*   **Step 0 (WebServing_Expert):** This step correctly identifies the tas"
+    },
+    "088-3a55b5705c39": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The agent in step 0 correctly understands the task.\n\nThe agent in step 1, `VideoContentAnalysis_Expert`, correctly break\n[0..2] The decisive mistake occurred in step 1.\n\nThe `VideoContentAnalysis_Expert` wrote Python code to perform a web search. T"
+    },
+    "093-2af3ef7efdd6": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the first step of the run. The agent, `ScientificPaperAnalysis_Expert`, has correctly interpreted its task. The \n[0..1] VERDICT: 1"
+    },
+    "094-7e3d81abcddf": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial step where the agent is simply processing the task description and the provided plan. The agent has \n[0..1] The user wants me to identify the first decisive mistake in a failed multi-agent run, given the first two steps.\n\n1.  **"
+    },
+    "096-89be76878d79": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The decisive mistake has occurred.\n\n*   **Step 0:** The `API_Expert` correctly understands the task and has a solid plan"
+    },
+    "092-a5a8d627e455": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the first step of the process, where the agent receives the task, a detailed plan, and context. The agent has no\n[0..1] The user wants me to identify if a decisive mistake has occurred in the first two steps of a multi-agent process.\n\n1.  *"
+    },
+    "095-91ab842a22b2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This step outlines the task and the plan. The agent is presented with the problem but has not yet taken any action. The \n[0..1] The decisive mistake is the agent's choice of tool. The task is to count all images in a Wikipedia article. The agent, `"
+    },
+    "097-aa341e34fc51": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial setup step, where the agent is given its instructions. The instructions are clear and correctly defi\n[0..1] VERDICT: 1"
+    },
+    "099-59e337ae1fbb": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This first step is the initial prompt given to the `Data_Collection_Expert`. It outlines the overall goal and the specif\n[0..1] The user's task requires collecting real, specific data from ScienceDirect for the year 2022.\n\nIn Step 1, the `Data_Coll"
+    },
+    "100-364b09fd59b8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The agent in step 1 creates a plan. The first part of the plan is correct: \"Confirm the jersey number of Taish\u014d Tamai fr"
+    },
+    "098-43bbd8019fea": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The agent in step 0 is the `MerriamWebsterWordOfTheDay_Historian_Expert`. Its role, as defined by the plan, is to \"provi\n[0..1] VERDICT: NO\n[0..2] The decisive mistake has already occurred.\n\n*   **Step 0:** The agent correctly understands the task and the plan. No mi"
+    },
+    "103-5593276388b1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "101-7011a3ca2fe8": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 0"
+    },
+    "104-9f0fb174fad0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The agent's first step is to state its intention to follow the given instructions. This is a perfectly reasonable and co\n[0..1] The user wants me to identify if the decisive mistake has occurred in the first two steps of a multi-agent run.\n\n1.  **S"
+    },
+    "102-a6862e302014": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the first step of the run, where the `Literature_Expert` agent receives its task, a detailed plan, and constrain\n[0..1] VERDICT: NO\n[0..2] An error occurred in Step 2, where the code execution failed. We need to determine if the *cause* of this failure was a "
+    },
+    "108-13c9a4c03793": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to identify the first decisive mistake in a multi-agent run, given the first two steps.\n\n**Step 0: Sta"
+    },
+    "106-00e6e023a028": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial setup step where the agent, Fashion_Vogue_Expert, receives the task and the plan. The plan is logica\n[0..1] VERDICT: NO\n[0..2] VERDICT: 1"
+    },
+    "105-7a7794e34798": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The provided information is the initial setup for the agent `PythonDebugging_Expert`. It outlines the task, the plan, an\n[0..1] An expert debugger, when tasked with analyzing a piece of code that failed, must first look at the code. The provided pl"
+    },
+    "109-33e9e888adb4": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to identify the first decisive mistake in a multi-agent run, given the first two steps.\n\n1.  **Analyze"
+    },
+    "110-e240abd96f2e": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] Both steps appear correct and follow the provided plan.\n\n*   **Step 0:** The agent correctly receives the task and the p\n[0..2] The user's task has a multi-step plan. The agent needs to first identify the oldest flavor in the graveyard. This requir"
+    },
+    "113-ccbf973529c4": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The \"manager's\" plan is fundamentally flawed for an autonomous agent. It instructs the agent to perform manual tasks lik"
+    },
+    "107-de407cd051d7": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the initial step where the agent is simply receiving and understanding the task and the provided plan. The agent\n[0..1] The user wants me to identify the first decisive mistake in a multi-agent run, given the first two steps.\n\n**Step 0: Mar\n[0..2] An audit of the steps reveals the following:\n\n*   **Step 0:** The manager (Marathon_Expert) correctly defines the task a"
+    },
+    "111-bb45c75cb2de": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The agent's plan in step 0 is sound and directly addresses the prompt. It correctly outlines the necessary steps to find\n[0..2] The user wants me to identify the first decisive mistake made in the provided steps.\n\n1.  **Step 0:** The `Library_Datab"
+    },
+    "112-7d8dcb80a290": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the first step of the run, where the agent is given its instructions. The instructions are clear, and the provid\n[0..1] The user wants me to identify if the decisive mistake, the first error that caused the run to fail, has occurred in step"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The user wants me to analyze a multi-agent run and identify the first decisive mistake.\n\n**Step 0: Federico_Lauria_Exper"
+    },
+    "117-b056cbb2e661": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The agent generated syntactically incorrect Python code. The very first line of the code, `import pandas as pd`, has an "
+    },
+    "114-af259c3de825": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] Based on the provided information for steps 0 and 1:\n\n*   **Step 0:** This step is the initial prompt given to the `Base\n[0..2] The agent in step 2, Baseball_Historian_Expert, makes a definitive statement of fact: \"Based on our historical data retr"
+    },
+    "115-03d92b3118e2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This first step is the agent's initial plan. It correctly identifies its inputs (a general task and manager's advice) an\n[0..1] The user wants me to identify the first decisive mistake in the provided two steps of a multi-agent run.\n\n**Step 0 Analy"
+    },
+    "119-6ec2674e0d3a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 is the initial setup and task description for the agent. The agent receives the question and a plan from a \"manag\n[0..1] Step 1 contains a subtle but critical misinterpretation of the task that sets the run on a path to failure.\n\nThe agent's"
+    },
+    "120-3ea26fdedd38": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The decisive mistake has already occurred.\n\nStep 0 is a decision by the `BirdSpeciesIdentification_Expert`. This agent h"
+    },
+    "118-d69039766c83": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The agent is given its initial instructions and a plan. It has not yet taken any action, such as trying to locate or ana\n[0..1] VERDICT: 1"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This is the first step, where the agent is given its instructions. The instructions are clear and provide a reasonable p\n[0..1] VERDICT: 1"
+    },
+    "121-62bf36bb4ce7": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] VERDICT: 1"
+    },
+    "124-d60e28a0fa62": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] The provided step describes the initial state of the run. A `TheoreticalChemistry_Expert` agent has been assigned a logi"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] VERDICT: NO\n[0..1] The plan laid out in step 0 is clear:\n1.  The `WikipediaHistory_Expert` will search for the relevant articles.\n2.  The `"
+    },
+    "125-a445e2da8734": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] This step is the initial setup, where the agent receives the task and a correct plan from its \"manager\". The agent has n\n[0..1] The decisive mistake has occurred.\n\nStep 0 correctly outlines the plan, which begins with \"Gather the necessary ticket p"
+    }
+  }
+}

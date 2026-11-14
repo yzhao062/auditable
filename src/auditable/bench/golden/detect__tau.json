@@ -1,0 +1,105 @@
+{
+ "task": "detect/tau",
+ "source": {
+  "catchbench": "0.1.3",
+  "file": "tests/golden/board.txt",
+  "sha256": "8db3d8fe0e8fe95669b6d5a5d27f36d4fd6e16b7f612fec6f927c998f69a4745"
+ },
+ "section": "[POST] post_detection :: tau",
+ "rows": {
+  "run.random": {
+   "roc_auc": 0.498,
+   "board_label": "random"
+  },
+  "run.lr_flat": {
+   "roc_auc": 0.619,
+   "board_label": "size (flat)"
+  },
+  "run.pyod_ecod": {
+   "roc_auc": 0.555,
+   "board_label": "pyod-flatten (ECOD)"
+  },
+  "run.pygod_dominant": {
+   "roc_auc": 0.55,
+   "tol": 0.005,
+   "board_label": "pygod (graph AD)"
+  },
+  "run.guardian_lite": {
+   "roc_auc": 0.542,
+   "tol": 0.005,
+   "board_label": "guardian (recon-AE)"
+  },
+  "run.lr_flatdep": {
+   "roc_auc": 0.665,
+   "board_label": "auditable (size+deps)"
+  },
+  "run.lr_full": {
+   "roc_auc": 0.665,
+   "board_label": "full"
+  },
+  "run.gsafeguard_lite": {
+   "roc_auc": 0.626,
+   "tol": 0.005,
+   "board_label": "g-safeguard (sup GNN)"
+  },
+  "run.pyod_iforest": {
+   "roc_auc": 0.561,
+   "board_label": "pyod-iforest"
+  },
+  "run.pyod_knn": {
+   "roc_auc": 0.575,
+   "note": "macOS arm64 may differ by up to 0.002; the golden board is Linux x86-64",
+   "accept": {
+    "roc_auc": [
+     0.574
+    ]
+   },
+   "board_label": "pyod-knn"
+  },
+  "run.pyod_lof": {
+   "roc_auc": 0.504,
+   "note": "macOS arm64 prints 0.582 on SWE-Gym; the golden board is Linux x86-64",
+   "board_label": "pyod-lof"
+  },
+  "run.pyod_copod": {
+   "roc_auc": 0.593,
+   "board_label": "pyod-copod"
+  },
+  "run.pyod_hbos": {
+   "roc_auc": 0.562,
+   "board_label": "pyod-hbos"
+  },
+  "run.pygod_conad": {
+   "roc_auc": 0.552,
+   "tol": 0.005,
+   "board_label": "pygod-conad"
+  },
+  "run.pygod_anomalydae": {
+   "roc_auc": 0.49,
+   "tol": 0.005,
+   "note": "torch row; macOS arm64 may differ by up to 0.04",
+   "accept": {
+    "roc_auc": [
+     0.529
+    ]
+   },
+   "board_label": "pygod-anomalydae"
+  },
+  "run.pygod_gaan": {
+   "roc_auc": 0.517,
+   "tol": 0.005,
+   "board_label": "pygod-gaan"
+  },
+  "run.lr_spline_flat": {
+   "roc_auc": 0.631,
+   "tol": 0.001,
+   "board_label": "size (spline)",
+   "source": {
+    "catchbench": "0.1.3",
+    "file": "tools/detection_audit_results.json",
+    "sha256": "f4dc22af644e958f899b3ba451ea59707721c80dd92dbb5d62260f4a361c97c4"
+   },
+   "note": "a CatchBench size-audit arm, not a board row; the audit ran on Windows"
+  }
+ }
+}

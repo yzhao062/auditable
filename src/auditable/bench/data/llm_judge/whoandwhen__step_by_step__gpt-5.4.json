@@ -1,0 +1,896 @@
+{
+  "provenance": {
+    "benchmark": "CatchBench",
+    "board": "post_localization",
+    "corpus": "whoandwhen",
+    "method": "step_by_step",
+    "model": "gpt-5.4",
+    "n_runs": 126,
+    "prompt_sha": "e4e35c9bd9e3",
+    "paper": "Zhang et al. 2025 (Who&When), arXiv:2505.00212"
+  },
+  "predictions": {
+    "001-5697e89b281b": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent adopts the manager\u2019s plan to compare Seattle and Colville without first validating the key pre"
+    },
+    "004-d57d322d4115": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not yet perform any incorrect filter\n[0..1] Yes. The decisive mistake has already occurred by step 1.\n\nThe error is in the filtering: step 1 excludes films that are"
+    },
+    "002-a04041638aa4": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not yet make a faulty factual claim,\n[0..1] No decisive mistake yet. Step 0 just restates the task/plan. Step 1 is slightly unhelpful because the StreamingService_E\n[0..2] Yes. The decisive mistake has already occurred by step 2.\n\nStep 2 contains a material error: it provides an incomplete a"
+    },
+    "006-b40c7e455b08": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. The decisive mistake has already occurred at step 0.\n\nReason: the agent does not actually inspect any code, gather "
+    },
+    "003-cfa39baedf59": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake is evident yet from step 0 alone. It only restates the task and a reasonable plan: gather ticket/pas\n[0..1] No decisive mistake is visible yet. So far, the agent is just restating the task and planning to gather pricing. Althoug\n[0..2] No decisive mistake is evident yet.\n\nStep 0 just restates the task and plan.\nStep 1 sensibly identifies needed pricing i\n[0..3] Yes. The decisive mistake has already occurred by step 2.\n\nReason: step 2 introduces specific ticket prices as \u201crecent\u201d "
+    },
+    "000-7b14128ce504": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; there is no visible erroneous action or conclusion yet. The decisive mistake\n[0..1] No decisive mistake is visible yet.\n\nStep 1 shows the spreadsheet was loaded and a count of 4 was produced, which is pla\n[0..2] No decisive mistake is visible yet.\n\n- Step 0 states the correct business rule: sunset design goes to west-facing houses\n[0..3] No. Up through step 3, the agents appear to be following the correct logic:\n\n- Sunset design corresponds to west-facing \n[0..4] No decisive mistake is visible in steps 0\u20134.\n\n- Step 0 states the correct rule: sunset design goes to west-facing houses\n[0..5] No. The visible steps correctly identify the relevant column, apply the right parity rule (even-numbered addresses face "
+    },
+    "008-00a173727b41": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the assignment and manager guidance; it does not yet show a wro\n[0..1] Yes. The decisive mistake has already occurred by step 1.\n\nReason: step 1 treats unverified, source-by-source numbers as"
+    },
+    "007-ad2a6aa19dc2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The only visible step is a restatement of the task plus a reasonable plan: find gyms within 200m of Tompkins Square Park\n[0..1] No decisive mistake is visible yet.\n\nStep 0 correctly restates the task and plan.\nStep 1 begins a reasonable approach: i\n[0..2] Yes. The decisive mistake has already occurred by step 1.\n\nWhy:\n- The task requires actually identifying gyms within 200"
+    },
+    "005-b82f729abea8": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet contain a substantive wrong action or conclusion that would \n[0..1] No decisive mistake yet.\n\nStep 0 just restates the task and plan.\nStep 1 identifies the park location correctly and prop\n[0..2] No decisive mistake yet.\n\nStep 0 correctly restates the task and plan.\nStep 1 follows the plan appropriately: identifies\n[0..3] No decisive mistake is visible yet.\n\nSo far:\n- Step 0 sets a reasonable plan.\n- Step 1 identifies the park location corr\n[0..4] No. Up to step 4, they are still gathering candidates and hit a tooling/runtime error, but they have not yet made the de\n[0..5] Yes. The decisive mistake has already happened.\n\nThe first consequential error is at **step 3**: the agent chooses a vag"
+    },
+    "011-4a73c38d0c2c": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and manager\u2019s plan; it does not yet make a substantive factual or reasoning error that\n[0..1] Yes. The decisive mistake appears in step 1.\n\nReason: step 1 starts \u201cverifying\u201d by relying on generic prior knowledge an"
+    },
+    "009-537a267c0756": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The only visible step is a restatement of the task plus a manager-provided plan. No action, inference, or incorrect iden\n[0..1] No decisive mistake yet. Step 0 is just task framing. Step 1 gives a generic history summary and says it will search for\n[0..2] No decisive mistake is evident yet.\n\n- Step 0 is just task setup and delegation.\n- Step 1 gives a generic summary and a \n[0..3] Yes. The decisive mistake has already occurred by step 2: the agent attempted to use an undefined tool/function `perform"
+    },
+    "010-12509faada72": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The only visible step is a setup/instruction step assigning the role and outlining a reasonable plan: review Apple board\n[0..1] No decisive mistake is visible yet.\n\n- Step 0 is just task setup and delegation.\n- Step 1 begins with a relevant search \n[0..2] No decisive mistake yet.\n\nStep 0 just restates the task and a reasonable plan.\nStep 1 finds a relevant source listing Ap\n[0..3] Yes. The decisive mistake has already occurred by step 2.\n\nWhy:\n- The task is to identify which Apple board member did *"
+    },
+    "014-2c7dcbd8af03": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not yet make an incorrect methodolog\n[0..1] No decisive mistake yet.\n\nStep 0 just restates the task and sensible plan.\nStep 1 is imperfect because it talks about a \n[0..2] Yes. The decisive mistake has already occurred by step 1.\n\nStep 0 is just restating the task and a reasonable plan.\n\nSte"
+    },
+    "013-e347ad0f6ffe": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 is just receiving/echoing the task and manager plan; no erroneous reasoning o\n[0..1] No decisive mistake is visible yet.\n\nStep 0 is just the task handoff and plan. Step 1 restates the plan and proposes gat\n[0..2] No. Steps 0\u20132 only restate a reasonable plan and a trivial terminal check returning `False`; there is no clear decisive \n[0..3] Yes. The decisive mistake has already occurred by step 3.\n\nReasoning:\n- Step 0 is just task intake and a reasonable high"
+    },
+    "015-bcd50f2bbd6e": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; no incorrect data collection, analysis, or calculation has happened yet, so \n[0..1] No. Step 0 is just the task setup/instructions. Step 1 is a tool execution failure due to an `IndentationError`, but tha\n[0..2] Yes. The decisive mistake has already occurred by step 2.\n\nReasoning:\n- Step 0 is just task setup/instructions, not an e"
+    },
+    "017-3f81e1d1cad3": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. The decisive mistake has already occurred at step 0.\n\nReason: the agent reframed the user\u2019s actual question into a "
+    },
+    "018-874e62353ead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent narrows the work to only \u201cverify\u201d previously supplied prices ($60 daily, $120 season pass) and"
+    },
+    "020-85a096b8759f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. Step 0 already contains the decisive mistake: it treats the provided failure context (`exitcode: 1`, `unknown langu"
+    },
+    "012-d731749a39ca": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet introduce any erroneous extraction, counting, or verificatio\n[0..1] No decisive mistake is visible yet.\n\n- Step 0 correctly frames the task: count Mercedes Sosa studio albums from 2000\u2013200\n[0..2] No decisive mistake is evident yet.\n\n- Step 0 is just restating the task and plan.\n- Step 1 proposes using the Wikipedia\n[0..3] No decisive mistake is evident yet. Up to step 3, the agents are still gathering the relevant Wikipedia source and have \n[0..4] No decisive mistake yet. Up to step 4, the agents are still pursuing a reasonable path: identifying the correct Wikipedi\n[0..5] No decisive mistake yet.\n\nUp to step 5, the agents are still gathering information. The failed table scrape in step 5 re\n[0..6] No decisive mistake is evident yet.\n\n- Steps 1\u20134 are reasonable attempts to gather the Wikipedia discography data.\n- Ste\n[0..7] Yes. The decisive mistake has already occurred by step 6.\n\nWhy step 6 is the first decisive mistake:\n- Up to step 5, the"
+    },
+    "016-2f776a306c77": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] No. Step 0 only restates the assignment and plan; it does not yet make a substantive error in execution. No decisive mis\n[0..1] No decisive mistake is visible yet.\n\nStep 0 just restates the task and plan.  \nStep 1 also only restates the plan and pr\n[0..2] No decisive mistake is visible yet.\n\n- Step 0 is just the task handoff and plan.\n- Step 1 proposes a reasonable approach\n[0..3] No decisive mistake is evident yet.\n\nSteps 0\u20133 are still setting up a reasonable plan:\n- Step 0 restates the task approp\n[0..4] Yes. The decisive mistake has already occurred by step 4.\n\nWhy: steps 0\u20133 are still just planning / broad search and don"
+    },
+    "019-2c7247a57061": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] The only shown step is just the agent restating the task/instructions and plan. No actual data collection, filtering, or\n[0..1] No decisive mistake yet.\n\nStep 0 just restates the task and plan.\n\nStep 1 proposes a reasonable next action: inspect the\n[0..2] Yes. The decisive mistake appears in step 1: the agent assumes a CSV file named `real_estate_transactions.csv` exists an"
+    },
+    "022-ae51d1d52d64": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. The decisive mistake is already present at step 0.\n\nWhy: the instruction explicitly requires identifying gyms \u201cwith"
+    },
+    "021-9d62146b7652": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 only restates the task and plan. There is no erroneous data collection, misinterpretation, or calculation yet. So\n[0..1] No. Step 0 is just the task setup, and step 1 only proposes a reasonable analysis approach plus a placeholder script ass\n[0..2] Yes. The decisive mistake has already occurred by step 1.\n\nReason: step 1 assumes the existence of a local CSV file `hou"
+    },
+    "025-85a096b8759f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. The decisive mistake is already present at step 0: the agent treats the prompt as if it were executable \u201cjson\u201d cont"
+    },
+    "023-4ad39d56ae5e": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task/plan; it does not yet make a substantive factual error\n[0..1] Yes. By step 1, the agent has already made the decisive error: it lists the Franklin/Foxboro line stops incorrectly, com"
+    },
+    "026-945822c59fe9": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent immediately narrows the search to a manager-provided list of bars plus prior results (\u201cLucky's"
+    },
+    "024-aa646cf62171": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task/planning context; there is no substantive action, wron\n[0..1] No decisive mistake is evident yet.\n\n- Step 0 just restates the task and plan.\n- Step 1 outlines a reasonable verificati\n[0..2] No. Steps 0 and 1 are just setup/planning. Step 2 shows a tool execution failure due to a missing Python module (`google\n[0..3] Yes. The decisive mistake has already occurred by step 3.\n\nThe first causative error is in **step 3**: deciding to `pip "
+    },
+    "027-6479bd8a2bba": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; there is no substantive action yet like geocoding, distance calculation, or \n[0..1] No decisive mistake yet. Step 0 just restates the task and plan. Step 1 proposes a reasonable workflow and asks for the \n[0..2] No decisive mistake yet. Steps 0\u20132 only set up the task and ask for/source needed data; no incorrect geospatial assumpti\n[0..3] Yes. The decisive mistake has already occurred by step 3.\n\nWhy:\n- Step 1 is just a request for input and not yet a fatal"
+    },
+    "029-606d391c364b": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; no substantive search, filtering, or incorrect assumption has been made yet,\n[0..1] No decisive mistake yet. Step 0 just restates the task/plan, and step 1 correctly identifies the NYSE address and propos\n[0..2] No decisive mistake yet.  \nSteps 1 and 2 are still setting up the search and have not committed to incorrect results. St\n[0..3] Yes. The decisive mistake has already occurred by step 2.\n\nWhy:\n- The task requires finding martial arts classes within "
+    },
+    "030-0319cbd03980": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; no incorrect factual claim, flawed compariso\n[0..1] No decisive mistake yet. Step 0 correctly restates the task and plan. Step 1 begins with a reasonable first action: iden\n[0..2] No. Up to step 2, the agent has only started an appropriate plan and then hit a tool-use/runtime issue while trying to g\n[0..3] Yes. The decisive mistake has already happened by step 3.\n\nThe first consequential error is in step 3: the agent claims "
+    },
+    "028-3a559ca1aea1": {
+      "top": 7,
+      "ranking": [
+        7
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan, and it correctly identifies the intended com\n[0..1] No. Step 0 correctly restates the task and plan, and step 1 begins with an appropriate search strategy to confirm Fubo\u2019s\n[0..2] No decisive mistake is visible yet.\n\nStep 0 correctly restates the task and plan.\nStep 1 reasonably starts by confirming\n[0..3] No decisive mistake yet. The agent is following the plan: it starts by confirming Fubo\u2019s IPO year, and the Reuters resul\n[0..4] No decisive mistake yet.\n\nThe agent\u2019s actions so far are consistent with the plan:\n- Step 1\u20133 begin confirming the IPO y\n[0..5] No decisive mistake yet.\n\n- Step 0 correctly restates the task and plan.\n- Steps 1\u20133 begin by checking the IPO year, whi\n[0..6] No decisive mistake yet. By step 6, the agent has correctly started gathering evidence: Reuters indicates the IPO timefr\n[0..7] Yes. The decisive mistake has already occurred by step 7.\n\nThe first failure-causing error is at step 7: the agent stops"
+    },
+    "032-af0933cfcd09": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and a reasonable plan; it does not yet contain an erroneous factual claim or a flawed \n[0..1] No.  \nStep 0 is just task framing and a reasonable plan.  \nStep 1 begins information gathering with a plausible search d\n[0..2] Yes. The decisive mistake appears in step 1.\n\nReason: the plan required first identifying Ali Khan\u2019s 2015 cost-conscious"
+    },
+    "035-a3d5b34baf48": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent already anchors on an invalid prior result: \u201c57,000\u201d based on interpolation from 2022 data, de"
+    },
+    "031-da9aec084a98": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not perform any incorrect research, \n[0..1] No decisive mistake yet. Step 0 correctly frames the task, and step 1 sensibly identifies the zodiac animals and propose\n[0..2] No decisive mistake yet.\n\n- Step 0 is a reasonable decomposition of the task.\n- Step 1 correctly identifies 2015 as the \n[0..3] No decisive mistake yet.\n\n- Step 0 is just task framing.\n- Step 1 correctly identifies 2015 as Year of the Goat/Ram and \n[0..4] No decisive mistake yet.\n\n- Step 1 is reasonable: identifying the zodiac animals and the 2015 animal as goat/ram is corr\n[0..5] Yes. The decisive mistake has already occurred by step 5.\n\nThe first clear error is in step 5: the agent concludes the f"
+    },
+    "036-88562a8be980": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not yet make an incorrect claim or t\n[0..1] Yes. The decisive mistake has already occurred by step 1.\n\nStep 1 fails to actually carry out the assigned task and inst"
+    },
+    "034-04dc240da7b8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not yet make an erroneous identifica\n[0..1] No decisive mistake is evident yet.\n\nStep 0 is just restating the task and a reasonable plan.\nStep 1 proposes a plausibl\n[0..2] Yes. The decisive mistake has already occurred by step 2.\n\nStep 0 is just restating the task and a reasonable plan.\nStep"
+    },
+    "037-14508845755c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. The decisive mistake is already present at step 0: the agent does not actually analyze or fix anything and instead "
+    },
+    "033-620b58b7aa60": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task/setup; it does not yet make a substantive incorrect mo\n[0..1] No decisive mistake is evident yet.\n\nStep 0 just restates the task and manager guidance.\nStep 1 proposes loading the cor\n[0..2] No decisive mistake yet. The agent has only loaded the correct `words_alpha` dictionary from the specified source, which\n[0..3] No decisive mistake is visible yet.\n\nStep 1 correctly loads the specified `words_alpha` dictionary from the given source\n[0..4] No decisive mistake is visible yet.\n\nSteps 1\u20134 are setting up a valid approach:\n- correct dictionary source\n- correct 4x\n[0..5] Yes. The decisive mistake already occurred by step 4.\n\nThe failure shown at step 5 (`NameError: name 'dictionary' is not"
+    },
+    "039-2b969539d7db": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. The decisive mistake is already present at step 0: it assumes a \u201cWikimedia API token\u201d is needed and plans around ob"
+    },
+    "041-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. The decisive mistake is already present at step 0: instead of actually reviewing/correcting/testing the Python scri"
+    },
+    "038-3c2adf8c14b1": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not yet introduce an erroneous assum\n[0..1] No. Step 0 is just task setup/instructions, and step 1 is a tool response indicating no code was provided; neither is ye\n[0..2] Yes. The decisive mistake has already occurred by step 2.\n\nReason:\n- Step 0 is just task setup.\n- Step 1 is a harmless t"
+    },
+    "043-d53734deeead": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent only restates the task/instructions and does not inspect any code, gather needed information, "
+    },
+    "040-a181eb120cb2": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and a reasonable plan: verify the song identification, inspect the lyrics, and find th\n[0..1] No decisive mistake is visible yet.\n\nStep 0 correctly frames the task around \u201cThriller.\u201d\nStep 1 also correctly identifie\n[0..2] Yes. The decisive mistake has already occurred by step 2.\n\nStep 1 is still just setup plus a partially shown lyric quote"
+    },
+    "042-833c47739be2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 is just task framing and a reasonable plan: identify Met accession 29.100.5, then research the subject\u2019s epis\n[0..1] No decisive mistake yet. Step 1 is just asking to look up the accession number / request an image or link; that may be i\n[0..2] Yes. The decisive mistake has already occurred by step 1.\n\nThe first actual error is that the Art_Historian_Expert does "
+    },
+    "045-c43d472268d8": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent accepts manager-provided constraints including the final percentage (24%) and plans to compute"
+    },
+    "044-e214187ad13a": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 only restates the assignment and plan. It does not yet perform any substantive search, identification, extraction\n[0..1] No. Step 1 is just setting up a reasonable search approach and has not yet made a clearly decisive wrong identification \n[0..2] Yes. The decisive mistake already occurred in step 1.\n\nReason: the manager\u2019s plan explicitly split roles: the AI regulat"
+    },
+    "047-5d32c1eba366": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not perform an incorrect navigation,\n[0..1] No decisive mistake is visible yet.\n\nStep 0 correctly frames the task and plan.\nStep 1 correctly opens Carl Nebel\u2019s Wiki\n[0..2] Yes. By step 2, the agent has already gone off task: instead of identifying the first citation reference link on the Wik"
+    },
+    "048-e5f2767e1b04": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and a reasonable plan; no substantive error has yet been made.\n\nVERDICT: NO\n[0..1] No decisive mistake is visible yet.\n\nStep 0 correctly restates the task and plan.\nStep 1 opens the correct Wikipedia art\n[0..2] No. Steps 0\u20132 only show task setup and opening the current article page. There is no clear erroneous action yet like che\n[0..3] Yes. The decisive mistake has already occurred by step 3: the agent asserts a specific date without showing any actual h"
+    },
+    "050-6784fd6fd246": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. Step 0 already contains the decisive mistake: it does not actually inspect/transcribe the attached audio and instea"
+    },
+    "046-2e76694a8fe5": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] No decisive mistake is evident in step 0. The manager\u2019s instruction already identifies the relevant track as \u201cSweet Swee\n[0..1] No decisive mistake yet. Step 0 correctly identifies the target track from the manager\u2019s instruction, and step 1 starts \n[0..2] No decisive mistake yet.\n\nStep 0 correctly identifies the relevant track from the manager\u2019s instruction: Sweet Sweet Can\n[0..3] Yes. The decisive mistake has already occurred by step 3.\n\nThe first causative error is in **step 3**: it infers the Jun"
+    },
+    "049-324f53bff996": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not yet perform extraction, computat\n[0..1] No decisive mistake is visible yet. Step 0 is just the task handoff/plan, and step 1 only notes that no executable code \n[0..2] No.  \nStep 0 is just restating the task and a reasonable plan.  \nStep 1 is only a tool response saying no code was provi\n[0..3] Yes. The decisive mistake has already occurred by step 2.\n\nReason: the task specifically requires extracting the colored"
+    },
+    "052-25639162f57c": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not yet introduce an incorrect inter\n[0..1] No. Step 0 just restates the task and plan, and step 1 begins a reasonable search strategy focused on USGS information. \n[0..2] Yes. The decisive mistake has already occurred by step 1: the agent chose to call `perform_web_search(...)` as if it wer"
+    },
+    "051-8f84910e124b": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet make a factual claim, perform a lookup, or commit to an inco\n[0..1] No decisive mistake yet.\n\nStep 0 is just restating the task and plan.\n\nStep 1 proposes a reasonable approach. The only m\n[0..2] Yes. The decisive mistake has already occurred by step 1.\n\nWhy:\n- The task is specifically about \u201cthe version of OpenCV "
+    },
+    "053-908be3172c8e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not yet make an erroneous retrieval,\n[0..1] No decisive mistake yet. Step 0 correctly frames the task. Step 1 only restates the plan and begins with a reasonable ac\n[0..2] No. Up to step 2, they\u2019ve only set up a reasonable search strategy and retrieved plausible search results pointing to th\n[0..3] Yes. By step 3, the agent stops doing the task and hands it back to the user (\u201cYou can manually access the book\u2026\u201d), inst"
+    },
+    "057-3196a02a724f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent only restates the problem/setup and does not actually perform the required careful deduction f"
+    },
+    "056-0e66261209b3": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task/plan; it does not yet make an incorrect extraction, co\n[0..1] Yes. The decisive mistake has already occurred by step 1.\n\nStep 0 is just task setup. In step 1, instead of extracting t"
+    },
+    "055-238f0c23d791": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 just restates the task and plan; no erroneous action has been taken within th\n[0..1] No. Step 0 is just the task/setup. Step 1 is a reasonable initial search query aimed at locating the relevant Wikipedia \n[0..2] No.  \nStep 0 is just restating the task and a reasonable plan.  \nStep 1 performs a broad search, which is not itself a f\n[0..3] Yes. The decisive mistake has already occurred by step 3: instead of following the plan to inspect the Wikipedia page hi"
+    },
+    "054-c81ed3b0a45a": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and manager plan; no incorrect reading, filtering, or wheel-count calculation has happ\n[0..1] No decisive mistake yet. Step 1 only lists the distinct locomotive configurations/types from the file, and it correctly \n[0..2] No decisive mistake yet.  \nStep 1 correctly extracts the unique configuration values from the file, and step 2 correctly\n[0..3] No decisive mistake is visible yet.\n\n- Step 1 only lists unique configuration values from the file. That is a reasonable\n[0..4] Yes. The decisive mistake has already occurred by step 4.\n\nWhy: in step 4 they define wheel count for a Whyte notation a"
+    },
+    "058-f0ccb40243d8": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake yet. Step 0 just restates the task and plan; it does not introduce an erroneous identification or re\n[0..1] No decisive mistake yet. Step 0 correctly restates the task and plan. Step 1 also follows the plan appropriately by firs\n[0..2] No decisive mistake is visible yet.\n\nStep 2 makes a plausible identification: in the Polish adaptation of *Everybody Lov\n[0..3] Yes. The decisive mistake has already occurred by step 2: it identifies the actor as **Bartosz Opania**, but in the Poli"
+    },
+    "060-6df45b66a14f": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not yet contain an incorrect factual\n[0..1] No decisive mistake yet. Step 0 correctly frames the task, and step 1 just delegates data collection without introducing\n[0..2] Yes. The decisive mistake appears in step 2: the agent provides specific sale prices without showing any source or evide"
+    },
+    "062-1d3b288462be": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent does not actually solve the translation task; it only restates instructions/meta-guidance. Sin"
+    },
+    "059-a5c28b2f2fc0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; no substantive research action or incorrect inference has occurred yet, so t\n[0..1] No decisive mistake is evident yet.\n\nStep 0 just restates the task and a reasonable plan.\n\nStep 1 makes a likely-but-not\n[0..2] Yes. The decisive mistake has already occurred by step 1.\n\nReason: step 1 \u201cconfirms\u201d the species as Amphiprion ocellaris"
+    },
+    "063-945c18bc1c72": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not contain an incorrect retrieval, \n[0..1] Yes. By step 1, the run has already likely made the decisive mistake: it asserts specific census figures for men and wom"
+    },
+    "061-d5e74f5edef1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible in step 0. It only restates the task and plan; no erroneous mathematical action or wrong \n[0..1] No decisive mistake is visible yet.\n\nStep 0 just restates the task and a reasonable plan.\n\nStep 1 correctly gives\n- \\(f(\n[0..2] Yes. The decisive mistake has already occurred by step 1.\n\nReason: step 1 chose to implement Newton\u2019s method in Python a"
+    },
+    "066-4835ec93a6d1": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the plan already embeds the key error: it equates a paper\u2019s average p-value of 0.04 / a significance thr"
+    },
+    "067-d7caaed0d413": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task/setup; there is no clear erroneous inference or action\n[0..1] Yes. Step 1 already contains the decisive mistake.\n\nWhy:\n- The resident question is about vampires/humans with truth-tel"
+    },
+    "068-54f5f481feb1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not perform an incorrect identificat\n[0..1] Yes. The decisive mistake has already occurred by step 1.\n\nThe key error is in **step 1**, where the agent assigns stand"
+    },
+    "070-0528f540243a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. Step 0 already contains the decisive mistake: it is only the initial task handoff/instructions and does not actuall"
+    },
+    "065-a16ae072deff": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet perform any incorrect navigation, identification, or inferen\n[0..1] No decisive mistake is evident yet.\n\nStep 0 just restates the task and plan.\nStep 1 proposes a reasonable first action: \n[0..2] No. Step 2 shows a tool execution error, but the search still returned the needed YouTube result in the output, so this \n[0..3] No. Up to step 3, the agents are still following a reasonable plan: find Eva Draconis\u2019s YouTube page, then use it to rea\n[0..4] No decisive mistake yet. The run has only done setup/search and noted the YouTube link. The tool call in step 2 had a co\n[0..5] Yes. The decisive mistake has already occurred by step 5.\n\nThe task requires actually accessing Eva Draconis\u2019s website v"
+    },
+    "071-03b230b92593": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet make a substantive factual or procedural error that would ca\n[0..1] Yes. The decisive mistake occurred at step 1.\n\nReason: the task asks for \u201cthe 2019 game that won the British Academy Gam"
+    },
+    "073-02730601827c": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. The decisive mistake is already present at step 0: instead of actually reviewing/debugging the provided Python scri"
+    },
+    "072-c6399b46fd3c": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; no actual file reading, calculation, or incorrect interpretation has happene\n[0..1] No decisive mistake is visible yet. Step 0 is just task setup/planning, and step 1 is a tool message indicating no code \n[0..2] Yes. The first decisive mistake is at step 1: the terminal reported no code to execute, meaning the agent failed to actu"
+    },
+    "069-5486f0bb8912": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent only restates instructions and has not yet inspected the image or performed any geometry. Sinc\n[0..1] No decisive mistake yet. Step 0 is just the task handoff, and step 1 is a harmless failed tool invocation saying no code\n[0..2] No decisive mistake yet. Step 1 is just an unhelpful tool response, and step 2 sensibly asks to inspect the image before\n[0..3] Yes. The decisive mistake has already occurred by step 3.\n\nThe first causal error is in **step 3**: instead of actually "
+    },
+    "064-67329dda61f8": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet make an erroneous substantive inference or action that would\n[0..1] No decisive mistake is visible yet. Step 0 is just task setup/instructions, and step 1 shows a successful tool call with\n[0..2] No decisive mistake is visible yet.\n\n- Step 0 is just task setup and a reasonable plan.\n- Step 1 shows a successful tool\n[0..3] No decisive mistake is evident yet.\n\nStep 2 just waits for the train ID; that's fine.\nStep 3 proposes a reasonable next \n[0..4] No. Up through step 4, the run is still on track:\n\n- Step 0 sets a reasonable plan.\n- Step 2 correctly waits for the tra\n[0..5] No decisive mistake is visible yet.\n\nThe steps so far are consistent with the stated plan:\n- Step 3 analyzes passenger d\n[0..6] No decisive mistake is evident in steps 0\u20136.\n\n- Step 3 correctly analyzes the passenger CSV to find the max-passenger tr\n[0..7] Yes. The decisive mistake has already occurred by step 5: the agent assumes the relevant train can be identified by taki"
+    },
+    "074-27ef8756352a": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent already introduces conflicting/incorrect core data: it states \u201cThe Tropicos ID for the Order H"
+    },
+    "075-dc792a0fa32f": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent does not perform the required data extraction or verification from arXiv and instead appears t"
+    },
+    "078-e16678e8c43e": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent only restates instructions and does not actually begin the required verification/calculation, "
+    },
+    "079-72b0c0014ede": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] The only shown step is the initial setup/instruction intake by the TextExtraction_Expert. It states the task, the manage\n[0..1] No. Step 0 is just the task framing, and step 1 successfully extracts the ZIP and lists files, which matches the manager\n[0..2] Yes. By step 2, they are already asserting a specific result (\u201cone applicant\u201d) without showing the actual PDF text extra"
+    },
+    "080-252fc8554126": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is evident yet. Step 0 just restates the task and plan; no erroneous retrieval, interpretation, or a\n[0..1] Yes. The decisive mistake has already occurred by step 1.\n\nStep 0 is just a restatement of the task and plan, with no su"
+    },
+    "081-6b8e879881c0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and manager plan; it does not yet execute an incorrect action or introduce a failure-c\n[0..1] Yes. The decisive mistake has already occurred by step 1: the agent attempted to initialize Selenium with an invalid Chr"
+    },
+    "082-933179cfbd8d": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet make a substantive factual error or take a wrong action that\n[0..1] Yes. By step 1, the agent asserts the answer \u201cclich\u00e9d\u201d as already identified \u201cbased on previous discussions,\u201d without ev"
+    },
+    "084-8cad8cae382d": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; no incorrect execution or reasoning is shown yet, so the decisive mistake ha\n[0..1] Yes. The decisive mistake has already occurred by step 1: the agent attempted to execute code without first extracting/r"
+    },
+    "077-a1dc061cb971": {
+      "top": 6,
+      "ranking": [
+        6
+      ],
+      "raw": "[0..0] No decisive mistake is visible in step 0. It only restates the task and plan; no erroneous action or conclusion has occu\n[0..1] No decisive mistake yet. Step 1 appears to be correctly opening the June 6, 2023 Universe Today article specified in the\n[0..2] No.  \nSteps 1\u20132 show the agent opened a June 6, 2023 Carolyn Collins Petersen Universe Today article that plausibly matc\n[0..3] No. Steps 1\u20133 correctly locate the June 6, 2023 Universe Today article and expose the linked paper at the bottom, matchi\n[0..4] No. Steps 0\u20134 correctly identify the relevant Universe Today article and the linked paper, and step 4 merely states the \n[0..5] No. Up through step 5, the agent correctly identified the relevant Universe Today article and the linked paper. Hitting \n[0..6] Yes. The decisive mistake has already occurred.\n\nThe first error is at step 6: the agent gives up after hitting the CAPT"
+    },
+    "076-769191cea270": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task/plan; it does not yet perform an incorrect extraction,\n[0..1] No decisive mistake yet. Step 1 outlines a reasonable search plan to find the NIH/ClinicalTrials.gov record and then ext\n[0..2] No. Steps 0\u20132 only set up the search and then fail to execute because no actual tool command was issued. That is a proce\n[0..3] No decisive mistake is visible yet.\n\n- Step 0 is just task framing.\n- Step 1 proposes a reasonable search approach. The \n[0..4] No decisive mistake has occurred yet in steps 0\u20134.\n\nSo far, the agents are only planning, delegating, and waiting for da\n[0..5] Yes. The decisive mistake has already occurred by step 5.\n\nThe first causal error is in **step 1**: the agent adopts an "
+    },
+    "083-b73a239fdad1": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible in step 0. It only restates the task and a reasonable plan: find Survivor unique winners \n[0..1] No decisive mistake yet.\n\nStep 0 correctly frames the task: compare unique Survivor winners through season 44 against Am\n[0..2] Yes. The decisive mistake has already happened by step 1: the agent chose an unreliable scraping approach with a bad ass"
+    },
+    "085-dc5e30ffc725": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] No decisive mistake is visible in step 0. It only restates the task/instructions and does not yet make a factual claim, \n[0..1] No decisive mistake is visible yet. Step 0 just restates the task, and step 1 proposes the correct next action: retrieve\n[0..2] No decisive mistake is visible yet.\n\n- Step 0 just restates the task and plan.\n- Step 1 proposes the correct first actio\n[0..3] Yes. By step 3, the agent gives a final mismatch word based on an asserted quote, but the quote itself is incomplete rel"
+    },
+    "088-3a55b5705c39": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet make an incorrect factual claim or take a failing action. Th\n[0..1] No decisive mistake yet.  \nStep 0 correctly restates the task and plan.  \nStep 1 also follows the plan appropriately by \n[0..2] No. Up through step 2, they are still on a reasonable path: step 1 correctly decides to find the relevant Replit blog po\n[0..3] Yes. The decisive mistake has already occurred by step 3.\n\nThe task required the agent team to determine the command by "
+    },
+    "089-93088535fb95": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is evident yet in step 0. The agent is only restating the task and plan; it has not yet made a subst\n[0..1] Yes. The decisive mistake has already occurred at step 1.\n\nReason: In Esther 1:1 (NIV), the first place name mentioned i"
+    },
+    "087-dc0eb49a4ccc": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] The only visible step is a setup/instruction step assigning the task and plan. It does not yet contain a substantive ide\n[0..1] No decisive mistake yet.\n\nStep 0 just restates the task and a reasonable plan. Step 1 also remains on track: it proposes\n[0..2] No decisive mistake yet. Step 1\u2019s role choice is a bit off-plan, but the action taken\u2014starting with identifying the Whit\n[0..3] No decisive mistake yet. Steps 1\u20133 are just an initial, somewhat inefficient search strategy after an agent-role mix-up,\n[0..4] No decisive mistake yet. The agents are still in information-gathering mode, and although the searches are weak/generic,\n[0..5] Yes. The decisive mistake has already occurred.\n\nThe first error is at step 5: instead of continuing with available publ"
+    },
+    "090-e273f2fabe96": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. Step 0 already contains the decisive mistake: it frames the problem around \u201cthe first National Geographic short on "
+    },
+    "086-e5db53c29991": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] No decisive mistake is evident yet. Step 0 only restates the task and plan; it does not yet make a substantive musical o\n[0..1] No decisive mistake is visible yet. Step 0 is just task setup/instructions, and step 1 is a tool call with no substantiv\n[0..2] No decisive mistake is visible yet.\n\n- Step 0 is just the task handoff and plan.\n- Step 1 shows an OCR/tool attempt that\n[0..3] No decisive mistake yet.\n\n- Step 0 is just task intake.\n- Step 1 shows a tool call with no useful output, but that alone\n[0..4] No decisive mistake is evident yet.\n\n- Step 0 is just task setup.\n- Step 1\u2019s empty output is not itself a fatal reasonin\n[0..5] Yes. The decisive mistake has already occurred by step 5.\n\nThe first causal error is in **step 5**: the MusicTheory_Expe"
+    },
+    "094-7e3d81abcddf": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent only restates the task wrapper and plan, but does not actually inspect any code, gather the mi"
+    },
+    "091-23de28edf643": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and a plausible plan; no substantive reasoning or factual error has yet been made.\n\nVE\n[0..1] No. Step 0 just restates the task and a reasonable plan. Step 1 also only proposes a verification approach; although it \n[0..2] Yes. The decisive mistake has already occurred by step 1.\n\nReason: the task asks for the two cities \u201cfarthest apart from"
+    },
+    "092-a5a8d627e455": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; no actual video analysis, transcription, or incorrect assumption is shown ye\n[0..1] No decisive mistake yet. Step 1 is just a reasonable start: attempting to access/download the video in order to inspect \n[0..2] Yes. The decisive mistake has already occurred by step 1: the agent chose to call `youtube_download(...)` without establ"
+    },
+    "095-91ab842a22b2": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. The decisive mistake is already present at step 0: the agent does not actually extract the \u201clatest 2022\u201d revision o"
+    },
+    "097-aa341e34fc51": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet make a substantive factual claim or erroneous inference abou\n[0..1] Yes. Step 1 makes an unsupported factual claim while misidentifying itself as the script expert and provides a specific "
+    },
+    "093-2af3ef7efdd6": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the assignment and a reasonable plan; it does not yet introduce an error in extraction, calcula\n[0..1] No decisive mistake yet.\n\nStep 0 is just task framing and a reasonable plan.\nStep 1 proposes searching for the paper on \n[0..2] Yes. The decisive mistake has already occurred by step 1.\n\nThe task is to find a value from a specific University of Lei"
+    },
+    "099-59e337ae1fbb": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet in step 0.\n\nStep 0 only restates the task and plan. It does not yet show an erroneous\n[0..1] Yes. The decisive mistake appears in step 1: the agent explicitly says it is assuming no direct access and will provide "
+    },
+    "096-89be76878d79": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet make an incorrect factual or procedural move that would caus\n[0..1] No. Step 0 is just a reasonable plan, and step 1 is merely a failed/no-op tool invocation message, not yet a substantive\n[0..2] No. Up to step 2, the agent has only restated the plan and started drafting code. There is no clear decisive error yet t\n[0..3] Yes. The decisive mistake has already occurred by step 2.\n\nWhy:\n- The task is specifically about **`numpy.polynomial` is"
+    },
+    "101-7011a3ca2fe8": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. The decisive mistake is already present at step 0: the agent frames the task as merely downloading the YouTube vide"
+    },
+    "098-43bbd8019fea": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet contain a factual claim, reasoning error, or execution mista\n[0..1] No. Step 0 is just the task setup, and step 1 is a reasonable start: identifying the June 27, 2022 Word of the Day via w\n[0..2] No.  \nStep 0 just restates the task and plan. Step 1 proposes a reasonable first action: search for the June 27, 2022 Wo\n[0..3] No decisive mistake is visible yet.\n\n- Step 0 is just task setup.\n- Step 1 proposes a reasonable next action: find the J\n[0..4] No decisive mistake is visible yet.\n\nThe run so far shows some inefficiency and a formatting/tool-use hiccup:\n- Step 1 s\n[0..5] Yes. The decisive mistake has already occurred by step 4.\n\nReason: step 4 issues a faulty tool call/code snippet that as"
+    },
+    "100-364b09fd59b8": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and a reasonable plan; it does not yet make a factual claim or erroneous inference tha\n[0..1] No decisive mistake yet. Step 1\u2019s assumption that the relevant adjacent numbers might be 18 and 20 is only a tentative p\n[0..2] No decisive mistake yet. Step 1\u2019s assumption that the adjacent numbers are 18 and 20 is plausible if Tamai\u2019s number is 1\n[0..3] No. Steps 0\u20133 show setup and an unsuccessful attempt to access/verify sources, but no clear substantive wrong conclusion\n[0..4] Yes. The decisive mistake has already occurred.\n\nThe first error is at step 1: the agent assumes the adjacent numbers to"
+    },
+    "102-a6862e302014": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task/instructions and does not perform an incorrect retriev\n[0..1] No. Step 1 is a reasonable start: searching for the DOI/full text to access the book and then inspect Chapter 2 follows \n[0..2] Yes. The decisive mistake has already occurred by step 1: instead of actually using the available tool interface correct"
+    },
+    "105-7a7794e34798": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent does not actually analyze any code, inspect the failure, or produce the required debugging out"
+    },
+    "103-5593276388b1": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] No decisive mistake is visible in step 0. It only restates the task and plan; no erroneous retrieval, comparison, or con\n[0..1] No. Steps 0\u20131 only restate the task and propose a reasonable plan to use the Wayback Machine and compare snapshots. Ther\n[0..2] No decisive mistake is visible yet.\n\nStep 0 just restates the task and plan.\nStep 1 proposes a reasonable approach: retr\n[0..3] Yes. The decisive mistake has already happened by step 3.\n\nThe key error is in step 3: the agent treats a Wayback calend"
+    },
+    "104-9f0fb174fad0": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task/setup; there is no shown erroneous action, interpretat\n[0..1] Yes. The first decisive mistake is already present by step 1: the agent\u2019s attempted tool execution failed immediately wi"
+    },
+    "107-de407cd051d7": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not yet introduce a wrong fact, calc\n[0..1] Yes. The decisive mistake appears in step 1.\n\nWhy:\n- The task asks for Eliud Kipchoge\u2019s **record-making marathon pace**."
+    },
+    "108-13c9a4c03793": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and manager plan; it does not yet choose a wrong datas\n[0..1] Yes. The decisive mistake appears in step 1.\n\nReason: the manager\u2019s first required action was to confirm the exact datas"
+    },
+    "110-e240abd96f2e": {
+      "top": 3,
+      "ranking": [
+        3
+      ],
+      "raw": "[0..0] The only shown step is a restatement of the task plus a reasonable plan:\n1. go to the flavor graveyard,\n2. find the olde\n[0..1] No. Step 0 is just the task framing, and step 1 shows the agent successfully reaching the Ben & Jerry\u2019s Flavor Graveyard\n[0..2] No. By step 2, the agent has only opened the Flavor Graveyard and started reading entries. There\u2019s no clear wrong turn y\n[0..3] Yes. By step 3, the agent answers using **Dastardly Mash** and a background stone **Cr\u00e8me Brulee**, instead of first est"
+    },
+    "106-00e6e023a028": {
+      "top": 5,
+      "ranking": [
+        5
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet make a substantive identification or calculation error. Ther\n[0..1] No decisive mistake yet. Step 1 is just a reasonable attempt to identify the cover image before determining the landmark\n[0..2] No decisive mistake yet.  \nStep 0 just restates the task/plan.  \nStep 1 sensibly asks to identify the cover image.  \nSte\n[0..3] No decisive mistake yet. Up to step 3, they are still reasonably gathering the needed source to identify the landmark; t\n[0..4] No decisive mistake yet. Up to step 4, they are still setting up a reasonable approach: find the August 2021 Vogue cover\n[0..5] No decisive mistake yet.\n\nThe team is still on a plausible path:\n- Step 3 found the relevant Vogue issue page.\n- Step 4 \n[0..6] Yes. The decisive mistake has already occurred by step 5.\n\nWhy step 5 is the first decisive mistake:\n- Up to step 4, the"
+    },
+    "113-ccbf973529c4": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent commits to a plan that assumes it can \u201cdownload the actual historical stock data of Apple from"
+    },
+    "111-bb45c75cb2de": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake is visible in step 0. It only restates the task and a plausible plan; no erroneous action, assumptio\n[0..1] No. Step 0 is just the task handoff and plan. Step 1 shows a tool/network timeout, which is a transient execution failur\n[0..2] No.  \nStep 0 is a normal restatement/planning step.  \nStep 1 is just a connection timeout, which is a failure event but \n[0..3] Yes. The decisive mistake has already occurred by step 2.\n\nWhy:\n- Step 1 is just a connection timeout, not a reasoning m"
+    },
+    "112-7d8dcb80a290": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] Step 0 only restates the task and plan. No substantive reasoning error, factual error, or misinterpretation is yet visib\n[0..1] Yes. The decisive mistake has already occurred by step 1.\n\nReason: the task is explicitly set in 1999 and asks for album"
+    },
+    "109-33e9e888adb4": {
+      "top": 4,
+      "ranking": [
+        4
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; no incorrect chess analysis or move has been\n[0..1] No decisive mistake yet. Step 0 is just the task handoff, and step 1 is a failed/irrelevant tool invocation, but by itse\n[0..2] No decisive mistake yet.\n\n- Step 0 is just the task handoff and plan.\n- Step 1 is a harmless failed tool invocation; no \n[0..3] No. So far, the agents have only restated the task and unsuccessfully tried to use the terminal without issuing any acti\n[0..4] No. Up through step 4, they have only been trying to inspect the image and have not yet made a substantive chess-analysi\n[0..5] Yes. The decisive mistake has already occurred by step 5.\n\nReasoning:\n- Steps 0\u20133 are mostly setup / mild inefficiency: "
+    },
+    "115-03d92b3118e2": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No substantive mistake is visible yet. Step 0 only restates the task setup/instructions; it does not yet make a mathemat\n[0..1] Yes. The decisive mistake has already occurred by step 1.\n\nReason: step 1 imposes an unjustified ordering-based restrict"
+    },
+    "118-d69039766c83": {
+      "top": 0,
+      "ranking": [
+        0
+      ],
+      "raw": "[0..0] Yes. In step 0, the agent only restates the task/instructions and does not actually inspect any code, gather missing inf"
+    },
+    "116-b7c0da3c62b9": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 just restates the task and plan; it does not yet perform a faulty inference o\n[0..1] No decisive mistake yet.\n\nStep 0 is just restating the task and a reasonable plan.\n\nStep 1 is weak and somewhat off-targ\n[0..2] Yes. The decisive mistake has already happened by step 1.\n\nStep 0 is just the task setup and plan, which is broadly reas"
+    },
+    "114-af259c3de825": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake is visible in step 0. It only restates the task and plan; there is no erroneous factual claim, flawe\n[0..1] No decisive mistake is visible yet.\n\n- Step 0 correctly frames the task: identify the 1977 Yankee with the most walks an\n[0..2] No decisive mistake is evident yet.\n\n- Step 0 is just task setup.\n- Step 1 proposes validation, though it oddly refers t\n[0..3] Yes. The decisive mistake has already happened by step 2.\n\nWhy:\n- Step 0 is just task setup.\n- Step 1 proposes a validat"
+    },
+    "117-b056cbb2e661": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not yet perform any incorrect action\n[0..1] No decisive mistake yet. Step 0 is just task setup. Step 1 is a tool execution failure due to an indentation error, but \n[0..2] Yes. The decisive mistake has already occurred by step 2.\n\nStep 0 is just the task/setup.  \nStep 1 is a failed execution"
+    },
+    "121-62bf36bb4ce7": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not perform any substantive reasonin\n[0..1] Yes. The decisive mistake appears in step 1.\n\nReason: step 1 prematurely assumes the paper\u2019s authors are \u201cPietro Murano "
+    },
+    "119-6ec2674e0d3a": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; no erroneous factual claim or faulty action \n[0..1] No decisive mistake yet. Step 1 is just gathering expert input and does not itself introduce a fatal factual or procedur\n[0..2] Yes. The decisive mistake has already occurred by step 2.\n\nThe key issue is that the agents have identified the wrong ob"
+    },
+    "122-4bbeaacae4cd": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet contain a substantive retrieval, calculation, or interpretat\n[0..1] No decisive mistake is visible yet.\n\nStep 0 is just task setup.  \nStep 1 proposes retrieving the Wikipedia data from the\n[0..2] Yes. The decisive mistake has already occurred by step 1: the agent chose to execute code using an undefined helper func"
+    },
+    "120-3ea26fdedd38": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No. Step 0 only restates the assignment and plan; there is no erroneous action or conclusion yet. The decisive mistake h\n[0..1] No. Step 0 is just the task handoff and plan, and step 1 is only a tool message saying no executable code was provided. \n[0..2] No decisive mistake yet.\n\n- Step 0 is just the task framing and a reasonable plan.\n- Step 1 is a failed/irrelevant termi\n[0..3] Yes. The first decisive mistake appears at step 2: the agent tries to call a search function by writing pseudo-code in a"
+    },
+    "124-d60e28a0fa62": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No. Step 0 only restates the setup/instructions and does not yet make a substantive mathematical or logical move that co\n[0..1] Yes. The decisive mistake has already occurred by step 1.\n\nStep 1 commits to a flawed simulation approach before correct"
+    },
+    "125-a445e2da8734": {
+      "top": 1,
+      "ranking": [
+        1
+      ],
+      "raw": "[0..0] No decisive mistake is visible yet. Step 0 only restates the task and plan; it does not show any incorrect pricing, reas\n[0..1] Yes. The decisive mistake appears in step 1.\n\nStep 0 is just setup/instructions.  \nIn step 1, the agent starts calculati"
+    },
+    "123-24f21eb1a9ce": {
+      "top": 2,
+      "ranking": [
+        2
+      ],
+      "raw": "[0..0] No. Step 0 only restates the task and plan; it does not yet contain a substantive reasoning or factual error that would \n[0..1] No. Step 0 just restates the task/plan. Step 1 proposes a reasonable first action: identify November 2016 Featured Artic\n[0..2] No decisive mistake yet. Step 2 proposes scraping the November 2016 FAC featured log, which is a reasonable way to ident\n[0..3] Yes. The decisive mistake has already occurred by step 2.\n\nWhy:\n- The task is to find the nominator of the only dinosaur"
+    }
+  }
+}

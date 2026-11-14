@@ -124,7 +124,8 @@ jobs:
       - name: Graph method tests (no skips allowed)
         run: |
           set -o pipefail
-          pytest -q -ra -p no:cacheprovider tests/test_methods_graph.py tests/test_methods_pygod_step.py | tee pytest.out
+          pytest -q -ra -p no:cacheprovider tests/test_methods_graph.py tests/test_methods_pygod_step.py \
+            "tests/test_bench_localize.py::test_synthetic_leaderboard_pygod" | tee pytest.out
           ! grep -q "SKIPPED" pytest.out
 
   # Pin the validated framework contracts for the LangChain and MCP adapters. The
@@ -150,3 +151,22 @@ jobs:
       - run: python examples/example_mcp_capture.py
       - run: pip install "langchain-core==0.3.0"
       - run: pytest -q tests/test_langchain_integration.py
+
+  # The leaderboard core, protocols and corpus-selection tests under the bench extra
+  # (no data download). Every listed test must run: a skip means an extra did not install.
+  # The one bench test that needs torch runs in methods-graph-ad instead.
+  bench-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip
+      - run: pip install -e ".[bench]" pytest
+      - name: Bench unit tests (no skips allowed)
+        run: |
+          set -o pipefail
+          pytest -q -ra -p no:cacheprovider tests/test_bench_*.py \
+            --deselect "tests/test_bench_localize.py::test_synthetic_leaderboard_pygod" | tee pytest.out
+          ! grep -q "SKIPPED" pytest.out
