@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.0 (unreleased)
+## 0.4.0 (2026-11-14)
 
 0.4.0 adds leaderboards: `auditable.bench` reruns the tables of the CatchBench board on the same populations and protocols, and places any new method on them.
 
