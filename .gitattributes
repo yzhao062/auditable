@@ -1,0 +1,3 @@
+# Files the package ships with recorded SHA-256 values (the LLM-judge caches and PRE votes copied from
+# CatchBench): keep the committed bytes on every platform, so a Windows checkout does not rewrite their line ends.
+src/auditable/bench/data/** -text
