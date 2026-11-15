@@ -293,7 +293,7 @@ The examples, tests and benchmark harnesses are in the repository, not the wheel
 
 The LLM judges take any `prompt -> reply` function as their backend; `OpenAICompatibleBackend` reaches an OpenAI-compatible endpoint with the standard library alone.
 
-The graph methods (PyGOD detectors, GUARDIAN-Lite, G-Safeguard-Lite), and so the graph rows of the leaderboards, need torch, PyTorch Geometric, PyGOD, and a sampling backend built for the installed torch, which pip cannot resolve from the extra. Install torch and the matching `pyg-lib` wheel first:
+The graph methods (PyGOD detectors, GUARDIAN-Lite, G-Safeguard-Lite), and so the graph rows of the leaderboards, need torch, PyTorch Geometric, PyGOD, and a sampling backend built for the installed torch, which pip cannot resolve from the extra; they need Python 3.10 or newer, since torch 2.12.1 and `pyg-lib` publish no wheels for 3.9. Install torch and the matching `pyg-lib` wheel first (the same steps on Linux, macOS on Apple silicon, and Windows):
 
 ```bash
 pip install "torch==2.12.1" --index-url https://download.pytorch.org/whl/cpu
@@ -302,7 +302,7 @@ pip install "auditable[graph-ad]"
 python -c "import torch_geometric.typing as t; assert t.WITH_PYG_LIB"
 ```
 
-Where torch is already installed, as on Colab, keep it: skip the first line, and in the `pyg-lib` URL replace `2.12.1+cpu` with the installed version, which `python -c "import torch; print(torch.__version__)"` prints (for example `2.11.0+cu130`); the pinned CPU build would replace Colab's torch and break its preinstalled torchvision. The graph-ad install was checked on Colab CPU and T4 runtimes with Colab's torch, and on Linux aarch64 (DGX Spark) with the pinned one. The PyGOD methods run on the CPU (`gpu=-1`) even when a GPU is present.
+Where torch is already installed, as on Colab, keep it: skip the first line, and in the `pyg-lib` URL replace `2.12.1+cpu` with the installed version, which `python -c "import torch; print(torch.__version__)"` prints; the pinned CPU build would replace Colab's torch and break its preinstalled torchvision. PyG does not publish wheels for every patch release, so when pip finds no `pyg_lib` at that URL, use the `.0` release with the same CUDA tag: Colab's torch `2.14.1+cu130` takes `https://data.pyg.org/whl/torch-2.14.0+cu130.html`. The graph-ad install was checked for 0.4.0 on a Colab T4 runtime with its torch 2.14.1+cu130, and for 0.3.0 on Colab CPU and T4 runtimes with Colab's torch and on Linux aarch64 (DGX Spark) with the pinned one; a weekly workflow (`bench-platforms.yml`) repeats the pinned steps from a clean install on Linux, macOS, and Windows and checks three boards against their golden files. The PyGOD methods run on the CPU (`gpu=-1`) even when a GPU is present.
 
 ## Traces and Inputs
 

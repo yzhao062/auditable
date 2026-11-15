@@ -12,7 +12,7 @@
 - Golden files with the board values of every row and the SHA-256 of the board they come from; the spline control's value comes from CatchBench's committed size audits instead, with a 0.001 tolerance. `python -m auditable.bench <task> --golden` compares a run with them and fails on a mismatch, on an error row, on a golden row left unchecked (skipped, missing a metric, absent from the task's default rows, or in a golden file that is missing), and on a run that compared no golden value; `--allow-skipped` accepts rows skipped for a missing extra. Three rows differ on macOS arm64 by a known platform effect and are reported as platform values; `--exact` counts them as mismatches, and the weekly Linux run uses it.
 - `python -m auditable.bench`, the command-line entry: lists the tasks, prints a board, or emits it as Markdown or JSON.
 - The `bench` extra (`pyod`, `scikit-learn`, `numpy`, `networkx`, `agentpile[hf]`); the graph rows also need `graph-ad`.
-- CI: a `bench-core` job runs the bench unit tests, which download nothing, and a weekly `bench golden` workflow reruns every task on Linux against its golden file.
+- CI: a `bench-core` job runs the bench unit tests, which download nothing, a weekly `bench golden` workflow reruns every task on Linux against its golden file, and a weekly `bench platforms` workflow installs the package from a clean checkout on Linux, macOS, and Windows (Python 3.10 and 3.13) with the README's graph-ad steps and checks three tasks against their golden files.
 
 ## 0.3.0 (2026-10-25)
 

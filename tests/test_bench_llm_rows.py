@@ -48,15 +48,10 @@ def test_discovery_finds_all_31_committed_caches():
 
 def test_key_and_label_format_match_golden_file():
     entries = llm_entries()
-    golden_path = os.path.join(
-        os.path.dirname(__file__),
-        "..",
-        "src",
-        "auditable",
-        "bench",
-        "golden",
-        "localize__whoandwhen__llm.json",
-    )
+    import auditable.bench
+
+    # the copy the package carries, so the test also runs against an installed wheel
+    golden_path = os.path.join(os.path.dirname(auditable.bench.__file__), "golden", "localize__whoandwhen__llm.json")
     with open(golden_path, encoding="utf-8") as fh:
         golden_rows = json.load(fh)["rows"]
 
@@ -184,9 +179,9 @@ def test_score_llm_entry_raises_on_replay_mismatch(tmp_path):
 def test_llm_rows_defers_third_party_imports():
     import ast
 
-    llm_rows_path = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), "..", "src", "auditable", "bench", "llm_rows.py")
-    )
+    import auditable.bench.llm_rows
+
+    llm_rows_path = os.path.abspath(auditable.bench.llm_rows.__file__)
     tree = ast.parse(open(llm_rows_path, encoding="utf-8").read())
     top_imports = set()
     for node in tree.body:
@@ -196,7 +191,8 @@ def test_llm_rows_defers_third_party_imports():
             top_imports.add(node.module.split(".")[0])
     assert not (top_imports & {"numpy", "sklearn", "agentpile", "torch", "pygod"})
 
-    src = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+    # the parent of the imported package, so the subprocess imports the same copy (a checkout or site-packages)
+    src = os.path.dirname(os.path.dirname(os.path.abspath(auditable.__file__)))
     code = (
         "import sys; import auditable.bench.llm_rows as m; "
         "loaded = [k for k in ('agentpile', 'torch', 'pygod') if k in sys.modules]; "
