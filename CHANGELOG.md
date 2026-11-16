@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.5.0 (2026-11-15)
 
 The README now groups the methods by the stage at which they audit (PRE, LIVE, POST), following PyOD's catalogue layout, and presents the six leaderboards as part of that catalogue. Every leaderboard row now names the kind of method it runs.
 
