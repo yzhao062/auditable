@@ -1,5 +1,24 @@
 # Changelog
 
+## Unreleased
+
+The README now groups the methods by the stage at which they audit (PRE, LIVE, POST), following PyOD's catalogue layout, and presents the six leaderboards as part of that catalogue. Every leaderboard row now names the kind of method it runs.
+
+### Added
+
+- `Row` gains `type` (Rule, Supervised, PyOD detector, Graph detector, LLM judge, Baseline, Oracle, or Custom) and `algorithm` (the name on the method card), filled for scored, skipped, and error rows and exported by `Board.to_dict()`, whose existing keys are unchanged. A class defined outside the library is Custom whatever its role; only the benchmark-only controls and oracle of `auditable.bench` take Baseline or Oracle from their role.
+- A hero figure (`assets/hero.png`, editable source in `figure-src/hero/`) and a `detect/swegym` chart (`assets/leaderboard-swegym.png`, generated from the golden file by `figure-src/leaderboard_swegym.py`, colored by method type).
+- `docs/install.md` (the extras and their dependencies, the graph methods on Colab and on torch patch releases, running the examples from a clone, the platform checks) and `docs/agent-traces.md` (dependency rules, the GRADE equality results per corpus, the text and subagent conventions), both moved out of the README and added to the documentation navigation.
+- `tests/test_bench_readme.py` builds the six board blocks of the README offline from the golden files and checks that the README shows them, that the Stage column appears exactly when the shown rows span more than one stage, and that the method counts of the category table match the registry. `python tests/test_bench_readme.py` rewrites the board blocks and the four method tables.
+
+### Changed
+
+- Table layouts differ from 0.4.0, so code that parses them by column position must update. `Board.to_markdown()` prints Rank, Type, Method, Algorithm, and the metrics, with a Stage column (PRE, LIVE, or POST) after Rank when the shown rows audit at more than one stage, as on `live/swegym` and `live/tau`; `print(board)` adds a type column. `method_table()` adds a Year column taken from the key of a method's first citation, which the Reference text then omits (`ECOD (Li et al.)`). It lists the families in stage order (`config`, `online`, `run`, `step`) in both the default and the `detailed=True` table. A method registered from outside `auditable.methods` has the type `Custom`.
+- README: a stage-and-family table, why-bullets, and the hero figure open the page; then Install (graph steps folded), a five-line example, Implemented Algorithms (one generated table per family and a folded utility table), Leaderboards (the `detect/swegym` chart and all six boards folded), Quick Start with a PRE example, a short API Cheatsheet, and shorter sections for real traces, reproducing CatchBench, adding a method, and records.
+- The method tables link the sources of the PyOD KNN and HBOS rows and of the PyGOD CONAD, AnomalyDAE, and GAAN rows, which had no link before.
+- The CatchBench BibTeX entry in the README lists all eight authors of arXiv:2608.22808.
+- `docs/index.md`, `docs/leaderboard.md`, `docs/methods-contract.md`, and `docs/api.md` describe the stages and the Type, Algorithm, Stage, and Year columns.
+
 ## 0.4.0 (2026-11-14)
 
 0.4.0 adds leaderboards: `auditable.bench` reruns the tables of the CatchBench board on the same populations and protocols, and places any new method on them.

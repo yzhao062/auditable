@@ -10,6 +10,10 @@ their flat top-level API, and the graph analyses (PRE and the graph kernel) live
 
 ## Method Registry
 
+`method_table(family=None, detailed=False)` renders the registry as the Markdown tables of the README, in the order of the audit: PRE (`config`), LIVE (`online`), then POST (`run`, `step`). The default columns are Type, Method, Algorithm, Year, and Reference. `detailed=True` lists Method, Family, Fit, Fidelity, Extras, and CatchBench row instead. The [Method Contract](methods-contract.md#the-method-card) says where each column comes from.
+
+The leaderboards in `auditable.bench` print the same Type for each row. `Board.to_markdown()` has the columns Rank, Type, Method, Algorithm, and one per metric. A board whose shown rows audit at more than one stage adds a Stage column after Rank; the two LIVE boards do, because they score LIVE monitors and POST run detectors together. `Board.to_dict()` rows carry `type` and `algorithm`. The [Leaderboards](leaderboard.md#board-methods) page documents them.
+
 ::: auditable.methods
 
 ## Family Base Classes and the Method Card

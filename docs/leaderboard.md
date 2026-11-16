@@ -22,57 +22,59 @@ The graph rows (PyGOD, GUARDIAN-Lite, and G-Safeguard-Lite) also need `auditable
 python -m auditable.bench detect/swegym --golden
 ```
 
-The command scores all 17 run detectors on the SWE-Gym population and prints the board with the CatchBench value in brackets beside each row that has one. With `--golden` it exits with status 1 if a row differs from the CatchBench board or a golden row was not scored. On a laptop CPU the full board takes about 70 seconds, of which PyGOD GAAN, the slowest row, takes about 37.
+The command scores all 17 run detectors on the SWE-Gym population and prints the board with each method's type and, in brackets, the CatchBench value beside each row that has one. With `--golden` it exits with status 1 if a row differs from the CatchBench board or a golden row was not scored. On a laptop CPU the full board takes about 70 seconds, of which PyGOD GAAN, the slowest row, takes about 37.
 
 ```text
 detect/swegym: SWE-Gym OpenHands trajectories (one scaffold, balanced), 376 runs (188 failed, 188 succeeded)
 ranked by roc_auc, higher is better; the CatchBench reference roc_auc in brackets
 
-rank  method                         roc_auc
-   1  run.pygod_gaan                   0.850 [0.850]
-   2  run.lr_spline_flat (control)     0.832 [0.832]
-   3  run.gsafeguard_lite              0.828 [0.828]
-   4  run.lr_full                      0.819 [0.819]
-   5  run.lr_flatdep                   0.804 [0.804]
-   6  run.guardian_lite                0.767 [0.767]
-   7  run.pyod_ecod                    0.765 [0.765]
-   8  run.pygod_conad                  0.750 [0.750]
-   9  run.lr_flat                      0.663 [0.663]
-  10  run.pyod_copod                   0.625 [0.625]
-  11  run.pygod_anomalydae             0.592 [0.592]
-  12  run.pyod_lof                     0.582 [0.584]
-  13  run.pyod_iforest                 0.571 [0.571]
-  14  run.pygod_dominant               0.547 [0.547]
-  15  run.random (control)             0.483 [0.483]
-  16  run.pyod_knn                     0.446 [0.446]
-  17  run.pyod_hbos                    0.319 [0.319]
+rank  type            method                         roc_auc
+   1  Graph detector  run.pygod_gaan                   0.850 [0.850]
+   2  Supervised      run.lr_spline_flat (control)     0.832 [0.832]
+   3  Graph detector  run.gsafeguard_lite              0.828 [0.828]
+   4  Supervised      run.lr_full                      0.819 [0.819]
+   5  Supervised      run.lr_flatdep                   0.804 [0.804]
+   6  Graph detector  run.guardian_lite                0.767 [0.767]
+   7  PyOD detector   run.pyod_ecod                    0.765 [0.765]
+   8  Graph detector  run.pygod_conad                  0.750 [0.750]
+   9  Supervised      run.lr_flat                      0.663 [0.663]
+  10  PyOD detector   run.pyod_copod                   0.625 [0.625]
+  11  Graph detector  run.pygod_anomalydae             0.592 [0.592]
+  12  PyOD detector   run.pyod_lof                     0.582 [0.584]
+  13  PyOD detector   run.pyod_iforest                 0.571 [0.571]
+  14  Graph detector  run.pygod_dominant               0.547 [0.547]
+  15  Baseline        run.random (control)             0.483 [0.483]
+  16  PyOD detector   run.pyod_knn                     0.446 [0.446]
+  17  PyOD detector   run.pyod_hbos                    0.319 [0.319]
 ```
 
 ### Read the Board
 
-This is the `detect/swegym` board as computed on 2026-11-14. Its 16 CatchBench rows equal the CatchBench board, which was computed on Linux; macOS prints `run.pyod_lof` as 0.582 ([Golden Values](#golden-values)). The seventeenth row, the flexible size control `run.lr_spline_flat`, is not a CatchBench board row: its reference value comes from CatchBench's committed size audit.
+This is the `detect/swegym` board as computed on 2026-11-14. Its 16 CatchBench rows equal the CatchBench board, which was computed on Linux; macOS prints `run.pyod_lof` as 0.582 ([Golden Values](#golden-values)). The seventeenth row, the flexible size control `run.lr_spline_flat`, is not a CatchBench board row: its reference value comes from CatchBench's committed size audit. `python -m auditable.bench detect/swegym --markdown` prints this table with the values from your machine; the table shows the Linux values.
 
-| Rank | Method | What it is | ROC-AUC |
-|---|---|---|---|
-| 1 | `run.pygod_gaan` | GAAN adversarial detector (PyGOD) | 0.850 |
-| 2 | `run.lr_spline_flat` | Logistic regression on a cubic spline of run size, the flexible size control | 0.832 |
-| 3 | `run.gsafeguard_lite` | G-Safeguard-Lite, a supervised graph classifier | 0.828 |
-| 4 | `run.lr_full` | Logistic regression on all raw GRADE layers | 0.819 |
-| 5 | `run.lr_flatdep` | Logistic regression on size and dependency (GRADE flatdep) | 0.804 |
-| 6 | `run.guardian_lite` | GUARDIAN-Lite, an attribute-reconstruction autoencoder | 0.767 |
-| 7 | `run.pyod_ecod` | ECOD on run size features | 0.765 |
-| 8 | `run.pygod_conad` | CONAD contrastive graph autoencoder (PyGOD) | 0.750 |
-| 9 | `run.lr_flat` | Logistic regression on run size (GRADE flat), the size baseline | 0.663 |
-| 10 | `run.pyod_copod` | COPOD on run size features | 0.625 |
-| 11 | `run.pygod_anomalydae` | AnomalyDAE dual autoencoder (PyGOD) | 0.592 |
-| 12 | `run.pyod_lof` | Local outlier factor on run size features | 0.584 |
-| 13 | `run.pyod_iforest` | Isolation Forest on run size features | 0.571 |
-| 14 | `run.pygod_dominant` | DOMINANT graph autoencoder (PyGOD) | 0.547 |
-| 15 | `run.random` | Uniform random scores, a control | 0.483 |
-| 16 | `run.pyod_knn` | KNN distance on run size features | 0.446 |
-| 17 | `run.pyod_hbos` | HBOS on run size features | 0.319 |
+| Rank | Type | Method | Algorithm | roc_auc |
+|---|---|---|---|---|
+| 1 | Graph detector | `run.pygod_gaan` | GAAN adversarial detector (PyGOD) | 0.850 |
+| 2 | Supervised | `run.lr_spline_flat` (control) | Logistic regression on a cubic spline of run size (flexible size control) | 0.832 |
+| 3 | Graph detector | `run.gsafeguard_lite` | G-Safeguard-Lite (supervised graph classifier) | 0.828 |
+| 4 | Supervised | `run.lr_full` | Logistic regression on all raw layers (GRADE full) | 0.819 |
+| 5 | Supervised | `run.lr_flatdep` | Logistic regression on size and dependency (GRADE flatdep) | 0.804 |
+| 6 | Graph detector | `run.guardian_lite` | GUARDIAN-Lite (attribute-reconstruction autoencoder) | 0.767 |
+| 7 | PyOD detector | `run.pyod_ecod` | ECOD on run size | 0.765 |
+| 8 | Graph detector | `run.pygod_conad` | CONAD contrastive graph autoencoder (PyGOD) | 0.750 |
+| 9 | Supervised | `run.lr_flat` | Logistic regression on run size (GRADE flat) | 0.663 |
+| 10 | PyOD detector | `run.pyod_copod` | COPOD on run size | 0.625 |
+| 11 | Graph detector | `run.pygod_anomalydae` | AnomalyDAE dual autoencoder (PyGOD) | 0.592 |
+| 12 | PyOD detector | `run.pyod_lof` | Local outlier factor on run size | 0.584 |
+| 13 | PyOD detector | `run.pyod_iforest` | Isolation Forest on run size | 0.571 |
+| 14 | Graph detector | `run.pygod_dominant` | DOMINANT graph autoencoder (PyGOD) | 0.547 |
+| 15 | Baseline | `run.random` (control) | Random run scores | 0.483 |
+| 16 | PyOD detector | `run.pyod_knn` | KNN distance on run size | 0.446 |
+| 17 | PyOD detector | `run.pyod_hbos` | HBOS on run size | 0.319 |
 
 A board ranks by the first metric of its task, higher first, and rows that tie on the three-decimal score share the better rank. The printed board marks `run.random` and `run.lr_spline_flat` as controls. The value for `run.pyod_lof` is the Linux one; macOS prints 0.582 (see [Golden Values](#golden-values)).
+
+Every row carries the kind of method it runs, in the Type column, and the algorithm name from its method card. The types are the ones in the README method tables: Rule, Supervised, PyOD detector, Graph detector, LLM judge, and Baseline. Two further types appear. Oracle marks the `config.oracle_privilege_diff` row, which reads the labels, and appears only on boards. Custom marks any class defined outside the library: a class that is not in the registry, a class that only reuses the `method_id` of a registered method (a subclass included), or a class you register from outside `auditable.methods`, which `method_table()` also lists as Custom. A benchmark-only control or oracle defined in `auditable.bench`, such as `config.flag_all` on the PRE board, takes its type from its role (Baseline or Oracle); a class of yours is Custom whatever its role. The two LIVE boards score online monitors and POST run detectors together, so their Markdown table adds a Stage column (LIVE or POST) after Rank; a board whose rows all audit at one stage has none.
 
 GAAN from PyGOD, a method from the literature, leads this board. Second is the flexible size control, which fits a cubic spline to the same four counts the linear size baseline `run.lr_flat` reads: run size alone, fitted without a linear restriction, ranks above G-Safeguard-Lite and above both GRADE dependency regressions (`run.lr_full` and `run.lr_flatdep`). The board therefore does not show that dependency structure predicts failure beyond run size, the reading GRADE retired on 2026-09-08, and a new row that ranks below the spline control has not shown signal beyond size either. Both size rows stay on the board so that every row can be read against them. The order is not the same on every corpus: on `detect/tau`, `run.lr_flatdep` (0.665) ranks above the spline control (0.631).
 
@@ -88,16 +90,16 @@ On a board, the method and its constructor arguments are the only things that va
 
 ## The Six Tasks
 
-| Task | Question | Population | Method family | Metrics |
-|---|---|---|---|---|
-| `detect/swegym` | Did the run fail? | SWE-Gym OpenHands trajectories, one scaffold: 376 runs, 188 failed | `run` | ROC-AUC |
-| `detect/tau` | Did the run fail? | tau-bench: 660 runs, 363 failed | `run` | ROC-AUC |
-| `localize/whoandwhen` | Which step was the decisive mistake? | Who&When: 126 failed multi-agent runs, each with a human `mistake_step` label | `step` | top-1, top-3, MRR |
-| `live/swegym` | Can the failure be caught early? | SWE-Gym runs, scored on 25, 50, 75, and 100 percent prefixes of their steps | `online` and `run` | ROC-AUC per prefix, and the mean over prefixes |
-| `live/tau` | Can the failure be caught early? | tau-bench runs, scored on the same four prefixes | `online` and `run` | ROC-AUC per prefix, and the mean over prefixes |
-| `pre/over_privilege` | Is the agent configuration over-privileged before it runs? | 1,187 configurations from six sources | `config` | F1, precision, recall |
+| Task | Stage | Question | Population | Method family | Metrics |
+|---|---|---|---|---|---|
+| `pre/over_privilege` | PRE | Is the agent configuration over-privileged before it runs? | 1,187 configurations from six sources | `config` | F1 (overall and per source), precision, recall, coverage |
+| `live/swegym` | LIVE | Can the failure be caught early? | SWE-Gym runs, scored on 25, 50, 75, and 100 percent prefixes of their steps | `online` and `run` | ROC-AUC per prefix, and the mean over prefixes |
+| `live/tau` | LIVE | Can the failure be caught early? | tau-bench runs, scored on the same four prefixes | `online` and `run` | ROC-AUC per prefix, and the mean over prefixes |
+| `detect/swegym` | POST | Did the run fail? | SWE-Gym OpenHands trajectories, one scaffold: 376 runs, 188 failed | `run` | ROC-AUC |
+| `detect/tau` | POST | Did the run fail? | tau-bench: 660 runs, 363 failed | `run` | ROC-AUC |
+| `localize/whoandwhen` | POST | Which step was the decisive mistake? | Who&When: 126 failed multi-agent runs, each with a human `mistake_step` label | `step` | top-1, top-3, MRR |
 
-`python -m auditable.bench` prints this list from the installed package, with each task's metrics in ranking order. The first metric ranks the board: ROC-AUC for the detection tasks, top-1 for localization, mean prefix ROC-AUC for the live tasks, and F1 for PRE. The PRE board also reports coverage and F1 per source. The LLM judges on the localization and PRE boards are replayed from committed caches, so those boards make no API call and need no key.
+This table orders the tasks by the stage of the audit: PRE audits a configuration before the agent runs, LIVE audits a run while it streams, and POST audits a finished run. `python -m auditable.bench` lists the tasks of the installed package by task id, each with its metrics in ranking order, and every board ranks by its first metric. On the localization and PRE boards, the LLM judges replay committed caches, so neither board makes an API call or needs a key.
 
 The method family matters when you add a row. A method scored on a task must belong to the task's family, and a method of another family is listed as skipped with both families named. The live tasks take two families: `online` monitors, and `run` detectors scored on the prefixes. The family list is in the [Method Contract](methods-contract.md#families).
 
@@ -169,14 +171,14 @@ A method whose pip extra is missing is listed as skipped, with the extra named (
 
 | Call | Returns |
 |---|---|
-| `print(board)` | The text board, with the CatchBench value in brackets and the reason for each skipped or error row |
-| `board.to_markdown(golden=False)` | A Markdown table of the ranked rows, then the oracle rows with rank `ref`; `golden=True` adds a CatchBench column |
-| `board.to_dict()` | A JSON-ready dict: task id, description, metrics, and for each row its rank, key, label, method id, role, scores, seconds, status, note, and golden values |
+| `print(board)` | The text board: rank, type, method, and the metrics, with the CatchBench value in brackets and the reason for each skipped or error row |
+| `board.to_markdown(golden=False)` | A Markdown table with the columns Rank, Type, Method, Algorithm, and one per metric (a Stage column follows Rank when the rows audit at more than one stage): the ranked rows, then the oracle rows with rank `ref`; `golden=True` adds a CatchBench column |
+| `board.to_dict()` | A JSON-ready dict: task id, description, metrics, and for each row its rank, key, label, method id, type, algorithm, role, scores, seconds, status, note, and golden values |
 | `board.compare_golden(tol=0.0005)` | One dict per scored metric that has a golden value, with `key`, `metric`, `got`, `golden`, `ok`, `platform`, and `note` |
 | `board.rank_of(key)` | The 1-based rank of a row by key or label, with ties on the three-decimal score sharing the better rank, or `None` if the row was not scored |
 | `board[key]` | The `Row` for a key or label, or a `KeyError` |
 
-A `Row` holds `key`, `label`, `method_id`, `family`, `scores` (a dict from metric to value), `seconds`, `status` (`"ok"`, `"skipped"`, or `"error"`), `note`, `golden`, and `role` (`"baseline"`, `"control"`, `"oracle"`, or `None`, from the method card).
+A `Row` holds `key`, `label`, `method_id`, `family`, `scores` (a dict from metric to value), `seconds`, `status` (`"ok"`, `"skipped"`, or `"error"`), `note`, `golden`, `role` (`"baseline"`, `"control"`, `"oracle"`, or `None`, from the method card), `type`, and `algorithm`. The board runner fills `type` and `algorithm` for every row, skipped and error rows included. `type` is the registry type of a registered method, including `Custom` for a class registered from outside `auditable.methods`. An unregistered class defined in `auditable.bench` takes `Baseline` or `Oracle` from its `control` or `oracle` role. Every other class is `Custom`, whatever its role. `algorithm` is the `name` of the method card.
 
 ### Place Your Own Method
 
@@ -208,7 +210,7 @@ print(board.rank_of("run.my_step_count"))
 board = leaderboard("detect/swegym", methods=["run.lr_flat", "run.random", StepCount])
 ```
 
-The class needs `@register` only to be reachable by id, as the command line needs. Passing the class through `methods` or `extra` does not require it.
+The class needs `@register` only to be reachable by id, as the command line needs. Passing the class through `methods` or `extra` does not require it. A class defined outside `auditable.methods` is listed with the type `Custom`, whether or not you register it, and the `name` of your card is its algorithm. A class you add inside `methods/<family>/<group>.py` takes that module's type, as the [method contract](methods-contract.md) describes.
 
 ### Variants and Constructor Arguments
 
@@ -245,7 +247,7 @@ python -m auditable.bench [task_id ...] [--methods ID ...] [--golden [--allow-sk
 | `--golden` | Compares with the CatchBench reference values and exits with status 1 on a mismatch or an unchecked value |
 | `--allow-skipped` | With `--golden`, accepts golden rows skipped for a missing extra |
 | `--exact` | With `--golden`, counts a known platform value as a mismatch |
-| `--markdown` | Prints a Markdown table; with `--golden` it adds the CatchBench column |
+| `--markdown` | Prints a Markdown table with the columns Rank, Type, Method, Algorithm, and the metrics (and Stage on a board that mixes stages); with `--golden` it adds the CatchBench column |
 | `--json` | Prints the board as the JSON of `board.to_dict()`; it takes precedence over `--markdown` |
 
 ```bash

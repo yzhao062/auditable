@@ -14,6 +14,7 @@ pytest.importorskip("pyod")
 import auditable.bench._core as bench_core  # noqa: E402
 from auditable.base import BaseRunDetector, MethodCard  # noqa: E402
 from auditable.bench import Entry, Task, leaderboard, list_tasks, register_task  # noqa: E402
+from auditable.bench._core import Board, Row  # noqa: E402
 from auditable.bench.__main__ import main as bench_main  # noqa: E402
 from auditable.bench.protocols import run_detection_auc  # noqa: E402
 from auditable.datasets import make_traces  # noqa: E402
@@ -255,8 +256,162 @@ def test_to_markdown_and_to_dict_roundtrip_ranks(synthetic_task):
     md_ranks = []
     for line in data_lines:
         cells = [c.strip() for c in line.strip("|").split("|")]
-        md_ranks.append((int(cells[0]), cells[1].strip("`")))
+        md_ranks.append((int(cells[0]), cells[2].strip("`")))
     assert md_ranks == [(1, "high"), (2, "tie_a"), (2, "tie_b")]
+    assert md.splitlines()[0] == "| Rank | Type | Method | Algorithm | roc_auc | CatchBench roc_auc |"
+    assert md.splitlines()[1] == "|---|---|---|---|---|---|"
+
+
+def test_entry_type_names_the_kind_of_method():
+    from auditable.bench._core import _entry_type
+    from auditable.bench.tasks.pre import _FlagAll, _FlagNone, _OraclePrivilegeDiff
+
+    registered = {
+        "run.pygod_gaan": "Graph detector", "run.pyod_ecod": "PyOD detector", "run.lr_flat": "Supervised",
+        "run.random": "Baseline", "step.blast": "Rule", "step.llm_all_at_once": "LLM judge",
+        "step.exec_rank": "Supervised", "online.dep_span": "Rule", "online.random": "Baseline",
+        "config.owasp_asi_combined": "Rule", "config.llm_needed": "LLM judge",
+    }
+    for method_id, kind in registered.items():
+        assert _entry_type(Entry(get_method(method_id))) == kind, method_id
+    # A variant keeps the type of its method.
+    assert _entry_type(Entry(get_method("run.lr_flat"), {"C": 0.1}, label="v", key="run.lr_flat:C=0.1")) == "Supervised"
+    # The benchmark-only controls and the oracle are not registered: their card roles name them.
+    assert _entry_type(Entry(_FlagAll)) == "Baseline"
+    assert _entry_type(Entry(_FlagNone)) == "Baseline"
+    assert _entry_type(Entry(_OraclePrivilegeDiff)) == "Oracle"
+
+    # An unregistered method is Custom, whatever its family.
+    assert _entry_type(Entry(_ConstantScoreDetector)) == "Custom"
+
+    # A class that reuses a registered method_id is Custom: it is not the registered class.
+    class Impostor(BaseRunDetector):
+        card = _make_card("run.lr_flat")
+
+        def fit_score(self, X, y=None):
+            return np.zeros(len(X))
+
+    assert get_method("run.lr_flat") is not Impostor
+    assert _entry_type(Entry(Impostor)) == "Custom"
+
+    # A subclass of a registered class inherits its card but is a different class.
+    class Subclass(get_method("run.pyod_ecod")):
+        pass
+
+    assert _entry_type(Entry(Subclass)) == "Custom"
+
+    # A class of the user's is Custom whatever its role; only benchmark-only classes defined in
+    # auditable.bench take Baseline or Oracle from their role.
+    def role_card(method_id, role):
+        return MethodCard(method_id=method_id, name=method_id, family="run", fit_scope="transductive",
+                          supervised=False, output_kind="score", fidelity="original", benchmark_role=role)
+
+    for role in ("control", "oracle", "baseline", None):
+        class Roled(_ConstantScoreDetector):
+            card = role_card(f"run.roled_{role}", role)
+
+        assert _entry_type(Entry(Roled)) == "Custom", role
+
+    # A subclass of a registered control is Custom too, though it inherits the control role.
+    class ControlSubclass(get_method("run.random")):
+        pass
+
+    assert ControlSubclass.card.benchmark_role == "control"
+    assert _entry_type(Entry(ControlSubclass)) == "Custom"
+
+
+def test_stage_column_follows_audit_stages_of_the_shown_rows(synthetic_task):
+    def row(key, family, status="ok"):
+        return Row(key=key, label=key, method_id=f"{family}.{key}", family=family,
+                   scores={"roc_auc": 0.6} if status == "ok" else {}, seconds=0.0, status=status)
+
+    def header(rows):
+        return Board(synthetic_task, "", rows).to_markdown().splitlines()[0]
+
+    # run and step are both POST, so a board of the two families has no Stage column.
+    assert not header([row("a", "run"), row("b", "step")]).startswith("| Rank | Stage |")
+    # A skipped row of another stage is not shown in the table, so it adds no Stage column.
+    assert not header([row("a", "run"), row("c", "config", status="skipped")]).startswith("| Rank | Stage |")
+    # A scored LIVE row beside a POST row does.
+    assert header([row("a", "run"), row("d", "online")]).startswith("| Rank | Stage | Type |")
+
+
+def test_entry_type_of_a_method_registered_by_the_user_is_custom(monkeypatch):
+    import auditable.methods as registry
+    from auditable.bench._core import _entry_type
+
+    registry.list_methods()
+    monkeypatch.setattr(registry, "_REGISTRY", dict(registry._REGISTRY))
+
+    @registry.register
+    class Registered(BaseRunDetector):
+        card = _make_card("run.user_registered")
+
+        def fit_score(self, X, y=None):
+            return np.zeros(len(X))
+
+    assert get_method("run.user_registered") is Registered
+    assert _entry_type(Entry(Registered)) == "Custom"
+
+
+def test_rows_carry_type_and_algorithm_for_scored_skipped_and_error_rows(synthetic_task, monkeypatch):
+    class MyDetector(BaseRunDetector):
+        card = MethodCard(method_id="run.user_custom", name="My tool-count detector", family="run",
+                          fit_scope="transductive", supervised=False, output_kind="score", fidelity="original")
+
+        def fit_score(self, X, y=None):
+            self.decision_scores_ = np.array([len(g.nodes) for g in X], dtype=float)
+            return self.decision_scores_
+
+    class FailingDetector(BaseRunDetector):
+        card = _make_card("run.failing_detector")
+
+        def fit_score(self, X, y=None):
+            raise RuntimeError("detector crashed")
+
+    real_extra_available = bench_core._extra_available
+    monkeypatch.setattr(bench_core, "_extra_available",
+                        lambda extra: False if extra == "graph-ad" else real_extra_available(extra))
+
+    board = leaderboard(synthetic_task.task_id,
+                        methods=["run.lr_flat", "run.random", "run.pygod_gaan", MyDetector, FailingDetector])
+
+    lr, random_, gaan = board["run.lr_flat"], board["run.random"], board["run.pygod_gaan"]
+    assert (lr.status, lr.type, lr.algorithm) == ("ok", "Supervised", get_method("run.lr_flat").card.name)
+    assert (random_.status, random_.type) == ("ok", "Baseline")
+    assert (gaan.status, gaan.type, gaan.algorithm) == (
+        "skipped", "Graph detector", get_method("run.pygod_gaan").card.name)
+    mine = board["run.user_custom"]
+    assert (mine.status, mine.type, mine.algorithm) == ("ok", "Custom", "My tool-count detector")
+    failing = board["run.failing_detector"]
+    assert (failing.status, failing.type, failing.algorithm) == ("error", "Custom", "run.failing_detector")
+
+    exported = {r["key"]: r for r in board.to_dict()["rows"]}
+    assert exported["run.pygod_gaan"]["type"] == "Graph detector"
+    assert exported["run.user_custom"]["algorithm"] == "My tool-count detector"
+    assert exported["run.failing_detector"]["type"] == "Custom"
+
+    lines = board.to_markdown().splitlines()
+    assert lines[0] == "| Rank | Type | Method | Algorithm | roc_auc |"
+    by_label = {line.split("|")[3].strip(): [c.strip() for c in line.strip("|").split("|")] for line in lines[2:]}
+    assert by_label["`run.lr_flat`"][1] == "Supervised"
+    assert by_label["`run.lr_flat`"][3] == get_method("run.lr_flat").card.name
+    assert by_label["`run.random` (control)"][1] == "Baseline"
+    assert by_label["`run.user_custom`"][1:4:2] == ["Custom", "My tool-count detector"]
+    assert "run.pygod_gaan" not in "\n".join(lines)  # skipped rows are not in the table
+
+    text = str(board).splitlines()
+    header = next(line for line in text if line.split()[:1] == ["rank"])
+    assert header.split() == ["rank", "type", "method", "roc_auc"]
+    ranked = next(line for line in text if "run.lr_flat" in line)
+    assert "Supervised" in ranked
+    skipped = next(line for line in text if "run.pygod_gaan" in line)
+    assert "Graph detector" in skipped and "skipped: needs auditable[graph-ad]" in skipped
+
+
+def test_row_type_and_algorithm_default_to_empty_for_hand_built_rows():
+    row = bench_core.Row("k", "k", "run.k", "run", {"roc_auc": 0.7}, 0.0)
+    assert (row.type, row.algorithm) == ("", "")
 
 
 def test_cli_lists_tasks_and_golden_exits_one_on_mismatch(synthetic_task, capsys):

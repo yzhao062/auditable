@@ -11,6 +11,7 @@ so listing the registry works on the core install; calling a method needs its ex
 from __future__ import annotations
 
 import importlib
+import re
 from typing import Dict, List, Optional, Type
 
 from auditable.base import BaseAuditingMethod, MethodCard
@@ -82,37 +83,59 @@ def get_method(method_id: str) -> Type[BaseAuditingMethod]:
         raise KeyError(f"unknown method_id {method_id!r}; registered: {known}") from None
 
 
-_FAMILY_ORDER = {f: i for i, f in enumerate(("config", "run", "step", "online"))}
+# Families in stage order: PRE (config), LIVE (online), POST (run, then step). Every table that
+# lists more than one family, the README's and the detailed one, follows it.
+_FAMILY_ORDER = {f: i for i, f in enumerate(("config", "online", "run", "step"))}
 # The Type column of the method table: the module that defines a method names its kind
 # (methods/<family>/<group>.py), and the random floors are baselines wherever they live.
 _TYPES = {"rules": "Rule", "supervised": "Supervised", "pyod": "PyOD detector",
           "graph": "Graph detector", "llm": "LLM judge", "baselines": "Baseline"}
 _TYPE_ORDER = {t: i for i, t in enumerate(("Rule", "Supervised", "PyOD detector", "Graph detector",
                                            "LLM judge", "Baseline"))}
+_YEAR = re.compile(r"(?<!\d)\d{4}(?!\d)")
 
 
 def _method_type(card: MethodCard) -> str:
+    """The kind of a registered method: Rule, Supervised, PyOD detector, Graph detector,
+    LLM judge, or Baseline. A class registered from outside the ``auditable.methods`` package
+    (a method you add with ``@register``) is ``Custom``."""
+    module = get_method(card.method_id).__module__
+    if not module.startswith("auditable.methods."):
+        return "Custom"
     if card.method_id.endswith(".random"):
         return "Baseline"
-    group = get_method(card.method_id).__module__.rsplit(".", 1)[-1]
+    group = module.rsplit(".", 1)[-1]
     return _TYPES.get(group, group)
 
 
+def _year(card: MethodCard) -> str:
+    """The first four-digit number in the key of the card's first citation, or ``""``."""
+    match = _YEAR.search(card.cite[0].key) if card.cite else None
+    return match.group(0) if match else ""
+
+
 def _reference(card: MethodCard) -> str:
+    """The first citation as a link. Its year is in the Year column, so the link text drops
+    it: ``"ECOD (Li et al., 2022)"`` shows as ``ECOD (Li et al.)``, ``"CatchBench (2026)"``
+    as ``CatchBench``."""
     if not card.cite:
         return ""
     c = card.cite[0]
+    text = re.sub(r"\s*\(\d{4}\)", "", re.sub(r",\s*\d{4}\)", ")", c.key))
     link = f"https://arxiv.org/abs/{c.arxiv}" if c.arxiv else c.url
-    return f"[{c.key}]({link})" if link else c.key
+    return f"[{text}]({link})" if link else text
 
 
 def method_table(family: Optional[str] = None, detailed: bool = False) -> str:
-    """The registry as a Markdown table, in family order.
+    """The registry as a Markdown table, in stage order (PRE, LIVE, POST).
 
-    By default each row gives a method's type, ID, name, and main reference, grouped by
-    type; the README's per-family tables are this output for each ``family``, and a test
-    keeps them equal. ``detailed=True`` lists the card fields instead: family, fit scope,
-    fidelity, extras, and the CatchBench rows the method reproduces.
+    By default each row gives a method's type, ID, algorithm name, year, and main reference,
+    grouped by family and then by type; the README's per-family tables are this output for
+    each ``family``, and a test keeps them equal. The year is the four-digit number in the
+    key of the first citation, and is empty when there is none. ``detailed=True`` lists the
+    card fields instead: family and information state, fit scope, fidelity, extras, and the
+    CatchBench rows the method reproduces. Families follow the order ``config`` (PRE),
+    ``online`` (LIVE), ``run`` and ``step`` (POST).
     """
     cards = list_methods(family=family)
     if detailed:
@@ -126,8 +149,8 @@ def method_table(family: Optional[str] = None, detailed: bool = False) -> str:
     typed = [(c, _method_type(c)) for c in cards]
     typed.sort(key=lambda ct: (_FAMILY_ORDER[ct[0].family], _TYPE_ORDER.get(ct[1], len(_TYPE_ORDER)),
                                ct[0].method_id))
-    rows = ["| Type | Method | Algorithm | Reference |", "|---|---|---|---|"]
-    rows += [f"| {t} | `{c.method_id}` | {c.name} | {_reference(c)} |" for c, t in typed]
+    rows = ["| Type | Method | Algorithm | Year | Reference |", "|---|---|---|---|---|"]
+    rows += [f"| {t} | `{c.method_id}` | {c.name} | {_year(c)} | {_reference(c)} |" for c, t in typed]
     return "\n".join(rows)
 
 

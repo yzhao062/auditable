@@ -18,7 +18,7 @@ from auditable.base import (
     MethodCard,
     NotSupported,
 )
-from auditable.methods import get_method, list_methods, method_table, register
+from auditable.methods import _TYPES, _method_type, _year, get_method, list_methods, method_table, register
 
 README = pathlib.Path(__file__).resolve().parents[1] / "README.md"
 
@@ -98,6 +98,22 @@ def test_register_rejects_duplicate_ids_and_missing_cards(monkeypatch):
         register(B)
     with pytest.raises(TypeError):
         register(type("NoCard", (BaseStepLocalizer,), {}))
+
+
+def test_a_class_registered_outside_the_package_is_custom(monkeypatch):
+    import auditable.methods as registry
+
+    list_methods()
+    monkeypatch.setattr(registry, "_REGISTRY", dict(registry._REGISTRY))
+
+    class Mine(BaseStepLocalizer):
+        card = _card(method_id="step.registry_test_custom")
+
+    register(Mine)
+    assert _method_type(Mine.card) == "Custom"
+    rows = [r for r in method_table("step").splitlines() if "`step.registry_test_custom`" in r]
+    assert len(rows) == 1 and rows[0].startswith("| Custom | ")
+    assert method_table("step").splitlines()[-1] == rows[0]  # Custom sorts after the shipped types
 
 
 def test_fit_scope_gates_entry_points():
@@ -228,7 +244,45 @@ def test_method_table_lists_every_method_once():
         rows = method_table(detailed=detailed).splitlines()[2:]
         assert sorted(r.split("`")[1] for r in rows) == sorted(ids)
     assert "| Baseline | `run.random` |" in method_table("run")
-    assert "| PyOD detector | `run.pyod_ecod` | ECOD on run size | [ECOD (Li et al., 2022)](https://arxiv.org/abs/2201.00382) |" \
+    assert "| PyOD detector | `run.pyod_ecod` | ECOD on run size | 2022 | [ECOD (Li et al.)](" \
         in method_table("run")
+    assert "| Baseline | `run.random` | Random run scores | 2026 | [CatchBench](" in method_table("run")
+    assert "| [GRADE (Zhao)](" in method_table("run")
     assert "| `step.blast` | step (POST) | stateless | original | tabular-ad | auditable (blast) |" \
         in method_table("step", detailed=True)
+
+
+def test_method_table_columns_and_year():
+    lines = method_table("run").splitlines()
+    assert lines[0] == "| Type | Method | Algorithm | Year | Reference |"
+    assert lines[1] == "|---|---|---|---|---|"
+    cards = {c.method_id: c for c in list_methods()}
+    for line in method_table().splitlines()[2:]:
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        assert len(cells) == 5, line
+        card = cards[cells[1].strip("`")]
+        assert cells[2] == card.name
+        assert cells[3] == _year(card), line
+        assert cells[3].isdigit() and len(cells[3]) == 4, f"{card.method_id} has no year in its first citation"
+        assert cells[0] == _method_type(card) and cells[0] in set(_TYPES.values()), line
+
+
+def test_year_is_the_first_four_digit_number_of_the_first_citation_key():
+    assert _year(_card(cite=(Citation(key="ECOD (Li et al., 2022)"), Citation(key="Other (2019)")))) == "2022"
+    assert _year(_card(cite=(Citation(key="Study 2019 (v2, 2021)"),))) == "2019"
+    assert _year(_card(cite=(Citation(key="CatchBench (2026)"),))) == "2026"
+    assert _year(_card(cite=(Citation(key="auditable (blast)"),))) == ""
+    assert _year(_card(cite=(Citation(key="arXiv 22010"),))) == ""
+    assert _year(_card(cite=())) == ""
+
+
+def test_method_table_orders_families_by_stage():
+    for detailed in (False, True):
+        rows = method_table(detailed=detailed).splitlines()[2:]
+        families = [r.split("`")[1].split(".")[0] for r in rows]
+        order = [f for i, f in enumerate(families) if i == 0 or f != families[i - 1]]
+        assert order == ["config", "online", "run", "step"]
+    detailed = method_table(detailed=True).splitlines()[2:]
+    stages = [r.split("|")[2].strip() for r in detailed]
+    assert [s for i, s in enumerate(stages) if i == 0 or s != stages[i - 1]] == [
+        "config (PRE)", "online (LIVE)", "run (POST)", "step (POST)"]

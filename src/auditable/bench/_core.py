@@ -16,7 +16,7 @@ from dataclasses import dataclass, field
 from importlib import import_module
 from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple, Type, Union
 
-from auditable.base import BaseAuditingMethod
+from auditable.base import _FAMILY_STATE, BaseAuditingMethod
 
 _GOLDEN_DIR = os.path.join(os.path.dirname(__file__), "golden")
 
@@ -48,10 +48,42 @@ class Entry:
         return self.method(**{**dict(self.kwargs), **overrides})
 
 
+# The Type of an unregistered benchmark-only class defined in auditable.bench, from the role of its
+# card; every other class that is not the registered one for its method_id is Custom (_entry_type).
+_ROLE_TYPES = {"control": "Baseline", "oracle": "Oracle"}
+
+
+def _entry_type(entry: Entry) -> str:
+    """The Type cell of a board row.
+
+    A registered method shows its registry type (Rule, Supervised, PyOD detector, Graph
+    detector, LLM judge, or Baseline). A benchmark-only class defined in ``auditable.bench``
+    takes its type from its card's ``benchmark_role``: ``Baseline`` for a control (the flag-all
+    control of the PRE board), ``Oracle`` for an oracle. Every other class is ``Custom``,
+    whatever its role: a method that is not in the registry, a class that reuses a registered
+    ``method_id`` without being the registered class (a subclass included), and a class
+    registered from outside ``auditable.methods``.
+    """
+    from auditable.methods import _method_type, get_method
+
+    card = entry.card
+    try:
+        registered = get_method(card.method_id)
+    except KeyError:
+        registered = None
+    if registered is not None and registered is entry.method:
+        return _method_type(card)
+    if getattr(entry.method, "__module__", "").startswith("auditable.bench."):
+        return _ROLE_TYPES.get(card.benchmark_role, "Custom")
+    return "Custom"
+
+
 @dataclass
 class Row:
     """A scored entry. ``status`` is ``"ok"``, ``"skipped"`` (a missing extra or input) or
-    ``"error"``; ``note`` says why a row was not scored."""
+    ``"error"``; ``note`` says why a row was not scored. ``type`` is the kind of method the row
+    runs (see :func:`_entry_type`) and ``algorithm`` the name on its method card; the board
+    runner fills both for every row, and both print on the board."""
 
     key: str
     label: str
@@ -64,6 +96,8 @@ class Row:
     golden: Dict[str, float] = field(default_factory=dict)
     role: Optional[str] = None  # the card's benchmark_role: "baseline", "control" or "oracle"
     missing_extras: Tuple[str, ...] = ()  # set when the row was skipped only for these extras
+    type: str = ""  # Rule, Supervised, PyOD detector, Graph detector, LLM judge, Baseline, Oracle or Custom
+    algorithm: str = ""  # the card's name
 
     @property
     def is_reference(self) -> bool:
@@ -250,6 +284,8 @@ def leaderboard(task: Union[str, Task], methods: Optional[Sequence[MethodSpec]] 
                           "error", f"{type(exc).__name__}: {exc}")
         row.golden = {k: v for k, v in golden.get(entry.key, {}).items() if k in task.metrics}
         row.role = card.benchmark_role
+        row.type = _entry_type(entry)
+        row.algorithm = card.name
         rows.append(row)
         if progress is not None:
             progress(row)
@@ -363,20 +399,30 @@ class Board:
     def to_dict(self) -> Dict[str, Any]:
         return {"task": self.task.task_id, "description": self.description, "metrics": list(self.task.metrics),
                 "rows": [{"rank": self.rank_of(r.key), "key": r.key, "label": r.label, "method_id": r.method_id,
+                          "type": r.type, "algorithm": r.algorithm,
                           "role": r.role, "scores": r.scores, "seconds": round(r.seconds, 2),
                           "status": r.status, "note": r.note, "golden": r.golden} for r in self.rows]}
 
     def to_markdown(self, golden: bool = False) -> str:
-        """A Markdown table of the ranked rows, then the reference rows ranked ``ref``; with
-        ``golden``, a last column holds the CatchBench board value of the ranking metric."""
+        """A Markdown table of the ranked rows, then the reference rows ranked ``ref``, with the
+        columns Rank, Type, Method, Algorithm, and one per metric. Type is the kind of method
+        (Rule, Supervised, PyOD detector, Graph detector, LLM judge, Baseline, Oracle, or Custom)
+        and Algorithm is the name on its method card. A board whose rows audit at more than one
+        stage (the LIVE boards also score POST run detectors on prefixes) gets a Stage column
+        (PRE, LIVE, or POST) after Rank. With ``golden``, a last column holds the CatchBench
+        board value of the ranking metric."""
         metrics = list(self.task.metrics)
         primary = metrics[0]
-        head = ["Rank", "Method"] + metrics + ([f"CatchBench {primary}"] if golden else [])
+        shown = self.ranked() + self.references()
+        staged = len({_FAMILY_STATE.get(r.family, "") for r in shown}) > 1
+        head = (["Rank"] + (["Stage"] if staged else []) + ["Type", "Method", "Algorithm"] + metrics
+                + ([f"CatchBench {primary}"] if golden else []))
         lines = ["| " + " | ".join(head) + " |", "|" + "---|" * len(head)]
-        for r in self.ranked() + self.references():
+        for r in shown:
             rank = str(self.rank_of(r.key)) if not r.is_reference else "ref"
             label = f"`{r.label}`" + (" (control)" if r.role == "control" else "") + (" (oracle)" if r.is_reference else "")
-            cells = [rank, label] + [f"{r.scores[m]:.3f}" for m in metrics]
+            cells = ([rank] + ([_FAMILY_STATE.get(r.family, "")] if staged else [])
+                     + [r.type, label, r.algorithm.replace("|", "\\|")] + [f"{r.scores[m]:.3f}" for m in metrics])
             if golden:
                 cells.append(f"{r.golden[primary]:.3f}" if primary in r.golden else "")
             lines.append("| " + " | ".join(cells) + " |")
@@ -386,11 +432,12 @@ class Board:
         metrics = list(self.task.metrics)
         primary = metrics[0]
         width = max([len(self._shown(r)) for r in self.rows] + [6])
+        tw = max([len(r.type) for r in self.rows] + [4])
         show_golden = any(primary in r.golden for r in self.rows)
         out = [f"{self.task.task_id}: {self.description}",
                f"ranked by {primary}, higher is better"
                + (f"; the CatchBench reference {primary} in brackets" if show_golden else ""),
-               "", f"{'rank':>4}  {'method':<{width}}  " + "  ".join(f"{m:>8}" for m in metrics)]
+               "", f"{'rank':>4}  {'type':<{tw}}  {'method':<{width}}  " + "  ".join(f"{m:>8}" for m in metrics)]
 
         def line(rank: str, r: Row) -> str:
             cells = [f"{r.scores[m]:8.3f}" for m in metrics]
@@ -398,7 +445,7 @@ class Board:
                 cells[0] += f" [{r.golden[primary]:.3f}]"
             elif show_golden:
                 cells[0] += " " * 8
-            return f"{rank:>4}  {self._shown(r):<{width}}  " + "  ".join(cells)
+            return f"{rank:>4}  {r.type:<{tw}}  {self._shown(r):<{width}}  " + "  ".join(cells)
 
         out.extend(line(str(self.rank_of(r.key)), r) for r in self.ranked())
         refs = self.references()
@@ -409,7 +456,7 @@ class Board:
         rest = [r for r in self.rows if r.status != "ok"]
         if rest:
             out.append("")
-            out.extend(f"   -  {r.label:<{width}}  {r.status}: {r.note}" for r in rest)
+            out.extend(f"   -  {r.type:<{tw}}  {r.label:<{width}}  {r.status}: {r.note}" for r in rest)
         return "\n".join(out)
 
     def __repr__(self) -> str:

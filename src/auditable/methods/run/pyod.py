@@ -32,13 +32,15 @@ _ECOD = Citation(key="ECOD (Li et al., 2022)",
 _IFOREST = Citation(key="Isolation Forest (Liu et al., 2008)", title="Isolation Forest",
                     url="https://doi.org/10.1109/ICDM.2008.17")
 _KNN = Citation(key="KNN outlier score (Ramaswamy et al., 2000)",
-                title="Efficient Algorithms for Mining Outliers from Large Data Sets")
+                title="Efficient Algorithms for Mining Outliers from Large Data Sets",
+                url="https://doi.org/10.1145/335191.335437")
 _LOF = Citation(key="LOF (Breunig et al., 2000)", title="LOF: Identifying Density-Based Local Outliers",
                 url="https://doi.org/10.1145/335191.335388")
 _COPOD = Citation(key="COPOD (Li et al., 2020)", title="COPOD: Copula-Based Outlier Detection",
                   arxiv="2009.09463")
 _HBOS = Citation(key="HBOS (Goldstein and Dengel, 2012)",
-                 title="Histogram-based Outlier Score (HBOS): A Fast Unsupervised Anomaly Detection Algorithm")
+                 title="Histogram-based Outlier Score (HBOS): A Fast Unsupervised Anomaly Detection Algorithm",
+                 url="https://www.dfki.de/web/forschung/projekte-publikationen/publikation/6431")
 
 
 class _PyODRunDetector(BaseRunDetector):

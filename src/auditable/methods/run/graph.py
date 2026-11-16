@@ -33,10 +33,14 @@ _DOMINANT = Citation(
     url="https://doi.org/10.1137/1.9781611975673.67",
 )
 _CONAD = Citation(key="CONAD (Xu et al., 2022)",
-                  title="Contrastive Attributed Network Anomaly Detection with Data Augmentation")
+                  title="Contrastive Attributed Network Anomaly Detection with Data Augmentation",
+                  url="https://doi.org/10.1007/978-3-031-05936-0_35")
 _ANOMALYDAE = Citation(key="AnomalyDAE (Fan et al., 2020)",
-                       title="AnomalyDAE: Dual Autoencoder for Anomaly Detection on Attributed Networks")
-_GAAN = Citation(key="GAAN (Chen et al., 2020)", title="Generative Adversarial Attributed Network Anomaly Detection")
+                       title="AnomalyDAE: Dual Autoencoder for Anomaly Detection on Attributed Networks",
+                       arxiv="2002.03665")
+_GAAN = Citation(key="GAAN (Chen et al., 2020)",
+                 title="Generative Adversarial Attributed Network Anomaly Detection",
+                 url="https://doi.org/10.1145/3340531.3412070")
 _PYGOD = Citation(key="PyGOD (Liu et al., 2024)", title="PyGOD: A Python Library for Graph Outlier Detection",
                   arxiv="2204.12095")
 _GUARDIAN = Citation(key="GUARDIAN (Zhou et al., 2025)",

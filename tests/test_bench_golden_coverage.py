@@ -56,10 +56,11 @@ def test_leaderboard_marks_only_extra_skips(monkeypatch):
     from auditable.bench import _core
 
     class _Card:
-        method_id, family, extras, benchmark_role = "run.x", "run", ("graph-ad",), None
+        method_id, name, family, extras, benchmark_role = "run.x", "X", "run", ("graph-ad",), None
 
     class _Entry:
         key = label = "run.x"
+        method = None  # a stand-in class that is not in the registry
         card = _Card()
 
     class _Pop(_Task):

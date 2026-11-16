@@ -4,14 +4,14 @@ This page is the contract a method in `auditable.methods` follows. It is short o
 
 ## Families
 
-A method belongs to exactly one family. The family fixes the input, the entry points, and what the output means.
+A method belongs to exactly one family. The family fixes the input, the entry points, and what the output means. The families are listed in the order of the audit: PRE (`config`), LIVE (`online`), then POST (`run` for a finished run, `step` for the decisive mistake in a failed one).
 
 | Family | When | Input | Entry points | Output |
 |---|---|---|---|---|
 | `config` | PRE, before a run | one agent configuration (`AgentConfig` or its dict form) | `audit(config)`, `audit_many(configs)` | a `ConfigFinding`: `flag` (True, False, or None to abstain), `excess` capability names, `rules` that fired |
+| `online` | LIVE, while a run streams | one trace (its prefix so far) | `step_alarm_scores(trace)`, `prefix_score(trace, k)` | one alarm score per step; the score at step `t` uses steps `0..t` only |
 | `run` | POST, after a run | a list of traces, or a feature matrix where the card says so | inductive: `fit(X, y=None)`, `decision_function(X)`, `fit_score(X, y=None)`; transductive: `fit_score(X, y=None)` | one score per run; higher means more likely failed |
 | `step` | POST, after a failed run | a list of traces | `fit(traces, y=None)`, `step_scores_batch(traces)`, `step_scores(trace)`; transductive: `fit_step_scores(traces)`; single-step methods: `predict_step(trace)` | one score per step, in step order; higher means more likely the decisive mistake |
-| `online` | LIVE, while a run streams | one trace (its prefix so far) | `step_alarm_scores(trace)`, `prefix_score(trace, k)` | one alarm score per step; the score at step `t` uses steps `0..t` only |
 
 There is no cross-family `assess()`. A method that does not fit one family needs a new family, which enters only with a defined input and output, a reference implementation, a runnable case, and a correctness test specific to that family.
 
@@ -77,11 +77,24 @@ Each registered class carries a `MethodCard`:
 | `cite` | `Citation` entries for the method and any library it wraps |
 | `board_aliases`, `benchmark_role` | the CatchBench row labels the method reproduces, and the role it plays there (`baseline`, `control`, `oracle`); the role describes the board and does not decide whether a method belongs here |
 
-`list_methods(family=..., information_state=..., fit_scope=...)` returns cards, and `get_method(method_id)` returns the class. The method table in the README is generated from the registry.
+`list_methods(family=..., information_state=..., fit_scope=...)` returns cards, and `get_method(method_id)` returns the class. The method tables in the README are generated from the registry by `method_table(family)`, and a test keeps them equal. Each row gives the type, the method ID, the algorithm (the card's `name`), the year, and the main reference. Families follow the stage order PRE, LIVE, POST, and rows within a family are grouped by type.
+
+The year and the reference come from the first entry of `cite`, so put the method's own paper first and include the four-digit year in its `key` (`"ECOD (Li et al., 2022)"` gives 2022 in the Year column and `ECOD (Li et al.)` as the reference text); a first entry without a year leaves the Year cell empty. The type comes from the module that defines the class:
+
+| Module (`methods/<family>/...`) | Type |
+|---|---|
+| `rules.py` | Rule |
+| `supervised.py` | Supervised |
+| `pyod.py` | PyOD detector |
+| `graph.py` | Graph detector |
+| `llm.py` | LLM judge |
+| `baselines.py` | Baseline |
+
+The shipped `*.random` methods have the type Baseline. A class registered from outside `auditable.methods` has the type Custom, including one whose id ends in `.random`. The leaderboards print the same type beside each row; see [Leaderboards](leaderboard.md#read-the-board).
 
 ## Adding a Method
 
-1. Subclass the family base class in `auditable.base`, set `card`, and decorate the class with `@register` from `auditable.methods`. Put it in the family module that fits (`methods/<family>/<group>.py`); a new module is added to `_METHOD_MODULES` in `methods/__init__.py`.
+1. Subclass the family base class in `auditable.base`, set `card`, and decorate the class with `@register` from `auditable.methods`. Put it in the family module that fits (`methods/<family>/<group>.py`), since the module sets the method's type in the method table; a new module is added to `_METHOD_MODULES` in `methods/__init__.py`, and a new kind of module also needs an entry in `_TYPES` there.
 2. Import numpy, scikit-learn, PyOD, torch, or PyGOD inside the functions that use them. The core install has no third-party dependencies, and the registry must load without them.
 3. Ported code states its source at the top of the module: repository, license, release or commit, and the original function names. Keep the numerical order of operations, seeds, iteration order, and tie handling of the source; parity is checked bit for bit.
 4. Tests: card fields and registry lookup, output shape and order, determinism under a fixed seed, a missing required field, a small case whose expected values can be checked by hand, causality for online methods (one prefix followed by different suffixes gives the same scores on the prefix), and a fixed-response backend (`auditable.llm.FixedResponseBackend`) for LLM methods. Optional dependencies are skipped with `pytest.importorskip`.

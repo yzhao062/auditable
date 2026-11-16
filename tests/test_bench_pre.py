@@ -298,6 +298,15 @@ def test_synthetic_pre_task_leaderboard_with_extra_method(monkeypatch):
     assert [r.key for r in board.references()] == ["config.oracle_privilege_diff"]
     assert "config.oracle_privilege_diff" not in [r.key for r in board.ranked()]
     assert "Synthetic PRE, 3 configs across 3 corpora" in board.description
+    # The controls, the oracle, and an unregistered method print their kind on the board.
+    assert {r.key: r.type for r in board.rows} == {
+        "config.flag_all": "Baseline", "config.flag_none": "Baseline",
+        "config.oracle_privilege_diff": "Oracle", "config.test_only_write": "Custom"}
+    assert board["config.oracle_privilege_diff"].algorithm == "Privilege-diff oracle"
+    md = board.to_markdown().splitlines()
+    assert md[0].startswith("| Rank | Type | Method | Algorithm | f1 |")
+    assert any(line.startswith("| ref | Oracle | `config.oracle_privilege_diff` (oracle) | Privilege-diff oracle |")
+               for line in md)
 
 
 # --- no top-level third-party imports --------------------------------------------------------
